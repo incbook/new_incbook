@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="my_incbook.mapper.bookMapper">
+
+	<select id="bookInfo" resultType="BookVO">
+		select 
+		*
+		from book
+		where writer = #{writer}
+	</select>
+	
+	<select id="findBookByID" resultType="BookVO">
+		select * from book
+		where id = #{id}
+	</select>
+	
+	<select id="listSearchCriteria" resultType="BookVO">
+		<![CDATA[
+		select
+		* from book
+		where id > 0
+		]]>
+	
+		<include refid="search"></include>
+
+		<![CDATA[
+		order by id desc
+		limit #{pageStart},#{pagesize}
+		]]>
+
+	</select>
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+		select count(id)
+		from book
+		where id > 0
+		]]>
+	</select>
+
+
+	<insert id="createbookInfo">
+		insert into book (title, genre, writer, publisher, content, image, final_update_member_id)
+		values
+		(#{title}, #{genre}, #{writer}, #{publisher}, #{content}, #{image}, #{finalUpdateMemberId})
+	</insert>
+	
+	<update id ="updateBook">
+		update book set title = #{title}, genre = #{genre}, writer = #{writer}, publisher = #{publisher}
+		, content = #{content}
+		where id = #{id}
+	</update>
+	
+	
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'tigewrpuco'.toString()">
+				and (
+					title like CONCAT('%', #{keyword}, '%') 
+					OR genre like CONCAT('%', #{keyword}, '%') 
+					OR writer like CONCAT('%', #{keyword}, '%')
+					OR publisher like CONCAT('%', #{keyword}, '%')
+					OR content like CONCAT('%', #{keyword}, '%')
+					)
+			</if>
+			<if test="searchType == 'title'.toString()">
+				and title like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'genre'.toString()">
+				and genre like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'writer'.toString()">
+				and writer like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'publisher'.toString()">
+				and publisher like CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="searchType == 'content'.toString()">
+				and content like CONCAT('%', #{keyword}, '%')
+			</if>
+		</if>
+	</sql>
+
+</mapper>
