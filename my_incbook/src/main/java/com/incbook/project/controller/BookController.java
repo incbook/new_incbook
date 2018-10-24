@@ -84,7 +84,7 @@ public class BookController {
 		return "redirect:/book/list";
 	}
 	
-	// bno를 바탕으로 해당정보를 띄워줄때
+	// id를 바탕으로 책정보 가져오기
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") PageCriteria cri, Model model) throws Exception {
 		model.addAttribute("modifyTarget",bookService.findBookByID(id));
