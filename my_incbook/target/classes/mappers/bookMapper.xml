@@ -4,19 +4,19 @@
 
 <mapper namespace="my_incbook.mapper.bookMapper">
 
-	<select id="bookInfo" resultType="BookVO">
+	<select id="bookInfo" resultType="com.incbook.project.domain.BookVO">
 		select 
 		*
 		from book
 		where writer = #{writer}
 	</select>
 	
-	<select id="findBookByID" resultType="BookVO">
+	<select id="findBookByID" resultType="com.incbook.project.domain.BookVO">
 		select * from book
 		where id = #{id}
 	</select>
 	
-	<select id="listSearchCriteria" resultType="BookVO">
+	<select id="listSearchCriteria" resultType="com.incbook.project.domain.BookVO">
 		<![CDATA[
 		select
 		* from book
