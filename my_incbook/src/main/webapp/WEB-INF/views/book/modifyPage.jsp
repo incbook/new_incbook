@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-	//<![CDATA[
+
 	$(document).ready(function() {
 		var formObj = $("form[role='form']");
 		console.log(formObj);
@@ -19,7 +19,7 @@
 		});
 
 	});
-	//]]>
+
 </script>
 <title>INCBOOK</title>
 </head>
@@ -28,12 +28,12 @@
 	<input type='hidden' name='page' value = "${cri.page}">
 	<input type='hidden' name='pagesize' value = "${cri.pagesize}">
 		
-		id<input type="text" name="bno" value="${modifyTarget.id}" readonly="readonly" /><br> 
+		id<input type="text" name="id" value="${modifyTarget.id}" readonly="readonly" /><br> 
 		제목<input type="text" name="title" value="${modifyTarget.title}" /> <br> 
-		장르<input type="text" name="title" value="${modifyTarget.genre}" /> <br> 
-		저자<input type="text" name="title" value="${modifyTarget.writer}" /> <br> 
-		출판사<input type="text" name="title" value="${modifyTarget.publisher}" /> <br> 
-		줄거리<input type="text" name="writer" value="${modifyTarget.content}" /> <br>
+		장르<input type="text" name="genre" value="${modifyTarget.genre}" /> <br> 
+		저자<input type="text" name="writer" value="${modifyTarget.writer}" /> <br> 
+		출판사<input type="text" name="publisher" value="${modifyTarget.publisher}" /> <br> 
+		줄거리<input type="text" name="content" value="${modifyTarget.content}" /> <br>
 		
 		<button type="submit" id="save">저장</button>
 	</form>

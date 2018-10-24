@@ -15,7 +15,7 @@
 	BookVO bookInfo = (BookVO)request.getAttribute("bookInfo");
 	if (bookInfo != null) {
 		%>
-<table class = "table table-d" >
+	<table class = "table table-d" >
 		<tr>
 			<th>제목</th>
 			<th>장르</th>
@@ -27,12 +27,12 @@
 		</tr>
 		<br>
 		
-<%= bookInfo.getTitle() %>
-<%= bookInfo.getGenre() %>
-<%= bookInfo.getWriter() %>
-<%= bookInfo.getPublisher() %>
-<%= bookInfo.getRegdate() %>
-<%= bookInfo.getUpdateDate() %>
+	<%= bookInfo.getTitle() %>
+	<%= bookInfo.getGenre() %>
+	<%= bookInfo.getWriter() %>
+	<%= bookInfo.getPublisher() %>
+	<%= bookInfo.getRegdate() %>
+	<%= bookInfo.getUpdateDate() %>
 
 		<% } else {
 		%>

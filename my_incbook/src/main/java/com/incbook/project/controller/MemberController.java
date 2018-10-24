@@ -16,7 +16,7 @@ import com.incbook.project.service.MemberService;
 public class MemberController {
 	
 	@Inject
-	private MemberService service;
+	private MemberService memberService;
 
 	@RequestMapping(value = "/signInForm", method = RequestMethod.GET)
 	public void signInFormGET() throws Exception {
@@ -25,7 +25,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "/signInForm", method = RequestMethod.POST)
 	public String signInFormPOST(MemberVO vo, Model model) throws Exception {
-		MemberVO var = service.checkIdPassword(vo);
+		MemberVO var = memberService.checkIdPassword(vo);
 		System.out.println(var);
 		model.addAttribute("id",var);
 		

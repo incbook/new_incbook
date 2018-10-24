@@ -4,7 +4,7 @@
 
 <mapper namespace="my_incbook.mapper.memberMapper">
 
-	<select id="checkIdPassword" resultType="MemberVO">
+	<select id="checkIdPassword" resultType="com.incbook.project.domain.MemberVO">
 		<![CDATA[
 		select 
 		*
