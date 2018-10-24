@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="my_incbook.mapper.memberMapper">
-
+	
 	<select id="checkIdPassword" resultType="MemberVO">
 		<![CDATA[
 		select 
@@ -12,7 +12,11 @@
 		where login_id = #{loginId} and password = #{password} 
 		]]>
 	</select>
-
-
+	
+	<insert id="signUp" parameterType="Map">
+		insert into member(id, login_id, password, jumin, nickname, phone, address, email, grade) 
+		values(#{party.id}, #{member.loginId}, #{member.password}, #{member.jumin}, 
+			   #{member.nickname}, #{member.phone}, #{member.address}, #{member.email}, '회원')
+	</insert>
 
 </mapper>
