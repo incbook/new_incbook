@@ -1,5 +1,7 @@
 package com.incbook.project.persistence;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,5 +22,9 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(namespace+".checkIdPassword", vo);
 	}
 
+	@Override
+	public void signUp(Map<String, Object> vo) throws Exception {
+		sqlSession.insert(namespace+".signUp", vo);
+	}
 	
 }
