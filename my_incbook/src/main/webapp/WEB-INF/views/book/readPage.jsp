@@ -36,9 +36,9 @@
 		<input type='hidden' name='id' value='${bookVO.id}'>
 	</form>
 	<div>
-		<button type="submit" class="btn btn-warning" id="modify">Modify</button>
-		<button type="submit" class="btn btn-danger" id="remove">Remove</button>
-		<button type="submit" class="btn btn-primary" id="golist">Go List</button>
+		<button type="submit" id="modify">Modify</button>
+		<button type="submit" id="remove">Remove</button>
+		<button type="submit" id="golist">Go List</button>
 	</div>
  	<form role="form" method="post">
 		<input type='hidden' name='id' value='${bookVO.id}'>

@@ -21,7 +21,7 @@ import com.incbook.project.service.BookService;
 public class BookController {
 	
 	@Inject
-	private BookService service;
+	private BookService bookService;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public void searchGET() throws Exception {
@@ -30,7 +30,7 @@ public class BookController {
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchPOST(BookVO vo, Model model) throws Exception {
-		BookVO var = service.bookInfo(vo);
+		BookVO var = bookService.bookInfo(vo);
 		System.out.println(var);
 		
 		model.addAttribute("bookInfo",var);
@@ -40,7 +40,7 @@ public class BookController {
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String createPOST(BookVO vo, RedirectAttributes rttr) throws Exception {
-		service.createbookInfo(vo);
+		bookService.createbookInfo(vo);
 
 		rttr.addFlashAttribute("result", "success");
 
@@ -56,18 +56,18 @@ public class BookController {
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
 		
-		model.addAttribute(service.findBookByID(id)); 
+		model.addAttribute(bookService.findBookByID(id)); 
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void listGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-		model.addAttribute("list", service.listSearchCriteria(cri)); 
+		model.addAttribute("list", bookService.listSearchCriteria(cri)); 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 
 		//pageMaker.setTotalCount(service.listCountCriteria(cri));
-		pageMaker.setTotalCount(service.listSearchCount(cri));
+		pageMaker.setTotalCount(bookService.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker", pageMaker);
 
@@ -75,19 +75,20 @@ public class BookController {
 	
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modifyPagingPOST(BookVO vo, PageCriteria cri,RedirectAttributes rttr) throws Exception {
-		service.updateBook(vo);
 		
+		bookService.updateBook(vo);
+		System.out.println(vo);
 		rttr.addAttribute("page",cri.getPage());
 		rttr.addAttribute("pagesize",cri.getPagesize());
-		rttr.addFlashAttribute("result", "success");
 		
-		return "redirect:/board/listPage";
+		return "redirect:/book/list";
 	}
 	
-	// bno를 바탕으로 해당정보를 띄워줄때
+	// id를 바탕으로 책정보 가져오기
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
 	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") PageCriteria cri, Model model) throws Exception {
-		model.addAttribute("modifyTarget",service.findBookByID(id));
+		model.addAttribute("modifyTarget",bookService.findBookByID(id));
+		
 	}
 	
 

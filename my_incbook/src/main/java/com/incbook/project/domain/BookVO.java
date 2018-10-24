@@ -1,10 +1,6 @@
 package com.incbook.project.domain;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
-import com.incbook.legacy.domain.LexiconVO;
 
 public class BookVO {
 
@@ -19,9 +15,6 @@ public class BookVO {
 	private int finalUpdateMemberId;
 	private String image;
 	private String content;
-
-	
-	private List<LexiconVO> listLexicon = new ArrayList<>();
 
 	public int getId() {
 		return id;
@@ -115,8 +108,7 @@ public class BookVO {
 	public String toString() {
 		return "BookVO [id=" + id + ", title=" + title + ", genre=" + genre + ", writer=" + writer + ", publisher="
 				+ publisher + ", averageScore=" + averageScore + ", regdate=" + regdate + ", updateDate=" + updateDate
-				+ ", finalUpdateMemberId=" + finalUpdateMemberId + ", image=" + image + ", content=" + content
-				+ ", listLexicon=" + listLexicon + "]";
+				+ ", finalUpdateMemberId=" + finalUpdateMemberId + ", image=" + image + ", content=" + content + "]";
 	}
 
 

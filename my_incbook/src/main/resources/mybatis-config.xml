@@ -8,12 +8,10 @@
 
 		<typeAlias type="com.incbook.project.domain.MemberVO" alias="MemberVO" />
 		<typeAlias type="com.incbook.project.domain.BookVO" alias="BookVO" />
-		<typeAlias type="com.incbook.project.domain.AnnouncementVO"
-			alias="AnnouncementVO" />
-
+		<typeAlias type="com.incbook.project.domain.AnnouncementVO" alias="AnnouncementVO" />
 		<typeAlias type="com.incbook.project.domain.PartyVO" alias="PartyVO" />
 
-
+	
 	</typeAliases>
 
 </configuration>
