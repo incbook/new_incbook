@@ -27,4 +27,8 @@ public class SampleController {
 	public void sampleDetail() throws Exception {
 		
 	}
+	@RequestMapping(value = "/sampleBoard", method = RequestMethod.GET)
+	public void sampleBoard() throws Exception {
+		
+	}
 }
