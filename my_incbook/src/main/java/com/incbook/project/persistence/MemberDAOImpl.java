@@ -26,5 +26,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public void signUp(Map<String, Object> vo) throws Exception {
 		sqlSession.insert(namespace+".signUp", vo);
 	}
+
+	@Override
+	public String loginIdCeheck(MemberVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".loginIdCeheck", vo);
+	}
 	
 }
