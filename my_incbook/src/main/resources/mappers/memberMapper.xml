@@ -18,5 +18,9 @@
 		values(#{party.id}, #{member.loginId}, #{member.password}, #{member.jumin}, 
 			   #{member.nickname}, #{member.phone}, #{member.address}, #{member.email}, '회원')
 	</insert>
-
+	
+	<select id="loginIdCeheck" resultType="String">
+		select login_id from member
+		where login_id = #{loginId}
+	</select>
 </mapper>

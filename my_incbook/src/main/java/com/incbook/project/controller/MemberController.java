@@ -1,13 +1,8 @@
 package com.incbook.project.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,9 +20,6 @@ public class MemberController {
 	@Inject
 	private MemberService memberService;
 	
-	@Inject
-	private PartyService partyService;
-
 	@RequestMapping(value = "/signInForm", method = RequestMethod.GET)
 	public void signInFormGET() throws Exception {
 		
@@ -61,4 +53,14 @@ public class MemberController {
 		
 		return "redirect:/member/signUp";
 	}
+	
+	/**
+	 * 회원가입시 로그인 아이디 중복체크
+	 */
+	@RequestMapping(value = "/loginIdDoubleCheck", method = RequestMethod.GET)
+	public void loginIdDoubleCheckPOST(MemberVO mvo, Model model) throws Exception {
+		String result = memberService.loginIdCeheck(mvo);
+		model.addAttribute("login_id", result);
+	}
+	
 }

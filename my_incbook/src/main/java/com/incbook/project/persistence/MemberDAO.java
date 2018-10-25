@@ -10,5 +10,5 @@ public interface MemberDAO {
 	
 	public void signUp(Map<String, Object> vo) throws Exception;
 
-
+	public String loginIdCeheck(MemberVO vo) throws Exception;
 }

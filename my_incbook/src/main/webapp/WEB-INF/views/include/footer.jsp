@@ -162,7 +162,6 @@
 <script src="/resources/js/plugins.js"></script>
 <script src="/resources/js/active.js"></script>
 <!-- Custom JS Files -->
-<!-- <script src="/resources/js/custom/form.js"></script> -->
 
 </body>
 </html>
