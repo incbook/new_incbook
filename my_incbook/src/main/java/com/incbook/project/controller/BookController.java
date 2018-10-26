@@ -1,5 +1,7 @@
 package com.incbook.project.controller;
 
+import java.util.Arrays;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -19,25 +21,25 @@ import com.incbook.project.service.BookService;
 @Controller
 @RequestMapping("/book/*")
 public class BookController {
-	
+
 	@Inject
 	private BookService bookService;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public void searchGET() throws Exception {
-		
+
 	}
-	
+
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String searchPOST(BookVO vo, Model model) throws Exception {
 		BookVO var = bookService.bookInfo(vo);
 		System.out.println(var);
-		
-		model.addAttribute("bookInfo",var);
-		
+
+		model.addAttribute("bookInfo", var);
+
 		return "book/information";
 	}
-	
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String createPOST(BookVO vo, RedirectAttributes rttr) throws Exception {
 		bookService.createbookInfo(vo);
@@ -45,62 +47,67 @@ public class BookController {
 		rttr.addFlashAttribute("result", "success");
 
 		return "redirect:/book/list";
-		
+
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public void createGET() throws Exception {
-		
-	}
-	
-	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
-		
-		model.addAttribute(bookService.findBookByID(id)); 
+
 	}
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
+	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri)
+			throws Exception {
+
+		model.addAttribute(bookService.findBookByID(id));
+	}
+
+	@RequestMapping(value = "/chart", method = RequestMethod.GET)
 	public void listGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-		model.addAttribute("list", bookService.listSearchCriteria(cri)); 
+		model.addAttribute("list", bookService.listSearchCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 
-		//pageMaker.setTotalCount(service.listCountCriteria(cri));
+		// pageMaker.setTotalCount(service.listCountCriteria(cri));
 		pageMaker.setTotalCount(bookService.listSearchCount(cri));
-		
+
 		model.addAttribute("pageMaker", pageMaker);
 
 	}
-	
+
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(BookVO vo, PageCriteria cri,RedirectAttributes rttr) throws Exception {
-		
+	public String modifyPagingPOST(BookVO vo, PageCriteria cri, RedirectAttributes rttr) throws Exception {
+
 		bookService.updateBook(vo);
 		System.out.println(vo);
-		rttr.addAttribute("page",cri.getPage());
-		rttr.addAttribute("pagesize",cri.getPagesize());
-		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("pagesize", cri.getPagesize());
+
 		return "redirect:/book/list";
 	}
-	
+
 	// id를 바탕으로 책정보 가져오기
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") PageCriteria cri, Model model) throws Exception {
-		model.addAttribute("modifyTarget",bookService.findBookByID(id));
-		
-	}
-	
+	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") PageCriteria cri, Model model)
+			throws Exception {
+		model.addAttribute("modifyTarget", bookService.findBookByID(id));
 
-	
+	}
+
+	@RequestMapping(value = "/infoInsert", method = RequestMethod.GET)
+	public void bookInfoInsertGET() throws Exception {
+
+	}
+
+	@RequestMapping(value = "/infoInsert", method = RequestMethod.POST)
+	public String bookInfoInsertPOST(BookVO vo, RedirectAttributes rttr) throws Exception {
+		bookService.createbookInfo(vo);
+		System.out.println(vo);
+		rttr.addFlashAttribute("result", "success");
+
+		return "redirect:/book/infoInsert";
+
+	}
 
 }
-
-
-
-
-
-
-
-
-
