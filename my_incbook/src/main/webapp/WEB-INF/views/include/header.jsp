@@ -49,8 +49,8 @@
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="chart">장르 TOP-100</a></li>
-											<li><a href="single-product.html">인기 TOP-100</a></li>
+											<li><a href="allTop100">TOP-100</a></li>
+											<li><a href="chart">NEW-도서</a></li>
 										</ul>
 
 									</div></li>

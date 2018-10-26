@@ -82,7 +82,10 @@
 		이미지 <input type="text" name="writer" value="${bookVO.image}"
 			readonly="readonly">
 	</div> 
-
+	<div>
+		조회수 <input type="text" name="count" value="${bookVO.viewCount}"
+			readonly="readonly">
+	</div> 
 
 	<form role="form" action="modifyPage" method="post">
 	

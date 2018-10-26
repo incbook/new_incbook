@@ -15,6 +15,15 @@ public class BookVO {
 	private int finalUpdateMemberId;
 	private String image;
 	private String content;
+	private int viewCount;
+	
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
 
 	public int getId() {
 		return id;
@@ -104,12 +113,17 @@ public class BookVO {
 		this.content = content;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "BookVO [id=" + id + ", title=" + title + ", genre=" + genre + ", writer=" + writer + ", publisher="
 				+ publisher + ", averageScore=" + averageScore + ", regdate=" + regdate + ", updateDate=" + updateDate
-				+ ", finalUpdateMemberId=" + finalUpdateMemberId + ", image=" + image + ", content=" + content + "]";
+				+ ", finalUpdateMemberId=" + finalUpdateMemberId + ", image=" + image + ", content=" + content
+				+ ", viewCount=" + viewCount + "]";
 	}
+
+
 
 
 }

@@ -40,21 +40,6 @@ public class BookController {
 		return "book/information";
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String createPOST(BookVO vo, RedirectAttributes rttr) throws Exception {
-		bookService.createbookInfo(vo);
-
-		rttr.addFlashAttribute("result", "success");
-
-		return "redirect:/book/list";
-
-	}
-
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public void createGET() throws Exception {
-
-	}
-
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri)
 			throws Exception {
@@ -62,8 +47,8 @@ public class BookController {
 		model.addAttribute(bookService.findBookByID(id));
 	}
 
-	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public void listGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	@RequestMapping(value = "/newBookChart", method = RequestMethod.GET)
+	public void chartGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
 		model.addAttribute("list", bookService.listSearchCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
@@ -75,7 +60,21 @@ public class BookController {
 		model.addAttribute("pageMaker", pageMaker);
 
 	}
+	
+	@RequestMapping(value = "/allTop100", method = RequestMethod.GET)
+	public void allTop100GET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
+		model.addAttribute("list", bookService.listSearchCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+
+		// pageMaker.setTotalCount(service.listCountCriteria(cri));
+		pageMaker.setTotalCount(bookService.listSearchCount(cri));
+
+		model.addAttribute("pageMaker", pageMaker);
+
+	}
+	
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modifyPagingPOST(BookVO vo, PageCriteria cri, RedirectAttributes rttr) throws Exception {
 

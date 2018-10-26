@@ -21,6 +21,7 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 	public List<AnnouncementVO> announcementList() throws Exception {
 		return dao.announcementList();
 	}
+	
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public AnnouncementVO readAnnouncement(Integer id) throws Exception {
