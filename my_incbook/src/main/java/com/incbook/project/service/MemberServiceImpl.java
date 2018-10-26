@@ -17,24 +17,29 @@ import com.incbook.project.persistence.PartyDAO;
 @Service
 public class MemberServiceImpl implements MemberService {
 	@Inject
-	private MemberDAO memberDao;
+	private MemberDAO memberDAO;
 	
 	@Inject
-	private PartyDAO partyDao;
+	private PartyDAO partyDAO;
 	
 	@Override
 	public MemberVO checkIdPassword(MemberVO vo) throws Exception {
-		return memberDao.checkIdPassword(vo);
+		return memberDAO.checkIdPassword(vo);
 	}
 
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void signUp(PartyVO pvo, MemberVO mvo) throws Exception {
-		partyDao.signUp(pvo);
+		partyDAO.signUp(pvo);
 		Map<String, Object> memberMap = new HashMap();
 		memberMap.put("member", mvo);
 		memberMap.put("party", pvo);
-		memberDao.signUp(memberMap);
+		memberDAO.signUp(memberMap);
+	}
+	
+	@Override
+	public String loginIdCeheck(MemberVO vo) throws Exception {
+		return memberDAO.loginIdCeheck(vo);
 	}
 	
 }

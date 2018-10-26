@@ -20,9 +20,6 @@ public class MemberController {
 	@Inject
 	private MemberService memberService;
 	
-	@Inject
-	private PartyService partyService;
-
 	@RequestMapping(value = "/signInForm", method = RequestMethod.GET)
 	public void signInFormGET() throws Exception {
 		
@@ -56,4 +53,14 @@ public class MemberController {
 		
 		return "redirect:/member/signUp";
 	}
+	
+	/**
+	 * 회원가입시 로그인 아이디 중복체크
+	 */
+	@RequestMapping(value = "/loginIdDoubleCheck", method = RequestMethod.GET)
+	public void loginIdDoubleCheckPOST(MemberVO mvo, Model model) throws Exception {
+		String result = memberService.loginIdCeheck(mvo);
+		model.addAttribute("login_id", result);
+	}
+	
 }

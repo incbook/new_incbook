@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.incbook.project.domain.AnnouncementVO;
-import com.incbook.project.domain.BoardVO;
 import com.incbook.project.service.AnnouncementService;
 
 @Controller
