@@ -6,7 +6,7 @@ import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 
 public interface BookService {
-	public static final int pagesize = 7;
+	public static final int pagesize = 9;
 
 	public BookVO bookInfo(BookVO vo) throws Exception;
 
