@@ -202,7 +202,7 @@
     });
 
 
-/*=============  Produst Activation  ==========*/
+/*=============  Product Activation  ==========*/
     $('.productcategory__slide--2').owlCarousel({
         loop:true,
         margin:0,

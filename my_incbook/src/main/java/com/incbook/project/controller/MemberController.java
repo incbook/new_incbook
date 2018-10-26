@@ -63,4 +63,13 @@ public class MemberController {
 		model.addAttribute("login_id", result);
 	}
 	
+	/**
+	 * 세션을 통해 회원 상세정보 표출
+	 * loginSession 세션 아이디 vo정보가 전체로 담겨있음
+	 */
+	@RequestMapping(value = "/memberDetail", method = RequestMethod.GET)
+	public void memberDetailGET(Model model) throws Exception {
+		
+	}
+	
 }
