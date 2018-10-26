@@ -17,6 +17,9 @@
 		select 
 		*
 		from announcement
+		where id > 0 order by id desc
+		limit #{pageStart},#{pagesize}
+		
 		]]>
 	</select>
 
@@ -31,4 +34,12 @@
 	<update id="updateViewCnt">
 		update announcement set view_count = view_count +1 where id = #{id}
 	</update>
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+		select count(id)
+		from announcement
+		where id > 0
+		]]>
+	</select>
 </mapper>

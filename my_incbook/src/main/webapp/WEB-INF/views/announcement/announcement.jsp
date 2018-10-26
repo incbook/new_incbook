@@ -52,8 +52,7 @@
 
 							<tr>
 								<td>${AnnouncementVO.id}</td>
-								<td><a href='/announcement/readAnnouncement?id=${AnnouncementVO.id}'>${AnnouncementVO.title}</td>
-								<td>${AnnouncementVO.memberId}</td>
+<td><a href='/announcement/readAnnouncement${boardPageMaker.makeQuery(boardPageMaker.cri.page)}&id=${AnnouncementVO.id}'>${AnnouncementVO.title} </a></td>								<td>${AnnouncementVO.memberId}</td>
 								<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
 									value="${AnnouncementVO.regdate}" /></td>
 								<td>${AnnouncementVO.viewCount}</td>
@@ -65,6 +64,26 @@
 			</div>
 		</div>
 	</div>
+	<div class="text-center">
+		<ul class="pagination">
+			<c:if test="${boardPageMaker.prev}">
+				<li><a href="announcement${boardPageMaker.makeSearch(boardPageMaker.startPage - 1)}">&laquo;</a></li>
+			</c:if>
+
+			<c:forEach begin="${boardPageMaker.startPage}" end="${boardPageMaker.endPage}"
+				var="idx">
+				<li <c:out value="${boardPageMaker.cri.page == idx?'class=active':''}"/>>
+					<a href="announcement${boardPageMaker.makeSearch(idx)}">${idx}</a>
+				</li>
+			</c:forEach>
+
+			<c:if test="${boardPageMaker.next && boardPageMaker.endPage > 0}">
+				<li><a href="announcement${boardPageMaker.makeSearch(boardPageMaker.endPage + 1)}">&raquo;</a></li>
+			</c:if>
+
+		</ul>
+	</div>
 </section>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <%@include file="../include/footer.jsp"%>
