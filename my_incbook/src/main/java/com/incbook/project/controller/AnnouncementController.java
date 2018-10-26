@@ -24,21 +24,21 @@ public class AnnouncementController {
 	private AnnouncementService announcementService;
 
 	@RequestMapping(value = "/announcement", method = RequestMethod.GET)
-	public void announcementListGET(@ModelAttribute("cri") BoardCriteria cri,Model model) throws Exception {
+	public void announcementListGET(@ModelAttribute("boardCri") BoardCriteria boardCri,Model model) throws Exception {
 
-		List<AnnouncementVO> allAnnouncement = announcementService.announcementList(cri);
+		List<AnnouncementVO> allAnnouncement = announcementService.announcementList(boardCri);
 		model.addAttribute("announcementList", allAnnouncement);
 		
 		BoardPageMaker boardPageMaker = new BoardPageMaker();
-		boardPageMaker.setCri(cri);
-		boardPageMaker.setTotalCount(announcementService.listSearchCount(cri));
+		boardPageMaker.setCri(boardCri);
+		boardPageMaker.setTotalCount(announcementService.listSearchCount(boardCri));
 		model.addAttribute("boardPageMaker", boardPageMaker);
 
 		
 	}
 	
 	@RequestMapping(value = "/readAnnouncement", method = RequestMethod.GET)
-	public void readAnnouncement(@RequestParam("id") int id, @ModelAttribute("cri") BoardCriteria cri, Model model) throws Exception {
+	public void readAnnouncement(@RequestParam("id") int id, @ModelAttribute("boardCri") BoardCriteria boardCri, Model model) throws Exception {
 		AnnouncementVO readAnnouncement = announcementService.readAnnouncement(id);
 		model.addAttribute("readAnnouncement", readAnnouncement);
 		
