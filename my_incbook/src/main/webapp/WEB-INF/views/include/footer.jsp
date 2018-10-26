@@ -162,6 +162,7 @@
 <script src="/resources/js/plugins.js"></script>
 <script src="/resources/js/active.js"></script>
 <!-- Custom JS Files -->
+<script src="/resources/js/custom/clickPageMove.js"></script>
 
 </body>
 </html>
