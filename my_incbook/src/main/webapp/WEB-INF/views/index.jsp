@@ -16,7 +16,7 @@
             <div class="col-lg-12">
                <div class="slider__content">
                   <div class="contentbox">
-                     <h2>
+                     <h2>`
                         Buy <span>your </span>
                      </h2>
                      <h2>

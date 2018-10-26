@@ -172,12 +172,11 @@
 				$('#searchBtn').on(
 						"click",
 						function() {
-							self.location = "chart"
-									+ '${pageMaker.makeQuery(1)}'
-									+ "&searchType="
-									+ $("select option:selected").val()
-									+ "&keyword="
-									+ encodeURIComponent($('#keywordInput')
+							self.location = "/book/chart?"
+								+ "&searchType="
+								+ $("select option:selected").val()
+								+ "&keyword="
+								+ encodeURIComponent($('#keywordInput')
 											.val());
 						});
 
@@ -203,5 +202,6 @@
 						});
 					});
 				}); 
+ 				
 			});
 </script>
