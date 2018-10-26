@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.incbook.project.domain.AnnouncementVO;
+import com.incbook.project.domain.pagecriteria.BoardCriteria;
 import com.incbook.project.persistence.AnnouncementDAO;
 
 @Service
@@ -18,8 +19,8 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 	private AnnouncementDAO dao;
 	
 	@Override
-	public List<AnnouncementVO> announcementList() throws Exception {
-		return dao.announcementList();
+	public List<AnnouncementVO> announcementList(BoardCriteria cri) throws Exception {
+		return dao.announcementList(cri);
 	}
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
@@ -27,5 +28,12 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 		dao.updateViewCnt(id);
 		return dao.readAnnouncement(id);
 	}
+	
+	@Override
+	public int listSearchCount(BoardCriteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listSearchCount(cri);
+	}
+	
 	
 }

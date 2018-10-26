@@ -70,7 +70,11 @@
 	<div>
 		<button type="submit" id="btn_goList">목록</button>
 	</div>
-	<form role="form" action="modifyPage" method="post"></form>
+	<form role="form" action="modifyPage" method="post">
+	<input type='hidden' name='page' value ="${cri.page}">
+	<input type='hidden' name='pagesize' value ="${cri.pagesize}">
+	
+	</form>
 </section>
 <%@include file="../include/footer.jsp"%>
 <script>
