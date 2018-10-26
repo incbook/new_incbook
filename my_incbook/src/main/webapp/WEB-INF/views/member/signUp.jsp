@@ -67,7 +67,7 @@
 								</div>
 							
 								<div class="form__btn">
-										<button type="button">취소</button>
+										<button class="mainPage" type="button">취소</button>
 										<button class="validationFormButton" type="button">확인</button>
 								</div>
 							</div>					
