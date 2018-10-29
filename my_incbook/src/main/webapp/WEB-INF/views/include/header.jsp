@@ -141,6 +141,9 @@
 														<span>
 															<a href="/member/signUp">Sign Up</a>
 														</span> 
+														<span>
+															<a href="/member/memberDetail">회원상세정보</a>
+														</span> 
 														<span><a href="#">Create An Account</a>
 														</span>
 													</div>

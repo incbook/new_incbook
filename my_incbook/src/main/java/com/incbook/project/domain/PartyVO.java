@@ -7,7 +7,7 @@ public class PartyVO {
 	private int id;
 	private String name;
 	private Date regdate;
-
+	
 	public int getId() {
 		return id;
 	}
