@@ -3,12 +3,37 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="my_incbook.mapper.memberMapper">
-	
-	<select id="checkIdPassword" resultType="com.incbook.project.domain.MemberVO">
+	<resultMap id="partyMap" type="PartyVO">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="regdate" column="regdate" />
+	</resultMap>
+
+	<resultMap id="memberMap" type="MemberVO" extends="partyMap">
+		<id property="id" column="id" />
+		<result property="loginId" column="login_id" />
+		<result property="password" column="password" />
+		<result property="address" column="address" />
+		<result property="email" column="email" />
+		<result property="phone" column="phone" />
+		<result property="nickname" column="nickname" />
+		<result property="grade" column="grade" />
+		<result property="jumin" column="jumin" />
+		<result property="point" column="point" />
+		<result property="good" column="good" />
+		<result property="hate" column="hate" />
+	</resultMap>
+
+	<select id="checkIdPassword" resultMap="memberMap">
 		<![CDATA[
 		select 
-		*
-		from member 
+		    p.id, p.name, p.regdate, m.id,
+			m.login_id, m.password, m.address, m.email,
+			m.phone, m.nickname, m.grade, m.jumin,
+			m.point, m.good, m.hate
+		from member m
+	    	join party p
+	    	on p.id=m.id
 		where login_id = #{loginId} and password = #{password} 
 		]]>
 	</select>

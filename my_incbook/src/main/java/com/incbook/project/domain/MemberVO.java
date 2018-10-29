@@ -1,6 +1,6 @@
 package com.incbook.project.domain;
 
-public class MemberVO {
+public class MemberVO extends PartyVO{
 
 	private int id;
 	private String loginId;

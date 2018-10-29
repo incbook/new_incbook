@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.PartyVO;
 import com.incbook.project.service.MemberService;
-import com.incbook.project.service.PartyService;
 
 @Controller
 @RequestMapping("/member/*")
@@ -25,13 +24,18 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value = "/signInForm", method = RequestMethod.POST)
-	public String signInFormPOST(MemberVO vo, Model model) throws Exception {
-		MemberVO var = memberService.checkIdPassword(vo);
-		System.out.println(var);
-		model.addAttribute("id",var);
-		
-		return "member/signIn";
+	/**
+	 * 로그인 interceptor 사용으로 세션처리
+	 */
+	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
+	public String signInFormPOST(MemberVO vo, Model model, RedirectAttributes rttr) throws Exception {
+		MemberVO member = memberService.checkIdPassword(vo);
+		model.addAttribute("member", member);
+		if(member == null) {
+			rttr.addFlashAttribute("loginTry", "fail");
+			return "redirect:/member/signInForm";
+		}
+		return "/index";
 	}
 	
 	/**
