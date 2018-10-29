@@ -10,7 +10,8 @@
 				<div class="col-lg-12">
 					<div class="footer__widget footer__menu">
 						<div class="ft__logo">
-							<a href="index.html"> <img src="/resources/images/logo/3.png" alt="logo">
+							<a href="index.html"> <img src="/resources/images/logo/3.png"
+								alt="logo">
 							</a>
 							<p>잉크북이다!!!!!!!!!</p>
 						</div>
@@ -44,8 +45,7 @@
 					<div class="copyright">
 						<div class="copy__right__inner text-left">
 							<p>
-								Copyright <i class="fa fa-copyright"></i> 
-								<a href="#">InCBook</a>
+								Copyright <i class="fa fa-copyright"></i> <a href="#">InCBook</a>
 								&emsp;All Rights Reserved.
 							</p>
 						</div>
@@ -78,7 +78,8 @@
 						<!-- Start product images -->
 						<div class="product-images">
 							<div class="main-image images">
-								<img alt="big images" src="/resources/images/product/big-img/1.jpg">
+								<img alt="big images"
+									src="/resources/images/product/big-img/1.jpg">
 							</div>
 						</div>
 						<!-- end product images -->
@@ -152,7 +153,6 @@
 	</div>
 </div>
 <!-- END QUICKVIEW PRODUCT -->
-</div>
 <!-- //Main wrapper -->
 
 <!-- JS Files -->
@@ -166,3 +166,42 @@
 
 </body>
 </html>
+<script>
+	$(document).ready(
+			function() {
+				$('#searchBtn').on(
+						"click",
+						function() {
+							self.location = "/book/newBookChart?"
+								+ "&searchType="
+								+ $("select option:selected").val()
+								+ "&keyword="
+								+ encodeURIComponent($('#keywordInput')
+											.val());
+						});
+
+				$(function() {
+					$('#list1').hide();
+					$('.hover1').mouseenter(function() {
+						$('#list1').show();
+					});
+					$('.hover1').mouseleave(function() {
+						$('.hover1').mouseleave(function() {
+							$('#list1').hide();
+						});
+					});
+				});
+ 				$(function() {
+					$('#list2').hide();
+					$('.hover2').mouseenter(function() {
+						$('#list2').show();
+					});
+					$('.hover2').mouseleave(function() {
+						$('.hover2').mouseleave(function() {
+							$('#list2').hide();
+						});
+					});
+				}); 
+ 				
+			});
+</script>

@@ -48,54 +48,22 @@
 								<li class="drop"><a href="#">도서차트</a>
 									<div class="megamenu mega03">
 										<ul class="item item03">
-											<li class="title">Shop Layout</li>
-											<li><a href="shop-grid.html">Shop Grid</a></li>
-											<li><a href="single-product.html">Single Product</a></li>
+											<li class="title">Categories</li>
+											<li><a href="/book/allTop100">TOP-100</a></li>
+											<li><a href="/book/newBookChart">NEW-도서</a></li>
 										</ul>
-										<ul class="item item03">
-											<li class="title">Shop Page</li>
-											<li><a href="my-account.html">My Account</a></li>
-											<li><a href="cart.html">Cart Page</a></li>
-											<li><a href="checkout.html">Checkout Page</a></li>
-											<li><a href="wishlist.html">Wishlist Page</a></li>
-											<li><a href="error404.html">404 Page</a></li>
-											<li><a href="faq.html">Faq Page</a></li>
-										</ul>
-										<ul class="item item03">
-											<li class="title">Bargain Books</li>
-											<li><a href="shop-grid.html">Bargain Bestsellers</a></li>
-											<li><a href="shop-grid.html">Activity Kits</a></li>
-											<li><a href="shop-grid.html">B&N Classics</a></li>
-											<li><a href="shop-grid.html">Books Under $5</a></li>
-											<li><a href="shop-grid.html">Bargain Books</a></li>
-										</ul>
+
 									</div></li>
 								<li class="drop"><a href="shop-grid.html">도서등록</a>
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="shop-grid.html">Biography </a></li>
-											<li><a href="shop-grid.html">Business </a></li>
-											<li><a href="shop-grid.html">Cookbooks </a></li>
-											<li><a href="shop-grid.html">Health & Fitness </a></li>
-											<li><a href="shop-grid.html">History </a></li>
+											<li><a href="/book/infoInsert">도서 상세정보 등록</a></li>
+											<li><a href="shop-grid.html">대여도서 등록</a></li>
+											<li><a href="shop-grid.html">판매도서 등록 </a></li>
+											<li><a href="shop-grid.html">대여&판매 동시가능 도서 등록 </a></li>
 										</ul>
-										<ul class="item item03">
-											<li class="title">Customer Favourite</li>
-											<li><a href="shop-grid.html">Mystery</a></li>
-											<li><a href="shop-grid.html">Religion & Inspiration</a></li>
-											<li><a href="shop-grid.html">Romance</a></li>
-											<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-											<li><a href="shop-grid.html">Sleeveless</a></li>
-										</ul>
-										<ul class="item item03">
-											<li class="title">Collections</li>
-											<li><a href="shop-grid.html">Science </a></li>
-											<li><a href="shop-grid.html">Fiction/Fantasy</a></li>
-											<li><a href="shop-grid.html">Self-Improvemen</a></li>
-											<li><a href="shop-grid.html">Home & Garden</a></li>
-											<li><a href="shop-grid.html">Humor Books</a></li>
-										</ul>
+
 									</div></li>
 								<li class="drop"><a href="shop-grid.html">커뮤니티</a>
 									<div class="megamenu mega02">
@@ -171,7 +139,7 @@
 															<a href="#">My Wishlist</a>
 														</span> 
 														<span>
-															<a href="#">Sign In</a>
+															<a href="/member/signUp">Sign Up</a>
 														</span> 
 														<span><a href="#">Create An Account</a>
 														</span>
@@ -245,16 +213,33 @@
 		<div class="brown--color box-search-content search_active block-bg close__top">
 			<form id="search_mini_form" class="minisearch" action="#">
 				<div class="field__search">
-					<select id="hh_select" style="height: 30px;">
-						<option>추리</option>
-						<option>로맨스</option>
-						<option>여행</option>
-						<option>아동</option>
-						<option>교육</option>
-					</select>
-					<input type="text" placeholder="Search...">
-					<div class="action">
-						<a href="#"><i class="zmdi zmdi-search"></i></a>
+					<select name= "searchType" id="hh_select" style="height: 30px;">
+						<option value="null"
+							<c:out value="${cri.searchType == null?'selected':''}"/>>
+							---</option>
+						<option value="tigewrpuco"
+							<c:out value="${cri.searchType eq 'tigewrpuco'?'selected':''}"/>>
+							All</option>
+						<option value="title"
+							<c:out value="${cri.searchType eq 'title'?'selected':''}"/>>
+							title</option>
+						<option value="genre"
+							<c:out value="${cri.searchType eq 'genre'?'selected':''}"/>>
+							genre</option>
+						<option value="writer"
+							<c:out value="${cri.searchType eq 'writer'?'selected':''}"/>>
+							writer</option>
+						<option value="publisher"
+							<c:out value="${cri.searchType eq 'publisher'?'selected':''}"/>>
+							publisher</option>
+						<option value="content"
+							<c:out value="${cri.searchType eq 'content'?'selected':''}"/>>
+							content</option>
+
+					</select> 
+						<input type="text" name='keyword' id="keywordInput" value='${cri.keyword}'>
+						<div class="action">
+						<a href="#"><i class="zmdi zmdi-search" id="searchBtn"></i></a>
 					</div>
 				</div>
 			</form>
@@ -262,4 +247,6 @@
 				<span>close</span>
 			</div>
 		</div>
+		
 		<!-- End Search Popup -->
+		

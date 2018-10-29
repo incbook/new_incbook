@@ -5,7 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.incbook.project.domain.AnnouncementVO;
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.persistence.BookDAO;
@@ -44,4 +47,12 @@ public class BookServiceImpl implements BookService {
 	public void updateBook(BookVO vo) throws Exception {
 		dao.updateBook(vo);
 	}
+	
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public BookVO findBookByID2(Integer id) throws Exception {
+		dao.updateViewCnt(id);
+		return dao.findBookByID(id);
+	}
+	
 }

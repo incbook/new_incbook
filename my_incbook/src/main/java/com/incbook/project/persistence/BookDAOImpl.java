@@ -50,5 +50,9 @@ public class BookDAOImpl implements BookDAO{
 		sqlSession.update(namespace+".updateBook", vo);
 		
 	}
-	
+	@Override
+	public void updateViewCnt(Integer id) throws Exception {
+		
+		sqlSession.update(namespace+".updateViewCnt", id);
+	}
 }
