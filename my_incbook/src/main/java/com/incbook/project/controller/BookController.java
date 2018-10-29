@@ -80,10 +80,11 @@ public class BookController {
 
 		bookService.updateBook(vo);
 		System.out.println(vo);
+		rttr.addAttribute("id",vo.getId());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("pagesize", cri.getPagesize());
 
-		return "redirect:/book/list";
+		return "redirect:/book/readPage";
 	}
 
 	// id를 바탕으로 책정보 가져오기

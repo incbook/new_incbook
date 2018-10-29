@@ -15,7 +15,7 @@
 		});
 	
 		$("#cancle").on("click", function() {
-			self.location = "/book/list?page=${cri.page}&pagesize=${cri.pagesize}";
+			self.location = "/book/readPage?page=${cri.page}&pagesize=${cri.pagesize}";
 		});
 
 	});
@@ -25,6 +25,7 @@
 </head>
 <body>
 	<form role="form" action="modifyPage" method="post">
+
 	<input type='hidden' name='page' value = "${cri.page}">
 	<input type='hidden' name='pagesize' value = "${cri.pagesize}">
 		
@@ -34,6 +35,7 @@
 		저자<input type="text" name="writer" value="${modifyTarget.writer}" /> <br> 
 		출판사<input type="text" name="publisher" value="${modifyTarget.publisher}" /> <br> 
 		줄거리<input type="text" name="content" value="${modifyTarget.content}" /> <br>
+		이미지<input type="text" name="image" value="${modifyTarget.image}" /> <br>
 		
 		<button type="submit" id="save">저장</button>
 	</form>

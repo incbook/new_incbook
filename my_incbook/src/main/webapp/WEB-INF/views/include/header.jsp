@@ -50,7 +50,7 @@
 										<ul class="item item03">
 											<li class="title">Categories</li>
 											<li><a href="allTop100">TOP-100</a></li>
-											<li><a href="chart">NEW-도서</a></li>
+											<li><a href="newBookChart">NEW-도서</a></li>
 										</ul>
 
 									</div></li>
@@ -58,7 +58,7 @@
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="infoInsert">도서 상세정보 등록</a></li>
+											<li><a href="/book/infoInsert">도서 상세정보 등록</a></li>
 											<li><a href="shop-grid.html">대여도서 등록</a></li>
 											<li><a href="shop-grid.html">판매도서 등록 </a></li>
 											<li><a href="shop-grid.html">대여&판매 동시가능 도서 등록 </a></li>
@@ -139,7 +139,7 @@
 															<a href="#">My Wishlist</a>
 														</span> 
 														<span>
-															<a href="#">Sign In</a>
+															<a href="/member/signUp">Sign Up</a>
 														</span> 
 														<span><a href="#">Create An Account</a>
 														</span>

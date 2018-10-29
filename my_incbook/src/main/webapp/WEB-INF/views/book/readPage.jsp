@@ -21,7 +21,7 @@
 		});
 		
 		$("#golist").on("click", function() {
-			formObj.attr("action", "/book/list");
+			formObj.attr("action", "/book/allTop100");
 			formObj.attr("method", "get");
 			formObj.submit();
 			
@@ -48,30 +48,30 @@
 			readonly="readonly">
 	</div>
 	<div>
-		장르 <input type="text" name="writer" value="${bookVO.genre}"
+		장르 <input type="text" name="genre" value="${bookVO.genre}"
 			readonly="readonly">	</div>
 	<div>
 		저자 <input type="text" name="writer" value="${bookVO.writer}"
 			readonly="readonly">
 	</div> 
 	<div>
-		출판사 <input type="text" name="writer" value="${bookVO.publisher}"
+		출판사 <input type="text" name="publisher" value="${bookVO.publisher}"
 			readonly="readonly">
 	</div> 
 	<div>
-		평점 <input type="text" name="writer" value="${bookVO.averageScore}"
+		평점 <input type="text" name="averageScore" value="${bookVO.averageScore}"
 			readonly="readonly">
 	</div> 
 	<div>
-		등록일 <input type="text" name="writer" value="${bookVO.regdate}"
+		등록일 <input type="text" name="regdate" value="${bookVO.regdate}"
 			readonly="readonly">
 	</div> 
 	<div>
-		최종수정일 <input type="text" name="writer" value="${bookVO.updateDate}"
+		최종수정일 <input type="text" name="updateDate" value="${bookVO.updateDate}"
 			readonly="readonly">
 	</div> 
 	<div>
-		최종수정자 <input type="text" name="writer" value="${bookVO.finalUpdateMemberId}"
+		최종수정자 <input type="text" name="finalUpdateMemberId" value="${bookVO.finalUpdateMemberId}"
 			readonly="readonly">
 	</div> 
 	<div>
@@ -79,11 +79,11 @@
 
 	</div> 
 	<div>
-		이미지 <input type="text" name="writer" value="${bookVO.image}"
+		이미지 <input type="text" name="image" value="${bookVO.image}"
 			readonly="readonly">
 	</div> 
 	<div>
-		조회수 <input type="text" name="count" value="${bookVO.viewCount}"
+		조회수 <input type="text" name="viewCount" value="${bookVO.viewCount}"
 			readonly="readonly">
 	</div> 
 
