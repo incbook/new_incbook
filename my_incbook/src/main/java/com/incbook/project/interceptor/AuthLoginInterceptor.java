@@ -1,5 +1,6 @@
 package com.incbook.project.interceptor;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,10 +14,11 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		System.out.println("+++" + session.getAttribute("login"));
+		RequestDispatcher rd = request.getRequestDispatcher("/member/signInForm");
 		
 		if (session.getAttribute("login") == null) {
-			response.sendRedirect("/member/signInForm");
+			request.setAttribute("loginAuth", "fail");
+			rd.forward(request, response);
 			return false;
 		}
 		
