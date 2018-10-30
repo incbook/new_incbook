@@ -15,9 +15,13 @@ public class PartyDAOImpl implements PartyDAO{
 	private static final String namespace = "my_incbook.mapper.partyMapper";
 
 	@Override
-	public void signUp(PartyVO vo) throws Exception {
-		sqlSession.insert(namespace+".signUp", vo);
+	public void partyInsert(PartyVO vo) throws Exception {
+		sqlSession.insert(namespace+".partyInsert", vo);
 	}
-	
+
+	@Override
+	public void partyModify(PartyVO vo) throws Exception {
+		sqlSession.update(namespace+".partyModify", vo);
+	}
 	
 }

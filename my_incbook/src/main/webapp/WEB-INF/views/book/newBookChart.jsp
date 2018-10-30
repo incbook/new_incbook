@@ -53,7 +53,12 @@
 			<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
 				<div class="shop__sidebar">
 					<aside class="wedget__categories poroduct--cat">
-						<h3 class="wedget__title">Product Categories</h3>
+						<h3 class="wedget__title">전체 TOP-100</h3>
+						<div class="" style="background-color: white;">
+							<a href="allTop100">전체 TOP-100</a>
+						</div>
+
+						<h3 class="wedget__title">장르별 TOP-100</h3>
 						<!--  여기야 -->
 
 						<div class="hover1" style="background-color: white;">국내도서</div>
@@ -94,11 +99,12 @@
 									<li><a href="">대학교재</a></li>
 									<li><a href="">수험서/자격증</a></li>
 									<li><a href="">공무원 수험서</a></li>
+
 								</ul>
 
 							</div>
 						</div>
-						
+
 						<div class="hover2" style="background-color: white;">외국도서</div>
 						<div id="list2" class="hover2" style="width: 836px;">
 							<div
@@ -155,7 +161,10 @@
 
 							</div>
 						</div>
-
+						<h3 class="wedget__title">NEW-도서</h3>
+						<div class="hover1" style="background-color: white;">
+							<a href="newBookChart">NEW-도서</a>
+						</div>
 
 
 
@@ -307,54 +316,80 @@
 							</ul>
 						</div>
 					</div>
+
+
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 						<div class="list__view__wrapper">
 							<!-- Start Single Product -->
-							<div class="list__view">
-								<div class="thumb">
-									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/product/1.jpg" alt="product images"></a>
-									<a class="second__img animation1" href="single-product.html"><img
-										src="/resources/images/product/2.jpg" alt="product images"></a>
-								</div>
-								<div class="content">
-									<h2>
-										<a href="single-product.html">Ali Smith</a>
-									</h2>
-									<ul class="rating d-flex">
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li class="on"><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-										<li><i class="fa fa-star-o"></i></li>
-									</ul>
-									<ul class="prize__box">
-										<li>$111.00</li>
-										<li class="old__prize">$220.00</li>
-									</ul>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Nam fringilla augue nec est tristique auctor. Donec non est at
-										libero vulputate rutrum. Morbi ornare lectus quis justo
-										gravida semper. Nulla tellus mi, vulputate adipiscing cursus
-										eu, suscipit id nulla.</p>
-									<ul class="cart__action d-flex">
-										<li class="cart"><a href="cart.html">Add to cart</a></li>
-										<li class="wishlist"><a href="cart.html"></a></li>
-										<li class="compare"><a href="cart.html"></a></li>
-									</ul>
+							<c:forEach items="${list}" var="BookVO">
+								<div class="list__view">
 
+									<div class="thumb">
+										<a class="first__img" href="single-product.html"><img
+											src="/resources/images/product/1.jpg" alt="product images"></a>
+										<a class="second__img animation1" href="single-product.html"><img
+											src="/resources/images/product/2.jpg" alt="product images"></a>
+									</div>
+									<div class="content">
+										<h2>
+											<a href="single-product.html">${BookVO.title}</a>
+										</h2>
+										<ul class="rating d-flex">
+											<li class="on"><i class="fa fa-star-o"></i></li>
+											<li class="on"><i class="fa fa-star-o"></i></li>
+											<li class="on"><i class="fa fa-star-o"></i></li>
+											<li class="on"><i class="fa fa-star-o"></i></li>
+											<li><i class="fa fa-star-o"></i></li>
+											<li><i class="fa fa-star-o"></i></li>
+										</ul>
+										<ul class="prize__box">
+											<li>$111.00</li>
+											<li class="old__prize">$220.00</li>
+										</ul>
+										<p>${BookVO.content}</p>
+										<ul class="cart__action d-flex">
+											<li class="cart"><a href="cart.html">Add to cart</a></li>
+											<li class="wishlist"><a href="cart.html"></a></li>
+											<li class="compare"><a href="cart.html"></a></li>
+										</ul>
+
+									</div>
 								</div>
-							</div>
+							</c:forEach>
+
 							<!-- End Single Product -->
 							<!-- Start Single Product -->
 
 						</div>
+						<div class="text-center">
+							<ul class="wn__pagination">
+								<c:if test="${pageMaker.prev}">
+									<li><a
+										href="chart${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+								</c:if>
+
+								<c:forEach begin="${pageMaker.startPage}"
+									end="${pageMaker.endPage}" var="idx">
+									<li
+										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+										<a href="chart${pageMaker.makeSearch(idx)}">${idx}</a>
+									</li>
+								</c:forEach>
+
+								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+									<li><a
+										href="chart${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+								</c:if>
+
+							</ul>
+						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!--  여기야 -->
 

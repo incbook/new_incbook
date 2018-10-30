@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void signUp(PartyVO pvo, MemberVO mvo) throws Exception {
-		partyDAO.signUp(pvo);
+		partyDAO.partyInsert(pvo);
 		Map<String, Object> memberMap = new HashMap();
 		memberMap.put("member", mvo);
 		memberMap.put("party", pvo);
@@ -40,6 +40,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String loginIdCeheck(MemberVO vo) throws Exception {
 		return memberDAO.loginIdCeheck(vo);
+	}
+
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public void memberModify(PartyVO pvo, MemberVO mvo) throws Exception {
+		partyDAO.partyModify(pvo);
+		Map<String, Object> memberMap = new HashMap();
+		memberMap.put("member", mvo);
+		memberMap.put("party", pvo);
+		memberDAO.memberModify(memberMap);
 	}
 	
 }

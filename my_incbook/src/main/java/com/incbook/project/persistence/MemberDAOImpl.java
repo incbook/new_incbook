@@ -31,5 +31,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public String loginIdCeheck(MemberVO vo) throws Exception {
 		return sqlSession.selectOne(namespace+".loginIdCeheck", vo);
 	}
+
+	@Override
+	public void memberModify(Map<String, Object> vo) throws Exception {
+		sqlSession.update(namespace+".memberModify", vo);
+	}
 	
 }

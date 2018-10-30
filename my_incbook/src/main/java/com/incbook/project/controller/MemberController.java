@@ -1,6 +1,7 @@
 package com.incbook.project.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.PartyVO;
 import com.incbook.project.service.MemberService;
-import com.incbook.project.service.PartyService;
 
 @Controller
 @RequestMapping("/member/*")
@@ -25,13 +25,18 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping(value = "/signInForm", method = RequestMethod.POST)
-	public String signInFormPOST(MemberVO vo, Model model) throws Exception {
-		MemberVO var = memberService.checkIdPassword(vo);
-		System.out.println(var);
-		model.addAttribute("id",var);
-		
-		return "member/signIn";
+	/**
+	 * 로그인 interceptor 사용으로 세션처리
+	 */
+	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
+	public String signInFormPOST(MemberVO vo, Model model, RedirectAttributes rttr) throws Exception {
+		MemberVO member = memberService.checkIdPassword(vo);
+		model.addAttribute("member", member);
+		if(member == null) {
+			rttr.addFlashAttribute("loginTry", "fail");
+			return "redirect:/member/signInForm";
+		}
+		return "/index";
 	}
 	
 	/**
@@ -61,6 +66,38 @@ public class MemberController {
 	public void loginIdDoubleCheckPOST(MemberVO mvo, Model model) throws Exception {
 		String result = memberService.loginIdCeheck(mvo);
 		model.addAttribute("login_id", result);
+	}
+	
+	/**
+	 * 세션을 통해 회원 상세정보 표출
+	 * loginSession 세션 아이디 vo정보가 전체로 담겨있음
+	 */
+	@RequestMapping(value = "/memberDetail", method = RequestMethod.GET)
+	public void memberDetailGET(Model model) throws Exception {
+		
+	}
+	
+	/**
+	 * 회원정보수정
+	 * 세션을 통해 현재 회원정보 자동 기입
+	 */						 
+	@RequestMapping(value = "/memberModify", method = RequestMethod.GET)
+	public void memberModifyGET(Model model) throws Exception {
+		
+	}
+
+	@RequestMapping(value = "/memberModifyPost", method = RequestMethod.POST)
+	public String memberModifyPOST(MemberVO mvo, PartyVO pvo, RedirectAttributes rttr, Model model,
+			HttpServletRequest request) throws Exception {
+		
+		memberService.memberModify(pvo, mvo);
+		
+		MemberVO member = memberService.checkIdPassword(mvo);
+		model.addAttribute("member", member);
+		
+		request.getSession().setAttribute("dest", "/member/memberDetail");
+		
+		return "/member/memberDetail";
 	}
 	
 }

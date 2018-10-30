@@ -19,5 +19,6 @@ public interface BookDAO {
 
 	public void updateBook(BookVO vo) throws Exception;
 
+	public void updateViewCnt(Integer id) throws Exception;
 
 }

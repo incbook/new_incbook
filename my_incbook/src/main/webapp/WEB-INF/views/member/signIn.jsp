@@ -14,6 +14,11 @@
 
 	if(id != null){
     session.setAttribute("loginSession", id );
+    %>
+    <script>
+    	self.location = "/";
+    </script>
+    <%
 	} else{
 	%>
 	<script>
