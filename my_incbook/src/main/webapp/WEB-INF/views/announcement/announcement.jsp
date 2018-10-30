@@ -65,7 +65,7 @@
 		</div>
 	</div>
 	<div class="text-center">
-		<ul class="pagination">
+		<ul class="wn__pagination">
 			<c:if test="${boardPageMaker.prev}">
 				<li><a href="announcement${boardPageMaker.makeSearch(boardPageMaker.startPage - 1)}">&laquo;</a></li>
 			</c:if>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="my_incbook.mapper.bookclubMapper">
+	
+	<select id="bookclubList" resultType="BookclubVO">
+		<![CDATA[
+		select 
+		b.id, b.genre, p.id, p.name
+		from bookclub b
+			join party p
+			on p.id=b.id
+		where id > 0 order by id desc
+		limit #{pageStart},#{pagesize}
+		
+		]]>
+	</select>
+
+	<select id="readBookclub" resultType="BookclubVO">
+		<![CDATA[
+		select 
+		*
+		from bookclub where id = #{id}
+		]]>
+	</select>
+
+	<!-- <update id="updateBookclub">
+		update announcement set view_count = view_count +1 where id = #{id}
+	</update> -->
+	
+	<select id="listSearchCount" resultType="int">
+		<![CDATA[
+		select count(id)
+		from announcement
+		where id > 0
+		]]>
+	</select>
+</mapper>
