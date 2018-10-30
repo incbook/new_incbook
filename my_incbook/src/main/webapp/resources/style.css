@@ -5186,7 +5186,7 @@ h3.widget-title-modal {
     color: #e59285;
     font-size: 12px;
     margin-top: 18px;
-    display: block; }
+    display: inline; }
 
 .account__form .form__btn .label-for-checkbox {
   margin-bottom: 0;
@@ -5514,7 +5514,8 @@ h3.widget-title-modal {
     line-height: 34px;
     padding: 2px 20px 0;
     text-transform: uppercase;
-    transition: all 0.4s ease 0s; }
+    transition: all 0.4s ease 0s;
+     }
     .wn__checkout__form .form__btn button:hover {
       background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
       border-color: #e59285;

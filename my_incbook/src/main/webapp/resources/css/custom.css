@@ -33,3 +33,8 @@ h1 {
    font-size: 22px;
    font-weight: bold;
 }
+
+.custom__center {
+	text-align: center;
+}
+

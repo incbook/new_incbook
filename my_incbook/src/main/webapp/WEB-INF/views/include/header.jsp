@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -137,13 +137,20 @@
 														</span> 
 														<span>
 															<a href="#">My Wishlist</a>
-														</span> 
-														<span>
-															<a href="/member/signUp">Sign Up</a>
-														</span> 
-														<span>
-															<a href="/member/memberDetail">회원상세정보</a>
-														</span> 
+														</span>
+														<c:if test="${login.id == null}">
+															<span>
+																<a href="/member/signUp">Sign Up</a>
+															</span>
+															<span>
+																<a href="/member/signInForm">Sign In</a>
+															</span>
+														</c:if>
+														<c:if test="${login.id != null}">
+															<span>
+																<a href="/member/memberDetail">회원상세정보</a>
+															</span> 
+														</c:if>  
 														<span><a href="#">Create An Account</a>
 														</span>
 													</div>

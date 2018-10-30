@@ -26,10 +26,14 @@
 							
 								<!-- <input type="submit" title="로그인" value="로그인"> -->
 								
-								<div class="form__btn">
+								<div class="form__btn custom__center">
 										<button>로그인</button>
 								</div>
-								<a class="forget_pass" href="#">비밀번호 찾기</a>
+								<div style="padding-top:15px;"></div>
+								<span>
+									<a class="forget_pass inLine" href="#">비밀번호 찾기</a> &nbsp; | &nbsp;
+									<a class="forget_pass inLine" href="/member/signUp">회원가입</a>
+								</span>
 							</div>
 						</form>
 					</div>					
@@ -39,6 +43,7 @@
 	</section>
 
 <%@include file="../include/footer.jsp"%>
+<script src="/resources/js/custom/form.js"></script>
 <script>
 	var loginTry = $("#loginTry").val();
 	var loginAuth = $("#loginAuth").val();
@@ -49,5 +54,4 @@
 	if (loginAuth == "fail") {
 		alert("로그인해야 이용할 수 있는 페이지 입니다.");
 	}
-	
 </script>
