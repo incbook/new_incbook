@@ -4,6 +4,6 @@ import com.incbook.project.domain.PartyVO;
 
 public interface PartyService {
 	
-	public void signUp(PartyVO vo) throws Exception;
+	public void partyInsert(PartyVO vo) throws Exception;
 
 }

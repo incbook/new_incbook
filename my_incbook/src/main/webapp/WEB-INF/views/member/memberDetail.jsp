@@ -55,8 +55,7 @@
 								</div>
 							
 								<div class="form__btn">
-										<button class="mainPage" type="button">취소</button>
-										<button class="validationFormButton" type="button">확인</button>
+										<button class="memberModify" type="button">회원정보수정</button>
 								</div>
 							</div>					
 						</form>
@@ -68,3 +67,8 @@
 	
 <%@include file="../include/footer.jsp"%>
 <script src="/resources/js/custom/readOnly.js"></script>
+<script>
+	$(".memberModify").on("click", function() {
+		self.location = "/member/memberModify";
+	});
+</script>

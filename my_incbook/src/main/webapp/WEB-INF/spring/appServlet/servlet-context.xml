@@ -29,11 +29,13 @@
 	<interceptors>
 		<interceptor>
 			<mapping path="/member/signIn"/>
+			<mapping path="/member/memberModifyPost"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 
 		<interceptor>
 			<mapping path="/member/memberDetail"/>
+			<mapping path="/member/memberModify"/>
 			<!-- ↑여기에 로그인이 필요한 페이지만 추가 -->
 			<beans:ref bean="authLoginInterceptor"/>
 		</interceptor>

@@ -1,6 +1,7 @@
 package com.incbook.project.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,6 +75,29 @@ public class MemberController {
 	@RequestMapping(value = "/memberDetail", method = RequestMethod.GET)
 	public void memberDetailGET(Model model) throws Exception {
 		
+	}
+	
+	/**
+	 * 회원정보수정
+	 * 세션을 통해 현재 회원정보 자동 기입
+	 */						 
+	@RequestMapping(value = "/memberModify", method = RequestMethod.GET)
+	public void memberModifyGET(Model model) throws Exception {
+		
+	}
+
+	@RequestMapping(value = "/memberModifyPost", method = RequestMethod.POST)
+	public String memberModifyPOST(MemberVO mvo, PartyVO pvo, RedirectAttributes rttr, Model model,
+			HttpServletRequest request) throws Exception {
+		
+		memberService.memberModify(pvo, mvo);
+		
+		MemberVO member = memberService.checkIdPassword(mvo);
+		model.addAttribute("member", member);
+		
+		request.getSession().setAttribute("dest", "/member/memberDetail");
+		
+		return "/member/memberDetail";
 	}
 	
 }

@@ -40,7 +40,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (member != null) {
 			session.setAttribute(LOGIN, member);
 			System.out.println(session.getAttribute(LOGIN));
-			response.sendRedirect("/"); // 홈으로
+//			response.sendRedirect("/"); // 홈으로
+			Object dest = session.getAttribute("dest");
+			response.sendRedirect(dest != null ? (String)dest : "/"); // 이전페이지, 없으면 홈
 		}
 		
 	}

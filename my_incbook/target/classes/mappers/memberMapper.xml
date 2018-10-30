@@ -48,4 +48,12 @@
 		select login_id from member
 		where login_id = #{loginId}
 	</select>
+	
+	<update id ="memberModify">
+		update member set 
+			password = #{member.password}, jumin = #{member.jumin},
+			nickname = #{member.nickname}, phone = #{member.phone}, 
+			address = #{member.address}, email = #{member.email}
+		where id = #{party.id}
+	</update>
 </mapper>

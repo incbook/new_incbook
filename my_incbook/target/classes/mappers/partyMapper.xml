@@ -4,9 +4,14 @@
 
 <mapper namespace="my_incbook.mapper.partyMapper">
 	
-	<insert id="signUp" parameterType="PartyVO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="partyInsert" parameterType="PartyVO" useGeneratedKeys="true" keyProperty="id">
 		insert into party(name) 
 		values(#{name})
 	</insert>
 
+	<update id="partyModify">
+		update party set name = #{name}
+		where id = #{id}
+	</update>
+	
 </mapper>

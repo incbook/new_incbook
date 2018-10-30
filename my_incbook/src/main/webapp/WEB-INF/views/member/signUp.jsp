@@ -10,7 +10,7 @@
 				<div class="col-lg-12 col-12">
 					<div class="my__account__wrapper">
 						<h3 class="account__title">회원가입</h3>
-						<form action="" method="post" class="validationForm">
+						<form action="/member/signUp" method="post" class="validationForm">
 							<div class="account__form">
 								<div class="input__box sign__up__form">
 									<label for="login_id"">아이디 <span>*</span></label>

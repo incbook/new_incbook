@@ -1,39 +1,85 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@include file="../include/header.jsp"%>
+<input type="hidden" value="${login.loginId}" sessionName="login_id">
+<input type="hidden" value="${login.name}" sessionName="name">
+<input type="hidden" value="${login.nickname}" sessionName="nickname">
+<input type="hidden" value="${login.jumin}" sessionName="jumin">
+<input type="hidden" value="${login.phone}" sessionName="phone">
+<input type="hidden" value="${login.address}" sessionName="address">
+<input type="hidden" value="${login.email}" sessionName="email">
 
 	<section class="my_account_area pt--80 pb--55 bg--white">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-12">
 				</div>
-				<div class="col-lg-4 col-12">
+				<div class="col-lg-12 col-12">
 					<div class="my__account__wrapper">
-						<h3 class="account__title">회원 상세 정보</h3>
-						<form action="" method="post">
+						<h3 class="account__title">회원가입</h3>
+						<form action="/member/memberModifyPost" method="post" class="validationForm">
+							<input type="hidden" value="${login.id}" name="id">
+							
 							<div class="account__form">
-								
-								<div class="input__box">
-									<label for="title_id">제목 <span>*</span></label>
-									<input type="text"  id="title_id" name="Title_id">
+								<div class="input__box sign__up__form">
+									<label for="login_id"">아이디 <span>*</span></label>
+									<input style="width:60%" validationText="아이디" type="text" readOnly
+											id="login_id" name="loginId" class="doubleCheckSync">
 								</div>
 								
-								<div class="input__box">
-									<label for="name_id">글쓴이 <span>*</span></label>
-									<input type="text" id="name_id" name="Name_id">
+								<div class="input__box sign__up__form">
+									<label for="password">비밀번호 <span>*</span></label>
+									<input validationText="비밀번호" style="width:60%" type="password"  
+											id="password" name="password" class="passwordCheck">
+									<span id="passwordChecked">
+										<input type="hidden" id="passwordChecking" value="false">
+									</span>
+								</div>
+
+								<div class="input__box sign__up__form">
+									<label for="password">비밀번호 확인 <span>*</span></label>
+									<input type="password"  id="password_check" name="password_check" class="passwordCheck">
 								</div>
 								
-								<div class="input__box">
-									<label for="contents">내용입력<span>*</span></label>
-									<input type="text" id="contents" name="Contents" style="height:200px;">
+								<div class="input__box sign__up__form">
+									<label for="name">이름<span>*</span></label>
+									<input validationText="이름" type="text" 
+											id="name" name="name">
+								</div>
+
+								<div class="input__box sign__up__form">
+									<label for="jumin">주민등록번호<span>*</span></label>
+									<input class="numberOnly" numberSize="13" validationText="주민등록번호" type="text"  
+											id="jumin" name="jumin">
+								</div>
+
+								<div class="input__box sign__up__form">
+									<label for="nickname">닉네임<span>*</span></label>
+									<input validationText="닉네임" type="text"  
+											id="nickname" name="nickname">
 								</div>
 							
-								<!-- <input type="submit" title="로그인" value="로그인"> -->
-								
+								<div class="input__box sign__up__form">
+									<label for="phone">연락처<span>*</span></label>
+									<input class="numberOnly" numberSize="11" validationText="연락처" type="tel" 
+											id="phone" name="phone">
+								</div>
+							
+								<div class="input__box sign__up__form">
+									<label for="address">주소<span>*</span></label>
+									<input validationText="주소" type="text"  
+											id="address" name="address">
+								</div>
+							
+								<div class="input__box sign__up__form">
+									<label for="email">	이메일<span>*</span></label>
+									<input validationText="이메일" type="email"  
+											id="email" name="email">
+								</div>
+							
 								<div class="form__btn">
-										<button>취소</button>
-										<button>확인</button>
+										<button class="mainPage" type="button">취소</button>
+										<button class="validationFormButton" type="button">확인</button>
 								</div>
 							</div>					
 						</form>
@@ -44,3 +90,5 @@
 	</section>
 	
 <%@include file="../include/footer.jsp"%>
+<script src="/resources/js/custom/form.js"></script>
+<script src="/resources/js/custom/sessionMember.js"></script>
