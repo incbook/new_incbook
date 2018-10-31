@@ -14,8 +14,8 @@ public class PartyServiceImpl implements PartyService {
 	private PartyDAO dao;
 	
 	@Override
-	public void signUp(PartyVO vo) throws Exception {
-		dao.signUp(vo);
+	public void partyInsert(PartyVO vo) throws Exception {
+		dao.partyInsert(vo);
 	}
 	
 }

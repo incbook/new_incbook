@@ -52,6 +52,7 @@ $(function() {
 		validationForm.attr("method", "post")
 		validationForm.submit();
 	});
+	
 	$(".doubleCheck").on("click", function() {
 		var loginId = $("#login_id").val();
 		$.ajax({
