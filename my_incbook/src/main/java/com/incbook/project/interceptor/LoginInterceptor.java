@@ -39,6 +39,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		// 세션에 담을 정보 (member정보)가 있을 때 세션 생성
 		if (member != null) {
 			session.setAttribute(LOGIN, member);
+			System.out.println(session.getAttribute(LOGIN));
 //			response.sendRedirect("/"); // 홈으로
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest != null ? (String)dest : "/"); // 이전페이지, 없으면 홈
