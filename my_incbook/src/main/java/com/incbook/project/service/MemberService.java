@@ -14,4 +14,6 @@ public interface MemberService {
 	public String loginIdCeheck(MemberVO vo) throws Exception;
 	
 	public void memberModify(PartyVO pvo, MemberVO mvo) throws Exception;
+
+	public void memberDelete(PartyVO pvo) throws Exception;
 }

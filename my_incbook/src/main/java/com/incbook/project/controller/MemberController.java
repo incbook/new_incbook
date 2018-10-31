@@ -100,4 +100,11 @@ public class MemberController {
 		return "/member/memberDetail";
 	}
 	
+	/**
+	 * 회원 탈퇴
+	 */						 
+	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
+	public void memberDeleteGET(Model model) throws Exception {
+		
+	}
 }

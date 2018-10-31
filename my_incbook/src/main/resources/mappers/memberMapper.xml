@@ -56,4 +56,8 @@
 			address = #{member.address}, email = #{member.email}
 		where id = #{party.id}
 	</update>
+	
+	<delete id="memberDelete">
+		delete from member where id = #{id}
+	</delete>
 </mapper>
