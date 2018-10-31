@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.incbook.project.domain.AnnouncementVO;
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.pagecriteria.PageCriteria;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.persistence.BookDAO;
 
@@ -52,7 +53,31 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public BookVO findBookByID2(Integer id) throws Exception {
 		dao.updateViewCnt(id);
-		return dao.findBookByID(id);
+		return dao.findBookByID2(id);
 	}
 	
+	@Override
+	public List<BookVO> newBookChartList(SearchCriteria cri) throws Exception {
+		return dao.newBookChartList(cri);
+	}
+	
+	@Override
+	public List<BookVO> searchList(SearchCriteria cri) throws Exception {
+		return dao.searchList(cri);
+	}
+
+	@Override
+	public int searchListCount(SearchCriteria cri) throws Exception {
+		return dao.searchListCount(cri);
+	}
+
+	@Override
+	public List<BookVO> genreTop100List(PageCriteria cri) throws Exception {
+		return dao.genreTop100List(cri);
+	}
+
+	@Override
+	public int genreListCount(PageCriteria cri) throws Exception {
+		return dao.genreListCount(cri);
+	}
 }

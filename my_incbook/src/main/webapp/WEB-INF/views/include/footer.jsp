@@ -172,7 +172,7 @@
 				$('#searchBtn').on(
 						"click",
 						function() {
-							self.location = "/book/newBookChart?"
+							self.location = "/book/search?"
 								+ "&searchType="
 								+ $("select option:selected").val()
 								+ "&keyword="

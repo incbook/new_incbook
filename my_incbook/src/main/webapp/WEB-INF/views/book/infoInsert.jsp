@@ -10,7 +10,7 @@
 			<div class="col-lg-12"></div>
 			<div class="col-lg-12 col-12">
 				<div class="my__account__wrapper">
-					<h3 class="account__title">도서 정보 입력</h3>
+					<h3 class="account__title">도서 상세정보 입력</h3>
 					
 					<form role="form" method="post">
 						<div class="account__form">

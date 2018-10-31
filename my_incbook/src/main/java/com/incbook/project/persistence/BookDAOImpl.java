@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.pagecriteria.PageCriteria;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 
 @Repository
@@ -54,5 +55,35 @@ public class BookDAOImpl implements BookDAO{
 	public void updateViewCnt(Integer id) throws Exception {
 		
 		sqlSession.update(namespace+".updateViewCnt", id);
+	}
+
+	@Override
+	public BookVO findBookByID2(Integer id) throws Exception {
+		return sqlSession.selectOne(namespace+".findBookByID2", id);
+	}
+	
+	@Override
+	public List<BookVO> newBookChartList(SearchCriteria cri) throws Exception {
+		return sqlSession.selectList(namespace+".newBookChartList", cri);
+	}
+	
+	@Override
+	public List<BookVO> searchList(SearchCriteria cri) throws Exception {
+		return sqlSession.selectList(namespace+".searchList", cri);
+	}
+
+	@Override
+	public int searchListCount(SearchCriteria cri) throws Exception {
+		return sqlSession.selectOne(namespace+".searchListCount", cri);
+	}
+	
+	@Override
+	public List<BookVO> genreTop100List(PageCriteria cri) throws Exception {
+		return sqlSession.selectList(namespace+".genreTop100List", cri);
+	}
+
+	@Override
+	public int genreListCount(PageCriteria cri) throws Exception {
+		return sqlSession.selectOne(namespace+".genreListCount", cri);
 	}
 }
