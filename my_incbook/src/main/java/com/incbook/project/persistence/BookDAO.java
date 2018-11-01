@@ -3,6 +3,7 @@ package com.incbook.project.persistence;
 import java.util.List;
 
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagecriteria.PageCriteria;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 
@@ -33,5 +34,7 @@ public interface BookDAO {
 	public List<BookVO> genreTop100List(PageCriteria cri) throws Exception;
 
 	public int genreListCount(PageCriteria cri) throws Exception;
+
+	public BookVO findBookByOwnBookID(OwnVO vo) throws Exception;
 
 }

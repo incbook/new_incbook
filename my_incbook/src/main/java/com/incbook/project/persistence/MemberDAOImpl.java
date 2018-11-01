@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
 
 @Repository
@@ -46,6 +47,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberVO checkPassword(MemberVO vo) {
 		return sqlSession.selectOne(namespace+".passwordCheck", vo);
+	}
+
+	@Override
+	public MemberVO memberInfo(OwnVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".memberInfo", vo);
 	}
 	
 }

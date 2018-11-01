@@ -118,5 +118,12 @@ public class BookController {
 
 		return "redirect:/book/infoInsert";
 	}
+	
+	@RequestMapping(value="/quickView", method = RequestMethod.GET)
+	public String quickViewGET(Integer id, Model model) throws Exception {
+		BookVO vo = bookService.findBookByID2(id);
+		model.addAttribute("BookVO", vo);
+		return "book/quickView";
+	}
 
 }

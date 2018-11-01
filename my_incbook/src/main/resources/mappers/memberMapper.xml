@@ -38,6 +38,15 @@
 		]]>
 	</select>
 	
+	<select id="memberInfo" resultMap="memberMap">
+		select 
+		   *
+		from member m
+	    	join party p
+	    	on p.id=m.id
+		where m.id = #{memberId} 
+	</select>
+	
 	<select id="loginIdCeheck" resultType="String">
 		select login_id from member
 		where login_id = #{loginId}

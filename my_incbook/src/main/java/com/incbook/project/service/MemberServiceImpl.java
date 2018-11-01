@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
 import com.incbook.project.persistence.MemberDAO;
 import com.incbook.project.persistence.PartyDAO;
@@ -60,7 +61,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberVO checkPassword(MemberVO vo) {
+	public MemberVO checkPassword(MemberVO vo) throws Exception {
 		return memberDAO.checkPassword(vo);
 	}
+
+	@Override
+	public MemberVO memberInfo(OwnVO vo) throws Exception {
+		return memberDAO.memberInfo(vo);
+	}
+	
 }

@@ -26,6 +26,12 @@
 		where id = #{id}
 		]]>
 	</select>
+	<select id="findBookByOwnBookID" resultMap="BookVO">
+		<![CDATA[
+		select * from book
+		where id = #{bookId}
+		]]>
+	</select>
 	<select id="listSearchCriteria" resultType="com.incbook.project.domain.BookVO">
 		<![CDATA[
 		select

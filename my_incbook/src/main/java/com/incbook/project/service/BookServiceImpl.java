@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.incbook.project.domain.AnnouncementVO;
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagecriteria.PageCriteria;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.persistence.BookDAO;
@@ -80,4 +81,11 @@ public class BookServiceImpl implements BookService {
 	public int genreListCount(PageCriteria cri) throws Exception {
 		return dao.genreListCount(cri);
 	}
+
+	/* auth : 김동시 */
+	@Override
+	public BookVO findBookByOwnBookID(OwnVO vo) throws Exception {
+		return dao.findBookByOwnBookID(vo);
+	}
+	
 }
