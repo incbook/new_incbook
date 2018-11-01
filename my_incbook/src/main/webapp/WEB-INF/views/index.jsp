@@ -3,7 +3,12 @@
 
 
 <%@include file="include/header.jsp"%>
-
+<script>
+	var deleteCheck = '${memberDelete}';
+	if (deleteCheck == 'success') {
+		alert("탈퇴 되었습니다.");
+	}
+</script>
 
 <!-- Start Slider area -->
 <div

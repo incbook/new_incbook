@@ -18,4 +18,5 @@ public class PartyServiceImpl implements PartyService {
 		dao.partyInsert(vo);
 	}
 	
+	
 }

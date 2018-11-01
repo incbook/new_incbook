@@ -7,4 +7,5 @@ public interface PartyDAO {
 
 	public void partyModify(PartyVO vo) throws Exception;
 	
+	public void partyDelete(PartyVO vo) throws Exception;
 }

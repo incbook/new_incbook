@@ -38,16 +38,21 @@
 		]]>
 	</select>
 	
+	<select id="loginIdCeheck" resultType="String">
+		select login_id from member
+		where login_id = #{loginId}
+	</select>
+	
+	<select id="passwordCheck" resultType="MemberVO">
+		select * from member
+		where id = #{id} and password = #{password} 
+	</select>
+	
 	<insert id="signUp" parameterType="Map">
 		insert into member(id, login_id, password, jumin, nickname, phone, address, email, grade) 
 		values(#{party.id}, #{member.loginId}, #{member.password}, #{member.jumin}, 
 			   #{member.nickname}, #{member.phone}, #{member.address}, #{member.email}, '회원')
 	</insert>
-	
-	<select id="loginIdCeheck" resultType="String">
-		select login_id from member
-		where login_id = #{loginId}
-	</select>
 	
 	<update id ="memberModify">
 		update member set 
@@ -56,4 +61,10 @@
 			address = #{member.address}, email = #{member.email}
 		where id = #{party.id}
 	</update>
+	
+	<delete id="memberDelete">
+		delete from member where id = #{id}
+	</delete>
+	
+	
 </mapper>
