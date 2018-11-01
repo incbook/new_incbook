@@ -2,14 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<<<<<<< HEAD
 <%@ page session="false"%>
 
 
 <title>INCBOOK</title>
-=======
 <%@include file="../include/header.jsp"%>
->>>>>>> 98d680a6f506fdc466c2a8a8e0b7033f1ef2986c
 <style>
 .hover1 .gr03 .gg li {
 	padding: 3px 12px;
@@ -21,12 +18,6 @@
 	display: inline-block;
 }
 </style>
-
-<<<<<<< HEAD
-<%@include file="../include/header.jsp"%>
-=======
-
->>>>>>> 98d680a6f506fdc466c2a8a8e0b7033f1ef2986c
 
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--6">

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <style>
@@ -69,7 +69,7 @@
 						role="tabpanel">
 						<div class="row">
 							<!-- Start Single Product -->
-							<c:forEach items="${list}" var="BookVO">
+							<c:forEach items="${list}" var="BookVO" varStatus="status" begin="0">
 								<div
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 
@@ -86,13 +86,13 @@
 									</div>
 									<div class="product__content content--center">
 										<h4>
-											<a href="single-product.html">${BookVO.title}</a>
+											<a href="single-product.html" >${BookVO.title}</a>
 										</h4>
 										<ul class="prize d-flex">
 											<li>$35.00</li>
 											<li class="old_prize">$35.00</li>
 										</ul>
-										<div class="action">
+										<div class="action" quickId="${BookVO.id}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
 													<li><a class="cart" href="cart.html"> <i
@@ -106,7 +106,7 @@
 													</a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
-														href="#productmodal"> <i class="bi bi-search"></i>
+														href="#productmodal"> <i class="bi bi-search" ></i>
 													</a></li>
 												</ul>
 											</div>
@@ -153,6 +153,7 @@
 					</div>
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 						<div class="list__view__wrapper">
+
 							<!-- Start Single Product -->
 							<c:forEach items="${list}" var="BookVO">
 								<div class="list__view">
@@ -224,7 +225,30 @@
 </div>
 <!--  여기야 -->
 
+	<div id="quickview-wrapper">
+		
+	</div>
 <%@include file="../include/footer.jsp"%>
 <script>
-	
+	 $(function() {
+		$("[quickId]").mouseenter(function() {
+			var id = $(this).attr("quickId");
+			
+			ajaxPasswordCheck(id);
+		});
+	 function ajaxPasswordCheck(id) {
+			$.ajax({
+				url: "/book/quickView",
+				data: {
+					"id" : id
+				},
+				type: 'GET',
+				success: resultPaging
+			});
+	}
+	function resultPaging(msg) {
+		$("#quickview-wrapper").html(msg);
+	}
+	}); 
 </script>
+

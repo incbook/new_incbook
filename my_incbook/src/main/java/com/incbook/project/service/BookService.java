@@ -2,8 +2,8 @@ package com.incbook.project.service;
 
 import java.util.List;
 
-import com.incbook.project.domain.AnnouncementVO;
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagecriteria.PageCriteria;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 
@@ -19,6 +19,8 @@ public interface BookService {
 	public BookVO findBookByID(Integer id) throws Exception;
 
 	public BookVO findBookByID2(Integer id) throws Exception;
+
+	public BookVO findBookByOwnBookID(OwnVO vo) throws Exception;
 
 	public void createbookInfo(BookVO vo) throws Exception;
 

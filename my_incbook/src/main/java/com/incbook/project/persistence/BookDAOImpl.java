@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagecriteria.PageCriteria;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 
@@ -86,4 +87,10 @@ public class BookDAOImpl implements BookDAO{
 	public int genreListCount(PageCriteria cri) throws Exception {
 		return sqlSession.selectOne(namespace+".genreListCount", cri);
 	}
+
+	@Override
+	public BookVO findBookByOwnBookID(OwnVO vo) throws Exception {
+		return sqlSession.selectOne(namespace+".findBookByOwnBookID", vo);
+	}
+	
 }

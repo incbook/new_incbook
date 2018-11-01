@@ -2,7 +2,7 @@ package com.incbook.project.domain;
 
 import java.util.Date;
 
-public class OwnVO {
+public class OwnVO extends RealationVO{
 
 	private int realationId;
 	private int bookId;

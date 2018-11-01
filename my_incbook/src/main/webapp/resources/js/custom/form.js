@@ -68,7 +68,7 @@ $(function() {
 	/* 아이디 입력값에 변동이 있을경우 중복확인 누르게 함*/
 	$(".doubleCheckSync").change(function() {
 		$("#doubleChecked").html("<input type=\"hidden\" id=\"checking\" value=\"true\">"
-								+"<strong style=\"color:black\"> * 중복확인을 눌러주세요 </strong>"		
+								+"<strong style=\"color:black\"> * 중복확인을 눌러주세요 </strong>"	 	
 		);
 	});
 
