@@ -69,7 +69,7 @@
 						role="tabpanel">
 						<div class="row">
 							<!-- Start Single Product -->
-							<c:forEach items="${list}" var="BookVO" varStatus="status" begin="0">
+							<c:forEach items="${list}" var="BookVO">
 								<div
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 
@@ -337,27 +337,6 @@
 		
 	</div>
 <%@include file="../include/footer.jsp"%>
-<script>
-	 $(function() {
-		$("[quickId]").mouseenter(function() {
-			var id = $(this).attr("quickId");
-			
-			ajaxPasswordCheck(id);
-		});
-	 function ajaxPasswordCheck(id) {
-			$.ajax({
-				url: "/book/quickView",
-				data: {
-					"id" : id
-				},
-				type: 'GET',
-				success: resultPaging
-			});
-	}
-	function resultPaging(msg) {
-		$("#quickview-wrapper").html(msg);
-	}
-	}); 
-</script>
+<script src="/resources/js/custom/quickView.js"></script>
 
->>>>>>> 6cdb2f9312710665b41feaa79e265b665af50821
+
