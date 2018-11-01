@@ -82,10 +82,8 @@
 						});
 
 						$("#cancle")
-								.on(
-										"click",
-										function() {
-											self.location = "/book/readPage?page=${cri.page}&pagesize=${cri.pagesize}&id=${modifyTarget.id}";
+								.on("click", function() {
+							self.location = "/book/readPage?page=${cri.page}&pagesize=${cri.pagesize}&id=${modifyTarget.id}";
 										});
 					});
 </script>

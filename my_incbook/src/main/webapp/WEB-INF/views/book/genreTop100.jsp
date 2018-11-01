@@ -2,10 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
 
-
-<title>INCBOOK</title>
 <style>
 .hover1 .gr03 .gg li {
 	padding: 3px 12px;

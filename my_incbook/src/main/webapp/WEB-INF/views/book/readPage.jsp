@@ -93,7 +93,9 @@
 		});
 
 		$("#golist").on("click", function() {
-			history.go(-1);
+			formObj.attr("action", "/book/allTop100");
+			formObj.attr("method", "get");
+			formObj.submit();
 		});
 
 	});
