@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /*@RequestMapping("/chat/*")*/
 public class ChatController {
 
-	/*@RequestMapping(value = "/chatListServlet", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/ownInfo", method = RequestMethod.POST)
 	public void sampleBoard() throws Exception {
 		
 	}*/

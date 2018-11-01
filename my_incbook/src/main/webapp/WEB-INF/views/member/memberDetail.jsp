@@ -13,7 +13,7 @@
 						<form action="" method="post" class="validationForm">
 							<div class="account__form">
 								<div class="input__box sign__up__form">
-									<label for="login_id"">아이디 <span>*</span></label>
+									<label for="login_id">아이디 <span>*</span></label>
 									<input style="width:60%" validationText="아이디" type="text" 
 											id="login_id" name="loginId" class="doubleCheckSync" value="${login.loginId}">
 								</div>

@@ -62,8 +62,9 @@
 </footer>
 <!-- //Footer Area -->
 <!-- QUICKVIEW PRODUCT -->
+<!-- 
 <div id="quickview-wrapper">
-	<!-- Modal -->
+	Modal
 	<div class="modal fade" id="productmodal" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal__container" role="document">
 			<div class="modal-content">
@@ -75,14 +76,14 @@
 				</div>
 				<div class="modal-body">
 					<div class="modal-product">
-						<!-- Start product images -->
+						Start product images
 						<div class="product-images">
 							<div class="main-image images">
 								<img alt="big images"
 									src="/resources/images/product/big-img/1.jpg">
 							</div>
 						</div>
-						<!-- end product images -->
+						end product images
 						<div class="product-info">
 							<h1>Simple Fabric Bags</h1>
 							<div class="rating__and__review">
@@ -151,7 +152,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
 
