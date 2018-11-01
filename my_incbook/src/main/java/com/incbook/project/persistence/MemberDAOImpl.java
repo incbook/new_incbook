@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.PartyVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -35,6 +36,16 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void memberModify(Map<String, Object> vo) throws Exception {
 		sqlSession.update(namespace+".memberModify", vo);
+	}
+
+	@Override
+	public void memberDelete(PartyVO vo) throws Exception {
+		sqlSession.delete(namespace+".memberDelete", vo);
+	}
+
+	@Override
+	public MemberVO checkPassword(MemberVO vo) {
+		return sqlSession.selectOne(namespace+".passwordCheck", vo);
 	}
 	
 }

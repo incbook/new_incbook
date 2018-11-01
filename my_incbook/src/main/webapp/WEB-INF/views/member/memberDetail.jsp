@@ -56,6 +56,7 @@
 							
 								<div class="form__btn">
 										<button class="memberModify" type="button">회원정보수정</button>
+										<button class="memberDelete" type="button">회원탈퇴</button>
 								</div>
 							</div>					
 						</form>
@@ -70,5 +71,8 @@
 <script>
 	$(".memberModify").on("click", function() {
 		self.location = "/member/memberModify";
+	});
+	$(".memberDelete").on("click", function() {
+		self.location = "/member/memberDelete";
 	});
 </script>

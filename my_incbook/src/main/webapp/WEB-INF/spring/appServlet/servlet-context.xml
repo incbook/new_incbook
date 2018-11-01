@@ -36,9 +36,13 @@
 		<interceptor>
 			<mapping path="/member/memberDetail"/>
 			<mapping path="/member/memberModify"/>
+<<<<<<< HEAD
 			<mapping path="/book/infoInsert"/>
 			<mapping path="/book/modifyPage"/>
 
+=======
+			<mapping path="/bookclub/createBookClub"/>
+>>>>>>> 7871cae9b732d51a2932fd218f4886613ff0af6c
 			<!-- ↑여기에 로그인이 필요한 페이지만 추가 -->
 			<beans:ref bean="authLoginInterceptor"/>
 		</interceptor>

@@ -23,5 +23,10 @@ public class PartyDAOImpl implements PartyDAO{
 	public void partyModify(PartyVO vo) throws Exception {
 		sqlSession.update(namespace+".partyModify", vo);
 	}
+
+	@Override
+	public void partyDelete(PartyVO vo) throws Exception {
+		sqlSession.update(namespace+".partyDelete", vo);
+	}
 	
 }

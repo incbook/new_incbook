@@ -51,5 +51,16 @@ public class MemberServiceImpl implements MemberService {
 		memberMap.put("party", pvo);
 		memberDAO.memberModify(memberMap);
 	}
-	
+
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public void memberDelete(PartyVO vo) throws Exception {
+		partyDAO.partyDelete(vo);
+		memberDAO.memberDelete(vo);
+	}
+
+	@Override
+	public MemberVO checkPassword(MemberVO vo) {
+		return memberDAO.checkPassword(vo);
+	}
 }

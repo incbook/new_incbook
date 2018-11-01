@@ -14,4 +14,7 @@
 		where id = #{id}
 	</update>
 	
+	<delete id="partyDelete">
+		delete from party where id = #{id}
+	</delete>
 </mapper>
