@@ -62,8 +62,8 @@
 </footer>
 <!-- //Footer Area -->
 <!-- QUICKVIEW PRODUCT -->
-<!-- 
 <div id="quickview-wrapper">
+<!-- 
 	Modal
 	<div class="modal fade" id="productmodal" tabindex="-1" role="dialog">
 		<div class="modal-dialog modal__container" role="document">
@@ -152,7 +152,8 @@
 			</div>
 		</div>
 	</div>
-</div> -->
+	-->
+</div> 
 <!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
 
@@ -164,6 +165,7 @@
 <script src="/resources/js/active.js"></script>
 <!-- Custom JS Files -->
 <script src="/resources/js/custom/clickPageMove.js"></script>
+<script src="/resources/js/custom/quickView.js"></script>
 
 </body>
 </html>
