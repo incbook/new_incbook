@@ -1,0 +1,1 @@
+<input type="hidden" id="checkResult" value="${result}">

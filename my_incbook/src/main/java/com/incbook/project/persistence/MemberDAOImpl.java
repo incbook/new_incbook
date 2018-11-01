@@ -42,5 +42,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public void memberDelete(PartyVO vo) throws Exception {
 		sqlSession.delete(namespace+".memberDelete", vo);
 	}
+
+	@Override
+	public MemberVO checkPassword(MemberVO vo) {
+		return sqlSession.selectOne(namespace+".passwordCheck", vo);
+	}
 	
 }

@@ -101,10 +101,39 @@ public class MemberController {
 	}
 	
 	/**
-	 * 회원 탈퇴
+	 * 회원 탈퇴 폼
 	 */						 
 	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
 	public void memberDeleteGET(Model model) throws Exception {
 		
 	}
+
+	/**
+	 * 회원 탈퇴
+	 */						 
+	@RequestMapping(value = "/memberDelete", method = RequestMethod.POST)
+	public String memberDeletePOST(PartyVO pvo, RedirectAttributes rttr) throws Exception {
+		memberService.memberDelete(pvo);
+		rttr.addFlashAttribute("memberDelete", "success");
+		return "redirect:/";
+	}
+	
+	
+	/**
+	 * 세션 정보를 토대로 회원의 아이디와 비밀번호를 체크하고 맞는지 확인
+	 */
+	@RequestMapping(value = "/passwordChecked", method = RequestMethod.GET)
+	public void passwordChecked(MemberVO vo, Model model) throws Exception {
+		MemberVO checkVO = memberService.checkPassword(vo);
+		String result = null;
+		if (checkVO == null) {
+			result = "fail";
+		} else {
+			result = "success";
+		}
+		
+		model.addAttribute("result", result);
+	}
+	
+	
 }

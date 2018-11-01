@@ -58,4 +58,9 @@ public class MemberServiceImpl implements MemberService {
 		partyDAO.partyDelete(vo);
 		memberDAO.memberDelete(vo);
 	}
+
+	@Override
+	public MemberVO checkPassword(MemberVO vo) {
+		return memberDAO.checkPassword(vo);
+	}
 }

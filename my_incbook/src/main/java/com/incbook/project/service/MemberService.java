@@ -1,7 +1,5 @@
 package com.incbook.project.service;
 
-import java.util.Map;
-
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.PartyVO;
 
@@ -16,4 +14,6 @@ public interface MemberService {
 	public void memberModify(PartyVO pvo, MemberVO mvo) throws Exception;
 
 	public void memberDelete(PartyVO pvo) throws Exception;
+
+	public MemberVO checkPassword(MemberVO vo);
 }
