@@ -340,3 +340,4 @@
 <script src="/resources/js/custom/quickView.js"></script>
 
 
+<%@include file="../include/footer.jsp"%>

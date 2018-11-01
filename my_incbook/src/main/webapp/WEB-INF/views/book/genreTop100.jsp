@@ -96,7 +96,7 @@
 											<li>$35.00</li>
 											<li class="old_prize">$35.00</li>
 										</ul>
-										<div class="action">
+										<div class="action" quickId="${BookVO.id}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
 													<li><a class="cart" href="cart.html"> <i
@@ -230,9 +230,7 @@
 	</div>
 </div>
 </div>
+
 <!--  여기야 -->
 
 <%@include file="../include/footer.jsp"%>
-<script>
-	
-</script>
