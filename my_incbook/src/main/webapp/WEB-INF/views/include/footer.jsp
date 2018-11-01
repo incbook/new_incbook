@@ -172,11 +172,11 @@
 				$('#searchBtn').on(
 						"click",
 						function() {
-							self.location = "/book/newBookChart?"
-								+ "&searchType="
-								+ $("select option:selected").val()
-								+ "&keyword="
-								+ encodeURIComponent($('#keywordInput')
+							self.location = "/book/search?"
+									+ "&searchType="
+									+ $("select option:selected").val()
+									+ "&keyword="
+									+ encodeURIComponent($('#keywordInput')
 											.val());
 						});
 
@@ -191,7 +191,7 @@
 						});
 					});
 				});
- 				$(function() {
+				$(function() {
 					$('#list2').hide();
 					$('.hover2').mouseenter(function() {
 						$('#list2').show();
@@ -201,7 +201,8 @@
 							$('#list2').hide();
 						});
 					});
-				}); 
- 				
+				});
+
 			});
+
 </script>

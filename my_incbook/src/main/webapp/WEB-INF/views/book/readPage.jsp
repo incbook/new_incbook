@@ -1,10 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>            
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<%@ page import="com.incbook.project.domain.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<%@include file="../include/header.jsp"%>
+
+
+
+<form role="form" method="post">
+	<input type='hidden' name='id' value='${findBookByID2.id}'>
+</form>
+<section class="my_account_area pt--80 pb--55 bg--white">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12"></div>
+			<div class="col-lg-12 col-12">
+				<div class="my__account__wrapper">
+					<h3 class="account__title">도서 상세정보</h3>
+
+					<form role="form" method="get">
+						<div class="account__form">
+							<div class="input__box">
+								<label for="title">제목 <span>*</span></label> <input type="text"
+									name="title" value="${findBookByID2.title}" readonly="readonly">
+							</div>
+
+							<div class="input__box">
+								<label for="genre">장르 <span>*</span></label> <input type="text"
+									name="genre" value="${findBookByID2.genre}" readonly="readonly">
+							</div>
+							<div class="input__box">
+								<label for="writer">저자 <span>*</span></label> <input type="text"
+									name="writer" value="${findBookByID2.writer}"
+									readonly="readonly">
+							</div>
+
+							<div class="input__box">
+								<label for="publisher">출판사 <span>*</span></label> <input
+									type="text" name="publisher" value="${findBookByID2.publisher}"
+									readonly="readonly">
+							</div>
+
+							<div class="input__box">
+								<label for="content">줄거리 <span>*</span></label>
+								<textarea name="content" rows="3" readonly="readonly">${findBookByID2.content} </textarea>
+
+							</div>
+
+							<div class="input__box">
+								<label for="image">이미지 <span>*</span></label> <input type="text"
+									name="image" value="${findBookByID2.image}" readonly="readonly">
+							</div>
+
+							<div class="input__box">
+								<label for="finalUpdateMemberId">최종수정자 <span>*</span></label> <input
+									type="text" name="finalUpdateMemberId"
+									value="${findBookByID2.finalUpdateMemberId}"
+									readonly="readonly">
+							</div>
+
+						<div>
+							<button type="button" id="modify">수정</button>
+							<button type="button" id="golist">목록가기</button>
+						</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<form role="form" action="modifyPage" method="post">
+
+	<input type="hidden" name='id' value="${findBookByID2.id}"> 
+	<input type="hidden" name='page' value="${cri.page}"> 
+	<input type="hidden" name='pagesize' value="${cri.pagesize}">
+
+</form>
+
+<%@include file="../include/footer.jsp"%>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		var formObj = $("form[role='form']");
@@ -14,87 +91,10 @@
 			formObj.attr("method", "get");
 			formObj.submit();
 		});
-		
-		$("#remove").on("click", function() {
-			formObj.attr("action", "/book/removePage");
-			formObj.submit();
-		});
-		
+
 		$("#golist").on("click", function() {
-			formObj.attr("action", "/book/allTop100");
-			formObj.attr("method", "get");
-			formObj.submit();
-			
+			history.go(-1);
 		});
 
 	});
 </script>
-<title>INCBOOK</title>
-</head>
-<body>
-	<form role="form" method="post">
-		<input type='hidden' name='id' value='${bookVO.id}'>
-	</form>
-	<div>
-		<button type="submit" id="modify">Modify</button>
-		<button type="submit" id="remove">Remove</button>
-		<button type="submit" id="golist">Go List</button>
-	</div>
- 	<form role="form" method="post">
-		<input type='hidden' name='id' value='${bookVO.id}'>
-	</form>
-	<div>
-		제목 <input type="text" name="title" value="${bookVO.title}"
-			readonly="readonly">
-	</div>
-	<div>
-		장르 <input type="text" name="genre" value="${bookVO.genre}"
-			readonly="readonly">	</div>
-	<div>
-		저자 <input type="text" name="writer" value="${bookVO.writer}"
-			readonly="readonly">
-	</div> 
-	<div>
-		출판사 <input type="text" name="publisher" value="${bookVO.publisher}"
-			readonly="readonly">
-	</div> 
-	<div>
-		평점 <input type="text" name="averageScore" value="${bookVO.averageScore}"
-			readonly="readonly">
-	</div> 
-	<div>
-		등록일 <input type="text" name="regdate" value="${bookVO.regdate}"
-			readonly="readonly">
-	</div> 
-	<div>
-		최종수정일 <input type="text" name="updateDate" value="${bookVO.updateDate}"
-			readonly="readonly">
-	</div> 
-	<div>
-		최종수정자 <input type="text" name="finalUpdateMemberId" value="${bookVO.finalUpdateMemberId}"
-			readonly="readonly">
-	</div> 
-	<div>
-		줄거리 <textarea name="content" rows="3" readonly="readonly">${bookVO.content} </textarea>
-
-	</div> 
-	<div>
-		이미지 <input type="text" name="image" value="${bookVO.image}"
-			readonly="readonly">
-	</div> 
-	<div>
-		조회수 <input type="text" name="viewCount" value="${bookVO.viewCount}"
-			readonly="readonly">
-	</div> 
-
-	<form role="form" action="modifyPage" method="post">
-	
-		<input type="hidden" name='id' value="${bookVO.id}">
-		<input type="hidden" name='page' value="${cri.page}">
-		<input type="hidden" name='pagesize' value="${cri.pagesize}">
-		
-	</form>
-	
-
-</body>
-</html>

@@ -2,7 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 
+
+<title>INCBOOK</title>
 <style>
 .hover1 .gr03 .gg li {
 	padding: 3px 12px;
@@ -16,7 +19,6 @@
 </style>
 
 <%@include file="../include/header.jsp"%>
-
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--6">
 	<div class="container">
@@ -137,20 +139,20 @@
 							<ul class="wn__pagination">
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="search${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+										href="genreTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
 								</c:if>
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="search${pageMaker.makeSearch(idx)}">${idx}</a>
+										<a href="genreTop100${pageMaker.makeSearch(idx)}">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="search${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+										href="genreTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
 								</c:if>
 
 							</ul>
@@ -205,20 +207,20 @@
 							<ul class="wn__pagination">
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="search${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+										href="genreTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
 								</c:if>
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="search${pageMaker.makeSearch(idx)}">${idx}</a>
+										<a href="genreTop100${pageMaker.makeSearch(idx)}">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="search${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+										href="genreTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
 								</c:if>
 
 							</ul>
@@ -229,6 +231,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <!--  여기야 -->
 
