@@ -67,7 +67,9 @@
 
 							<div class="input__box">
 								<label for="finalUpdateMemberId">최종수정자 <span>*</span></label> <input
-									type="text" id="finalUpdateMemberId" name="finalUpdateMemberId">
+									type="hidden" id="finalUpdateMemberId" name="finalUpdateMemberId" value = "${login.id}">
+									 <input
+									type="text"  value = "${login.nickname}" readonly>
 							</div>
 
 							<!-- <input type="submit" title="로그인" value="로그인"> -->

@@ -87,8 +87,7 @@ public class BookController {
 	}
 	
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(BookVO vo, PageCriteria cri, RedirectAttributes rttr) throws Exception {
-
+	public String modifyPagingPOST(BookVO vo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		bookService.updateBook(vo);
 		System.out.println(vo);
 		rttr.addAttribute("id",vo.getId());
@@ -100,7 +99,7 @@ public class BookController {
 
 	// id를 바탕으로 책정보 가져오기
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") PageCriteria cri, Model model)
+	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") SearchCriteria cri, Model model)
 			throws Exception {
 		model.addAttribute("modifyTarget", bookService.findBookByID(id));
 

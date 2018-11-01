@@ -109,7 +109,7 @@
 	<update id="updateBook">
 		update book set title = #{title}, genre = #{genre},
 		writer = #{writer}, publisher = #{publisher}
-		, content = #{content}
+		, content = #{content}, image = #{image}
 		where id = #{id}
 	</update>
 
