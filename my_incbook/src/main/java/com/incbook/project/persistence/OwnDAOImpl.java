@@ -1,5 +1,7 @@
 package com.incbook.project.persistence;
 
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,5 +20,10 @@ public class OwnDAOImpl implements OwnDAO{
 	@Override
 	public OwnVO findOwnByID(OwnVO vo) throws Exception {
 		return sqlSession.selectOne(namespace+".findOwnByID", vo);
+	}
+
+	@Override
+	public void ownInsert(Map<String, Object> ownMap) {
+		sqlSession.insert(namespace + ".ownInsert", ownMap);
 	}
 }

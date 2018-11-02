@@ -40,7 +40,6 @@
 		order by view_count desc
 		limit #{pageStart},#{pagesize}
 		]]>
-
 	</select>
 
 	<select id="newBookChartList" resultType="com.incbook.project.domain.BookVO">
@@ -51,7 +50,6 @@
 		order by id desc
 		limit #{pageStart},#{pagesize}
 		]]>
-
 	</select>
 
 	<select id="searchList" resultType="com.incbook.project.domain.BookVO">
@@ -104,7 +102,7 @@
 		]]>
 	</select>
 	
-	<insert id="createbookInfo">
+	<insert id="createbookInfo" useGeneratedKeys="true" keyProperty="id">
 		insert into book (title, genre, writer, publisher,
 		content, image, final_update_member_id)
 		values
