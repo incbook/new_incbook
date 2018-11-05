@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.RealationVO;
 
 @Repository
 public class RealationDAOImpl implements RealationDAO{
@@ -14,5 +15,9 @@ public class RealationDAOImpl implements RealationDAO{
 	
 	private static final String namespace = "my_incbook.mapper.realationMapper";
 
-	
+	@Override
+	public void realationInsert(RealationVO rvo) {
+		sqlSession.insert(namespace + ".realationInsert", rvo);
+	}
+
 }

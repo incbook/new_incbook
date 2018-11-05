@@ -49,7 +49,8 @@ $(function() {
 			return;
 		}
 		alert("정상적으로 입력되었습니다.");
-		validationForm.attr("method", "post")
+		
+		validationForm.attr("method", "POST");
 		validationForm.submit();
 	});
 	
