@@ -30,6 +30,9 @@
 		request.setAttribute("book_img_url", "C:/book/");
 	%>
 
+	
+	<!-- Jquery js -->
+	<script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 	<!-- Main wrapper -->
@@ -64,8 +67,8 @@
 										<ul class="item item03">
 											<li class="title">Categories</li>
 											<li><a href="/book/infoInsert">도서 상세정보 등록</a></li>
-											<li><a href="/own/ownInsert?isRent='가능'">대여도서 등록</a></li>
-											<li><a href="/own/ownInsert?isSell='가능'">판매도서 등록 </a></li>
+											<li><a href="/own/ownInsert?isRent='가능'&isSell='불가능'">대여도서 등록</a></li>
+											<li><a href="/own/ownInsert?isRent='불가능'&isSell='가능'">판매도서 등록 </a></li>
 											<li><a href="/own/ownInsert?isRent='가능'&isSell='가능'">대여&판매 동시가능 도서 등록 </a></li>
 										</ul>
 

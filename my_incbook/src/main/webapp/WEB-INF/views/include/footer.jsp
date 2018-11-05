@@ -68,7 +68,6 @@
 <!-- //Main wrapper -->
 
 <!-- JS Files -->
-<script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
 <script src="/resources/js/popper.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
 <script src="/resources/js/plugins.js"></script>
