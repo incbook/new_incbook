@@ -27,7 +27,7 @@
 						<div class="account__form">
 							<div class="input__box">
 								<label for="title">제목 <span>*</span></label>
-								<input style="width:60%"  type="text" id="title" name="title" validationText="제목">
+								<input style="width:60%"  type="text" id="title" name="title" validationText="제목" readonly>
 								<input type="hidden" id="book_id" name="bookId" value="">
 								
 								<span class="form__btn">
@@ -53,7 +53,7 @@
 
 								<div class="input__box">
 									<label for="selectPeriod">대여기간 <span>*</span></label>
-									<input type="text" id="selectPeriod" name="selectPeriod" validationText="대여기간">
+									<input type="number" id="selectPeriod" name="selectPeriod" validationText="대여기간">
 								</div>
 	
 								<div class="input__box">
@@ -101,20 +101,14 @@ $(function(){
     });
 
     function book_select() {
-    	var title = $("#title").val();
-    	if (title == null || title == "") {
-    		alert("제목을 입력해주세요");
-    	} else {
-    		var width = (window.screen.width * 3 / 5);
-    		var height = (window.screen.height * 3 / 5);
-    		var left = (window.screen.width / 2)-(width / 2);
-    		var top =  (window.screen.height / 2)-(height / 2);
-    		
-    		window.name = "ownForm";
-    		window.open('/own/searchBook?searchType=title&keyword='+title, 'searchBook', 
-    				'width='+width+', height='+height+', menubar=no, status=no, toolbar=no, left='+left+', top='+top);
-
-    	}
+   		var width = (window.screen.width * 3 / 5);
+   		var height = (window.screen.height * 3 / 5);
+   		var left = (window.screen.width / 2) - (width / 2);
+   		var top =  (window.screen.height / 2) - (height / 2);
+   		 
+   		window.name = "ownForm";
+   		window.open('/own/searchBook?searchType=title&keyword=', 'searchBook', 
+   				'width='+width+', height='+height+', menubar=no, status=no, toolbar=no, left='+left+', top='+top);
     }
 });
 

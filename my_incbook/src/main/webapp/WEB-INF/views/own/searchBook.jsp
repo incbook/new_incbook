@@ -27,14 +27,22 @@
 		
 		<script>
 			$(function() {
+				var opener_url = window.opener.document.URL;
 				$(".selector").on("click", function() {
-					var book_id = $(this).attr("book_id");
-					var book_title = $(this).attr("book_title");
-					 opener.document.getElementById("title").value = book_title;
-					 opener.document.getElementById("book_id").value = book_id;
-					 
-					 window.close();
+					var opener_url_new = window.opener.document.URL;
+					
+					if (opener_url != opener_url_new || !opener) {
+						window.close();
+					} else {
+						var book_id = $(this).attr("book_id");
+						var book_title = $(this).attr("book_title");
+						opener.document.getElementById("title").value = book_title;
+						opener.document.getElementById("book_id").value = book_id;
+						 
+						window.close();
+					}
 				});
+				
 			});
 		</script>
 	</head>
@@ -45,7 +53,16 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<h3># 도서 검색</h3>
+						<h3 style="width:60%"># 도서 검색</h3>
+						<div class="input__box">
+							<form class="account__form" style="text-align:center;">
+								<span class="form__btn">
+									<input type="text" name="keyword" id="keyword" style="width:400px; height:40px;">
+									<input type="hidden" name="searchType" id="searchType" value="${cri.searchType}">
+									<button type="submit" id="search">검색</button>
+								</span>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -63,7 +80,7 @@
 									<th scope="col">출판사</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody id="ajax_book_list">
 								<c:forEach items="${list}" var="book">
 									<tr class="account__form" val="22">
 										<th scope="row">1</th>

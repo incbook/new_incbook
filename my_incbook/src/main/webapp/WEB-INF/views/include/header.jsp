@@ -29,6 +29,10 @@
 	<!-- Jquery js -->
 	<script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
 	
+	<!-- url경로 -->
+	<%
+		request.setAttribute("book_img_url", "C:/book/");	
+	%>
 </head>
 <body>
 	<!-- Main wrapper -->

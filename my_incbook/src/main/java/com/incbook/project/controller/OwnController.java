@@ -54,7 +54,7 @@ public class OwnController {
 	}
 	
 	@RequestMapping(value = "/searchBook", method = RequestMethod.GET)
-	public void searchBookPOST(Model model, RealationVO rvo, OwnVO ovo, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
+	public void searchBookGET(Model model, RealationVO rvo, OwnVO ovo, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
 		model.addAttribute("list", bookService.searchList(cri));
 		
 		PageMaker pageMaker = new PageMaker();
@@ -64,9 +64,4 @@ public class OwnController {
 		model.addAttribute("pageMaker", pageMaker);
 		
 	}
-	
-	
-	
-	
-
 }
