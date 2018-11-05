@@ -25,6 +25,11 @@
 	
 	<!-- Modernizer js -->
 	<script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
+
+	<%
+		request.setAttribute("book_img_url", "C:/book/");
+	%>
+
 	
 	<!-- Jquery js -->
 	<script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
@@ -44,7 +49,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="http://www.naver.com"> <!-- 로고 누르면 index로 경로설정 -->
+							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
 							<img src="/resources/images/logo/logo.png" alt="logo images">
 							</a>
 						</div>

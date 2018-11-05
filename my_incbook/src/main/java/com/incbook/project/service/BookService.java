@@ -2,6 +2,8 @@ package com.incbook.project.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagecriteria.PageCriteria;
@@ -35,5 +37,7 @@ public interface BookService {
 	public List<BookVO> genreTop100List(PageCriteria cri) throws Exception;
 
 	public int genreListCount(PageCriteria cri) throws Exception;
+
+	public String restore(MultipartFile file, BookVO vo) throws Exception;
 
 }

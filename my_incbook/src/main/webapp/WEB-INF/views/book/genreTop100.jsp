@@ -2,10 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ page session="false"%>
 
-
-<title>INCBOOK</title>
 <style>
 .hover1 .gr03 .gg li {
 	padding: 3px 12px;
@@ -82,10 +79,10 @@
 
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"> <img
-											src="/resources/images/books/1.jpg" alt="product image">
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351>
 										</a> <a class="second__img animation1"
-											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'>
-											<img src="/resources/images/books/2.jpg" alt="product image">
+											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=genre'>
+											<img src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351>
 										</a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
@@ -99,7 +96,7 @@
 											<li>$35.00</li>
 											<li class="old_prize">$35.00</li>
 										</ul>
-										<div class="action" quickId="${BookVO.id}">
+										<div class="action" quickId="${BookVO.id}" quickPrePage="genre" page="${pageMaker.cri.page}" keyword="${BookVO.genre}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
 													<li><a class="cart" href="cart.html"> <i
@@ -167,10 +164,10 @@
 								<div class="list__view">
 
 									<div class="thumb">
-										<a class="first__img" href="single-product.html"><img
-											src="/resources/images/product/1.jpg" alt="product images"></a>
-										<a class="second__img animation1" href="single-product.html"><img
-											src="/resources/images/product/2.jpg" alt="product images"></a>
+										<a class="first__img" href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=genre'><img
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351></a>
+										<a class="second__img animation1" href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=genre'><img
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351></a>
 									</div>
 									<div class="content">
 										<h2>
