@@ -1,5 +1,8 @@
 package com.incbook.project.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
@@ -43,11 +46,15 @@ public class OwnController {
 	
 	@RequestMapping(value = "/ownInsert", method = RequestMethod.GET)
 	public void ownInsertGET(Model model, OwnVO vo) throws Exception {
+		System.out.println("bbbbb");
 		model.addAttribute("own", vo);
 	}
 
 	@RequestMapping(value = "/ownInsert", method = RequestMethod.POST)
-	public String ownInsertPOST(Model model, RealationVO rvo, OwnVO ovo) throws Exception {
+	public String ownInsertPOST(Model model, RealationVO rvo, OwnVO ovo, String date) throws Exception {
+		Date rentAvailable = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+		System.out.println(ovo);
+		ovo.setRentAvailable(rentAvailable);
 		ownService.ownInsert(rvo, ovo);
 		
 		return "redirect:/";

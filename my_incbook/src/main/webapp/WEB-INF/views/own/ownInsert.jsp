@@ -4,6 +4,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@include file="../include/header.jsp"%>
 
+<c:if test="${not(own.isRent eq '가능' and own.isSell eq '불가능'
+			 		or own.isRent eq '불가능' and own.isSell eq '가능' 
+			 		or own.isRent eq '가능' and own.isSell eq '가능')}">
+	<script>
+		alert("정상적인 경로로 접속 해주시기 바랍니다.");
+		self.location="/";
+	</script>
+</c:if>
+
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
@@ -20,14 +29,15 @@
 						<h3 class="account__title">대여&판매 도서등록</h3>
 					</c:if>
 					
-					<form action="" method="post" class="validationForm">
-						<input type="hidden" name="isRent" value="${isRent}">
-						<input type="hidden" name="isSell" value="${isSell}">
+					<form action="/own/ownInsert" method="POST" class="validationForm">
+						<input type="hidden" name="isRent" value="${own.isRent}">
+						<input type="hidden" name="isSell" value="${own.isSell}">
+						<input type="hidden" name="memberId" value="${login.id}">
 						
 						<div class="account__form">
 							<div class="input__box">
 								<label for="title">제목 <span>*</span></label>
-								<input style="width:60%"  type="text" id="title" name="title" validationText="제목" readonly>
+								<input style="width:60%"  type="text" id="title" validationText="제목" readonly>
 								<input type="hidden" id="book_id" name="bookId" value="">
 								
 								<span class="form__btn">
@@ -58,7 +68,7 @@
 	
 								<div class="input__box">
 									<label for="rentAvailable">대여 가능기간<span>*</span></label>
-									<input type="date" id="rentAvailable" name="rentAvailable" validationText="대여 가능기간">
+									<input type="date" id="rentAvailable" name="date" validationText="대여 가능기간">
 								</div>
 							</c:if>
 
