@@ -7,10 +7,6 @@
 <%@include file="../include/header.jsp"%>
 
 
-
-<form role="form" method="post">
-	<input type='hidden' name='id' value='${findBookByID2.id}'>
-</form>
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
@@ -60,10 +56,18 @@
 									readonly="readonly">
 							</div>
 
-						<div>
-							<button type="button" id="modify">수정</button>
-							<button type="button" id="golist">목록가기</button>
-						</div>
+							<div>
+								<button type="button" id="modify">수정</button>
+								<c:if test="${prePage == 'top'}">
+									<button type="button" id="top">목록가기</button>
+								</c:if>
+								<c:if test="${prePage == 'new'}">
+									<button type="button" id="new">목록가기</button>
+								</c:if>
+								<c:if test="${prePage == 'genre'}">
+									<button type="button" id="genre">목록가기</button>
+								</c:if>
+							</div>
 						</div>
 					</form>
 				</div>
@@ -72,11 +76,13 @@
 	</div>
 </section>
 
-<form role="form" action="modifyPage" method="post">
+<form role="form">
 
 	<input type="hidden" name='id' value="${findBookByID2.id}"> 
 	<input type="hidden" name='page' value="${cri.page}"> 
 	<input type="hidden" name='pagesize' value="${cri.pagesize}">
+	<input type="hidden" name='keyword' value="${cri.keyword}"> 
+	
 
 </form>
 
@@ -84,7 +90,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		var formObj = $("form[role='form']");
+		var formObj = $("[role]");
 		console.log(formObj);
 		$("#modify").on("click", function() {
 			formObj.attr("action", "/book/modifyPage");
@@ -92,8 +98,20 @@
 			formObj.submit();
 		});
 
-		$("#golist").on("click", function() {
+		$("#top").on("click", function() {
 			formObj.attr("action", "/book/allTop100");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+		
+		$("#new").on("click", function() {
+			formObj.attr("action", "/book/newBookChart");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+		
+		$("#genre").on("click", function() {
+			formObj.attr("action", "/book/genreTop100");
 			formObj.attr("method", "get");
 			formObj.submit();
 		});

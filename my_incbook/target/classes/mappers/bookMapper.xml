@@ -103,8 +103,8 @@
 		where genre = #{keyword}
 		]]>
 	</select>
-	
-	<insert id="createbookInfo">
+	<!-- useGeneratedKeys="true" keyProperty="id" 이걸 쓰면 오토인크리먼트로 지정된 db컬넘은 insert 후 select를 하지 않고도 그 값이 전달된다 -->
+	<insert id="createbookInfo" useGeneratedKeys="true" keyProperty="id">
 		insert into book (title, genre, writer, publisher,
 		content, image, final_update_member_id)
 		values

@@ -75,10 +75,10 @@
 
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"> <img
-											src="/resources/images/books/1.jpg" alt="product image">
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351>
 										</a> <a class="second__img animation1"
-											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'>
-											<img src="/resources/images/books/2.jpg" alt="product image">
+											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top'>
+											<img src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351>
 										</a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
@@ -92,7 +92,7 @@
 											<li>$35.00</li>
 											<li class="old_prize">$35.00</li>
 										</ul>
-										<div class="action" quickId="${BookVO.id}">
+										<div class="action" quickId="${BookVO.id}" quickPrePage="top" page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
 													<li><a class="cart" href="cart.html"> <i
@@ -160,10 +160,10 @@
 
 									<div class="thumb">
 										<a class="first__img" href="single-product.html"><img
-											src="/resources/images/product/1.jpg" alt="product images"></a>
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351></a>
 										<a class="second__img animation1"
-											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}"><img
-											src="/resources/images/product/2.jpg" alt="product images"></a>
+											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top"><img
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351></a>
 									</div>
 									<div class="content">
 										<h2>
@@ -225,7 +225,6 @@
 	</div>
 </div>
 
-<<<<<<< HEAD
 
 
 <!-- //Footer Area -->
@@ -328,16 +327,5 @@
 	<!-- //Main wrapper -->
 	<!--  여기야 -->
 
-	<%@include file="../include/footer.jsp"%>
-	<script>
-		
-	</script>
-=======
-	<div id="quickview-wrapper">
-		
-	</div>
 <%@include file="../include/footer.jsp"%>
-<script src="/resources/js/custom/quickView.js"></script>
 
-
-<%@include file="../include/footer.jsp"%>
