@@ -153,15 +153,15 @@
 														</span>
 														<c:if test="${login.id == null}">
 															<span>
-																<a href="/member/signUp">Sign Up</a>
+																<a href="/member/signUp">로그인</a>
 															</span>
 															<span>
-																<a href="/member/signInForm">Sign In</a>
+																<a href="/member/signInForm">회원가입</a>
 															</span>
 														</c:if>
 														<c:if test="${login.id != null}">
 															<span>
-																<a href="/member/signOut">Sign Out</a>
+																<a href="/member/signOut">로그아웃</a>
 															</span> 
 															<span>
 																<a href="/member/memberDetail">회원상세정보</a>
