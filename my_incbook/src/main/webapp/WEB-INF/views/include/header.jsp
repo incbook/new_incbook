@@ -40,6 +40,10 @@
 	%>
 </head>
 <body>
+<input type="hidden" value="${loginTry}" id="loginTry"/>
+<input type="hidden" value="${logoutTry}" id="logoutTry"/>
+<input type="hidden" value="${loginAuth}" id="loginAuth"/>
+
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->

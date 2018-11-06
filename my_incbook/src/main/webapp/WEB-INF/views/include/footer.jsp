@@ -67,12 +67,8 @@
 <!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
 
-<div id="pop">
-	<div style="height:370px;">
-		안녕하세요 늑대털쓴양입니다.<br>
-		<a href=""><b>팝업강좌 바로가기</b></a>
-    	<div id="close" style="width:100px; margin:auto;">close</div>
-    </div>
+<div id="logIO_footer" class="alert-secondary jbMenu">
+  <p>브라우저 아래에 고정되는 footer부분</p>
 </div>
 
 
@@ -88,8 +84,7 @@
 </body>
 </html>
 <script>
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
 				$('#searchBtn').on(
 						"click",
 						function() {
@@ -123,10 +118,36 @@
 						});
 					});
 				});
+				
+				var loginTry = $("#loginTry").val();
+				var logoutTry = $("#logoutTry").val();
+				var loginAuth = $("#loginAuth").val();
+				
+				if (loginTry == "fail") {
+					alert("아이디 또는 비밀번호를 확인해주세요");
+				} else if (loginTry == "success") {
+					logIO_footer_appear("로그인 하셨습니다.");
+				}
+				
+				if (logoutTry == "success") {
+					logIO_footer_appear("로그아웃 하셨습니다.");
+				}
+				
+				
+				if (loginAuth == "fail") {
+					alert("로그인해야 이용할 수 있는 페이지 입니다.");
+				}
+				
+				
+				function logIO_footer_appear(text) {
+					$("#logIO_footer p").html(text);
+					$("#logIO_footer").fadeIn(3000);
+					setTimeout(function() {
+						$("#logIO_footer").fadeOut(3000);
+					},3000);
+				}
 			});
-		    $('#close').click(function() {
-		    	$('#pop').hide();
-		    });
-		    var height = window.screen.height;
-
+	
+	
 </script>
+

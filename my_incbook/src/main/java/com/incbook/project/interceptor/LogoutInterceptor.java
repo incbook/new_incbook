@@ -5,8 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.ModelMap;
+import org.springframework.web.servlet.FlashMap;
+import org.springframework.web.servlet.FlashMapManager;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 public class LogoutInterceptor extends HandlerInterceptorAdapter {
 	private static final String LOGIN = "login";
@@ -32,8 +35,17 @@ public class LogoutInterceptor extends HandlerInterceptorAdapter {
 			ModelAndView modelAndView) throws Exception {
 		HttpSession session = request.getSession();
 
-		// 세션에 담을 정보 (member정보)가 있을 때 세션 생성
-		//			response.sendRedirect("/"); // 홈으로
+		/* 
+		 * 잘은 모르겠지만 인터셉터에서는 Override를 통해 매개변수가 정해져있어서
+		 * RedirectAttributes을 만들 수 없기 때문에
+		 * redirect시 1회성 값을 전달 할 수가 없었는데
+		 * FlashMap을 이용해 가능케 함
+		*/
+		FlashMap flashMap = new FlashMap();
+		flashMap.put("logoutTry", "success");
+		FlashMapManager flashMapManager = RequestContextUtils.getFlashMapManager(request);
+		flashMapManager.saveOutputFlashMap(flashMap, request, response);
+		
 		Object dest = session.getAttribute("dest");
 		response.sendRedirect(dest != null ? (String)dest : "/"); // 이전페이지, 없으면 홈
 
