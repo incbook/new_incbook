@@ -41,7 +41,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			session.setAttribute(LOGIN, member);
 //			response.sendRedirect("/"); // 홈으로
 			Object dest = session.getAttribute("dest");
-			System.out.println((String)dest);
 			response.sendRedirect(dest != null ? (String)dest : "/"); // 이전페이지, 없으면 홈
 		}
 		

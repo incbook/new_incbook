@@ -38,3 +38,15 @@ h1 {
 	text-align: center;
 }
 
+#pop {
+    width: 200px;
+    height: 100px;
+    background: #3d3d3d;
+    color: #fff;
+    position: absolute;
+    top: 89.6%;
+    left: 45%;
+    text-align: center;
+    border: 2px solid #000;
+}
+

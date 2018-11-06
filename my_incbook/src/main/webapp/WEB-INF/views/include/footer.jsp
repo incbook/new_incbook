@@ -67,6 +67,15 @@
 <!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
 
+<div id="pop">
+	<div style="height:370px;">
+		안녕하세요 늑대털쓴양입니다.<br>
+		<a href=""><b>팝업강좌 바로가기</b></a>
+    	<div id="close" style="width:100px; margin:auto;">close</div>
+    </div>
+</div>
+
+
 <!-- JS Files -->
 <script src="/resources/js/popper.min.js"></script>
 <script src="/resources/js/bootstrap.min.js"></script>
@@ -115,5 +124,9 @@
 					});
 				});
 			});
+		    $('#close').click(function() {
+		    	$('#pop').hide();
+		    });
+		    var height = window.screen.height;
 
 </script>
