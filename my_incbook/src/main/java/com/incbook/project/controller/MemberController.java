@@ -38,6 +38,11 @@ public class MemberController {
 		}
 		return "/index";
 	}
+
+	@RequestMapping(value = "/signOut", method = RequestMethod.GET)
+	public String signInOut() throws Exception {
+		return "/index";
+	}
 	
 	/**
 	 * 회원가입 폼

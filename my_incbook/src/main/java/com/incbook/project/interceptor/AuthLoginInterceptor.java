@@ -20,7 +20,6 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{
 		RequestDispatcher rd = request.getRequestDispatcher("/member/signInForm");
 		
 		if (session.getAttribute("login") == null) {
-			request.setAttribute("loginAuth", "fail");
 			rd.forward(request, response);
 			return false;
 		}
