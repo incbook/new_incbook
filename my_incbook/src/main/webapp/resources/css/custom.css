@@ -38,3 +38,19 @@ h1 {
 	text-align: center;
 }
 
+#logIO_footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:60px;
+   width:100%;
+   color: #000000;
+   display: none;
+}
+#logIO_footer p {
+   text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+   padding-top: 20px;
+}
+

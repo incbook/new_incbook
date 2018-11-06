@@ -11,8 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
-public class LoginInterceptor extends HandlerInterceptorAdapter {
+public class LogoutInterceptor extends HandlerInterceptorAdapter {
 	private static final String LOGIN = "login";
+
 	/* (non-Javadoc)
 	 * 컨트롤러 맨 앞에
 	 */
@@ -20,14 +21,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		HttpSession session = request.getSession();
-		
+
 		// 기존 세션정보 삭제
-		if (session.getAttribute(LOGIN) != null) {
-			session.removeAttribute(LOGIN);
-		}
+		session.removeAttribute(LOGIN);
 		return true;
 	}
-	
+
 	/* (non-Javadoc)
 	 * 컨트롤러 끝에 실행함
 	 */
@@ -35,27 +34,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		HttpSession session = request.getSession();
-		ModelMap modelMap = modelAndView.getModelMap();
-		Object member = modelMap.get("member");
-		
-		// 세션에 담을 정보 (member정보)가 있을 때 세션 생성
-		if (member != null) {
-			session.setAttribute(LOGIN, member);
-			Object dest = session.getAttribute("dest");
 
-			/* 
-			 * 잘은 모르겠지만 인터셉터에서는 Override를 통해 매개변수가 정해져있어서
-			 * RedirectAttributes을 만들 수 없기 때문에
-			 * redirect시 1회성 값을 전달 할 수가 없었는데
-			 * FlashMap을 이용해 가능케 함
-			*/
-			FlashMap flashMap = new FlashMap();
-			flashMap.put("loginTry", "success");
-			FlashMapManager flashMapManager = RequestContextUtils.getFlashMapManager(request);
-			flashMapManager.saveOutputFlashMap(flashMap, request, response);
-			
-			response.sendRedirect(dest != null ? (String)dest : "/"); // 이전페이지, 없으면 홈
-		}
+		/* 
+		 * 잘은 모르겠지만 인터셉터에서는 Override를 통해 매개변수가 정해져있어서
+		 * RedirectAttributes을 만들 수 없기 때문에
+		 * redirect시 1회성 값을 전달 할 수가 없었는데
+		 * FlashMap을 이용해 가능케 함
+		*/
+		FlashMap flashMap = new FlashMap();
+		flashMap.put("logoutTry", "success");
+		FlashMapManager flashMapManager = RequestContextUtils.getFlashMapManager(request);
+		flashMapManager.saveOutputFlashMap(flashMap, request, response);
 		
+		Object dest = session.getAttribute("dest");
+		response.sendRedirect(dest != null ? (String)dest : "/"); // 이전페이지, 없으면 홈
+
 	}
 }

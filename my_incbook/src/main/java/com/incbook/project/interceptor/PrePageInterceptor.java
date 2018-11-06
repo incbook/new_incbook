@@ -2,20 +2,30 @@ package com.incbook.project.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class PrePageInterceptor extends HandlerInterceptorAdapter {
+	
+	private boolean uriCheck(String uri) {
+		boolean result = true;
+		String[] uriArrs = {"/member/signInForm", "/member/signOut", "/resources/css/custom.css"};
+		for(String uriArr : uriArrs) {
+			if (uriArr.equals(uri)) {
+				result = false;
+				break;
+			}
+		}
+		return result;
+	}
 	
 	private void saveDest(HttpServletRequest req) {
 		String uri = req.getRequestURI();
 		
 		String query = req.getQueryString();
 		
-		if (!"/member/signInForm".equals(uri)) {
+		if (uriCheck(uri)) {
 			if (query == null || "null".equals(query)) {
 				query = "";
 			} else {
