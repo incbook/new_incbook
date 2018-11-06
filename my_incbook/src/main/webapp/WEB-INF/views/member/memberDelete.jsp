@@ -13,7 +13,7 @@
 				<div class="col-lg-4 col-12">
 					<div class="my__account__wrapper">
 						<h3 class="account__title">탈퇴 페이지다!!!!!</h3>
-						<form id="memberDeleteForm" action="/member/memberDelete" method="post">
+						<form id="memberDeleteForm" action="/member/memberDeletePost" method="post">
 							<div class="account__form">
 								<div class="input__box">
 									<label for="login_id">비밀번호 <span>*</span></label>
@@ -37,16 +37,24 @@
 <%@include file="../include/footer.jsp"%>
 <script> 
 	$(function() {
+		
 		$("#password").change(function() {
 			ajaxPasswordCheck();
 		});
 		$("#memberWithdrawal").on("click", function() {
 			resultActive();
 		});
+		
+		$("#password").keydown(function() {
+		    if (event.keyCode === 13) {
+		        event.preventDefault();
+				ajaxPasswordCheck();
+				resultActive();
+		    }
+		});
 	});
 	
 	function ajaxPasswordCheck() {
-		var form = $("#memberDeleteForm");
 		var id = $("#id").val();
 		var password = $("#password").val();
 		
@@ -62,10 +70,14 @@
 	}
 	
 	function resultActive() {
+		var form = $("#memberDeleteForm");
 		var checkResult = $("#checkResult").val();
 		
 		if (checkResult == "success") {
-			form.submit();
+			if(confirm("정말 탈퇴 하시겠습니까?")) {
+				alert("탈퇴 되었습니다.");
+				form.submit();
+			}
 		} else if (checkResult == "fail") {
 			alert("비밀번호를 확인해주세요");
 		}

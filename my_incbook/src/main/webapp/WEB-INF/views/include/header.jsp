@@ -161,6 +161,9 @@
 														</c:if>
 														<c:if test="${login.id != null}">
 															<span>
+																<a href="/member/signOut">Sign Out</a>
+															</span> 
+															<span>
 																<a href="/member/memberDetail">회원상세정보</a>
 															</span> 
 														</c:if>  

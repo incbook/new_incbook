@@ -111,7 +111,7 @@ public class MemberController {
 	/**
 	 * 회원 탈퇴
 	 */						 
-	@RequestMapping(value = "/memberDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/memberDeletePost", method = RequestMethod.POST)
 	public String memberDeletePOST(PartyVO pvo, RedirectAttributes rttr) throws Exception {
 		memberService.memberDelete(pvo);
 		rttr.addFlashAttribute("memberDelete", "success");
