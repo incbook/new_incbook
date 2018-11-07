@@ -40,7 +40,7 @@
 	class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
 	<div class="container">
 		<div class="row">
-		
+
 			<%@include file="chartCategories.jsp"%>
 
 			<div class="col-lg-9 col-12 order-1 order-lg-2">
@@ -80,10 +80,12 @@
 
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"> <img
-											src="/resources/images/books/1.jpg" alt="product image">
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
+											width=240 height=351>
 										</a> <a class="second__img animation1"
 											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'>
-											<img src="/resources/images/books/2.jpg" alt="product image">
+											<img src="/img/${BookVO.id}/${BookVO.image}"
+											alt="product image" width=240 height=351>
 										</a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
