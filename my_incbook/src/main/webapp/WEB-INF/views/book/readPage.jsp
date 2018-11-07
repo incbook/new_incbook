@@ -7,14 +7,13 @@
 <%@include file="../include/header.jsp"%>
 
 <form role="form">
-	<input type="hidden" name='id' value="${findBookByID2.id}"> 
-	<input type="hidden" name='page' value="${cri.page}"> 
-	<input type="hidden" name='pagesize' value="${cri.pagesize}">
-	<input type="hidden" name='keyword' value="${cri.keyword}">
-	<input type="hidden" name='prePage' value="${prePage}">
-	
-</form>
+	<input type="hidden" name='id' value="${findBookByID2.id}"> <input
+		type="hidden" name='page' value="${cri.page}"> <input
+		type="hidden" name='pagesize' value="${cri.pagesize}"> <input
+		type="hidden" name='keyword' value="${cri.keyword}"> <input
+		type="hidden" name='prePage' value="${prePage}">
 
+</form>
 <div class="ht__bradcaump__area bg-image--4">
 	<div class="container">
 		<div class="row">
@@ -22,9 +21,9 @@
 				<div class="bradcaump__inner text-center">
 					<h2 class="bradcaump-title">Shop Single</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> 
-						<span class="brd-separetor">/</span> 
-						<span class="breadcrumb_item active">Shop Single</span>
+						<a class="breadcrumb_item" href="index.html">Home</a> <span
+							class="brd-separetor">/</span> <span
+							class="breadcrumb_item active">Shop Single</span>
 					</nav>
 				</div>
 			</div>
@@ -42,69 +41,21 @@
 						<div class="col-lg-6 col-12">
 							<div class="wn__fotorama__wrapper">
 								<div class="fotorama wn__fotorama__action" data-nav="thumbs">
-									<a href="1.jpg"><img src="/img/${findBookByID2.id}/${findBookByID2.image}" style = "width:450; height:565;" alt=""></a> 
+									<a href="1.jpg"><img
+										src="/img/${findBookByID2.id}/${findBookByID2.image}"
+										style="width: 450; height: 565;" alt=""></a>
 								</div>
-			<div class="col-lg-12"></div>
-			<div class="col-lg-12 col-12">
-				<div class="my__account__wrapper">
-					<h3 class="account__title">도서 상세정보</h3>
-
-					<form role="form" method="get">
-						<div class="account__form">
-							<div class="input__box">
-								<label for="title">제목 <span>*</span></label> <input type="text"
-									name="title" value="${findBookByID2.title}" readonly="readonly">
-							</div>
-
-							<div class="input__box">
-								<label for="genre">장르 <span>*</span></label> <input type="text"
-									name="genre" value="${findBookByID2.genre}" readonly="readonly">
-							</div>
-							<div class="input__box">
-								<label for="writer">저자 <span>*</span></label> <input type="text"
-									name="writer" value="${findBookByID2.writer}"
-									readonly="readonly">
-							</div>
-
-							<div class="input__box">
-								<label for="publisher">출판사 <span>*</span></label> <input
-									type="text" name="publisher" value="${findBookByID2.publisher}"
-									readonly="readonly">
-							</div>
-
-							<div class="input__box">
-								<label for="content">줄거리 <span>*</span></label>
-								<textarea name="content" rows="3" readonly="readonly">${findBookByID2.content} </textarea>
-
-							</div>
-
-							<div class="input__box">
-								<label for="image">이미지 <span>*</span></label> <input type="text"
-									name="image" value="${findBookByID2.image}" readonly="readonly">
-							</div>
-
-							<div class="input__box">
-								<label for="finalUpdateMemberId">최종수정자 <span>*</span></label> <input
-									type="text" name="finalUpdateMemberId"
-									value="${member.nickname}"
-									readonly="readonly">
 							</div>
 						</div>
 						<div class="col-lg-6 col-12">
 							<div class="product__info__main">
 								<h3>${findBookByID2.title}</h3>
-								<br>
-								<label for="genre">장르 <span>*</span></label>${findBookByID2.genre}
-								<br>
-								<label for="writer">저자 <span>*</span></label>${findBookByID2.writer}
-								<br>
-								<label for="publisher">출판사 <span>*</span></label>${findBookByID2.publisher}
-								<br>
-								<label for="regdate">등록일 <span>*</span></label>${findBookByID2.regdate}
-								<br>
-								<label for="updateDate">수정일 <span>*</span></label>${findBookByID2.updateDate}
-								<br>
-								<label for="finalUpdateMemberId">최종수정자 <span>*</span></label>${findBookByID2.finalUpdateMemberId}
+								<br> <label for="genre">장르 <span>*</span></label>${findBookByID2.genre}
+								<br> <label for="writer">저자 <span>*</span></label>${findBookByID2.writer}
+								<br> <label for="publisher">출판사 <span>*</span></label>${findBookByID2.publisher}
+								<br> <label for="regdate">등록일 <span>*</span></label>${findBookByID2.regdate}
+								<br> <label for="updateDate">수정일 <span>*</span></label>${findBookByID2.updateDate}
+								<br> <label for="finalUpdateMemberId">최종수정자 <span>*</span></label>${member.nickname}
 								<!-- 별점 시작 -->
 								<div class="product-reviews-summary d-flex">
 									<ul class="rating-summary d-flex">
@@ -119,21 +70,20 @@
 								<!-- <div class="price-box">
 									<span>$52.00</span>
 								</div> -->
-								<br>
-								<br>
-								
-							<div>
-								<button type="button" id="modify">수정</button>
-								<c:if test="${prePage == 'top'}">
-									<button type="button" id="top">목록가기</button>
-								</c:if>
-								<c:if test="${prePage == 'new'}">
-									<button type="button" id="new">목록가기</button>
-								</c:if>
-								<c:if test="${prePage == 'genre'}">
-									<button type="button" id="genre">목록가기</button>
-								</c:if>
-							</div>
+								<br> <br>
+
+								<div>
+									<button type="button" id="modify">수정</button>
+									<c:if test="${prePage == 'top'}">
+										<button type="button" id="top">목록가기</button>
+									</c:if>
+									<c:if test="${prePage == 'new'}">
+										<button type="button" id="new">목록가기</button>
+									</c:if>
+									<c:if test="${prePage == 'genre'}">
+										<button type="button" id="genre">목록가기</button>
+									</c:if>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -273,8 +223,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/1.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/1.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/2.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">BEST SALLER</span>
@@ -320,8 +270,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/3.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/3.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/4.jpg" alt="product image"></a>
 									<div class="hot__box color--2">
 										<span class="hot-label">HOT</span>
@@ -367,8 +317,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/7.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/7.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/8.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">HOT</span>
@@ -414,8 +364,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/9.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/9.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/10.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">HOT</span>
@@ -461,8 +411,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/11.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/11.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/2.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">BEST SALER</span>
@@ -508,8 +458,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/1.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/1.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/6.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">BEST SALER</span>
@@ -565,8 +515,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/1.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/1.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/2.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">BEST SALLER</span>
@@ -612,8 +562,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/3.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/3.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/4.jpg" alt="product image"></a>
 									<div class="hot__box color--2">
 										<span class="hot-label">HOT</span>
@@ -659,8 +609,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/7.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/7.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/8.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">HOT</span>
@@ -706,8 +656,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/9.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/9.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/10.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">HOT</span>
@@ -753,8 +703,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/11.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/11.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/2.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">BEST SALER</span>
@@ -800,8 +750,8 @@
 								class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 								<div class="product__thumb">
 									<a class="first__img" href="single-product.html"><img
-										src="/resources/images/books/1.jpg" alt="product image"></a> <a
-										class="second__img animation1" href="single-product.html"><img
+										src="/resources/images/books/1.jpg" alt="product image"></a>
+									<a class="second__img animation1" href="single-product.html"><img
 										src="/resources/images/books/6.jpg" alt="product image"></a>
 									<div class="hot__box">
 										<span class="hot-label">BEST SALER</span>
@@ -848,12 +798,44 @@
 			</div>
 			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
 				<div class="shop__sidebar">
+					<aside class="wedget__categories poroduct--cat">
+						<h3 class="wedget__title">Product Categories</h3>
+						<ul>
+							<li><a href="#">장르1 <span>(3)</span></a></li>
+							<li><a href="#">장르2 <span>(4)</span></a></li>
+							<li><a href="#">장르3 <span>(6)</span></a></li>
+							<li><a href="#">장르4 <span>(7)</span></a></li>
+							<li><a href="#">장르5 <span>(8)</span></a></li>
+							<li><a href="#">장르6 <span>(9)</span></a></li>
+							<li><a href="#">장르7 <span>(13)</span></a></li>
+							<li><a href="#">장르8 <span>(20)</span></a></li>
+							<li><a href="#">장르9 <span>(22)</span></a></li>
+							<li><a href="#">장르10 <span>(13)</span></a></li>
+						</ul>
+					</aside>
+
+					<aside class="wedget__categories poroduct--tag">
+						<h3 class="wedget__title">Product Tags</h3>
+						<ul>
+							<li><a href="#">장르1 <span>(3)</span></a></li>
+							<li><a href="#">장르2 <span>(4)</span></a></li>
+							<li><a href="#">장르3 <span>(6)</span></a></li>
+							<li><a href="#">장르4 <span>(7)</span></a></li>
+							<li><a href="#">장르5 <span>(8)</span></a></li>
+							<li><a href="#">장르6 <span>(9)</span></a></li>
+							<li><a href="#">장르7 <span>(13)</span></a></li>
+							<li><a href="#">장르8 <span>(20)</span></a></li>
+							<li><a href="#">장르9 <span>(22)</span></a></li>
+							<li><a href="#">장르10 <span>(13)</span></a></li>
+						</ul>
+					</aside>
 					<aside class="wedget__categories sidebar--banner">
-						<img src="/resources/images/others/banner_left.jpg" alt="banner images">
+						<img src="/resources/images/others/banner_left.jpg"
+							alt="banner images">
 						<div class="text">
 							<h2>광고</h2>
 							<h6>
-								광고 <br> <strong>광고</strong>광고	
+								광고 <br> <strong>광고</strong>광고
 							</h6>
 						</div>
 					</aside>
@@ -878,8 +860,6 @@
 	</div>
 </div>
 
-
-
 <%@include file="../include/footer.jsp"%>
 
 <script type="text/javascript">
@@ -897,13 +877,13 @@
 			formObj.attr("method", "get");
 			formObj.submit();
 		});
-		
+
 		$("#new").on("click", function() {
 			formObj.attr("action", "/book/newBookChart");
 			formObj.attr("method", "get");
 			formObj.submit();
 		});
-		
+
 		$("#genre").on("click", function() {
 			formObj.attr("action", "/book/genreTop100");
 			formObj.attr("method", "get");

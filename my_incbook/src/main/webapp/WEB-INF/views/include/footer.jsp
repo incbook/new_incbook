@@ -66,10 +66,10 @@
 </div> 
 <!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
-
+<!-- 
 <div id="logIO_footer" class="alert-secondary jbMenu">
   <p>브라우저 아래에 고정되는 footer부분</p>
-</div>
+</div> -->
 
 
 <!-- JS Files -->
