@@ -46,7 +46,10 @@ public class BookController {
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri, String prePage) throws Exception {
 		BookVO findBookByID2 = bookService.findBookByID2(id);
+		MemberVO member = memberService.findMemberById(id);
 		model.addAttribute("findBookByID2", findBookByID2);
+		model.addAttribute("member", member);
+		
 		model.addAttribute("prePage", prePage);
 
 	}

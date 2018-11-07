@@ -53,5 +53,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO memberInfo(OwnVO vo) throws Exception {
 		return sqlSession.selectOne(namespace+".memberInfo", vo);
 	}
+
+	@Override
+	public MemberVO findMemberById(int id) throws Exception {
+		return sqlSession.selectOne(namespace + ".findMemberById", id);
+	}
 	
 }

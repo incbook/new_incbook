@@ -38,6 +38,11 @@ public class MemberController {
 		}
 		return "/index";
 	}
+
+	@RequestMapping(value = "/signOut", method = RequestMethod.GET)
+	public String signInOut() throws Exception {
+		return "/index";
+	}
 	
 	/**
 	 * 회원가입 폼
@@ -111,7 +116,7 @@ public class MemberController {
 	/**
 	 * 회원 탈퇴
 	 */						 
-	@RequestMapping(value = "/memberDelete", method = RequestMethod.POST)
+	@RequestMapping(value = "/memberDeletePost", method = RequestMethod.POST)
 	public String memberDeletePOST(PartyVO pvo, RedirectAttributes rttr) throws Exception {
 		memberService.memberDelete(pvo);
 		rttr.addFlashAttribute("memberDelete", "success");

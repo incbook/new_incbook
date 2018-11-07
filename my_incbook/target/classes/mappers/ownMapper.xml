@@ -30,4 +30,13 @@
 			on 	o.id = r.id
 		where o.id = #{id}
 	</select>
+	
+	<insert id="ownInsert" parameterType="Map">
+		insert into own (id, book_id, member_id, rent_check, state, 
+						is_rent, is_sell, fee, select_period,
+						rent_available, rent_location) 
+		values 			(#{realation.id}, #{own.bookId}, #{own.memberId}, '소유중', #{own.state}, 
+						#{own.isRent}, #{own.isSell}, #{own.fee}, #{own.selectPeriod}, 
+						#{own.rentAvailable}, #{own.rentLocation});
+	</insert>
 </mapper>
