@@ -52,7 +52,7 @@
 							<div class="input__box">
 								<label for="finalUpdateMemberId">최종수정자 <span>*</span></label> <input
 									type="text" name="finalUpdateMemberId"
-									value="${findBookByID2.finalUpdateMemberId}"
+									value="${member.nickname}"
 									readonly="readonly">
 							</div>
 
