@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <style>
@@ -75,10 +75,12 @@
 
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"> <img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351>
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
+											width=240 height=351>
 										</a> <a class="second__img animation1"
 											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top'>
-											<img src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351>
+											<img src="/img/${BookVO.id}/${BookVO.image}"
+											alt="product image" width=240 height=351>
 										</a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
@@ -86,13 +88,14 @@
 									</div>
 									<div class="product__content content--center">
 										<h4>
-											<a href="single-product.html" >${BookVO.title}</a>
+											<a href="single-product.html">${BookVO.title}</a>
 										</h4>
 										<ul class="prize d-flex">
 											<li>$35.00</li>
 											<li class="old_prize">$35.00</li>
 										</ul>
-										<div class="action" quickId="${BookVO.id}" quickPrePage="top" page="${pageMaker.cri.page}">
+										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
+											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
 													<li><a class="cart" href="cart.html"> <i
@@ -106,18 +109,55 @@
 													</a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
-														href="#productmodal"> <i class="bi bi-search" ></i>
+														href="#productmodal"> <i class="bi bi-search"></i>
 													</a></li>
 												</ul>
 											</div>
 										</div>
 										<div class="product__hover--content">
 											<ul class="rating d-flex">
-												<li class="on"><i class="fa fa-star-o"></i></li>
-												<li class="on"><i class="fa fa-star-o"></i></li>
-												<li class="on"><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
-												<li><i class="fa fa-star-o"></i></li>
+												<c:if test="${BookVO.averageScore==5}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==4}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==3}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==2}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==1}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==0}">
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
 											</ul>
 										</div>
 									</div>
@@ -160,22 +200,59 @@
 
 									<div class="thumb">
 										<a class="first__img" href="single-product.html"><img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351></a>
-										<a class="second__img animation1"
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
+											width=240 height=351></a> <a class="second__img animation1"
 											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top"><img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image" width=240 height=351></a>
+											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
+											width=240 height=351></a>
 									</div>
 									<div class="content">
 										<h2>
 											<a href="single-product.html">${BookVO.title}</a>
 										</h2>
 										<ul class="rating d-flex">
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li class="on"><i class="fa fa-star-o"></i></li>
-											<li><i class="fa fa-star-o"></i></li>
-											<li><i class="fa fa-star-o"></i></li>
+												<c:if test="${BookVO.averageScore==5}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==4}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==3}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==2}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==1}">
+													<li class="on"><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
+												<c:if test="${BookVO.averageScore==0}">
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+													<li><i class="fa fa-star-o"></i></li>
+												</c:if>
 										</ul>
 										<ul class="prize__box">
 											<li>$111.00</li>
@@ -323,9 +400,9 @@
 		</div>
 	</div>
 </c:forEach>
-	<!-- END QUICKVIEW PRODUCT -->
-	<!-- //Main wrapper -->
-	<!--  여기야 -->
+<!-- END QUICKVIEW PRODUCT -->
+<!-- //Main wrapper -->
+<!--  여기야 -->
 
 <%@include file="../include/footer.jsp"%>
 
