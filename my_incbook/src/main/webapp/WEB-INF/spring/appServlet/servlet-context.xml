@@ -26,6 +26,8 @@
 	</beans:bean>
 	<beans:bean id="loginInterceptor" class="com.incbook.project.interceptor.LoginInterceptor">
 	</beans:bean>
+	<beans:bean id="logoutInterceptor" class="com.incbook.project.interceptor.LogoutInterceptor">
+	</beans:bean>
 	<beans:bean id="authLoginInterceptor" class="com.incbook.project.interceptor.AuthLoginInterceptor">
 	</beans:bean>
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -41,9 +43,13 @@
 		<interceptor>
 			<mapping path="/member/signIn"/>
 			<mapping path="/member/memberModifyPost"/>
-			<mapping path="/member/signOut"/>
 			<mapping path="/member/memberDeletePost"/>
 			<beans:ref bean="loginInterceptor"/>
+		</interceptor>
+
+		<interceptor>
+			<mapping path="/member/signOut"/>
+			<beans:ref bean="logoutInterceptor"/>
 		</interceptor>
 
 		<interceptor>

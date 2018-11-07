@@ -12,6 +12,8 @@ public interface MemberDAO {
 	
 	public MemberVO memberInfo(OwnVO vo) throws Exception;
 
+	public MemberVO findMemberById(int id) throws Exception;
+	
 	public String loginIdCeheck(MemberVO vo) throws Exception;
 
 	public void signUp(Map<String, Object> vo) throws Exception;

@@ -40,6 +40,10 @@
 	%>
 </head>
 <body>
+<input type="hidden" value="${loginTry}" id="loginTry"/>
+<input type="hidden" value="${logoutTry}" id="logoutTry"/>
+<input type="hidden" value="${loginAuth}" id="loginAuth"/>
+
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
@@ -153,10 +157,10 @@
 														</span>
 														<c:if test="${login.id == null}">
 															<span>
-																<a href="/member/signUp">로그인</a>
+																<a href="/member/signUp">회원가입</a>
 															</span>
 															<span>
-																<a href="/member/signInForm">회원가입</a>
+																<a href="/member/signInForm">로그인</a>
 															</span>
 														</c:if>
 														<c:if test="${login.id != null}">

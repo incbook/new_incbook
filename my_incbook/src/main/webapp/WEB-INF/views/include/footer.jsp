@@ -66,6 +66,11 @@
 </div> 
 <!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
+<!-- 
+<div id="logIO_footer" class="alert-secondary jbMenu">
+  <p>브라우저 아래에 고정되는 footer부분</p>
+</div> -->
+
 
 <!-- JS Files -->
 <script src="/resources/js/popper.min.js"></script>
@@ -79,8 +84,7 @@
 </body>
 </html>
 <script>
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
 				$('#searchBtn').on(
 						"click",
 						function() {
@@ -114,7 +118,36 @@
 						});
 					});
 				});
-
+				
+				var loginTry = $("#loginTry").val();
+				var logoutTry = $("#logoutTry").val();
+				var loginAuth = $("#loginAuth").val();
+				
+				if (loginTry == "fail") {
+					alert("아이디 또는 비밀번호를 확인해주세요");
+				} else if (loginTry == "success") {
+					logIO_footer_appear("로그인 하셨습니다.");
+				}
+				
+				if (logoutTry == "success") {
+					logIO_footer_appear("로그아웃 하셨습니다.");
+				}
+				
+				
+				if (loginAuth == "fail") {
+					alert("로그인해야 이용할 수 있는 페이지 입니다.");
+				}
+				
+				
+				function logIO_footer_appear(text) {
+					$("#logIO_footer p").html(text);
+					$("#logIO_footer").fadeIn(3000);
+					setTimeout(function() {
+						$("#logIO_footer").fadeOut(3000);
+					},3000);
+				}
 			});
-
+	
+	
 </script>
+

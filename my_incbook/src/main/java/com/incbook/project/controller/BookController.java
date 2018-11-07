@@ -1,18 +1,9 @@
 package com.incbook.project.controller;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,9 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.incbook.project.domain.BookVO;
+import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.pagemaker.PageMaker;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.service.BookService;
+import com.incbook.project.service.MemberService;
 
 @Controller
 @RequestMapping("/book/*")
@@ -33,6 +26,8 @@ public class BookController {
 
 	@Inject
 	private BookService bookService;
+	@Inject
+	private MemberService memberService;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public void searchGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
@@ -49,14 +44,37 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri,
-			String prePage) throws Exception {
+	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri, String prePage) throws Exception {
 		BookVO findBookByID2 = bookService.findBookByID2(id);
+		MemberVO member = memberService.findMemberById(id);
 		model.addAttribute("findBookByID2", findBookByID2);
+		model.addAttribute("member", member);
+		
 		model.addAttribute("prePage", prePage);
 
 	}
 
+	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
+	public String modifyPagingPOST(BookVO vo, SearchCriteria cri, RedirectAttributes rttr, String prePage) throws Exception {
+		bookService.updateBook(vo);
+		System.out.println(vo);
+		rttr.addAttribute("id", vo.getId());
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("pagesize", cri.getPagesize());
+		rttr.addAttribute("prePage", prePage);
+
+		return "redirect:/book/readPage";
+	}
+
+	// id를 바탕으로 책정보 가져오기
+	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
+	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") SearchCriteria cri, Model model,String prePage)
+			throws Exception {
+		model.addAttribute("modifyTarget", bookService.findBookByID(id));
+		model.addAttribute("prePage", prePage);
+	}
+
+	
 	@RequestMapping(value = "/newBookChart", method = RequestMethod.GET)
 	public void chartGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
@@ -101,25 +119,6 @@ public class BookController {
 		pageMaker.setTotalCount(bookService.listSearchCount(cri));
 
 		model.addAttribute("pageMaker", pageMaker);
-
-	}
-
-	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(BookVO vo, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
-		bookService.updateBook(vo);
-		System.out.println(vo);
-		rttr.addAttribute("id", vo.getId());
-		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("pagesize", cri.getPagesize());
-
-		return "redirect:/book/readPage";
-	}
-
-	// id를 바탕으로 책정보 가져오기
-	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") SearchCriteria cri, Model model)
-			throws Exception {
-		model.addAttribute("modifyTarget", bookService.findBookByID(id));
 
 	}
 

@@ -69,5 +69,10 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO memberInfo(OwnVO vo) throws Exception {
 		return memberDAO.memberInfo(vo);
 	}
+
+	@Override
+	public MemberVO findMemberById(int id) throws Exception {
+		return memberDAO.findMemberById(id);
+	}
 	
 }
