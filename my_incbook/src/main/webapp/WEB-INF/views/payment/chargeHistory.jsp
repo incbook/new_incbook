@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
+<%@ page session="false" %>
 <%@include file="../include/header.jsp"%>
 
 <div class="wishlist-area section-padding--lg bg__white imsi_set">
@@ -17,35 +20,23 @@
 							<table class="table table-striped">
 								<thead>
 	                                <tr class="ch_center">
-	                                    <th>NUMBER</th>
+	                                    <th>Number</th>
 	                                    <th>MemberID</th>
 	                                    <th>Payment</th>
 	                                    <th>Point</th>
-	                                    <th>Regdate</th>
+	                                    <th>Date</th>
 	                                </tr>
 								</thead>
                                 <tbody>
-	                            	<tr class="ch_center">
-	                                    <td>1</td>
-	                                    <td>apple</td>
-	                                    <td>1100원</td>
-	                                    <td>10000pt</td>
-	                                    <td>2018-11-06</td>
-                                   </tr>
-                                    <tr class="ch_center">
-                                        <td>2</td>
-	                                    <td>apple</td>
-	                                    <td>2200원</td>
-	                                    <td>20000pt</td>
-	                                    <td>2018-11-04</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-	                                    <td>apple</td>
-	                                    <td>5500원</td>
-	                                    <td>50000pt</td>
-	                                    <td>2018-10-10</td>
-                                    </tr>
+                                	<c:forEach items="${historyAll}" var="PaymentVO">
+		                            	<tr class="ch_center">
+		                                    <td>${PaymentVO.id}</td>
+		                                    <td>${PaymentVO.memberId}</td>
+		                                    <td>${PaymentVO.paymentPrice}</td>
+		                                    <td>${PaymentVO.point}</td>
+		                                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${PaymentVO.regdate}" /></td>
+	                                   </tr>
+                                   </c:forEach>
                                 </tbody>
 							</table>
 						</div>  
@@ -66,4 +57,5 @@
 	
         
 <%@include file="../include/footer.jsp"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ -->

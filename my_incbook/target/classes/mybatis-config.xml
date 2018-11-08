@@ -12,7 +12,7 @@
 		<typeAlias type="com.incbook.project.domain.PartyVO" alias="PartyVO" />
 		<typeAlias type="com.incbook.project.domain.RealationVO" alias="RealationVO" />
 		<typeAlias type="com.incbook.project.domain.OwnVO" alias="OwnVO" />
-	
+		<typeAlias type="com.incbook.project.domain.PaymentVO" alias="PaymentVO" />
 	</typeAliases>
 
 </configuration>

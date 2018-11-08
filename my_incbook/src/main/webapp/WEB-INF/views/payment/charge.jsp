@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
 
-	<section class="my_account_area pt--80 bg--white" style="">
+	<section class="my_account_area pt--80 bg--white">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-2">
@@ -44,7 +44,7 @@
 	                   		</ul>
 	                      	<ul class="cart__total__tk" style="text-align: right;">
 	                          	<li id="pay1"></li>
-	                          	<li id="pay2"></li>
+	                          	<li id="point" value=""></li>
 	                      	</ul>
 	                  	</div>
 	                  	<div class="cart__total__amount">
@@ -58,6 +58,7 @@
 	</section>
           
 	<div class="form__btn" style="text-align: center; margin-bottom: 50px;">
+		<input type="hidden" id="memberId" value="${login.id}">
 		<input type="submit" value="리셋하기" class="btn btn-danger" id="btn_reset">&emsp;&emsp;
 		<input type="submit" value="결제하기" class="btn btn-default" id="btn_topay">
 	</div>
@@ -70,15 +71,19 @@
 			$(".pick_money").click(function() {
 				var pick_money = $(this).attr("value");
 				var check = confirm(pick_money + "원" + " 충전하시겠습니까?");
+				
+				var point = Math.floor(pick_money * 10);
 				var pay_total = Math.floor(pick_money * 1.1);
 					if(check){
 						$("#pay1").text(pick_money + "원");
-					    $("#pay2").text(pick_money * 10 + "pt");
+					    $("#point").text(point + "pt");
+					    $("#point").attr("value", point);
 					    $("#pay_total").text(Math.floor(pick_money * 1.1) + "원(VAT)");
 					    $("#pay_total").attr("value", pay_total);
 					} else {
 							$("#pay1").empty();
-					    	$("#pay2").empty();
+					    	$("#point").empty();
+					    	$("#point").attr("value", "");
 					    	$("#pay_total").empty();
 					    	$("#pay_total").attr("value", "");
 					}
@@ -89,7 +94,8 @@
 		$(function(){
 		    $("#btn_reset").click(function(){
 		    	$("#pay1").empty();
-		    	$("#pay2").empty();
+		    	$("#point").empty();
+		    	$("#point").attr("value", "");
 		    	$("#pay_total").empty();
 		    	$("#pay_total").attr("value", "");
 		    });
@@ -99,11 +105,13 @@
 		$(function(){
 		    $("#btn_topay").click(function() {
 		    	var pay_total = $("#pay_total").attr("value");
+		    	var point = $("#point").attr("value");
+		    	var memberId = $("#memberId").val();
 		    	if(pay_total == "") {
 	    			alert('금액을 선택해주세요');	    		
 		    	} else {
-					window.open("/payment/paymentWindow?payTotal="+pay_total, "_blank", 
-							"toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=300,width=480,height=600");
+					window.open("/payment/paymentWindow?paymentPrice="+pay_total+"&point="+point+"&memberId="+memberId, "_blank", 
+							"toolbar=yes,scrollbars=yes,resizable=yes,top=300,left=300,width=500,height=500");
 		    	}
 		    });
 		});

@@ -9,6 +9,7 @@ public class PaymentVO {
 	private int paymentPrice;
 	private Date regdate;
 	private int point;
+	
 	public int getId() {
 		return id;
 	}
