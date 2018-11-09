@@ -38,6 +38,35 @@ h1 {
 	text-align: center;
 }
 
+.text-green {
+    color: #16a085;
+}
+.text-orange {
+    color: #f39c12;
+}
+.text-red {
+    color: #e74c3c;
+}      
+
+.img-circle {
+	width: 30px;
+	height: 30px;
+}
+
+/* chargeHistory css */
+.pc_history {
+	padding-top: 20px;
+}
+.ch_center th, td {
+	text-align: center !important;
+}
+.imsi_set {
+	padding-top: 120px;
+	padding-bottom: 20px; !important;
+}
+.page_pb_40 {
+	padding-bottom: 40px;
+}
 #logIO_footer {
    position:fixed;
    left:0px;
