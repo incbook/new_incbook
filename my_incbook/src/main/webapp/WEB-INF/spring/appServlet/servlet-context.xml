@@ -64,6 +64,7 @@
 			<mapping path="/book/modifyPage"/>
 			<mapping path="/bookclub/createBookClub"/>
 			<mapping path="/own/ownInsert"/>
+			<mapping path="/own/myOnwList"/>
 			<mapping path="/payment/chargeHistory"/>
 			<mapping path="/payment/charge"/>
 			<!-- ↑여기에 로그인이 필요한 페이지만 추가 -->

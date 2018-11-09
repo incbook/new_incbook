@@ -1,6 +1,7 @@
 package com.incbook.project.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -23,6 +24,11 @@ public class OwnServiceImpl implements OwnService {
 	@Override
 	public OwnVO findOwnByID(OwnVO vo) throws Exception {
 		return ownDAO.findOwnByID(vo);
+	}
+
+	@Override
+	public List<OwnVO> myOneList(int memberId) throws Exception {
+		return ownDAO.myOneList(memberId);
 	}
 
 	@Override

@@ -24,14 +24,12 @@ public class OwnDAOImpl implements OwnDAO{
 	}
 
 	@Override
-	public void ownInsert(Map<String, Object> ownMap) {
-		sqlSession.insert(namespace + ".ownInsert", ownMap);
-	}
-
-	@Override
 	public List<OwnVO> myOneList(int memberId) throws Exception {
 		return 	sqlSession.selectList(namespace + ".myOneList", memberId);
 	}
-	
-	
+
+	@Override
+	public void ownInsert(Map<String, Object> ownMap) {
+		sqlSession.insert(namespace + ".ownInsert", ownMap);
+	}
 }
