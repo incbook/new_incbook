@@ -40,6 +40,7 @@
 			<mapping path="/book/**"/>
 			<mapping path="/own/**"/>
 			<mapping path="/announcement/**"/>
+			<mapping path="/payment/**"/>
 			<beans:ref bean="prePageInterceptor"/>
 		</interceptor>
 	
@@ -63,6 +64,8 @@
 			<mapping path="/book/modifyPage"/>
 			<mapping path="/bookclub/createBookClub"/>
 			<mapping path="/own/ownInsert"/>
+			<mapping path="/payment/chargeHistory"/>
+			<mapping path="/payment/charge"/>
 			<!-- ↑여기에 로그인이 필요한 페이지만 추가 -->
 			<beans:ref bean="authLoginInterceptor"/>
 		</interceptor>

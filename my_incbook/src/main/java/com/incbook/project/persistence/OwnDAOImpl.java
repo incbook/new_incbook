@@ -1,5 +1,6 @@
 package com.incbook.project.persistence;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -26,4 +27,11 @@ public class OwnDAOImpl implements OwnDAO{
 	public void ownInsert(Map<String, Object> ownMap) {
 		sqlSession.insert(namespace + ".ownInsert", ownMap);
 	}
+
+	@Override
+	public List<OwnVO> myOneList(int memberId) throws Exception {
+		return 	sqlSession.selectList(namespace + ".myOneList", memberId);
+	}
+	
+	
 }

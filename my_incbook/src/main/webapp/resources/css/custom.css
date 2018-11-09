@@ -75,6 +75,7 @@ h1 {
    width:100%;
    color: #000000;
    display: none;
+   z-index: 10;
 }
 #logIO_footer p {
    text-align: center;

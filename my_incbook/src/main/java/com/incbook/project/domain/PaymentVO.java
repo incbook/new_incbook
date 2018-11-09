@@ -1,5 +1,6 @@
 package com.incbook.project.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PaymentVO {

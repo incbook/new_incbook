@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
-<%@ page session="false" %>
 <%@include file="../include/header.jsp"%>
 
 <div class="wishlist-area section-padding--lg bg__white imsi_set">
@@ -48,11 +47,23 @@
 </div>
 
 <ul class="wn__pagination page_pb_40">
-	<li class="active"><a href="#">1</a></li>
-	<li><a href="#">2</a></li>
-	<li><a href="#">3</a></li>
-	<li><a href="#">4</a></li>
-	<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+	<c:if test="${pageMaker.prev}">
+		<li><a
+			href="/payment/chargeHistory${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+	</c:if>
+
+	<c:forEach begin="${pageMaker.startPage}"
+		end="${pageMaker.endPage}" var="idx">
+		<li
+			<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+			<a href="/payment/chargeHistory${pageMaker.makeQuery(idx)}">${idx}</a>
+		</li>
+	</c:forEach>
+
+	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+		<li><a
+			href="/payment/chargeHistory${pageMaker.makeQuery(pageMaker.endPage + 1)}">&raquo;</a></li>
+	</c:if>
 </ul>
 	
         

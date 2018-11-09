@@ -14,11 +14,16 @@
 	</insert>
 	
 	<select id="historyAll" resultMap="PaymentVO">
-		<![CDATA[
 			select 
-			    member_id, payment_price, point, regdate
+			    id, member_id, payment_price, point, CONVERT_TZ(regdate, "+0:00", "-9:00")as regdate 
 			from payment
-			where id > 0 order by id desc 
-		]]>
+			where id > 0 and member_id = #{memberId}
+			order by id desc
+			limit #{cri.pageStart},#{cri.pagesize}
+	</select>
+	
+	<select id="historyCount" resultType="int">
+		select count(id) from payment 
+		where member_id = #{memberId}
 	</select>
 </mapper>
