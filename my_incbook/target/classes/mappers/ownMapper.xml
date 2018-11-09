@@ -40,12 +40,12 @@
 						#{own.rentAvailable}, #{own.rentLocation});
 	</insert>
 	
-	<seelct id="myOneList" resultMap="ownMap">
+	<select id="myOneList" resultMap="ownMap">
 		select * 
 		from own o 
 			join realation r
 			on 	o.id = r.id
 		where o.id = #{id}
 		and o.member_id = #{memberId} 
-	</seelct>
+	</select>
 </mapper>
