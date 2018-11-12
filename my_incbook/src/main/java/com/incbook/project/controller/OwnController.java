@@ -1,9 +1,14 @@
 package com.incbook.project.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,6 +63,11 @@ public class OwnController {
 		return "redirect:/";
 	}
 	
+	
+	/**
+	 * 나의 소유도서 등록시 
+	 * 해당 도서 정보가 입력되있는지 검색
+	 */
 	@RequestMapping(value = "/searchBook", method = RequestMethod.GET)
 	public void searchBookGET(Model model, RealationVO rvo, OwnVO ovo, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
 		model.addAttribute("list", bookService.searchList(cri));
@@ -69,4 +79,32 @@ public class OwnController {
 		model.addAttribute("pageMaker", pageMaker);
 		
 	}
+	
+	@RequestMapping(value = "/myOwnList", method = RequestMethod.GET)
+	public void myOwnListGET(Model model, HttpServletRequest request, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
+		// 세션을 통해 로그인된 회원 아이디를 받아옴
+		int memberId = ((MemberVO) request.getSession().getAttribute("login")).getId();
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(ownService.myOwnCount(memberId));
+		
+		List<OwnVO> myOwnList = ownService.myOwnList(memberId, cri);
+
+		List<Map<String, Object>> myOwnMapList = new ArrayList();
+		for (OwnVO myOwn : myOwnList) {
+			Map<String, Object> myOwmMap = new HashMap();
+			myOwmMap.put("ownVO", myOwn);
+			myOwmMap.put("bookVO", bookService.findBookByID2(myOwn.getBookId()));
+			
+			System.out.println(bookService.findBookByID2(myOwn.getBookId()));
+			myOwnMapList.add(myOwmMap);
+		}
+		
+		// 로그인된 회원이 등록한 도서 리스트
+		model.addAttribute("myOwnMapList", myOwnMapList);
+		model.addAttribute("pageMaker", pageMaker);
+	}
+	
+	
 }
