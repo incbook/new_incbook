@@ -8,8 +8,10 @@ import com.incbook.project.domain.OwnVO;
 public interface OwnDAO {
 	public OwnVO findOwnByID(OwnVO vo)  throws Exception;
 
-	public List<OwnVO> myOneList(int memberId)  throws Exception;
+	public List<OwnVO> myOwnList(Map<String, Object> own)  throws Exception;
 
-	public void ownInsert(Map<String, Object> own);
+	public int myOwnCount(int memberId) throws Exception;
+
+	public void ownInsert(Map<String, Object> own) throws Exception;
 	
 }

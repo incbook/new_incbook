@@ -47,11 +47,6 @@
 						<div
 							class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
 							<div class="shop__list nav justify-content-center" role="tablist">
-								<a class="nav-item nav-link active" data-toggle="tab"
-									href="#nav-grid" role="tab"> <i class="fa fa-th"></i>
-								</a> <a class="nav-item nav-link" data-toggle="tab" href="#nav-list"
-									role="tab"> <i class="fa fa-list"></i>
-								</a>
 							</div>
 							<p>
 								<strong>전체 TOP-100</strong>
@@ -62,63 +57,59 @@
 						</div>
 					</div>
 				</div>
-				<div class="tab__container">
-					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
+
+					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel" style="display:inline;">
 						<div class="list__view__wrapper">
 
 							<!-- Start Single Product -->
-							<c:forEach items="${list}" var="BookVO">
+							<c:forEach items="${myOwnMapList}" var="myOwn">
 								<div class="list__view">
-
 									<div class="thumb">
-										<a class="first__img" href="single-product.html"><img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
-											width=240 height=351></a> <a class="second__img animation1"
-											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top"><img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
+										<a class="first__img" href="/book/ownReadPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${myOwn.bookVO.id}"><img
+											src="/img/${myOwn.bookVO.id}/${myOwn.bookVO.image}" alt="product image"
 											width=240 height=351></a>
 									</div>
 									<div class="content">
 										<h2>
-											<a href="single-product.html">${BookVO.title}</a>
+											<a href="single-product.html">${myOwn.bookVO.title}</a>
 										</h2>
 										<ul class="rating d-flex">
-												<c:if test="${BookVO.averageScore==5}">
+												<c:if test="${myOwn.bookVO.averageScore==5}">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 												</c:if>
-												<c:if test="${BookVO.averageScore==4}">
+												<c:if test="${myOwn.bookVO.averageScore==4}">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
-												<c:if test="${BookVO.averageScore==3}">
+												<c:if test="${myOwn.bookVO.averageScore==3}">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
-												<c:if test="${BookVO.averageScore==2}">
+												<c:if test="${myOwn.bookVO.averageScore==2}">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
-												<c:if test="${BookVO.averageScore==1}">
+												<c:if test="${myOwn.bookVO.averageScore==1}">
 													<li class="on"><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
-												<c:if test="${BookVO.averageScore==0}">
+												<c:if test="${myOwn.bookVO.averageScore==0}">
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
 													<li><i class="fa fa-star-o"></i></li>
@@ -126,15 +117,29 @@
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
 										</ul>
-										<ul class="prize__box">
-											<li>$111.00</li>
-											<li class="old__prize">$220.00</li>
+										<ul class="item_inLine">
+											<li>도서 상태 :&nbsp;</li>
+											<li class="">${myOwn.ownVO.state}</li>
 										</ul>
-										<p>${BookVO.content}</p>
-										<ul class="cart__action d-flex">
-											<li class="cart"><a href="cart.html">Add to cart</a></li>
-											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li>
+										<ul class="item_inLine">
+											<li>대여가능 여부 : &nbsp;</li>
+											<li class="">${myOwn.ownVO.isRent}</li>
+										</ul>
+										<ul class="item_inLine">
+											<li>판매가능 여부 :&nbsp;</li>
+											<li class="">${myOwn.ownVO.isSell}</li>
+										</ul>
+										<ul class="item_inLine">
+											<li>일당 대여료 :&nbsp;</li>
+											<li class="">${myOwn.ownVO.fee} 원</li>
+										</ul>
+										<ul class="item_inLine">
+											<li>대여기간 :&nbsp;</li>
+											<li class="">${myOwn.ownVO.selectPeriod} 일</li>
+										</ul>
+										<ul class="item_inLine">
+											<li>거래 선호지역 :&nbsp;</li>
+											<li class="">${myOwn.ownVO.rentLocation}</li>
 										</ul>
 
 									</div>
@@ -149,20 +154,20 @@
 							<ul class="wn__pagination">
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+										href="/own/myOwnList${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
 								</c:if>
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="allTop100${pageMaker.makeSearch(idx)}">${idx}</a>
+										<a href="/own/myOwnList${pageMaker.makeSearch(idx)}">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+										href="/own/myOwnList${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
 								</c:if>
 
 							</ul>
@@ -177,102 +182,7 @@
 
 
 <!-- //Footer Area -->
-<!-- QUICKVIEW PRODUCT -->
-<c:forEach items="${list}" var="BookVO">
 
-	<div id="quickview-wrapper">
-		<!-- Modal -->
-		<div class="modal fade" id="productmodal" tabindex="-1" role="dialog">
-			<div class="modal-dialog modal__container" role="document">
-				<div class="modal-content">
-					<div class="modal-header modal__header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="modal-product">
-							<!-- Start product images -->
-							<div class="product-images">
-								<div class="main-image images">
-									<img alt="big images"
-										src="/resources/images/product/big-img/1.jpg">
-								</div>
-							</div>
-							<!-- end product images -->
-
-							<div class="product-info">
-								<h1>${BookVO.title}</h1>
-								<div class="rating__and__review">
-									<ul class="rating">
-										<li><span class="ti-star"></span></li>
-										<li><span class="ti-star"></span></li>
-										<li><span class="ti-star"></span></li>
-										<li><span class="ti-star"></span></li>
-										<li><span class="ti-star"></span></li>
-									</ul>
-									<div class="review">
-										<a href="#">4 customer reviews</a>
-									</div>
-								</div>
-								<div class="price-box-3">
-									<div class="s-price-box">
-										<span class="new-price">$17.20</span> <span class="old-price">$45.00</span>
-									</div>
-								</div>
-								<div class="quick-desc">Designed for simplicity and made
-									from high quality materials. Its sleek geometry and material
-									combinations creates a modern look.</div>
-								<div class="select__color">
-									<h2>Select color</h2>
-									<ul class="color__list">
-										<li class="red"><a title="Red" href="#">Red</a></li>
-										<li class="gold"><a title="Gold" href="#">Gold</a></li>
-										<li class="orange"><a title="Orange" href="#">Orange</a></li>
-										<li class="orange"><a title="Orange" href="#">Orange</a></li>
-									</ul>
-								</div>
-								<div class="select__size">
-									<h2>Select size</h2>
-									<ul class="color__list">
-										<li class="l__size"><a title="L" href="#">L</a></li>
-										<li class="m__size"><a title="M" href="#">M</a></li>
-										<li class="s__size"><a title="S" href="#">S</a></li>
-										<li class="xl__size"><a title="XL" href="#">XL</a></li>
-										<li class="xxl__size"><a title="XXL" href="#">XXL</a></li>
-									</ul>
-								</div>
-								<div class="social-sharing">
-									<div class="widget widget_socialsharing_widget">
-										<h3 class="widget-title-modal">Share this product</h3>
-										<ul
-											class="social__net social__net--2 d-flex justify-content-start">
-											<li class="facebook"><a href="#" class="rss social-icon"><i
-													class="zmdi zmdi-rss"></i></a></li>
-											<li class="linkedin"><a href="#"
-												class="linkedin social-icon"><i
-													class="zmdi zmdi-linkedin"></i></a></li>
-											<li class="pinterest"><a href="#"
-												class="pinterest social-icon"><i
-													class="zmdi zmdi-pinterest"></i></a></li>
-											<li class="tumblr"><a href="#"
-												class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="addtocart-btn">
-									<a href="#">Add to cart</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</c:forEach>
-<!-- END QUICKVIEW PRODUCT -->
 <!-- //Main wrapper -->
 <!--  여기야 -->
 

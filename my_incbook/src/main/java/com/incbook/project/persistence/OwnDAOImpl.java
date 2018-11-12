@@ -24,8 +24,13 @@ public class OwnDAOImpl implements OwnDAO{
 	}
 
 	@Override
-	public List<OwnVO> myOneList(int memberId) throws Exception {
-		return 	sqlSession.selectList(namespace + ".myOneList", memberId);
+	public List<OwnVO> myOwnList(Map<String, Object> ownMap) throws Exception {
+		return 	sqlSession.selectList(namespace + ".myOneList", ownMap);
+	}
+	
+	@Override
+	public int myOwnCount(int memberId) throws Exception {
+		return sqlSession.selectOne(namespace + ".myOwnCount", memberId);
 	}
 
 	@Override
