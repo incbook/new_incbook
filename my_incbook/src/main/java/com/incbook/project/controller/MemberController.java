@@ -139,5 +139,5 @@ public class MemberController {
 		
 		model.addAttribute("result", result);
 	}
-	
+
 }

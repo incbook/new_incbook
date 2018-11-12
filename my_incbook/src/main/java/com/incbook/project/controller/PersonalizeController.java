@@ -2,16 +2,45 @@ package com.incbook.project.controller;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.incbook.project.service.PaymentService;
+import com.incbook.project.service.PersonalizeService;
+
 @Controller
 @RequestMapping("/personalize/*")
 public class PersonalizeController {
+	
+	@Inject
+	private PersonalizeService personalizeService;
+	
+	@RequestMapping(value = "/personalChoice", method = RequestMethod.GET)
+	public void personalChoiceGET() throws Exception {
+		
+	}
+	
+	@RequestMapping(value = "/personalChoice", method = RequestMethod.POST)
+	public String personalChoicePOST(String[] genre, int memberId) throws Exception {
+//		for (String var : genre) {
+//			System.out.println(var);
+//		}
+		if (genre == null) {
+			personalizeService.personalChoiceRenew(memberId);
+		} else {
+			personalizeService.personalChoiceRenew(genre, memberId);
+		}
+		
+		return "redirect:/member/memberDetail";
+	}
+		
 	
 	@RequestMapping(value = "/personalize", method = RequestMethod.GET)
 	public void personalize() throws Exception {
