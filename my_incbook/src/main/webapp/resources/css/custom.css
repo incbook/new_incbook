@@ -75,6 +75,7 @@ h1 {
    width:100%;
    color: #000000;
    display: none;
+   z-index: 10;
 }
 #logIO_footer p {
    text-align: center;
@@ -108,4 +109,7 @@ h1 {
 
 .trade_ok {
 	float: right;
+}
+.item_inLine li{
+	display: inline;
 }

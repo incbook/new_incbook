@@ -1,6 +1,7 @@
 package com.incbook.project.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -23,9 +24,15 @@ public class PaymentDAOImpl implements PaymentDAO{
 	}
 
 	@Override
-	public List<PaymentVO> historyAll() throws Exception {
-		return sqlSession.selectList(namespace+".historyAll");
+	public List<PaymentVO> historyAll(Map<String, Object> historyMap) throws Exception {
+		return sqlSession.selectList(namespace+".historyAll", historyMap);
 	}
+
+	@Override
+	public int historyCount(int memberId) {
+		return sqlSession.selectOne(namespace+".historyCount", memberId);
+	}
+	
 	
 	
 	

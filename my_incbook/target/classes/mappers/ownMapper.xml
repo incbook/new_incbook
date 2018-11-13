@@ -39,4 +39,19 @@
 						#{own.isRent}, #{own.isSell}, #{own.fee}, #{own.selectPeriod}, 
 						#{own.rentAvailable}, #{own.rentLocation});
 	</insert>
+	
+	<select id="myOneList" resultMap="ownMap">
+		select * 
+		from own o 
+			join realation r
+			on 	o.id = r.id
+		where o.member_id = #{memberId}
+		limit #{cri.pageStart},#{cri.pagesize}
+	</select>
+
+	<select id="myOwnCount" resultType="int">
+		select count(id) 
+		from own 
+		where member_id = #{memberId}
+	</select>
 </mapper>
