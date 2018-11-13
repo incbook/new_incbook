@@ -1,5 +1,6 @@
 package com.incbook.project.domain;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PaymentVO {
@@ -8,52 +9,44 @@ public class PaymentVO {
 	private int memberId;
 	private int paymentPrice;
 	private Date regdate;
-	private String paymentMethod;
-
+	private int point;
+	
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public int getmemberId() {
+	public int getMemberId() {
 		return memberId;
 	}
-
-	public void setmemberId(int memberId) {
+	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
-
-	public int getpaymentPrice() {
+	public int getPaymentPrice() {
 		return paymentPrice;
 	}
-
-	public void setpaymentPrice(int paymentPrice) {
+	public void setPaymentPrice(int paymentPrice) {
 		this.paymentPrice = paymentPrice;
 	}
-
 	public Date getRegdate() {
 		return regdate;
 	}
-
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-
-	public String getpaymentMethod() {
-		return paymentMethod;
+	public int getPoint() {
+		return point;
 	}
-
-	public void setpaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
+	public void setPoint(int point) {
+		this.point = point;
 	}
-
 	@Override
 	public String toString() {
 		return "PaymentVO [id=" + id + ", memberId=" + memberId + ", paymentPrice=" + paymentPrice + ", regdate="
-				+ regdate + ", paymentMethod=" + paymentMethod + "]";
+				+ regdate + ", point=" + point + "]";
 	}
 
+	
+	
 }

@@ -54,6 +54,18 @@ public class BookController {
 		model.addAttribute("prePage", prePage);
 
 	}
+	
+	@RequestMapping(value = "/ownReadPage", method = RequestMethod.GET)
+	public void ownReadPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri) throws Exception {
+		// id = 도서의 아이디
+		// member의 아이디는? = memberId
+		BookVO findBookByID2 = bookService.findBookByID2(id);
+		MemberVO member = memberService.findMemberById(findBookByID2.getFinalUpdateMemberId());
+		model.addAttribute("findBookByID2", findBookByID2);
+		model.addAttribute("member", member);
+		
+	}
+
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
 	public String modifyPagingPOST(@RequestParam("file") MultipartFile file, BookVO vo, SearchCriteria cri,
 			RedirectAttributes rttr, String prePage) throws Exception {

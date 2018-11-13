@@ -85,9 +85,8 @@
 								<li class="drop"><a href="shop-grid.html">커뮤니티</a>
 									<div class="megamenu mega02">
 										<ul class="item item02">
-											<li class="title">Top Collections</li>
-											<li><a href="shop-grid.html">American Girl</a></li>
-											<li><a href="shop-grid.html">Diary Wimpy Kid</a></li>
+											<li><a href="/payment/charge">charge</a></li>
+											<li><a href="/payment/chargeHistory">chargeHistory</a></li>
 											<li><a href="shop-grid.html">Finding Dory</a></li>
 											<li><a href="shop-grid.html">Harry Potter</a></li>
 											<li><a href="shop-grid.html">Land of Stories</a></li>

@@ -1,5 +1,6 @@
 package com.incbook.project.persistence;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -20,6 +21,16 @@ public class OwnDAOImpl implements OwnDAO{
 	@Override
 	public OwnVO findOwnByID(OwnVO vo) throws Exception {
 		return sqlSession.selectOne(namespace+".findOwnByID", vo);
+	}
+
+	@Override
+	public List<OwnVO> myOwnList(Map<String, Object> ownMap) throws Exception {
+		return 	sqlSession.selectList(namespace + ".myOneList", ownMap);
+	}
+	
+	@Override
+	public int myOwnCount(int memberId) throws Exception {
+		return sqlSession.selectOne(namespace + ".myOwnCount", memberId);
 	}
 
 	@Override
