@@ -21,40 +21,21 @@
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
-
-			<div class="col-lg-3 col-3">
-				<h3 class="wedget__title">My Page</h3>
-				<ul>
-					<li><a href='http://localhost:8080/member/memberDetail';">회원정보수정</a></li>
-					<li><a href="http://localhost:8080/payment/chargeHistory">포인트 충전 내역</a></li>
-					<li><a href="http://localhost:8080/own/myOwnList">내가 등록한 도서</a></li>
-					<li><a href="http://localhost:8080/trade/lendersPage">대여자 페이지</a></li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-				</ul>
-			</div>
+			<%@include file="../include/includeSide.jsp"%>
+			
 
 
-			<div class="col-lg-9 col-9 order-1 order-lg-2">
-				<div class="row">
-					<div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
-						<div class="shop__list nav justify-content-center" role="tablist">
+			<div class="col-lg-9 col-12 order-1 order-lg-2">
+					<div class="my__account__wrapper">
+						<div class="cus_title">
+							<p>
+								<strong>내가 등록한 도서</strong>
+							</p>
 						</div>
-						<p>
-							<strong>내가 등록한 도서</strong>
-						</p>
-						<div class="orderby__wrapper">
-							<span></span>
-						</div>
-					</div>
-				</div>
+				
 
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel" style="display:inline;">
-						<div class="list__view__wrapper">
+						<div class="list__view__wrapper book_pd_t20">
 
 							<!-- Start Single Product -->
 							<c:forEach items="${myOwnMapList}" var="myOwn">

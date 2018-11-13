@@ -5,16 +5,16 @@
 	<section class="my_account_area pt--80 bg--white">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-2">
-				</div>
-				<div class="col-lg-8 col-12">
+				<%@include file="../include/includeSide.jsp"%>
+				
+				<div class="col-lg-9 col-12 order-1 order-lg-2">
+				
 					<div class="my__account__wrapper">
-					
-						<h3 class="account__title" align=center style="color: #8bbdee;">
-							<img src="/resources/images/icon2.png" style="width:50px;">
-							포인트충전
-							<img src="/resources/images/icon2.png" style="width:50px;">
-						</h3>
+						<div class="cus_title">
+							<p>
+								<strong>포인트충전</strong>
+							</p>
+						</div>
 						<div class="account__form">
 							<div class="form__btn" align=center>
 								<button id="pay_btn" class="pick_money" value="1000">1000원</button>
@@ -25,18 +25,8 @@
 							</div>
 						</div>					
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<section class="my_account_area bg--white" style="margin-bottom: 50px;">
-		<div class="container">
-			<div class="row">	
-				<div class="col-lg-2">
-				</div>
-	          	<div class="col-lg-8 offset-lg-12">
-	              	<div class="cartbox__total__area">
+					
+					<div class="cartbox__total__area ch_m0">
 	                  	<div class="cartbox-total d-flex justify-content-between">
 	                  	 	<ul class="cart__total__list">
 	                     	   	<li>금액</li>
@@ -52,16 +42,19 @@
 	                      	<span id="pay_total" style="font-weight: bold;" value=""></span>
 	                  	</div>
 	              	</div>
+	              	
+	              	<div class="form__btn" style="text-align: center; margin: 30px 0;">
+						<input type="hidden" id="memberId" value="${login.id}">
+						<input type="submit" value="리셋하기" class="btn btn-danger" id="btn_reset">&emsp;&emsp;
+						<input type="submit" value="결제하기" class="btn btn-default" id="btn_topay">
+					</div>
 				</div>
+				
 			</div>
 		</div>
 	</section>
           
-	<div class="form__btn" style="text-align: center; margin-bottom: 50px;">
-		<input type="hidden" id="memberId" value="${login.id}">
-		<input type="submit" value="리셋하기" class="btn btn-danger" id="btn_reset">&emsp;&emsp;
-		<input type="submit" value="결제하기" class="btn btn-default" id="btn_topay">
-	</div>
+	
 	
         
 <%@include file="../include/footer.jsp"%>

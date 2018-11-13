@@ -7,27 +7,16 @@
 <div class="wishlist-area section-padding--lg bg__white imsi_set">
 	<div class="container">
 		<div class="row">
+			<%@include file="../include/includeSide.jsp"%>
+			
 		
-			<div class="col-lg-3 col-3">
-				<h3 class="wedget__title">My Page</h3>
-				<ul>
-					<li><a href='http://localhost:8080/member/memberDetail';">회원정보수정</a></li>
-					<li><a href="http://localhost:8080/payment/chargeHistory">포인트 충전 내역</a></li>
-					<li><a href="http://localhost:8080/own/myOwnList">내가 등록한 도서</a></li>
-					<li><a href="http://localhost:8080/trade/lendersPage">대여자 페이지</a></li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-					<li>회원 탈퇴</li>
-				</ul>
-			</div>
-		
-			<!-- <div class="col-md-12 col-sm-12 col-xs-12"> -->
-			<div class="col-lg-9 col-9">
-				<div class="wishlist-content">
-					<h3 class="account__title" align="center">대여 현황</h3>
+			<div class="col-lg-9 col-12 order-1 order-lg-2">
+				<div class="my__account__wrapper">
+					<div class="cus_title">
+						<p>
+							<strong>대여자 대여 현황</strong>
+						</p>
+					</div>
 					<form action="#">
 						<div class="wishlist-table wnro__table table-responsive pc_history">
 							<table class="table table-striped">
@@ -35,22 +24,25 @@
 	                                <tr class="ch_center">
 	                                    <th>소유자 아이디</th>
 	                                    <th>책 제목</th>
-	                                    <th>포인트 여부</th>
+	                                    <th>취소</th>
 	                                    <th>확인</th>
+	                                    <th>날짜</th>
 	                                </tr>
 								</thead>
                                 <tbody>
 	                            	<tr class="ch_center">
 	                                    <td>대추나무사랑걸렸네</td>
 	                                    <td>쫄보의 여행</td>
-	                                    <td>X</td>
-	                                    <td><input type="submit" value="확인" id="point_no" onclick="point_no()"></td>
+	                                    <td><input type="submit" value="취소" id="point_no" onclick="point_no()"></td>
+	                                    <td><input type="submit" value="확인" id="point_ok" onclick="point_ok()"></td>
+	                                    <td>2018-11-13</td>
                                    </tr>
                                    <tr class="ch_center">
 	                                    <td>아이스아메리카노따뜻하게</td>
 	                                    <td>재밌어서 밤새읽는 화학 이야기</td>
-	                                    <td>O</td>
+	                                    <td> </td>
 	                                    <td>완료</td>
+	                                    <td>2018-11-03</td>
                                    </tr>
                                 </tbody>
 							</table>
@@ -66,6 +58,9 @@
 <script type="text/javascript">
 $(function() {
 	$("#point_no").on("click",function() {
+		alert("거래가 취소되었습니다");
+	});
+	$("#point_ok").on("click",function() {
 		alert("포인트가 적립되었습니다");
 	});
 });

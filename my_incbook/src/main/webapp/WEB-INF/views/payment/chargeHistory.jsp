@@ -7,23 +7,25 @@
 <div class="wishlist-area section-padding--lg bg__white imsi_set">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="wishlist-content">
-					<h3 class="account__title" align=center style="color: #8bbdee;">
-						<img src="/resources/images/icon2.png" style="width:50px;">
-						포인트충전 내역
-						<img src="/resources/images/icon2.png" style="width:50px;">
-					</h3>
+			<%@include file="../include/includeSide.jsp"%>
+		
+			<div class="col-lg-9 col-12 order-1 order-lg-2">
+					<div class="my__account__wrapper">
+						<div class="cus_title">
+							<p>
+								<strong>포인트충전 내역</strong>
+							</p>
+						</div>
 					<form action="#">
 						<div class="wishlist-table wnro__table table-responsive pc_history">
 							<table class="table table-striped">
 								<thead>
 	                                <tr class="ch_center">
-	                                    <th>Number</th>
-	                                    <th>MemberID</th>
-	                                    <th>Payment</th>
-	                                    <th>Point</th>
-	                                    <th>Date</th>
+	                                    <th width="60em;">No</th>
+	                                    <th width="90em;">ID</th>
+	                                    <th width="90em;">충전금액</th>
+	                                    <th width="90em;">포인트</th>
+	                                    <th width="120em;">날짜</th>
 	                                </tr>
 								</thead>
                                 <tbody>
@@ -40,31 +42,34 @@
 							</table>
 						</div>  
 					</form>
+					
+					<ul class="wn__pagination page_pb_40">
+						<c:if test="${pageMaker.prev}">
+							<li><a
+								href="/payment/chargeHistory${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+						</c:if>
+					
+						<c:forEach begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}" var="idx">
+							<li
+								<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+								<a href="/payment/chargeHistory${pageMaker.makeQuery(idx)}">${idx}</a>
+							</li>
+						</c:forEach>
+					
+						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+							<li><a
+								href="/payment/chargeHistory${pageMaker.makeQuery(pageMaker.endPage + 1)}">&raquo;</a></li>
+						</c:if>
+					</ul>
+					
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<ul class="wn__pagination page_pb_40">
-	<c:if test="${pageMaker.prev}">
-		<li><a
-			href="/payment/chargeHistory${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
-	</c:if>
 
-	<c:forEach begin="${pageMaker.startPage}"
-		end="${pageMaker.endPage}" var="idx">
-		<li
-			<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-			<a href="/payment/chargeHistory${pageMaker.makeQuery(idx)}">${idx}</a>
-		</li>
-	</c:forEach>
-
-	<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		<li><a
-			href="/payment/chargeHistory${pageMaker.makeQuery(pageMaker.endPage + 1)}">&raquo;</a></li>
-	</c:if>
-</ul>
 	
         
 <%@include file="../include/footer.jsp"%>

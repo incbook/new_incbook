@@ -18,42 +18,54 @@
 	<section class="my_account_area pt--80 pb--55 bg--white">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4">
-				</div>
-				<div class="col-lg-4 col-12">
+				<%@include file="../include/includeSide.jsp"%>
+
+				<div class="col-lg-9 col-12 order-1 order-lg-2">
 					<div class="my__account__wrapper">
-						<h3 class="account__title">로그인페이지다!!!!!</h3>
-						
-						
+						<div class="cus_title">
+							<p>
+								<strong>도서 장르 선택</strong>
+							</p>
+						</div>
 						
 						<form action="/personalize/personalChoice" method="post">
 							<input type="hidden" name="memberId" value="${login.id}">
 							<div class="account__form">
-								<div>------------------국내도서------------------</div>
+								<h3 align="center">국내도서</h3><br>
 								<c:forEach items="${g1}" var="genre1" varStatus="status" begin="1">
-									<input onclick="CountChecked(this)" class="limit_check" name="genre" type="checkbox" value="${genre1}">${genre1}
-									<c:if test="${status.index % 3 eq 0}">
-										<br>
-									</c:if>
+									<label class="custom-control custom-checkbox form-field">
+										<input onclick="CountChecked(this)" class="limit_check custom-control-input" name="genre" type="checkbox" value="${genre1}">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">${genre1}</span>
+									</label>
+									<c:if test="${status.index % 4 eq 0}"><br></c:if>
 								</c:forEach>
-								<br>
-								<div>------------------외국도서------------------</div>
+								<br><br><hr><br>
+								
+								<h3 align="center">해외도서</h3><br>
 								<c:forEach items="${g2}" var="genre2" varStatus="status" begin="1">
-									<input onclick="CountChecked(this)" class="limit_check" name="genre" type="checkbox" value="${genre2}">${genre2}
-									<c:if test="${status.index % 3 eq 0}">
-										<br>
-									</c:if>
+									<label class="custom-control custom-checkbox form-field">
+										<input onclick="CountChecked(this)" class="limit_check custom-control-input" name="genre" type="checkbox" value="${genre2}">
+										<span class="custom-control-indicator"></span>
+										<span class="custom-control-description">${genre2}</span>
+									</label>
+									<c:if test="${status.index % 4 eq 0}"><br></c:if>
 								</c:forEach>
 								
+								<br><br><hr><br>
 								<div class="form__btn custom__center">
-										<button>저장하기</button>
-										<button onclick="ResetCount()" type="reset" class="all_uncheck">전체 취소</button>
+									<button>저장하기</button>
+									<button onclick="ResetCount()" type="reset" class="all_uncheck">전체 취소</button>
 								</div>
+								
 							</div>
 						</form>
-						
-						
-						
+						<!-- <div class="account__form">
+							<div class="form__btn custom__center">
+								<button>저장하기</button>
+								<button onclick="ResetCount()" type="reset" class="all_uncheck">전체 취소</button>
+							</div>
+						</div> -->
 						
 					</div>					
 				</div>
@@ -65,7 +77,7 @@
 <script src="/resources/js/custom/form.js"></script>
 
 <script>
-var maxChecked = 3;
+var maxChecked = 5;
 var totalChecked = 0;
 
 function CountChecked(field) {
@@ -77,7 +89,7 @@ function CountChecked(field) {
 	}
 	
 	if (totalChecked > maxChecked) {
-		alert ("최대 3개 까지만 가능합니다.");
+		alert ("최대 5개 까지만 가능합니다.");
 		field.checked = false;
 		totalChecked -= 1;
 	}
