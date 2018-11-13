@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../include/header.jsp"%>
-	
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />	
 
 <section class="wn__checkout__area section-padding--lg bg__white">
 	<div class="container">
@@ -23,9 +26,12 @@
    							<input type="text" placeholder="세부 위치를 입력하세요">
    						</div>
    						<div class="input_box">
-   							<label>거래시간 <span>*</span></label>
-   							오후 3시
-   							<input type="text" placeholder="시간을 입력하세요">
+   							<label>거래시간 <span>*</span>
+   							<input type="text" name="START_TIME" id="START_TIME" value="" maxlength="10"  class="setDatePicker"></label>
+   						</div>
+   						<div class="input_box">
+   							<label>거래기간 <span>*</span></label>
+   							<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
    						</div>
    						<div class="input_box">
    							<label>대여기간 <span>*</span><strong> 15일</strong></label>
@@ -64,5 +70,29 @@
 			alert("소유자와 채팅은 하셨나요?");
 		});
 	});
+
+	$(function() {
+		$('input[name="daterange"]').daterangepicker({
+			opens: 'left'
+		}, function(start, end, label) {
+			console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+		});
+	});
+	
+	$(function() {
+        // INPUT 박스에 들어간 ID값을 적어준다.
+        $("#START_TIME,#END_TIME").timepicker({
+            'minTime': '00:00am', // 조회하고자 할 시작 시간 ( 09시 부터 선택 가능하다. )
+            'timeFormat': 'H:i',
+            'step': 30 // 30분 단위로 지정. ( 10을 넣으면 10분 단위 )
+    	});
+    
+	    $(window).scroll(function(){
+	        $(".ui-timepicker-wrapper").hide();
+	    });
+    });
+
+
+	
 </script>
 

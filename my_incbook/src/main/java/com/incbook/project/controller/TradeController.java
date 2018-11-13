@@ -17,4 +17,14 @@ public class TradeController {
 		
 	}
 	
+	@RequestMapping(value = "/lendersPage", method = RequestMethod.GET)
+	public void lendersPage() throws Exception {
+		
+	}
+	
+	@RequestMapping(value = "/ownerPage", method = RequestMethod.GET)
+	public void ownerPage() throws Exception {
+		
+	}
+	
 }

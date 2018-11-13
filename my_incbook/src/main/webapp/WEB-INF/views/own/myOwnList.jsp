@@ -17,43 +17,38 @@
 
 <%@include file="../include/header.jsp"%>
 
-<!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area bg-image--6">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Grid</h2>
-					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
-							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Grid</span>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- End Bradcaump area -->
 <!-- Start Shop Page -->
-<div
-	class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+<section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
 
-			<div class="col-lg-9 col-12 order-1 order-lg-2">
+			<div class="col-lg-3 col-3">
+				<h3 class="wedget__title">My Page</h3>
+				<ul>
+					<li><a href='http://localhost:8080/member/memberDetail';">회원정보수정</a></li>
+					<li><a href="http://localhost:8080/payment/chargeHistory">포인트 충전 내역</a></li>
+					<li><a href="http://localhost:8080/own/myOwnList">내가 등록한 도서</a></li>
+					<li><a href="http://localhost:8080/trade/lendersPage">대여자 페이지</a></li>
+					<li>회원 탈퇴</li>
+					<li>회원 탈퇴</li>
+					<li>회원 탈퇴</li>
+					<li>회원 탈퇴</li>
+					<li>회원 탈퇴</li>
+					<li>회원 탈퇴</li>
+				</ul>
+			</div>
+
+
+			<div class="col-lg-9 col-9 order-1 order-lg-2">
 				<div class="row">
-					<div class="col-lg-12">
-						<div
-							class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
-							<div class="shop__list nav justify-content-center" role="tablist">
-							</div>
-							<p>
-								<strong>전체 TOP-100</strong>
-							</p>
-							<div class="orderby__wrapper">
-								<span></span>
-							</div>
+					<div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
+						<div class="shop__list nav justify-content-center" role="tablist">
+						</div>
+						<p>
+							<strong>내가 등록한 도서</strong>
+						</p>
+						<div class="orderby__wrapper">
+							<span></span>
 						</div>
 					</div>
 				</div>
@@ -63,7 +58,7 @@
 
 							<!-- Start Single Product -->
 							<c:forEach items="${myOwnMapList}" var="myOwn">
-								<div class="list__view">
+								<div class="list__view cus_line">
 									<div class="thumb">
 										<a class="first__img" href="/book/ownReadPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${myOwn.bookVO.id}"><img
 											src="/img/${myOwn.bookVO.id}/${myOwn.bookVO.image}" alt="product image"
@@ -177,7 +172,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 
 

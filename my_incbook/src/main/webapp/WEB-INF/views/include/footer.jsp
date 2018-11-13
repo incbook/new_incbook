@@ -80,6 +80,7 @@
 <!-- Custom JS Files -->
 <script src="/resources/js/custom/clickPageMove.js"></script>
 <script src="/resources/js/custom/quickView.js"></script>
+<script src="/resources/js/custom/jquery.timepicker.min.js"></script>
 
 </body>
 </html>

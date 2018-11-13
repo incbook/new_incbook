@@ -62,7 +62,7 @@ h1 {
 }
 .imsi_set {
 	padding-top: 120px;
-	padding-bottom: 20px; !important;
+	padding-bottom: 20px !important;
 }
 .page_pb_40 {
 	padding-bottom: 40px;
@@ -112,4 +112,13 @@ h1 {
 }
 .item_inLine li{
 	display: inline;
+}
+
+.cus_line {
+	margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #e1e1e1;
+}
+.cus_line:last-child {
+    border: none;
 }
