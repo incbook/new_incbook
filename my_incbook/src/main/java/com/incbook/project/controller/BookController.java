@@ -44,12 +44,13 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri, String prePage) throws Exception {
+	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri,
+			String prePage) throws Exception {
 		BookVO findBookByID2 = bookService.findBookByID2(id);
-		MemberVO member = memberService.findMemberById(id);
+		MemberVO member = memberService.findMemberById(findBookByID2.getFinalUpdateMemberId());
 		model.addAttribute("findBookByID2", findBookByID2);
 		model.addAttribute("member", member);
-		
+
 		model.addAttribute("prePage", prePage);
 
 	}
@@ -66,26 +67,65 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagingPOST(BookVO vo, SearchCriteria cri, RedirectAttributes rttr, String prePage) throws Exception {
-		bookService.updateBook(vo);
-		System.out.println(vo);
-		rttr.addAttribute("id", vo.getId());
-		rttr.addAttribute("page", cri.getPage());
-		rttr.addAttribute("pagesize", cri.getPagesize());
-		rttr.addAttribute("prePage", prePage);
+	public String modifyPagingPOST(@RequestParam("file") MultipartFile file, BookVO vo, SearchCriteria cri,
+			RedirectAttributes rttr, String prePage) throws Exception {
+		if (file.getOriginalFilename()=="") {
+			
+			System.out.println(vo.getId());
+			BookVO bookVO=bookService.findBookByID2(vo.getId());
+			vo.setImage(bookVO.getImage());
+
+			bookService.updateBook(vo);
+			rttr.addAttribute("id", vo.getId());
+			rttr.addAttribute("page", cri.getPage());
+			rttr.addAttribute("pagesize", cri.getPagesize());
+			rttr.addAttribute("prePage", prePage);
+
+		} else {
+			System.out.println(file.getOriginalFilename()+"351351sdf5sa6ef4e684fs651c32s13d5f46s8e4f6s5df");
+
+			vo.setImage(file.getOriginalFilename());
+			bookService.updateBook(vo);
+			rttr.addAttribute("id", vo.getId());
+			rttr.addAttribute("page", cri.getPage());
+			rttr.addAttribute("pagesize", cri.getPagesize());
+			rttr.addAttribute("prePage", prePage);
+			File f = null;
+			boolean bool = false;
+			try {
+				String path = "C://book//" + vo.getId() + "//";
+				File selectedDir = new File(path);
+				// 하위 디렉토리들을 배열에 담는다.
+				File[] innerFiles = selectedDir.listFiles();
+				// 하위 디렉토리 삭제
+				for (int i = 0; i < innerFiles.length; i++) {
+					innerFiles[i].delete();
+				}
+				f = new File("C://book//" + vo.getId() + "//");
+				// create
+				f.getParentFile().mkdirs();
+				f.mkdir();
+				f.createNewFile();
+				String url = bookService.restore(file, vo);
+				rttr.addAttribute("url", url);
+
+			} catch (Exception e) {
+				// if any error occurs
+				e.printStackTrace();
+			}
+		}
 
 		return "redirect:/book/readPage";
 	}
 
 	// id를 바탕으로 책정보 가져오기
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") SearchCriteria cri, Model model,String prePage)
-			throws Exception {
+	public void modifyPagingGET(@RequestParam("id") int id, @ModelAttribute("cri") SearchCriteria cri, Model model,
+			String prePage) throws Exception {
 		model.addAttribute("modifyTarget", bookService.findBookByID(id));
 		model.addAttribute("prePage", prePage);
 	}
 
-	
 	@RequestMapping(value = "/newBookChart", method = RequestMethod.GET)
 	public void chartGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
@@ -97,7 +137,6 @@ public class BookController {
 		pageMaker.setTotalCount(bookService.listSearchCount(cri));
 
 		model.addAttribute("pageMaker", pageMaker);
-		
 
 	}
 
@@ -114,8 +153,6 @@ public class BookController {
 		pageMaker.setTotalCount(bookService.genreListCount(cri));
 
 		model.addAttribute("pageMaker", pageMaker);
-		
-		
 
 	}
 
@@ -139,37 +176,32 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/infoInsert", method = RequestMethod.POST)
-	public String bookInfoInsertPOST(@RequestParam ("file") MultipartFile file, BookVO vo, RedirectAttributes rttr) throws Exception {
-		
+	public String bookInfoInsertPOST(@RequestParam("file") MultipartFile file, BookVO vo, RedirectAttributes rttr)
+			throws Exception {
+
 		vo.setImage(file.getOriginalFilename());
 		bookService.createbookInfo(vo);
-		System.out.println(vo);
-		rttr.addFlashAttribute("result", "success");
-		
 
 		File f = null;
 		boolean bool = false;
 
 		try {
 			// returns pathnames for files and directory
-			f = new File("C://book//"+vo.getId()+"//");
+			f = new File("C://book//" + vo.getId() + "//");
 			// create
 			f.getParentFile().mkdirs();
-			bool = f.mkdir();
-			f.createNewFile(); 
-			
-			// print
-			System.out.print("Directory created? " + bool);
-			
+			f.mkdir();
+			f.createNewFile();
+
 			String url = bookService.restore(file, vo);
-			
+
 			rttr.addAttribute("url", url);
 
 		} catch (Exception e) {
 			// if any error occurs
 			e.printStackTrace();
 		}
-		    
+
 		return "redirect:/book/infoInsert";
 	}
 

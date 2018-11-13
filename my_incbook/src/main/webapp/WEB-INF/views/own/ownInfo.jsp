@@ -27,12 +27,13 @@
 								<br> <label for="publisher">보유자 <span>*&nbsp;</span></label>${member.nickname}
 								<br> <label for="publisher">상태 <span>*&nbsp;</span></label>${own.state}급
 								<br> <label for="publisher">일당 대여료 <span>*&nbsp;</span></label>${own.fee}원
+								<br> <label for="publisher">대여기간 <span>*&nbsp;</span></label>${own.selectPeriod}일
 								<br> <label for="publisher">거래 선호 지역 <span>*&nbsp;</span></label>${own.rentLocation}
 							</div>
 							
 							<div class="button_form">
-								<button class="chat_start" type="button">채팅하기</button>
-								<button type="button">거래하기</button>
+								<button class="chat_start" type="button">채팅하기</button>&emsp;
+								<button class="trade_start" type="button">거래하기</button>
 							</div>
 							
 						</div>
@@ -67,6 +68,12 @@
 	$(function() {
 		$(".chat_start").on("click",function() {
 			alert("채팅시작");
+		});
+	});
+	
+	$(function() {
+		$(".trade_start").on("click",function() {
+			alert("소유자와 채팅은 하셨나요?");
 		});
 	});
 </script>

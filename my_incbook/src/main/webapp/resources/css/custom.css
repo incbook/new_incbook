@@ -99,7 +99,7 @@ h1 {
     padding: 2px 20px 0;
     text-transform: uppercase;
     transition: all 0.4s ease 0s; 
-    margin: 12px 12px 0 0 ;
+    margin: 18px 0;
 }
 .button_form button:hover {
       background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
@@ -107,6 +107,9 @@ h1 {
       color: #e59285; 
 }
 
+.trade_ok {
+	float: right;
+}
 .item_inLine li{
 	display: inline;
 }
