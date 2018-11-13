@@ -23,13 +23,16 @@
 				<div class="col-lg-4 col-12">
 					<div class="my__account__wrapper">
 						<h3 class="account__title">로그인페이지다!!!!!</h3>
+						
+						
+						
 						<form action="/personalize/personalChoice" method="post">
 							<input type="hidden" name="memberId" value="${login.id}">
 							<div class="account__form">
 								<div>------------------국내도서------------------</div>
 								<c:forEach items="${g1}" var="genre1" varStatus="status" begin="1">
 									<input onclick="CountChecked(this)" class="limit_check" name="genre" type="checkbox" value="${genre1}">${genre1}
-									<c:if test="${status.index%3 eq 0}">
+									<c:if test="${status.index % 3 eq 0}">
 										<br>
 									</c:if>
 								</c:forEach>
@@ -37,7 +40,7 @@
 								<div>------------------외국도서------------------</div>
 								<c:forEach items="${g2}" var="genre2" varStatus="status" begin="1">
 									<input onclick="CountChecked(this)" class="limit_check" name="genre" type="checkbox" value="${genre2}">${genre2}
-									<c:if test="${status.index%3 eq 0}">
+									<c:if test="${status.index % 3 eq 0}">
 										<br>
 									</c:if>
 								</c:forEach>
@@ -48,6 +51,10 @@
 								</div>
 							</div>
 						</form>
+						
+						
+						
+						
 					</div>					
 				</div>
 			</div>

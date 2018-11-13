@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.PersonalizationVO;
 import com.incbook.project.persistence.PersonalizeDAO;
 
 @Service
@@ -19,7 +21,16 @@ public class PersonalizeServiceImpl implements PersonalizeService {
 	@Inject
 	private PersonalizeDAO personalizeDAO;
 
+	@Override
+	public List<PersonalizationVO> findPersonalByMemberId(MemberVO vo) throws Exception {
+		return personalizeDAO.findPersonalByMemberId(vo);
+	}
 	
+	@Override
+	public List<String> maxTradeGenre(MemberVO vo) throws Exception {
+		return personalizeDAO.maxTradeGenre(vo);
+	}
+
 	/* 
 	 * 개인관심 장르 선택을 하지 않았을 때
 	 */

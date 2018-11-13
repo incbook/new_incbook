@@ -7,12 +7,14 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.incbook.project.service.PaymentService;
+import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.PersonalizationVO;
 import com.incbook.project.service.PersonalizeService;
 
 @Controller
@@ -43,12 +45,12 @@ public class PersonalizeController {
 		
 	
 	@RequestMapping(value = "/personalize", method = RequestMethod.GET)
-	public void personalize() throws Exception {
+	public void personalize(HttpServletRequest request) throws Exception {
 	
 		/* 조건 - 
-		 * 관심 장르	1	it
-		 * 거래한 내역	1	로맨스
-		 * 소유한 내역	1	로맨스
+		 * 관심 장르	1	it		최대3
+		 * 거래한 내역	1	로맨스	최대3
+		 * 소유한 내역	1	로맨스	최대3
 		 * 
 		 * 거래량
 		 * 별점
@@ -63,9 +65,27 @@ public class PersonalizeController {
 		 * 그중에서 10개만 리스트에 담는다
 		 * 
 		 * 20개란 목록은 어떻게 뽑아올것인가...
-		 * 1번 관심장르 최대 3	- 각 10개
+		 * 1번 관심장르 최대 3 - 각 10개
 		 * 2번 거래한 내역 최대 3 - 각 10개
 		 * 3번 소유한 내역 최대 3 - 각 10개
+		 * 
+		 * 유아 / 소설			
+		 * 유아 / 문학 / 청소년	
+		 * 어린이 / 잡지 / 영어동화	
+		 * 
+		 * 최대 30
+		 * 
+		 * 30/8 = 3.~
+		 * 
+		 * 3 * 2 유아		6	
+		 * 3 * 1 소설		3
+		 * 3 * 1 문학		3	
+		 * 3 * 1 청소년		3
+		 * 3 * 1 어린이		3
+		 * 3 * 1 잡지		3
+		 * 3 * 1 영어동화	3
+		 * 
+		 * 18+6 = 24
 		 * 
 		 * 겹친다면?? 
 		 * 3번의 db 연동
@@ -79,6 +99,18 @@ public class PersonalizeController {
 		 * Map 의 containsKey() 를 사용해서 키값 존재여부 확인 후
 		 * value 값을 1씩 증가
 		*/
+		
+		// 세션을 통한 회원 정보
+		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
+		
+		// 1번 개인관심 장르
+		List<PersonalizationVO> personalGenreList = personalizeService.findPersonalByMemberId(login);
+		
+		// 2번 거래한 내역의 최다 장르
+		List<String> maxTradeGenreList = personalizeService.maxTradeGenre(login);
+		
+		// 3번 소유한 내역의 최다 장르
+		
 		
 		// 개인화맵에 개인화 정보를 위한 데이터(장르, 등장횟수)를 담는다
 		Map<String, Integer> personalizeMap = new HashMap();
