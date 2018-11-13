@@ -58,6 +58,7 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public BookVO findBookByID2(Integer id) throws Exception {
 		dao.updateViewCnt(id);
+		System.out.println(dao.findBookByID2(id));
 		return dao.findBookByID2(id);
 	}
 
@@ -106,9 +107,9 @@ public class BookServiceImpl implements BookService {
 			// 서버에서 저장 할 파일 이름
 			int saveFileName = genSaveFileName(extName,vo);
 
-			System.out.println("originFilename : " + originFilename);
-			System.out.println("size : " + size);
-			System.out.println("saveFileName : " + saveFileName);
+//			System.out.println("originFilename : " + originFilename);
+//			System.out.println("size : " + size);
+//			System.out.println("saveFileName : " + saveFileName);
 
 			writeFile(file, saveFileName, vo);
 			url = "C://book//"+vo.getId()+"//"+vo.getImage()+"//";

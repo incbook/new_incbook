@@ -1,7 +1,7 @@
 $(function() {
 	$(".validationFormButton").on("click", function() {
 		var validationForm = $(".validationForm");
-		var validationInput = $(".validationForm input[validationText]");
+		var validationInput = $(".validationForm [validationText]");
 		var numberOnlyArr = $(".validationForm .numberOnly");
 		var isReInsert = false;
 		var validationText = "";
