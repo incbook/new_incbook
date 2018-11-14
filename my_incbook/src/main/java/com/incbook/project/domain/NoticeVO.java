@@ -7,7 +7,6 @@ public class NoticeVO {
 	private int id;
 	private int boardId;
 	private Date regdate;
-	private Date updatedate;
 	private String title;
 	private String content;
 	private int memberId;
@@ -35,14 +34,6 @@ public class NoticeVO {
 
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
-	}
-
-	public Date getUpdatedate() {
-		return updatedate;
-	}
-
-	public void setUpdatedate(Date updatedate) {
-		this.updatedate = updatedate;
 	}
 
 	public String getTitle() {
@@ -79,9 +70,8 @@ public class NoticeVO {
 
 	@Override
 	public String toString() {
-		return "NoticeVO [id=" + id + ", boardId=" + boardId + ", regdate=" + regdate + ", updatedate=" + updatedate
-				+ ", title=" + title + ", content=" + content + ", memberId=" + memberId + ", viewCount="
-				+ viewCount + "]";
+		return "NoticeVO [id=" + id + ", boardId=" + boardId + ", regdate=" + regdate + ", updatedate=" + ", title="
+				+ title + ", content=" + content + ", memberId=" + memberId + ", viewCount=" + viewCount + "]";
 	}
 
 }
