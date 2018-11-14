@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/resources/css/plugins.css">
 	<link rel="stylesheet" href="/resources/style.css">
+	<link rel="stylesheet" href="/resources/css/jquery.timepicker.css">
 	
 	<!-- Cusom css -->
 	<link rel="stylesheet" href="/resources/css/custom.css">
@@ -66,8 +67,9 @@
 									<div class="megamenu mega03">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="/book/allTop100">TOP-100</a></li>
-											<li><a href="/book/newBookChart">NEW-도서</a></li>
+											<li><a href="/book/allTop100">All Top 100</a></li>
+											<li><a href="/book/genreTop100">Genre Top 100</a></li>
+											<li><a href="/book/newBookChart">NEW 100</a></li>
 										</ul>
 
 									</div></li>

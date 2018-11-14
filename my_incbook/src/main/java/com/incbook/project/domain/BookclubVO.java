@@ -1,6 +1,6 @@
 package com.incbook.project.domain;
 
-public class BookclubVO {
+public class BookclubVO extends PartyVO{
 
 	private int id;
 	private String genre;

@@ -68,9 +68,14 @@
 		</div>
 	</div>
 	<div>
-		<button type="submit" id="btn_goList">목록</button>
+		<button type="button" id="btn_goList">목록</button>
+		<%-- <c:if test="${login,grade == '관리자'}"> --%>
+		<button type="button" id="btn_modify">수정하기</button>
+		<button type="button" id="btn_delete">삭제하기</button>
+		<%-- </c:if> --%>
 	</div>
-	<form role="form" action="modifyPage" method="post">
+	<form role="form" method="post">
+	<input type='hidden' name='id' value='${readAnnouncement.id}'>
 	<input type='hidden' name='page' value ="${boardCri.page}">
 	<input type='hidden' name='pagesize' value ="${boardCri.pagesize}">
 	
@@ -88,6 +93,15 @@
 			formObj.attr("action", "/announcement/announcement");
 			formObj.submit();
 		});
+		 $("#btn_modify").on("click", function() {
+		      formObj.attr("action", "/announcement/modifyPage");
+		      formObj.attr("method", "get");
+		      formObj.submit();
+		   });
+		   $("#btn_delete").on("click", function() {
+		      formObj.attr("action", "/announcement/delete");
+		      formObj.submit();
+		   });
 	});
 	//]]>
 </script>

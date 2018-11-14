@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.incbook.project.domain.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="../include/header.jsp"%>
 
@@ -44,7 +44,7 @@
 							<th scope="col">제목</th>
 							<th scope="col">작성자</th>
 							<th scope="col">날짜</th>
-							<th scope="col">조회수</th>					
+							<th scope="col">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -52,9 +52,12 @@
 
 							<tr>
 								<td>${AnnouncementVO.id}</td>
-<td><a href='/announcement/readAnnouncement${boardPageMaker.makeQuery(boardPageMaker.cri.page)}&id=${AnnouncementVO.id}'>${AnnouncementVO.title} </a></td>								<td>${AnnouncementVO.memberId}</td>
+								<td><a
+									href='/announcement/readAnnouncement${boardPageMaker.makeQuery(boardPageMaker.cri.page)}&id=${AnnouncementVO.id}'>${AnnouncementVO.title}
+								</a></td>
+								<td>${AnnouncementVO.memberId}</td>
 								<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
-									value="${AnnouncementVO.regdate}" /></td>
+										value="${AnnouncementVO.regdate}" /></td>
 								<td>${AnnouncementVO.viewCount}</td>
 							</tr>
 
@@ -65,25 +68,49 @@
 		</div>
 	</div>
 	<div class="text-center">
-		<ul class="pagination">
+		<ul class="wn__pagination">
 			<c:if test="${boardPageMaker.prev}">
-				<li><a href="announcement${boardPageMaker.makeSearch(boardPageMaker.startPage - 1)}">&laquo;</a></li>
+				<li><a
+					href="announcement${boardPageMaker.makeSearch(boardPageMaker.startPage - 1)}">&laquo;</a></li>
 			</c:if>
 
-			<c:forEach begin="${boardPageMaker.startPage}" end="${boardPageMaker.endPage}"
-				var="idx">
-				<li <c:out value="${boardPageMaker.cri.page == idx?'class=active':''}"/>>
+			<c:forEach begin="${boardPageMaker.startPage}"
+				end="${boardPageMaker.endPage}" var="idx">
+				<li
+					<c:out value="${boardPageMaker.cri.page == idx?'class=active':''}"/>>
 					<a href="announcement${boardPageMaker.makeSearch(idx)}">${idx}</a>
 				</li>
 			</c:forEach>
 
 			<c:if test="${boardPageMaker.next && boardPageMaker.endPage > 0}">
-				<li><a href="announcement${boardPageMaker.makeSearch(boardPageMaker.endPage + 1)}">&raquo;</a></li>
+				<li><a
+					href="announcement${boardPageMaker.makeSearch(boardPageMaker.endPage + 1)}">&raquo;</a></li>
 			</c:if>
 
 		</ul>
 	</div>
+	<div>
+		<button type="submit" id="btn_insert">공지사항 작성</button>
+	</div>
+	<form role="form" action="modifyPage" method="post">
+	<input type="hidden" name="page" value="${boardCri.page}">
+	<input type="hidden" name="pagesize" value="${boardCri.pagesize}">
+	</form>
 </section>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <%@include file="../include/footer.jsp"%>
+<script>
+	//<![CDATA[
+	$(document).ready(function() {
+		var formObj = $("form[role='form']");
+		console.log(formObj);
+
+		$("#btn_insert").on("click", function() {
+			formObj.attr("method", "get");
+			formObj.attr("action", "/announcement/announcementInsert");
+			formObj.submit();
+		});
+	});
+	//]]>
+</script>
