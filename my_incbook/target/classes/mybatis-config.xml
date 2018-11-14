@@ -10,7 +10,9 @@
 		<typeAlias type="com.incbook.project.domain.BookVO" alias="BookVO" />
 		<typeAlias type="com.incbook.project.domain.AnnouncementVO" alias="AnnouncementVO" />
 		<typeAlias type="com.incbook.project.domain.PartyVO" alias="PartyVO" />
-
+		<typeAlias type="com.incbook.project.domain.BookclubVO" alias="BookclubVO" />
+		<typeAlias type="com.incbook.project.domain.BoardVO" alias="BoardVO" />
+		<typeAlias type="com.incbook.project.domain.NoticeVO" alias="NoticeVO" />
 	
 	</typeAliases>
 

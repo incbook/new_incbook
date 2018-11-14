@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.incbook.project.domain.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="../include/header.jsp"%>
 
@@ -28,7 +28,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>공지사항</h3>
+				<h3>북클럽 게시판</h3>
 			</div>
 		</div>
 	</div>
@@ -42,43 +42,34 @@
 						<tr>
 							<th scope="col">번호</th>
 							<th scope="col">제목</th>
-							<th scope="col">작성자</th>
-							<th scope="col">내용</th>
-							<th scope="col">날짜</th>
-							<th scope="col">조회수</th>
 
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach items="${boardList}" var="boardList">
 
-
-						<tr>
-							<td>${readAnnouncement.id}</td>
-							<td>${readAnnouncement.title}</td>
-							<td>${readAnnouncement.memberId}</td>
-							<td>${readAnnouncement.content}</td>
-							<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
-									value="${readAnnouncement.regdate}" /></td>
-							<td>${readAnnouncement.viewCount}</td>
-						</tr>
-
+							<tr>
+								<td>${boardList.id}</td>
+								<td><a href='/bookclub/noticeList?${pageMaker.makeQuery(pageMaker.cri.page)}&boardId=${boardList.id}&bookclubId=${bookclubId}'>${boardList.title} </a></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 	<div>
-		<button type="button" id="btn_goList">목록</button>
-		<%-- <c:if test="${login,grade == '관리자'}"> --%>
-		<button type="button" id="btn_modify">수정하기</button>
-		<button type="button" id="btn_delete">삭제하기</button>
-		<%-- </c:if> --%>
+		<button type="button" id="btn_goList">북클럽 목록</button>
+		<button type="button" id="btn_modify">북클럽 수정</button>
+		<button type="button" id="btn_delete">북클럽 삭제</button>
+		<button type="button" id="btn_insert">게시판 생성</button>
+
 	</div>
 	<form role="form" method="post">
-	<input type='hidden' name='id' value='${readAnnouncement.id}'>
-	<input type='hidden' name='page' value ="${boardCri.page}">
-	<input type='hidden' name='pagesize' value ="${boardCri.pagesize}">
-	
+		<input type='hidden' name='bookclubId' value="${bookclubId}"> 
+		<input type='hidden' name='page' value="${cri.page}"> 
+		<input type='hidden' name='pagesize' value="${cri.pagesize}">
+
 	</form>
 </section>
 <%@include file="../include/footer.jsp"%>
@@ -90,18 +81,25 @@
 
 		$("#btn_goList").on("click", function() {
 			formObj.attr("method", "get");
-			formObj.attr("action", "/announcement/announcement");
+			formObj.attr("action", "/bookclub/bookclubList");
 			formObj.submit();
 		});
-		 $("#btn_modify").on("click", function() {
-		      formObj.attr("action", "/announcement/modifyPage");
-		      formObj.attr("method", "get");
-		      formObj.submit();
-		   });
-		   $("#btn_delete").on("click", function() {
-		      formObj.attr("action", "/announcement/delete");
-		      formObj.submit();
-		   });
+		$("#btn_modify").on("click", function() {
+			formObj.attr("action", "/bookclub/bookclubModifyPage");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+		$("#btn_delete").on("click", function() {
+			formObj.attr("action", "/bookclub/deleteBookclub");
+			formObj.attr("method", "get");
+			formObj.submit();
+		});
+
+		$("#btn_insert").on("click", function() {
+			formObj.attr("method", "get");
+			formObj.attr("action", "/bookclub/boardInsert");
+			formObj.submit();
+		});
 	});
 	//]]>
 </script>

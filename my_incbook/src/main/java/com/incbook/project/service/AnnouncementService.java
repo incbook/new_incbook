@@ -14,6 +14,10 @@ public interface AnnouncementService {
 	
 	public AnnouncementVO readAnnouncement(Integer id) throws Exception;
 
+	public void announcementInsert(AnnouncementVO vo) throws Exception; 
 	
+	public void deleteAnnouncement(Integer id) throws Exception;
+	
+	public void updateAnnouncement(AnnouncementVO vo) throws Exception;
 
 }

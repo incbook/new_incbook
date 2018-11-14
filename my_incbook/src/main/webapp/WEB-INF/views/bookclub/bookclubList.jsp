@@ -28,7 +28,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>공지사항</h3>
+				<h3>북클럽 목록</h3>
 			</div>
 		</div>
 	</div>
@@ -41,46 +41,57 @@
 					<thead>
 						<tr>
 							<th scope="col">번호</th>
-							<th scope="col">제목</th>
-							<th scope="col">작성자</th>
-							<th scope="col">내용</th>
-							<th scope="col">날짜</th>
-							<th scope="col">조회수</th>
-
+							<th scope="col">장르</th>
+							<th scope="col">이름</th>
+							<th scope="col">생성날짜</th>
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach items="${bookclubList}" var="BookclubVO">
 
+							<tr>
+								<td>${BookclubVO.id}</td>
+								<td>${BookclubVO.genre}</td>
+<td><a href='/bookclub/boardList${pageMaker.makeQuery(pageMaker.cri.page)}&bookclubId=${BookclubVO.id}'>${BookclubVO.name} </a></td>					
+								<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
+									value="${BookclubVO.regdate}" /></td>
+							</tr>
 
-						<tr>
-							<td>${readAnnouncement.id}</td>
-							<td>${readAnnouncement.title}</td>
-							<td>${readAnnouncement.memberId}</td>
-							<td>${readAnnouncement.content}</td>
-							<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
-									value="${readAnnouncement.regdate}" /></td>
-							<td>${readAnnouncement.viewCount}</td>
-						</tr>
-
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-	<div>
-		<button type="button" id="btn_goList">목록</button>
-		<%-- <c:if test="${login,grade == '관리자'}"> --%>
-		<button type="button" id="btn_modify">수정하기</button>
-		<button type="button" id="btn_delete">삭제하기</button>
-		<%-- </c:if> --%>
+	<div class="text-center">
+		<ul class="wn__pagination">
+			<c:if test="${pageMaker.prev}">
+				<li><a href="bookclubList${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+			</c:if>
+
+			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}"
+				var="idx">
+				<li <c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
+					<a href="bookclubList${pageMaker.makeSearch(idx)}">${idx}</a>
+				</li>
+			</c:forEach>
+
+			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				<li><a href="bookclubList${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+			</c:if>
+
+		</ul>
 	</div>
-	<form role="form" method="post">
-	<input type='hidden' name='id' value='${readAnnouncement.id}'>
-	<input type='hidden' name='page' value ="${boardCri.page}">
-	<input type='hidden' name='pagesize' value ="${boardCri.pagesize}">
-	
+	<div>
+		<button type="submit" id="btn_insert">북클럽 생성</button>
+	</div>
+	<form role="form" action="modifyPage" method="post">
+	<input type="hidden" name="page" value="${cri.page}">
+	<input type="hidden" name="pagesize" value="${cri.pagesize}">
 	</form>
 </section>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <%@include file="../include/footer.jsp"%>
 <script>
 	//<![CDATA[
@@ -88,20 +99,11 @@
 		var formObj = $("form[role='form']");
 		console.log(formObj);
 
-		$("#btn_goList").on("click", function() {
+		$("#btn_insert").on("click", function() {
 			formObj.attr("method", "get");
-			formObj.attr("action", "/announcement/announcement");
+			formObj.attr("action", "/bookclub/bookclubInsert");
 			formObj.submit();
 		});
-		 $("#btn_modify").on("click", function() {
-		      formObj.attr("action", "/announcement/modifyPage");
-		      formObj.attr("method", "get");
-		      formObj.submit();
-		   });
-		   $("#btn_delete").on("click", function() {
-		      formObj.attr("action", "/announcement/delete");
-		      formObj.submit();
-		   });
 	});
 	//]]>
 </script>

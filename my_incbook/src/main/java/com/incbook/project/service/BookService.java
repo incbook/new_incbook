@@ -23,5 +23,4 @@ public interface BookService {
 
 	public void updateBook(BookVO vo)throws Exception;
 
-
 }

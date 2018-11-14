@@ -3,13 +3,14 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="my_incbook.mapper.announcementMapper">
+
 	<resultMap id="AnnouncementVO" type="AnnouncementVO">
-		<id property="id" column="id"/>
-		<result property="regdate" column="regdate"/>
-		<result property="title" column="title"/>
-		<result property="content" column="content"/>
-		<result property="memberId" column="member_id"/>
-		<result property="viewCount" column="view_count"/>
+		<id property="id" column="id" />
+		<result property="regdate" column="regdate" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="memberId" column="member_id" />
+		<result property="viewCount" column="view_count" />
 	</resultMap>
 
 	<select id="announcementList" resultMap="AnnouncementVO">
@@ -32,9 +33,10 @@
 	</select>
 
 	<update id="updateViewCnt">
-		update announcement set view_count = view_count +1 where id = #{id}
+		update announcement set view_count = view_count +1
+		where id = #{id}
 	</update>
-	
+
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[
 		select count(id)
@@ -42,4 +44,23 @@
 		where id > 0
 		]]>
 	</select>
+
+	<insert id="announcementInsert">
+		insert into announcement (title, content, member_id) values (#{title},
+		#{content}, #{memberId})
+	</insert>
+	
+	<delete id="deleteAnnouncement">
+		delete from announcement where id = #{id}
+	</delete>
+	
+	<update id="updateAnnouncement">
+		update announcement set
+			   title = #{title},
+			   content = #{content}
+		 where id = #{id}
+	</update>
+	
+
+
 </mapper>

@@ -43,4 +43,20 @@ public class AnnouncementDAOImpl implements AnnouncementDAO {
 		return sqlSession.selectOne(namespace+".listSearchCount", cri);
 	}
 
+	@Override
+	public void announcementInsert(AnnouncementVO vo) throws Exception {
+		sqlSession.insert(namespace+".announcementInsert", vo);
+	}
+
+	@Override
+	public void deleteAnnouncement(Integer id) throws Exception {
+		sqlSession.delete(namespace+".deleteAnnouncement", id);
+		
+	}
+
+	@Override
+	public void updateAnnouncement(AnnouncementVO vo) throws Exception {
+		sqlSession.update(namespace+".updateAnnouncement", vo);
+	}
+
 }

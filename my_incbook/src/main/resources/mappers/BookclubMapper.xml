@@ -3,37 +3,164 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="my_incbook.mapper.bookclubMapper">
+	<resultMap id="partyMap" type="PartyVO">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="regdate" column="regdate" />
+	</resultMap>
 	
-	<select id="bookclubList" resultType="BookclubVO">
+
+	<resultMap id="bookclubMap" type="BookclubVO" extends="partyMap">
+		<id property="id" column="id" />
+		<result property="genre" column="genre" />
+	</resultMap>
+	
+	<resultMap id="boardMap" type="BoardVO">
+		<id property="id" column="id" />
+		<result property="bookclubId" column="bookclub_id"/>
+		<result property="title" column="title" />
+	</resultMap>
+	
+	<resultMap id="noticeMap" type="NoticeVO">
+		<id property="id" column="id" />
+		<result property="boardId" column="board_id" />
+		<result property="memberId" column="member_id" />
+		<result property="regdate" column="regdate" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="viewCount" column="view_count" />
+	</resultMap>
+	
+	
+	
+	<select id="bookclubList" resultMap="bookclubMap">
 		<![CDATA[
 		select 
-		b.id, b.genre, p.id, p.name
+		b.id, b.genre, p.id, p.name, CONVERT_TZ(p.regdate, "+0:00","-9:00") AS regdate
 		from bookclub b
 			join party p
 			on p.id=b.id
-		where id > 0 order by id desc
+		where p.id > 0 order by p.id desc
 		limit #{pageStart},#{pagesize}
 		
 		]]>
 	</select>
 
-	<select id="readBookclub" resultType="BookclubVO">
+	<select id="boardList" resultMap="boardMap">
 		<![CDATA[
 		select 
 		*
-		from bookclub where id = #{id}
+		from board where bookclub_id = #{bookclubId}
 		]]>
 	</select>
 
-	<!-- <update id="updateBookclub">
-		update announcement set view_count = view_count +1 where id = #{id}
-	</update> -->
+	
+	<insert id="bookclubInsert">
+		insert into bookclub (id, genre) values (#{party.id}, #{bookclub.genre})
+	</insert>
+	
+	<insert id="boardInsert">
+		insert into board (title, bookclub_id) values (#{title},#{bookclubId})
+	</insert>
+	
+	<insert id="noticeInsert">
+		insert into notice (board_id, member_id, title, content) values (#{boardId}, #{memberId}, #{title}, #{content})
+	</insert>
 	
 	<select id="listSearchCount" resultType="int">
 		<![CDATA[
 		select count(id)
-		from announcement
+		from bookclub
 		where id > 0
 		]]>
 	</select>
+	
+	<update id="updateBookclub">
+		update bookclub set
+			   genre = #{bookclub.genre}
+		 where id = #{party.id}
+	</update>
+	
+	<update id="updateBoard">
+		update board set
+			   title = #{title}
+		 where id = #{id}
+	</update>
+	
+	<select id="readBookclub" resultMap="bookclubMap">
+		<![CDATA[
+		select 
+		*
+		from bookclub b
+			join party p
+			on p.id=b.id
+			where p.id = #{bookclubId}
+		]]>
+	</select>
+	
+	<select id="readBoard" resultMap="boardMap">
+		<![CDATA[
+		select 
+		*
+		from board
+		where id = #{boardId}
+		]]>
+	</select>
+	
+	<delete id="deleteBookclub">
+		delete from bookclub where id = #{bookclubId}
+	</delete>
+	
+	<delete id="deleteAllBoard">
+		delete from board where bookclub_id = #{bookclubId}
+	</delete>
+	
+	<delete id="deleteBoard">
+		delete from board where id = #{boardId}
+	</delete>
+	
+	<delete id="deleteAllNotice">
+		delete from notice where board_id = #{boardId}
+	</delete>
+	
+	<delete id="deleteNotice">
+		delete from notice where id = #{noticeId}
+	</delete>
+	
+	<select id="noticeList" resultMap="noticeMap">
+		<![CDATA[
+		select 
+		id, title, member_id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, view_count
+		from notice where board_id = #{boardId}
+		limit #{cri.pageStart},#{cri.pagesize}
+		]]>
+	</select>
+	
+	<select id="readNotice" resultMap="noticeMap">
+		<![CDATA[
+		select 
+		id, board_id, title, member_id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, content, view_count
+		from notice
+		where id = #{noticeId}
+		]]>
+	</select>
+	
+	<update id="updateNoticeViewCount">
+		update notice set view_count = view_count +1
+		where id = #{noticeId}
+	</update>
+	
+	<update id="updateNotice">
+		update notice set
+			   title = #{title} ,
+			   content = #{content}
+		 where id = #{id}
+	</update>
+	
+	<select id="boardIdList" resultType="int">
+		select 
+		id
+		from board where bookclub_id = #{bookclubId}
+	</select>
+	
 </mapper>

@@ -32,8 +32,22 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 	
 	@Override
 	public int listSearchCount(BoardCriteria cri) throws Exception {
-		// TODO Auto-generated method stub
 		return dao.listSearchCount(cri);
+	}
+
+	@Override
+	public void announcementInsert(AnnouncementVO vo) throws Exception {
+		dao.announcementInsert(vo);
+	}
+
+	@Override
+	public void deleteAnnouncement(Integer id) throws Exception {
+		dao.deleteAnnouncement(id);
+	}
+
+	@Override
+	public void updateAnnouncement(AnnouncementVO vo) throws Exception {
+		dao.updateAnnouncement(vo);
 	}
 	
 	
