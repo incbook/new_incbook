@@ -144,3 +144,31 @@ h1 {
 .pick_money {
 	margin: 2px 0 !important;
 }
+
+.right1 {
+	display: inline-block !important;
+}
+
+.input_width {
+	width: 86% !important;
+	margin-left: 5px;
+}
+
+.input_width2 {
+	width: 80% !important;
+	margin-left: 5px;
+}
+
+.al_center {
+	border-top: 1px solid #e1e1e1;
+	text-align: center;
+}
+.al_center button {
+	margin: 20px 10px 0 10px;
+}
+
+.title_size {
+	font-size: 28px;
+	padding: 12px;
+	color: #e59285;
+}

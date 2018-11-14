@@ -7,16 +7,20 @@
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12"></div>
-			<div class="col-lg-12 col-12">
-				<div class="my__account__wrapper">
-					<h3 class="account__title">도서 상세정보 입력</h3>
+			<div class="col-lg-2"></div>
+				<div class="col-lg-8 col-12">
+					<div class="my__account__wrapper">
+						<div class="cus_title title_size">
+							<p>
+								<strong>도서 상세정보 입력</strong>
+							</p>
+						</div>
 
 					<form role="form" method="post"  enctype="multipart/form-data" class="validationForm">
 						<div class="account__form">
-							<div class="input__box">
-								<label for="title">제목 <span>*</span></label> <input type="text"
-									id="title" name="title" validationText="제목">
+							<div class="input__box  sign__up__form">
+								<label for="title" class="right1">제　목 <span>*</span></label> <input type="text"
+									id="title" name="title" validationText="제목" class="input_width">
 							</div>
 							<%
 								String[] koreagenre = {"유아", "어린이", "전집/중고전집", "청소년", "좋은부모", "초등학교참고서", "중학교참고서", "고등학교참고서", "여행",
@@ -30,9 +34,9 @@
 								request.setAttribute("g1", koreagenre);
 								request.setAttribute("g2", foreigngenre);
 							%>
-							<div class="input__box">
-								<label for="genre">장르 <span>*</span></label> <select id="genre"
-									name="genre" style="height: 30px;" validationText="장르">
+							<div class="input__box sign__up__form">
+								<label for="genre" class="right1">장　르 <span>*</span></label> <select id="genre"
+									name="genre" style="height: 30px;" validationText="장르" class="input_width">
 									<option value="">- -</option>
 									<c:forEach items="${g1}" var="genre1">
 										<option value="${genre1}">${genre1}</option>
@@ -44,38 +48,38 @@
 
 							</div>
 
-							<div class="input__box">
-								<label for="writer">저자 <span>*</span></label> <input type="text"
-									id="writer" name="writer" validationText="저자">
+							<div class="input__box sign__up__form">
+								<label for="writer" class="right1">저　자 <span>*</span></label> <input type="text"
+									id="writer" name="writer" validationText="저자" class="input_width">
 							</div>
 
-							<div class="input__box">
-								<label for="publisher">출판사 <span>*</span></label> <input
-									type="text" id="publisher" name="publisher" validationText="출판사">
+							<div class="input__box sign__up__form">
+								<label for="publisher" class="right1">출판사 <span>*</span></label> <input
+									type="text" id="publisher" name="publisher" validationText="출판사" class="input_width">
 							</div>
 
-							<div class="input__box">
+							<div class="input__box sign__up__form">
 								<label for="content">줄거리 <span>*</span></label>
 								<textarea type="text" id="content" name="content" rows="4"
-									cols="160" validationText="줄거리"></textarea>
+									cols="98" validationText="줄거리"></textarea>
 							</div>
 
-							<div class="input__box">
-								<label for="image">이미지 <span>*</span></label><input type='file'
-									id="image" name="file" validationText="이미지"/> <img id="blah" src="#"
+							<div class="input__box sign__up__form">
+								<label for="image" class="right1">이미지 <span>*</span></label><input type='file'
+									id="image" name="file" validationText="이미지" class="input_width"/> <img id="blah" src="#"
 									alt="book image" width="270" height="340" />
 							</div>
 
-							<div class="input__box">
-								<label for="finalUpdateMemberId">최종수정자 <span>*</span></label> <input
+							<div class="input__box sign__up__form">
+								<label for="finalUpdateMemberId" class="right1">최종수정자 <span>*</span></label> <input
 									type="hidden" id="finalUpdateMemberId"
 									name="finalUpdateMemberId" value="${login.id}"> <input
-									type="text" value="${login.nickname}" readonly>
+									type="text" class="input_width2" value="${login.nickname}" readonly>
 							</div>
 
 							<!-- <input type="submit" title="로그인" value="로그인"> -->
 
-							<div class="form__btn">
+							<div class="form__btn al_center">
 								<button type="button"
 									onclick="location.href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'">
 									취소</button>
