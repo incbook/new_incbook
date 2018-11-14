@@ -67,6 +67,7 @@
 			<mapping path="/own/myOwnList"/>
 			<mapping path="/payment/chargeHistory"/>
 			<mapping path="/payment/charge"/>
+			<mapping path="/personalize/personalize"/>
 			<!-- ↑여기에 로그인이 필요한 페이지만 추가 -->
 			<beans:ref bean="authLoginInterceptor"/>
 		</interceptor>

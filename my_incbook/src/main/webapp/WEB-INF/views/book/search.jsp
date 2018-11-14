@@ -55,16 +55,9 @@
 									role="tab"> <i class="fa fa-list"></i>
 								</a>
 							</div>
-							<p>Showing 1–12 of 40 results</p>
+							<p>search</p>
 							<div class="orderby__wrapper">
-								<span>Sort By</span> <select class="shot__byselect">
-									<option>Default sorting</option>
-									<option>HeadPhone</option>
-									<option>Furniture</option>
-									<option>Jewellery</option>
-									<option>Handmade</option>
-									<option>Kids</option>
-								</select>
+
 							</div>
 						</div>
 					</div>
@@ -96,21 +89,12 @@
 											<a href="single-product.html">${BookVO.title}</a>
 										</h4>
 										<ul class="prize d-flex">
-											<li>$35.00</li>
-											<li class="old_prize">$35.00</li>
+											<li>${BookVO.genre}</li>
 										</ul>
-										<div class="action">
+										<div class="action" quickId="${BookVO.id}" quickPrePage="new"
+											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
-													<li><a class="cart" href="cart.html"> <i
-															class="bi bi-shopping-bag4"></i>
-													</a></li>
-													<li><a class="wishlist" href="wishlist.html"> <i
-															class="bi bi-shopping-cart-full"></i>
-													</a></li>
-													<li><a class="compare" href="#"> <i
-															class="bi bi-heart-beat"></i>
-													</a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
 														href="#productmodal"> <i class="bi bi-search"></i>
@@ -167,10 +151,10 @@
 								<div class="list__view">
 
 									<div class="thumb">
-										<a class="first__img" href="single-product.html"><img
-											src="/resources/images/product/1.jpg" alt="product images"></a>
-										<a class="second__img animation1" href="single-product.html"><img
-											src="/resources/images/product/2.jpg" alt="product images"></a>
+										<a class="first__img" href="single-product.html"><img src="/img/${BookVO.id}/${BookVO.image}"
+											alt="product image" width=240 height=351></a>
+										<a class="second__img animation1" href="single-product.html"><img src="/img/${BookVO.id}/${BookVO.image}"
+											alt="product image" width=240 height=351></a>
 									</div>
 									<div class="content">
 										<h2>
@@ -185,8 +169,7 @@
 											<li><i class="fa fa-star-o"></i></li>
 										</ul>
 										<ul class="prize__box">
-											<li>$111.00</li>
-											<li class="old__prize">$220.00</li>
+											<li>${BookVO.genre}</li>
 										</ul>
 										<p>${BookVO.content}</p>
 										<ul class="cart__action d-flex">
