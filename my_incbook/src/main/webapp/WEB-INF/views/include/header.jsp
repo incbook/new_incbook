@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/resources/css/plugins.css">
 	<link rel="stylesheet" href="/resources/style.css">
+	<link rel="stylesheet" href="/resources/css/jquery.timepicker.css">
 	
 	<!-- Cusom css -->
 	<link rel="stylesheet" href="/resources/css/custom.css">
