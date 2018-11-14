@@ -7,9 +7,9 @@
 		<result property="memberId" column="member_id" />
 	</resultMap>
 	
-	<select id="findPersonalByMemberId" resultMap="PersonalizationVO">
-		select * from personalization 
-		where member_id = #{memberId}
+	<select id="findPersonalByMemberId" resultType="String">
+		select genre from personalization 
+		where member_id = #{id}
 	</select>
 	
 	<select id="maxTradeGenre" resultType="String">
@@ -21,11 +21,25 @@
             		on t.own_id = o.id
             	join book b
             		on o.book_id = b.id
-            	where t.member_id = #{memberId}
+            	where t.member_id = #{id}
             	group by genre
             	order by count desc
             	limit 0, 3
-            	) genre;
+            ) genre
+	</select>
+	
+	<select id="maxOwnGenre" resultType="String">
+		select genre 
+		from (
+	            select genre, count(genre) count
+	            from own o
+	            join book b
+					on o.book_id = b.id
+	            where member_id = #{id}
+	            group by genre
+	            order by count desc
+	            limit 0, 3
+            ) genre
 	</select>
 	
 	<insert id="insertPersonalChoice" parameterType="java.util.Map">

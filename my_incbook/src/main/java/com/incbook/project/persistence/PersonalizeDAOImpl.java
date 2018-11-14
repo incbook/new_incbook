@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.PersonalizationVO;
 
@@ -20,13 +21,18 @@ public class PersonalizeDAOImpl implements PersonalizeDAO {
 	private static final String namespace = "my_incbook.mapper.personalizeMapper";
 
 	@Override
-	public List<PersonalizationVO> findPersonalByMemberId(MemberVO vo) throws Exception {
+	public List<String> findPersonalByMemberId(MemberVO vo) throws Exception {
 		return sqlSession.selectList(namespace + ".findPersonalByMemberId", vo);
 	}
 	
 	@Override
 	public List<String> maxTradeGenre(MemberVO vo) throws Exception {
 		return sqlSession.selectList(namespace + ".maxTradeGenre", vo);
+	}
+
+	@Override
+	public List<String> maxOwnGenre(MemberVO vo) throws Exception {
+		return sqlSession.selectList(namespace + ".maxOwnGenre", vo);
 	}
 
 	@Override
@@ -38,5 +44,6 @@ public class PersonalizeDAOImpl implements PersonalizeDAO {
 	public void insertPersonalChoice(Map<String, Object> genreMap) throws Exception {
 		sqlSession.insert(namespace + ".insertPersonalChoice", genreMap);
 	}
+
 	
 }
