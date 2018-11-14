@@ -23,4 +23,6 @@ public interface MemberDAO {
 	public void memberDelete(PartyVO vo) throws Exception;
 	
 	public MemberVO checkPassword(MemberVO vo) throws Exception;
+	
+	public void pointSpend(Map<String, Object> pointMap) throws Exception;
 }

@@ -25,18 +25,23 @@
 	                                    <th>대여한 아이디</th>
 	                                    <th>책 제목</th>
 	                                    <th>취소</th>
-	                                    <th>확인</th>
 	                                    <th>날짜</th>
 	                                </tr>
 								</thead>
                                 <tbody>
-	                            	<tr class="ch_center">
-	                                    <td>카카오톡</td>
-	                                    <td>쫄보의 여행</td>
-	                                    <td><input type="submit" value="취소" id="point_no" onclick="point_no()"></td>
-	                                    <td><input type="submit" value="확인" id="point_no" onclick="point_no()"></td>
-	                                    <td>2018-11-13</td>
-                                   </tr>
+                               		<c:forEach items="${ownerList}" var="tradeVO">
+		                            	<tr class="ch_center">
+		                                    <td>${tradeVO.member.nickname}</td>
+		                                    <td>${tradeVO.book.title}</td>
+		                                    <c:if test=${tradeVO.tradeType eq '대여예약'}>
+		                                    	<td><input type="submit" value="${tradeVO.id}" id="point_no" ></td>
+		                                    </c:if>
+		                                    <c:if test=${tradeVO.tradeType eq '대여완료'}>
+			                                    <td>완료</td>
+		                                    </c:if>
+		                                    <td>${tradeVO.tradeDate}</td>
+	                                   </tr>
+                               		</c:forEach>
                                 </tbody>
 							</table>
 						</div>  
@@ -51,10 +56,8 @@
 <script type="text/javascript">
 $(function() {
 	$("#point_no").on("click",function() {
+		alert($(this).val());
 		alert("거래가 취소되었습니다");
-	});
-	$("#point_ok").on("click",function() {
-		alert("포인트가 적립되었습니다");
 	});
 });
 </script>

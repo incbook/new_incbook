@@ -112,7 +112,11 @@ public class OwnVO extends RealationVO{
 	public void setRentLocation(String rentLocation) {
 		this.rentLocation = rentLocation;
 	}
-
+	
+	public int calcTotalAmount() {
+		return fee * selectPeriod;
+	}
+	
 	@Override
 	public String toString() {
 		return "OwnVO [realationId=" + realationId + ", bookId=" + bookId + ", memberId=" + memberId + ", rentCount="
