@@ -29,7 +29,7 @@ h1 {
 	padding-top: 50px;
 }
 
-.account__form .sign__up__form label {
+.form_all .sign__up__form label {
    font-size: 22px;
    font-weight: bold;
 }
@@ -113,3 +113,51 @@ h1 {
 .item_inLine li{
 	display: inline;
 }
+
+
+.form_all .input__box {
+	margin: 0 0 15px; 
+}
+.form_all .input__box label {
+	margin: 0 0 10px;
+	line-height: 2;
+	color: #333;
+	font-size: 16px;
+	display: block; 
+}
+      .form_all .input__box label span {
+        color: #e59285; }
+    .form_all .input__box input {
+      background: #fff none repeat scroll 0 0;
+      border: 1px solid #e1e1e1;
+      border-radius: 0;
+      height: 40px;
+      width: 100%;
+      padding: 0 0 0 10px; }
+  .form_all .form__btn button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    color: #333;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 34px;
+    padding: 2px 20px 0;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s; }
+    .form_all .form__btn button:hover {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      border-color: #e59285;
+      color: #e59285; }
+  .form_all .form__btn span {
+    color: #333;
+    font-size: 12px; }
+  .form_all .forget_pass {
+    color: #e59285;
+    font-size: 12px;
+    margin-top: 18px;
+    display: inline; }
+
+.form_all .form__btn .label-for-checkbox {
+  margin-bottom: 0;
+  margin-left: 10px; }

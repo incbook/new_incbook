@@ -74,39 +74,24 @@
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 
 									<div class="product__thumb">
-										<a class="first__img" href="single-product.html"> <img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
-											width=240 height=351>
-										</a> <a class="second__img animation1"
+										<a class="first__img"
 											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top'>
 											<img src="/img/${BookVO.id}/${BookVO.image}"
 											alt="product image" width=240 height=351>
 										</a>
-										<div class="hot__box">
-											<span class="hot-label">BEST SALLER</span>
-										</div>
 									</div>
 									<div class="product__content content--center">
 										<h4>
 											<a href="single-product.html">${BookVO.title}</a>
 										</h4>
 										<ul class="prize d-flex">
-											<li>$35.00</li>
-											<li class="old_prize">$35.00</li>
+											<li>${BookVO.genre}</li>
 										</ul>
-										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
+
+										<div class="action" quickId="${BookVO.id}" quickPrePage="new"
 											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
-													<li><a class="cart" href="cart.html"> <i
-															class="bi bi-shopping-bag4"></i>
-													</a></li>
-													<li><a class="wishlist" href="wishlist.html"> <i
-															class="bi bi-shopping-cart-full"></i>
-													</a></li>
-													<li><a class="compare" href="#"> <i
-															class="bi bi-heart-beat"></i>
-													</a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
 														href="#productmodal"> <i class="bi bi-search"></i>
@@ -199,70 +184,71 @@
 								<div class="list__view">
 
 									<div class="thumb">
-										<a class="first__img" href="single-product.html"><img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
-											width=240 height=351></a> <a class="second__img animation1"
-											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top"><img
-											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
-											width=240 height=351></a>
+										<a class="first__img"
+											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top">
+											<img src="/img/${BookVO.id}/${BookVO.image}"
+											alt="product image" width=240 height=351>
+										</a>
 									</div>
 									<div class="content">
 										<h2>
 											<a href="single-product.html">${BookVO.title}</a>
 										</h2>
-										<ul class="rating d-flex">
-												<c:if test="${BookVO.averageScore==5}">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-												</c:if>
-												<c:if test="${BookVO.averageScore==4}">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</c:if>
-												<c:if test="${BookVO.averageScore==3}">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</c:if>
-												<c:if test="${BookVO.averageScore==2}">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</c:if>
-												<c:if test="${BookVO.averageScore==1}">
-													<li class="on"><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</c:if>
-												<c:if test="${BookVO.averageScore==0}">
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-													<li><i class="fa fa-star-o"></i></li>
-												</c:if>
-										</ul>
 										<ul class="prize__box">
-											<li>$111.00</li>
-											<li class="old__prize">$220.00</li>
+											<li>${BookVO.genre}</li>
 										</ul>
+										<ul class="rating d-flex">
+											<c:if test="${BookVO.averageScore==5}">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+											</c:if>
+											<c:if test="${BookVO.averageScore==4}">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</c:if>
+											<c:if test="${BookVO.averageScore==3}">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</c:if>
+											<c:if test="${BookVO.averageScore==2}">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</c:if>
+											<c:if test="${BookVO.averageScore==1}">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</c:if>
+											<c:if test="${BookVO.averageScore==0}">
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</c:if>
+										</ul>
+
 										<p>${BookVO.content}</p>
 										<ul class="cart__action d-flex">
-											<li class="cart"><a href="cart.html">Add to cart</a></li>
-											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li>
+											<li class="cart"><a
+												href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top">Add
+													to cart</a></li>
+											<!-- 											<li class="wishlist"><a href="cart.html"></a></li>
+											<li class="compare"><a href="cart.html"></a></li> -->
 										</ul>
 
 									</div>
@@ -273,6 +259,8 @@
 							<!-- Start Single Product -->
 
 						</div>
+						<br>
+
 						<div class="text-center">
 							<ul class="wn__pagination">
 								<c:if test="${pageMaker.prev}">
