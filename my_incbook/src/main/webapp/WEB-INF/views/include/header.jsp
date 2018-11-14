@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -19,14 +19,32 @@
 	<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/resources/css/plugins.css">
 	<link rel="stylesheet" href="/resources/style.css">
+	<link rel="stylesheet" href="/resources/css/jquery.timepicker.css">
 	
 	<!-- Cusom css -->
 	<link rel="stylesheet" href="/resources/css/custom.css">
 	
 	<!-- Modernizer js -->
 	<script src="/resources/js/vendor/modernizr-3.5.0.min.js"></script>
+
+	<%
+		request.setAttribute("book_img_url", "C:/book/");
+	%>
+
+	
+	<!-- Jquery js -->
+	<script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
+	
+	<!-- url경로 -->
+	<%
+		request.setAttribute("book_img_url", "C:/book/");	
+	%>
 </head>
 <body>
+<input type="hidden" value="${loginTry}" id="loginTry"/>
+<input type="hidden" value="${logoutTry}" id="logoutTry"/>
+<input type="hidden" value="${loginAuth}" id="loginAuth"/>
+
 	<!-- Main wrapper -->
 	<div class="wrapper" id="wrapper">
 		<!-- Header -->
@@ -36,7 +54,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="http://www.naver.com"> <!-- 로고 누르면 index로 경로설정 -->
+							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
 							<img src="/resources/images/logo/logo.png" alt="logo images">
 							</a>
 						</div>
@@ -59,18 +77,17 @@
 										<ul class="item item03">
 											<li class="title">Categories</li>
 											<li><a href="/book/infoInsert">도서 상세정보 등록</a></li>
-											<li><a href="shop-grid.html">대여도서 등록</a></li>
-											<li><a href="shop-grid.html">판매도서 등록 </a></li>
-											<li><a href="shop-grid.html">대여&판매 동시가능 도서 등록 </a></li>
+											<li><a href="/own/ownInsert?isRent=가능&isSell=불가능">대여도서 등록</a></li>
+											<li><a href="/own/ownInsert?isRent=불가능&isSell=가능">판매도서 등록 </a></li>
+											<li><a href="/own/ownInsert?isRent=가능&isSell=가능">대여&판매 동시가능 도서 등록 </a></li>
 										</ul>
 
 									</div></li>
 								<li class="drop"><a href="shop-grid.html">커뮤니티</a>
 									<div class="megamenu mega02">
 										<ul class="item item02">
-											<li class="title">Top Collections</li>
-											<li><a href="shop-grid.html">American Girl</a></li>
-											<li><a href="shop-grid.html">Diary Wimpy Kid</a></li>
+											<li><a href="/payment/charge">charge</a></li>
+											<li><a href="/payment/chargeHistory">chargeHistory</a></li>
 											<li><a href="shop-grid.html">Finding Dory</a></li>
 											<li><a href="shop-grid.html">Harry Potter</a></li>
 											<li><a href="shop-grid.html">Land of Stories</a></li>
@@ -137,13 +154,23 @@
 														</span> 
 														<span>
 															<a href="#">My Wishlist</a>
-														</span> 
-														<span>
-															<a href="/member/signUp">Sign Up</a>
-														</span> 
-														<span>
-															<a href="/member/memberDetail">회원상세정보</a>
-														</span> 
+														</span>
+														<c:if test="${login.id == null}">
+															<span>
+																<a href="/member/signUp">회원가입</a>
+															</span>
+															<span>
+																<a href="/member/signInForm">로그인</a>
+															</span>
+														</c:if>
+														<c:if test="${login.id != null}">
+															<span>
+																<a href="/member/signOut">로그아웃</a>
+															</span> 
+															<span>
+																<a href="/member/memberDetail">회원상세정보</a>
+															</span> 
+														</c:if>  
 														<span><a href="#">Create An Account</a>
 														</span>
 													</div>

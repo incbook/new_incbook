@@ -3,33 +3,80 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="my_incbook.mapper.bookMapper">
+	<resultMap id="BookVO" type="BookVO">
+		<result property="viewCount" column="view_count" />
+		<result property="averageScore" column="average_score" />
+		<result property="finalUpdateMemberId" column="final_update_member_id" />
+	</resultMap>
 
-	<select id="bookInfo" resultType="com.incbook.project.domain.BookVO">
-		select 
+	<select id="bookInfo" resultMap="BookVO">
+		select
 		*
 		from book
 		where writer = #{writer}
 	</select>
-	
-	<select id="findBookByID" resultType="com.incbook.project.domain.BookVO">
+
+	<select id="findBookByID" resultMap="BookVO">
+		<![CDATA[
 		select * from book
 		where id = #{id}
+		]]>
 	</select>
-	
-	<select id="listSearchCriteria" resultType="com.incbook.project.domain.BookVO">
+	<select id="findBookByID2" resultMap="BookVO">
+		<![CDATA[
+		select * from book
+		where id = #{id}
+		]]>
+	</select>
+	<select id="findBookByOwnBookID" resultMap="BookVO">
+		<![CDATA[
+		select * from book
+		where id = #{bookId}
+		]]>
+	</select>
+	<select id="listSearchCriteria" resultMap="BookVO">
+		<![CDATA[
+		select
+		* from book
+		where id > 0
+		order by view_count desc
+		limit #{pageStart},#{pagesize}
+		]]>
+	</select>
+
+	<select id="newBookChartList" resultMap="BookVO">
+		<![CDATA[
+		select
+		* from book
+		where id > 0
+		order by id desc
+		limit #{pageStart},#{pagesize}
+		]]>
+	</select>
+
+	<select id="searchList" resultMap="BookVO">
 		<![CDATA[
 		select
 		* from book
 		where id > 0
 		]]>
-	
+
 		<include refid="search"></include>
 
 		<![CDATA[
 		order by id desc
 		limit #{pageStart},#{pagesize}
 		]]>
-
+	</select>
+	
+	<select id="genreTop100List" resultMap="BookVO">
+		<![CDATA[
+		select
+		* from book
+		where genre = #{keyword}
+		order by view_count desc
+		limit #{pageStart},#{pagesize}
+		]]>
 	</select>
 	
 	<select id="listSearchCount" resultType="int">
@@ -39,35 +86,56 @@
 		where id > 0
 		]]>
 	</select>
-
-
-	<insert id="createbookInfo">
-		insert into book (title, genre, writer, publisher, content, image, final_update_member_id)
-		values
-		(#{title}, #{genre}, #{writer}, #{publisher}, #{content}, #{image}, #{finalUpdateMemberId})
-	</insert>
 	
-	<update id ="updateBook">
-		update book set title = #{title}, genre = #{genre}, writer = #{writer}, publisher = #{publisher}
-		, content = #{content}
+	<select id="searchListCount" resultType="int">
+		select count(id)
+		from book
+		where id > 0
+		
+		<include refid="search"></include>
+
+	</select>
+	
+	<select id="genreListCount" resultType="int">
+		<![CDATA[
+		select count(id)
+		from book
+		where genre = #{keyword}
+		]]>
+	</select>
+	
+	<!-- useGeneratedKeys="true" keyProperty="id" 이걸 쓰면 오토인크리먼트로 지정된 db컬넘은 insert 후 select를 하지 않고도 그 값이 전달된다 -->
+	<insert id="createbookInfo" useGeneratedKeys="true" keyProperty="id">
+		insert into book (title, genre, writer, publisher,
+		content, image, final_update_member_id)
+		values
+		(#{title}, #{genre},
+		#{writer}, #{publisher}, #{content}, #{image}, #{finalUpdateMemberId})
+	</insert>
+
+	<update id="updateBook">
+		update book set title = #{title}, genre = #{genre},
+		writer = #{writer}, publisher = #{publisher}
+		, content = #{content}, image = #{image}
 		where id = #{id}
 	</update>
-	
+
 	<update id="updateViewCnt">
-		update book set view_count = view_count +1 where id = #{id}
+		update book set view_count = view_count +1 where id =
+		#{id}
 	</update>
-	
-	
+
+
 	<sql id="search">
 		<if test="searchType != null">
 			<if test="searchType == 'tigewrpuco'.toString()">
 				and (
-					title like CONCAT('%', #{keyword}, '%') 
-					OR genre like CONCAT('%', #{keyword}, '%') 
-					OR writer like CONCAT('%', #{keyword}, '%')
-					OR publisher like CONCAT('%', #{keyword}, '%')
-					OR content like CONCAT('%', #{keyword}, '%')
-					)
+				title like CONCAT('%', #{keyword}, '%')
+				OR genre like CONCAT('%', #{keyword}, '%')
+				OR writer like CONCAT('%', #{keyword}, '%')
+				OR publisher like CONCAT('%', #{keyword}, '%')
+				OR content like CONCAT('%', #{keyword}, '%')
+				)
 			</if>
 			<if test="searchType == 'title'.toString()">
 				and title like CONCAT('%', #{keyword}, '%')

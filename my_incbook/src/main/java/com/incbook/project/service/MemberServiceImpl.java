@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
 import com.incbook.project.persistence.MemberDAO;
 import com.incbook.project.persistence.PartyDAO;
@@ -50,6 +51,28 @@ public class MemberServiceImpl implements MemberService {
 		memberMap.put("member", mvo);
 		memberMap.put("party", pvo);
 		memberDAO.memberModify(memberMap);
+	}
+
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public void memberDelete(PartyVO vo) throws Exception {
+		partyDAO.partyDelete(vo);
+		memberDAO.memberDelete(vo);
+	}
+
+	@Override
+	public MemberVO checkPassword(MemberVO vo) throws Exception {
+		return memberDAO.checkPassword(vo);
+	}
+
+	@Override
+	public MemberVO memberInfo(OwnVO vo) throws Exception {
+		return memberDAO.memberInfo(vo);
+	}
+
+	@Override
+	public MemberVO findMemberById(int id) throws Exception {
+		return memberDAO.findMemberById(id);
 	}
 	
 }

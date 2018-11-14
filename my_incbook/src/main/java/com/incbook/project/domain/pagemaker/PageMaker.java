@@ -80,7 +80,7 @@ public class PageMaker {
 	public PageCriteria getCri() {
 		return cri;
 	}
-	public void setCri(PageCriteria cri           ) {
+	public void setCri(PageCriteria cri) {
 		this.cri = cri;
 	}
 	public int getTotalCount() {

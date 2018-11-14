@@ -33,3 +33,114 @@ h1 {
    font-size: 22px;
    font-weight: bold;
 }
+
+.custom__center {
+	text-align: center;
+}
+
+.text-green {
+    color: #16a085;
+}
+.text-orange {
+    color: #f39c12;
+}
+.text-red {
+    color: #e74c3c;
+}      
+
+.img-circle {
+	width: 30px;
+	height: 30px;
+}
+
+/* chargeHistory css */
+.pc_history {
+	padding-top: 20px;
+}
+.ch_center th, td {
+	text-align: center !important;
+}
+.imsi_set {
+	padding-top: 120px;
+	padding-bottom: 20px !important;
+}
+.page_pb_40 {
+	padding-bottom: 40px;
+}
+#logIO_footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:60px;
+   width:100%;
+   color: #000000;
+   display: none;
+   z-index: 10;
+}
+#logIO_footer p {
+   text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+   padding-top: 20px;
+}
+
+.mg_bottom80 {
+	margin-bottom: 80px;
+}
+
+.button_form button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #333;
+    color: #333;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 34px;
+    padding: 2px 20px 0;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s; 
+    margin: 18px 0;
+}
+.button_form button:hover {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      border-color: #e59285;
+      color: #e59285; 
+}
+
+.trade_ok {
+	float: right;
+}
+.item_inLine li{
+	display: inline;
+}
+
+.cus_line {
+	margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #e1e1e1;
+}
+.cus_line:last-child {
+    border: none;
+}
+.cus_title {
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	padding: 10px 0 ;
+	text-align: center;
+}
+
+.form-field {
+	width: 150px;
+}
+
+.book_pd_t20 {
+	padding-top: 20px;
+}
+
+.ch_m0 {
+	margin: 0px;
+}
+
+.pick_money {
+	margin: 2px 0 !important;
+}

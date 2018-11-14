@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <%@include file="../include/header.jsp"%>
-<input type="hidden" value="${loginTry}" id="loginTry"/>
-<input type="hidden" value="${loginAuth}" id="loginAuth"/>
 
 	<section class="my_account_area pt--80 pb--55 bg--white">
 		<div class="container">
@@ -26,10 +24,14 @@
 							
 								<!-- <input type="submit" title="로그인" value="로그인"> -->
 								
-								<div class="form__btn">
+								<div class="form__btn custom__center">
 										<button>로그인</button>
 								</div>
-								<a class="forget_pass" href="#">비밀번호 찾기</a>
+								<div style="padding-top:15px;"></div>
+								<span>
+									<a class="forget_pass inLine" href="#">비밀번호 찾기</a> &nbsp; | &nbsp;
+									<a class="forget_pass inLine" href="/member/signUp">회원가입</a>
+								</span>
 							</div>
 						</form>
 					</div>					
@@ -39,15 +41,4 @@
 	</section>
 
 <%@include file="../include/footer.jsp"%>
-<script>
-	var loginTry = $("#loginTry").val();
-	var loginAuth = $("#loginAuth").val();
-	if (loginTry == "fail") {
-		alert("아이디 또는 비밀번호를 확인해주세요");
-	}
-	
-	if (loginAuth == "fail") {
-		alert("로그인해야 이용할 수 있는 페이지 입니다.");
-	}
-	
-</script>
+<script src="/resources/js/custom/form.js"></script>

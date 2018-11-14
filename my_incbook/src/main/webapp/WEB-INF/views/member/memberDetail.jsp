@@ -5,15 +5,19 @@
 	<section class="my_account_area pt--80 pb--55 bg--white">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-				</div>
-				<div class="col-lg-12 col-12">
+				<%@include file="../include/includeSide.jsp"%>
+				
+				<div class="col-lg-9 col-12 order-1 order-lg-2">
 					<div class="my__account__wrapper">
-						<h3 class="account__title">회원상세정보</h3>
+						<div class="cus_title">
+							<p>
+								<strong>회원 상세정보</strong>
+							</p>
+						</div>
 						<form action="" method="post" class="validationForm">
 							<div class="account__form">
 								<div class="input__box sign__up__form">
-									<label for="login_id"">아이디 <span>*</span></label>
+									<label for="login_id">아이디 <span>*</span></label>
 									<input style="width:60%" validationText="아이디" type="text" 
 											id="login_id" name="loginId" class="doubleCheckSync" value="${login.loginId}">
 								</div>
@@ -55,8 +59,10 @@
 								</div>
 							
 								<div class="form__btn">
-										<button class="memberModify" type="button">회원정보수정</button>
+									<button class="memberModify" type="button">회원정보수정</button>
+									<button class="memberDelete" type="button">회원탈퇴</button>
 								</div>
+								
 							</div>					
 						</form>
 					</div>
@@ -70,5 +76,8 @@
 <script>
 	$(".memberModify").on("click", function() {
 		self.location = "/member/memberModify";
+	});
+	$(".memberDelete").on("click", function() {
+		self.location = "/member/memberDelete";
 	});
 </script>

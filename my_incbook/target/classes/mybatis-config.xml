@@ -14,6 +14,10 @@
 		<typeAlias type="com.incbook.project.domain.BoardVO" alias="BoardVO" />
 		<typeAlias type="com.incbook.project.domain.NoticeVO" alias="NoticeVO" />
 	
+		<typeAlias type="com.incbook.project.domain.RealationVO" alias="RealationVO" />
+		<typeAlias type="com.incbook.project.domain.OwnVO" alias="OwnVO" />
+		<typeAlias type="com.incbook.project.domain.PaymentVO" alias="PaymentVO" />
+		<typeAlias type="com.incbook.project.domain.PersonalizationVO" alias="PersonalizationVO" />
 	</typeAliases>
 
 </configuration>
