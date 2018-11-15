@@ -64,7 +64,7 @@
 							<ul class="meninmenu d-flex justify-content-start">
 								<li class="drop with--one--item"><a href="index.html">InC Book</a></li>
 								<li class="drop"><a href="#">도서차트</a>
-									<div class="megamenu mega03">
+									<div class="megamenu mega03 nav_width1">
 										<ul class="item item03">
 											<li class="title">Categories</li>
 											<li><a href="/book/allTop100">All Top 100</a></li>
@@ -74,7 +74,7 @@
 
 									</div></li>
 								<li class="drop"><a href="shop-grid.html">도서등록</a>
-									<div class="megamenu mega03">
+									<div class="megamenu mega03 nav_width1">
 										<ul class="item item03">
 											<li class="title">Categories</li>
 											<li><a href="/book/infoInsert">도서 상세정보 등록</a></li>
@@ -85,7 +85,7 @@
 
 									</div></li>
 								<li class="drop"><a href="shop-grid.html">커뮤니티</a>
-									<div class="megamenu mega02">
+									<div class="megamenu mega02 nav_width1">
 										<ul class="item item02">
 											<li><a href="/payment/charge">charge</a></li>
 											<li><a href="/payment/chargeHistory">chargeHistory</a></li>
@@ -93,32 +93,11 @@
 											<li><a href="shop-grid.html">Harry Potter</a></li>
 											<li><a href="shop-grid.html">Land of Stories</a></li>
 										</ul>
-										<ul class="item item02">
-											<li class="title">More For Kids</li>
-											<li><a href="shop-grid.html">B&N Educators</a></li>
-											<li><a href="shop-grid.html">B&N Kids' Club</a></li>
-											<li><a href="shop-grid.html">Kids' Music</a></li>
-											<li><a href="shop-grid.html">Toys & Games</a></li>
-											<li><a href="shop-grid.html">Hoodies</a></li>
-										</ul>
 									</div></li>
 								<li class="drop"><a href="#">Book club</a>
-									<div class="megamenu dropdown">
+									<div class="megamenu dropdown nav_width1">
 										<ul class="item item01">
 											<li><a href="about.html">About Page</a></li>
-											<li class="label2"><a href="portfolio.html">Portfolio</a>
-												<ul>
-													<li><a href="portfolio.html">Portfolio</a></li>
-													<li><a href="portfolio-details.html">Portfolio
-															Details</a></li>
-												</ul></li>
-											<li><a href="my-account.html">My Account</a></li>
-											<li><a href="cart.html">Cart Page</a></li>
-											<li><a href="checkout.html">Checkout Page</a></li>
-											<li><a href="wishlist.html">Wishlist Page</a></li>
-											<li><a href="error404.html">404 Page</a></li>
-											<li><a href="faq.html">Faq Page</a></li>
-											<li><a href="team.html">Team Page</a></li>
 										</ul>
 									</div></li>
 								<li class="drop"><a href="blog.html">Blog</a>
