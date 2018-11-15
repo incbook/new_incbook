@@ -1,5 +1,4 @@
-.............<%@ page language="java"
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.incbook.project.domain.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -18,15 +17,19 @@
 	<section class="my_account_area pt--80 pb--55 bg--white">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12"></div>
-				<div class="col-lg-12 col-12">
+				<div class="col-lg-2"></div>
+				<div class="col-lg-8 col-12">
 					<div class="my__account__wrapper">
-						<h3 class="account__title">도서 상세정보 수정</h3>
+						<div class="cus_title title_size">
+							<p>
+								<strong>도서 상세정보 수정</strong>
+							</p>
+						</div>
 
-						<div class="account__form" style="border-color: red">
-							<div class="input__box">
-								<label for="title">제목 <span>*</span></label> <input type="text"
-									name="title" value="${modifyTarget.title}" validationText="제목">
+						<div class="account__form">
+							<div class="input__box sign__up__form">
+								<label for="title" class="right1">제　목 <span>*</span></label> <input type="text"
+									name="title" value="${modifyTarget.title}" validationText="제목" class="input_width">
 							</div>
 							<%
 								String[] genre = {"유아", "어린이", "전집/중고전집", "청소년", "좋은부모", "초등학교참고서", "중학교참고서", "고등학교참고서", "여행", "가정/요리/뷰티",
@@ -41,9 +44,9 @@
 								request.setAttribute("g1", genre);
 							%>
 
-							<div class="input__box">
-								<label for="genre">장르 <span>*</span></label> <select id="genre"
-									name="genre" style="height: 30px;" validationText="장르">
+							<div class="input__box sign__up__form">
+								<label for="genre" class="right1">장　르 <span>*</span></label> <select id="genre"
+									name="genre" style="height: 30px;" validationText="장르" class="input_width">
 									<c:forEach items="${g1}" var="genre1">
 										<c:if test="${genre1 eq modifyTarget.genre}">
 											<option selected="selected" value="${genre1}">${genre1}</option>
@@ -55,34 +58,32 @@
 								</select>
 							</div>
 
-							<div class="input__box">
-								<label for="writer">저자 <span>*</span></label> <input type="text"
-									name="writer" value="${modifyTarget.writer}"
-									validationText="저자">
+							<div class="input__box sign__up__form">
+								<label for="writer" class="right1">저　자 <span>*</span></label> 
+								<input type="text" name="writer" value="${modifyTarget.writer}" validationText="저자" class="input_width">
 							</div>
 
-							<div class="input__box">
-								<label for="publisher">출판사 <span>*</span></label> <input
-									type="text" name="publisher" value="${modifyTarget.publisher}"
-									validationText="출판사">
+							<div class="input__box sign__up__form">
+								<label for="publisher" class="right1">출판사 <span>*</span></label> 
+								<input type="text" name="publisher" value="${modifyTarget.publisher}" validationText="출판사" class="input_width">
 							</div>
 
-							<div class="input__box">
+							<div class="input__box sign__up__form">
 								<label for="content">줄거리 <span>*</span></label>
-								<textarea name="content" rows="7" cols="50" validationText="줄거리">${modifyTarget.content}</textarea>
+								<textarea name="content" rows="7" cols="98" validationText="줄거리">${modifyTarget.content}</textarea>
 							</div>
 
-							<div class="input__box">
-								<label for="image">이미지 <span>*</span></label><input type='file'
-									id="image" name="file" /> <img id="blah" src="#"
-									alt="book image" width="270" height="340" style="display:none" /> 
-									<img id="image"
-									src="/img/${modifyTarget.id}/${modifyTarget.image}"
+							<div class="input__box sign__up__form">
+								<label for="image" class="right1">이미지 <span>*</span></label>
+								<input type='file' id="image" name="file" class="input_width"/> 
+								<img id="blah" src="#" alt="book image" width="270" height="340" style="display:none" /> 
+									<img id="image" src="/img/${modifyTarget.id}/${modifyTarget.image}"
 									alt="book image" width="270" height="340"/>
 							</div>
-
-							<button type="button" id="save" class="validationFormButton">저장</button>
-							<button type="button" id="cancle">취소</button>
+							<div class="form__btn al_center">
+								<button type="button" id="save" class="validationFormButton">저장</button>
+								<button type="button" id="cancle">취소</button>
+							</div>
 						</div>
 					</div>
 				</div>

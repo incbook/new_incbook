@@ -1,6 +1,7 @@
 package com.incbook.project.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.OwnVO;
@@ -36,5 +37,7 @@ public interface BookDAO {
 	public int genreListCount(PageCriteria cri) throws Exception;
 
 	public BookVO findBookByOwnBookID(OwnVO vo) throws Exception;
+	
+	public List<BookVO> personalizeList(List<Map<String, Object>> list) throws Exception;
 
 }

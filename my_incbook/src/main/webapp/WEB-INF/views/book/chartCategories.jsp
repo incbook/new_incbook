@@ -20,7 +20,7 @@
 			<aside class="wedget__categories poroduct--cat">
 				<h3 class="wedget__title">전체 TOP-100</h3>
 				<div class="" style="background-color: white;">
-					<a href="allTop100">전체 TOP-100</a>
+					<a href="/book/allTop100">전체 TOP-100</a>
 				</div>
 				<br>
 				<h3 class="wedget__title">장르별 TOP-100</h3>
@@ -131,7 +131,13 @@
 				<br>
 				<h3 class="wedget__title">NEW-도서</h3>
 				<div class="newBook" style="background-color: white;">
-					<a href="newBookChart">NEW-도서</a>
+					<a href="/book/newBookChart">NEW-도서</a>
+				</div>
+
+				<br>
+				<h3 class="wedget__title">개인화 맞춤-도서</h3>
+				<div class="newBook" style="background-color: white;">
+					<a href="/personalize/personalize">개인화 맞춤-도서</a>
 				</div>
 			</aside>
 

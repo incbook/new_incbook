@@ -1,5 +1,6 @@
 package com.incbook.project.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -10,11 +11,12 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.MemberVO;
-import com.incbook.project.domain.PersonalizationVO;
 import com.incbook.project.service.PersonalizeService;
 
 @Controller
@@ -45,7 +47,7 @@ public class PersonalizeController {
 		
 	
 	@RequestMapping(value = "/personalize", method = RequestMethod.GET)
-	public void personalize(HttpServletRequest request) throws Exception {
+	public void personalize(HttpServletRequest request, Model model) throws Exception {
 	
 		/* 조건 - 
 		 * 관심 장르	1	it		최대3
@@ -103,37 +105,9 @@ public class PersonalizeController {
 		// 세션을 통한 회원 정보
 		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
 		
-		// 1번 개인관심 장르
-		List<PersonalizationVO> personalGenreList = personalizeService.findPersonalByMemberId(login);
+		List<BookVO> personalizeBookList = personalizeService.personalizeList(login);
 		
-		// 2번 거래한 내역의 최다 장르
-		List<String> maxTradeGenreList = personalizeService.maxTradeGenre(login);
-		
-		// 3번 소유한 내역의 최다 장르
-		
-		
-		// 개인화맵에 개인화 정보를 위한 데이터(장르, 등장횟수)를 담는다
-		Map<String, Integer> personalizeMap = new HashMap();
-		
-		
-		// 각 장르만 따로 Set에 담는다
-		Set<String> personalizeKey = personalizeMap.keySet();
-		
-		// 모든 등장횟수를 구하기위한 Iterator
-		Iterator<String> personalizeCntIter = personalizeKey.iterator();
-		
-		// 개인화용 장르의 전체 개수
-		int personalizeCount = 0;
-		// 모든 키를 반복하여 등장횟수를 꺼내온다
-		while(personalizeCntIter.hasNext()) {
-			String key = (String) personalizeCntIter.next();
-			personalizeMap.get(key);
-			// 전체 개수를 각 장르의 등장횟수만큼 더한다
-			personalizeCount += personalizeMap.get(key);
-		}
-		
-		// 비율 구하기
-		int proportion = 30 / personalizeCount;
+		model.addAttribute("personalizeBookList", personalizeBookList);
 	}
 	
 	
