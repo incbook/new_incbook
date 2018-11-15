@@ -24,26 +24,24 @@
 	                                <tr class="ch_center">
 	                                    <th>소유자 아이디</th>
 	                                    <th>책 제목</th>
-	                                    <th>취소</th>
 	                                    <th>확인</th>
 	                                    <th>날짜</th>
 	                                </tr>
 								</thead>
                                 <tbody>
-	                            	<tr class="ch_center">
-	                                    <td>대추나무사랑걸렸네</td>
-	                                    <td>쫄보의 여행</td>
-	                                    <td><input type="submit" value="취소" id="point_no" onclick="point_no()"></td>
-	                                    <td><input type="submit" value="확인" id="point_ok" onclick="point_ok()"></td>
-	                                    <td>2018-11-13</td>
-                                   </tr>
-                                   <tr class="ch_center">
-	                                    <td>아이스아메리카노따뜻하게</td>
-	                                    <td>재밌어서 밤새읽는 화학 이야기</td>
-	                                    <td> </td>
-	                                    <td>완료</td>
-	                                    <td>2018-11-03</td>
-                                   </tr>
+                                	<c:forEach items="${lendersList}" var="tradeVO">
+		                            	<tr class="ch_center">
+		                                    <td>${tradeVO.member.nickname}</td>
+		                                    <td>${tradeVO.book.title}</td>
+		                                    <c:if test=${tradeVO.tradeType eq '대여예약'}>
+			                                    <td><input type="button" value="${trade.id}" id="point_ok" ></td>
+		                                    </c:if>
+		                                    <c:if test=${tradeVO.tradeType eq '대여완료'}>
+			                                    <td>완료</td>
+		                                    </c:if>
+		                                    <td>${tradeVO.tradeDate}</td>
+	                                   </tr>
+                                   </c:forEach>
                                 </tbody>
 							</table>
 						</div>  
@@ -57,10 +55,8 @@
 <%@include file="../include/footer.jsp"%>
 <script type="text/javascript">
 $(function() {
-	$("#point_no").on("click",function() {
-		alert("거래가 취소되었습니다");
-	});
 	$("#point_ok").on("click",function() {
+		alert($(this).val());
 		alert("포인트가 적립되었습니다");
 	});
 });
