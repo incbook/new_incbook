@@ -48,5 +48,10 @@ public class OwnServiceImpl implements OwnService {
 		ownMap.put("realation", rvo);
 		ownDAO.ownInsert(ownMap);
 	}
+
+	@Override
+	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception {
+		return ownDAO.findOwnListByBookId(bookId);
+	}
 	
 }

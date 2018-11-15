@@ -22,26 +22,26 @@
 							<table class="table table-striped">
 								<thead>
 	                                <tr class="ch_center">
-	                                    <th>대여한 아이디</th>
+	                                    <th>소유자 아이디</th>
 	                                    <th>책 제목</th>
-	                                    <th>취소</th>
+	                                    <th>확인</th>
 	                                    <th>날짜</th>
 	                                </tr>
 								</thead>
                                 <tbody>
-                               		<c:forEach items="${ownerList}" var="tradeVO">
+                                	<c:forEach items="${ownerList}" var="tradeVO">
 		                            	<tr class="ch_center">
 		                                    <td>${tradeVO.member.nickname}</td>
 		                                    <td>${tradeVO.book.title}</td>
-		                                    <c:if test=${tradeVO.tradeType eq '대여예약'}>
-		                                    	<td><input type="submit" value="${tradeVO.id}" id="point_no" ></td>
+		                                    <c:if test="${tradeVO.rent.isReturn eq '대여예약'}">
+			                                    <td><button type="button" value="${tradeVO.id}" id="point_no" >취소</button></td>
 		                                    </c:if>
-		                                    <c:if test=${tradeVO.tradeType eq '대여완료'}>
+		                                    <c:if test="${tradeVO.rent.isReturn eq '대여완료'}">
 			                                    <td>완료</td>
 		                                    </c:if>
 		                                    <td>${tradeVO.tradeDate}</td>
 	                                   </tr>
-                               		</c:forEach>
+                                   </c:forEach>
                                 </tbody>
 							</table>
 						</div>  

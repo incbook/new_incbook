@@ -37,4 +37,10 @@ public class OwnDAOImpl implements OwnDAO{
 	public void ownInsert(Map<String, Object> ownMap) {
 		sqlSession.insert(namespace + ".ownInsert", ownMap);
 	}
+
+	@Override
+	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception {
+		return sqlSession.selectList(namespace + ".findOwnListByBookId", bookId);
+	}
+	
 }

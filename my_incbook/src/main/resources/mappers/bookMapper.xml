@@ -103,6 +103,13 @@
 		where genre = #{keyword}
 		]]>
 	</select>
+
+	<select id="equalGenreBookRandomList" resultMap="BookVO">
+		select * 
+		from book 
+		where genre=#{genre} 
+		order by rand() limit 10;
+	</select>
 	
 	<select id="personalizeList" resultMap="BookVO">
 		<foreach item="genreMap" index="index" collection="list" open="" separator="union" close="">

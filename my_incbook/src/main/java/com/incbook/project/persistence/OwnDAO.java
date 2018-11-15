@@ -13,5 +13,7 @@ public interface OwnDAO {
 	public int myOwnCount(int memberId) throws Exception;
 
 	public void ownInsert(Map<String, Object> own) throws Exception;
+
+	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception;
 	
 }

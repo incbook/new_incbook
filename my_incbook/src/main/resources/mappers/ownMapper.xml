@@ -28,7 +28,15 @@
 		from own o 
 			join realation r
 			on 	o.id = r.id
-		where o.id = #{id}
+		where o.id = #{bookId}
+	</select>
+
+	<select id="findOwnListByBookId" resultMap="ownMap">
+		select * 
+		from own o 
+			join realation r
+			on 	o.id = r.id
+		where o.book_id = #{id}
 	</select>
 	
 	<insert id="ownInsert" parameterType="Map">

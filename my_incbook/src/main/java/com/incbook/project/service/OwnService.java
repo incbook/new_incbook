@@ -13,5 +13,7 @@ public interface OwnService {
 	
 	public int myOwnCount(int memberId) throws Exception;
 	
-	public void ownInsert(RealationVO rvo, OwnVO ovo) throws Exception;;
+	public void ownInsert(RealationVO rvo, OwnVO ovo) throws Exception;
+
+	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception;
 }

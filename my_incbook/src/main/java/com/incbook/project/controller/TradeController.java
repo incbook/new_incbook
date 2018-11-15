@@ -38,9 +38,11 @@ public class TradeController {
 	
 	@RequestMapping(value = "/startTrade", method = RequestMethod.GET)
 	public void startTrade(OwnVO vo, Model model) throws Exception {
+		System.out.println(vo.getId());
+		System.out.println(vo.getBookId());
 		OwnVO ownVO = ownService.findOwnByID(vo);
-		BookVO bookVO = bookService.findBookByID(vo.getBookId());
-		MemberVO memberVO =memberService.memberInfo(vo);
+		BookVO bookVO = bookService.findBookByID(ownVO.getBookId());
+		MemberVO memberVO =memberService.memberInfo(ownVO);
 		model.addAttribute("own", ownVO);
 		model.addAttribute("book", bookVO);
 		model.addAttribute("member", memberVO);
@@ -57,8 +59,10 @@ public class TradeController {
 		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
 		
 		List<TradeVO> lendersList = tradeService.findLendersByMemberId(login);
-		
 		model.addAttribute("lendersList", lendersList);
+		for(TradeVO vo : lendersList) {
+			System.out.println(vo.getRent().getIsReturn());
+		}
 	}
 	
 	@RequestMapping(value = "/ownerPage", method = RequestMethod.GET)

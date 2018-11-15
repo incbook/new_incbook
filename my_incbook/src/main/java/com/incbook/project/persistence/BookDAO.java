@@ -40,4 +40,6 @@ public interface BookDAO {
 	
 	public List<BookVO> personalizeList(List<Map<String, Object>> list) throws Exception;
 
+	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception;
+
 }

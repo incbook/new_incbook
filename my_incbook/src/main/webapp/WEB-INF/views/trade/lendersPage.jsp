@@ -33,10 +33,10 @@
 		                            	<tr class="ch_center">
 		                                    <td>${tradeVO.member.nickname}</td>
 		                                    <td>${tradeVO.book.title}</td>
-		                                    <c:if test=${tradeVO.tradeType eq '대여예약'}>
-			                                    <td><input type="button" value="${trade.id}" id="point_ok" ></td>
+		                                    <c:if test="${tradeVO.rent.isReturn == '대여예약'}">
+			                                    <td><button type="button" value="${tradeVO.id}" id="point_ok" >확인</button></td>
 		                                    </c:if>
-		                                    <c:if test=${tradeVO.tradeType eq '대여완료'}>
+		                                    <c:if test="${tradeVO.rent.isReturn == '대여완료'}">
 			                                    <td>완료</td>
 		                                    </c:if>
 		                                    <td>${tradeVO.tradeDate}</td>

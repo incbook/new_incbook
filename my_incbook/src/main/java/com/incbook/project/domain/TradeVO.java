@@ -106,6 +106,14 @@ public class TradeVO {
 	public void setRent(RentVO rent) {
 		this.rent = rent;
 	}
+	
+	public BookVO getBook() {
+		return book;
+	}
+
+	public void setBook(BookVO book) {
+		this.book = book;
+	}
 
 	public void calcTotalAmount(OwnVO ownVO) {
 		totalAmount = ownVO.calcTotalAmount();
