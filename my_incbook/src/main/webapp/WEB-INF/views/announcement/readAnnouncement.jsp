@@ -67,7 +67,7 @@
 			</div>
 		</div>
 	</div>
-	<div>
+	<div class="button_form">
 		<button type="button" id="btn_goList">목록</button>
 		<%-- <c:if test="${login,grade == '관리자'}"> --%>
 		<button type="button" id="btn_modify">수정하기</button>

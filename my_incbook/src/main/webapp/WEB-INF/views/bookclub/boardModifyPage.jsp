@@ -28,7 +28,7 @@
 								<input type="text" id="title" name="title" value="${boardModifyTarget.title}">
 							</div>
 
-							<div>
+							<div class="button_form">
 								<button type="button" id="btn_modify">수정</button>
 								<button type="button" id="btn_cancel">취소</button>
 							</div>

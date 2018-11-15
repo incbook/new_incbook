@@ -51,7 +51,7 @@
 								<input type="text" id="name" name="name" value="${modifyTarget.name}">
 							</div>
 
-							<div>
+							<div class="button_form">
 								<button type="button" id="btn_modify">수정</button>
 								<button type="button" id="btn_cancel">취소</button>
 							</div>

@@ -44,7 +44,7 @@
 								<label for="regdate">날짜<span>*</span></label>
 								<input type="text" id="regdate" value ="${modifyTarget.regdate}" readonly>
 							</div>
-							<div>
+							<div class="button_form">
 								<button type="button" id="btn_modify">등록</button>
 								<button type="button" id="btn_cancel">취소</button>
 							</div>

@@ -12,16 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.incbook.project.domain.AnnouncementVO;
 import com.incbook.project.domain.BoardVO;
 import com.incbook.project.domain.BookclubVO;
 import com.incbook.project.domain.NoticeVO;
 import com.incbook.project.domain.PartyVO;
-import com.incbook.project.domain.pagecriteria.BoardCriteria;
 import com.incbook.project.domain.pagemaker.PageMaker;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.service.BookclubService;
-import com.mysql.cj.protocol.StandardSocketFactory;
 
 @Controller
 @RequestMapping("/bookclub/*")
@@ -33,7 +30,7 @@ public class BookclubController {
 	@RequestMapping(value = "/bookclubList", method = RequestMethod.GET)
 	public void bookclubList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-		cri.setPagesize(2);
+		cri.setPagesize(10);
 		List<BookclubVO> bookclubList = bookclubService.bookclubList(cri);
 		model.addAttribute("bookclubList", bookclubList);
 
@@ -66,6 +63,15 @@ public class BookclubController {
 	public void boardList(@RequestParam("bookclubId") int bookclubId, @ModelAttribute("cri") SearchCriteria cri,
 			Model model) throws Exception {
 		List<BoardVO> boardList = bookclubService.boardList(bookclubId);
+		model.addAttribute("boardList", boardList);
+		model.addAttribute("bookclubId", bookclubId);
+	}
+	
+	@RequestMapping(value = "/bookclubSide", method = RequestMethod.GET)
+	public void bookclubSide(@RequestParam("bookclubId") int bookclubId, @ModelAttribute("cri") SearchCriteria cri,
+			Model model) throws Exception {
+		List<BoardVO> boardList = bookclubService.boardList(bookclubId);
+		System.out.println(boardList.size());
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("bookclubId", bookclubId);
 	}

@@ -89,7 +89,7 @@
 
 		</ul>
 	</div>
-	<div>
+	<div class="button_form">
 		<button type="submit" id="btn_insert">공지사항 작성</button>
 	</div>
 	<form role="form" action="modifyPage" method="post">

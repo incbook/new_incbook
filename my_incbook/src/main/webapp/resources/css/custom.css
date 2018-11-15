@@ -144,3 +144,11 @@ h1 {
 .pick_money {
 	margin: 2px 0 !important;
 }
+
+.tablecenter thead tr th {
+	text-align: center;
+}
+
+.buttonTOP {
+	margin: 30px 0;
+}

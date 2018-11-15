@@ -3,14 +3,11 @@
 <%@ page import="com.incbook.project.domain.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <%@include file="../include/header.jsp"%>
-
-<!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--4">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-9">
 				<div class="bradcaump__inner text-center">
 					<h2 class="bradcaump-title">게시판 샘플!!!!</h2>
 					<nav class="bradcaump-content">
@@ -23,7 +20,7 @@
 		</div>
 	</div>
 </div>
-<!-- End Bradcaump area -->
+
 <div class="board_name">
 	<div class="container">
 		<div class="row">
@@ -58,7 +55,7 @@
 			</div>
 		</div>
 	</div>
-	<div>
+	<div class="button_form">
 		<button type="button" id="btn_goList">북클럽 목록</button>
 		<button type="button" id="btn_modify">북클럽 수정</button>
 		<button type="button" id="btn_delete">북클럽 삭제</button>
@@ -73,6 +70,7 @@
 	</form>
 </section>
 <%@include file="../include/footer.jsp"%>
+
 <script>
 	//<![CDATA[
 	$(document).ready(function() {

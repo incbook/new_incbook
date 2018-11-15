@@ -45,7 +45,7 @@
 									id="viewCount" name="viewCount" value="${readNotice.viewCount}">
 							</div>
 
-							<div>
+							<div class="button_form">
 								<button type="button" id="btn_goBoardList">게시판 목록</button>
 								<button type="button" id="btn_noticeModifyPage">게시글 수정</button>
 								<button type="button" id="btn_deleteNotice">게시글 삭제</button>

@@ -34,7 +34,7 @@
 								<input type="text" id="content" name="content" value="${noticeModifyTarget.content}">
 							</div>
 
-							<div>
+							<div class="button_form">
 								<button type="button" id="btn_modify">수정</button>
 								<button type="button" id="btn_cancel">취소</button>
 							</div>

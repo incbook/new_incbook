@@ -21,7 +21,7 @@
 
 
 
-							<div class="form__btn">
+							<div class="button_form">
 								<button type="submit">생성</button>
 								<button type="button"
 									onclick="location.href='/bookclub/boardList?${pageMaker.makeQuery(pageMaker.cri.page)}&bookclubId=${bookclubId}'">

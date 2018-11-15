@@ -54,7 +54,7 @@
 
 
 
-							<div class="form__btn">
+							<div class="button_form">
 								<button type="submit">등록</button>
 								<button type="button"
 									onclick="location.href='/bookclub/bookclubList${PageMaker.makeQuery(PageMaker.cri.page)}'">
