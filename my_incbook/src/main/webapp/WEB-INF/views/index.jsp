@@ -375,15 +375,19 @@
 		<div class="row">
 			<div class="col-lg-7 offset-lg-5 col-md-12 col-12 ptb--150">
 				<div class="section__title text-center">
-					<h2>Stay With Us</h2>
+					<h2>Project  Introduction</h2>
 				</div>
+				<br>
 				<div class="newsletter__block text-center">
-					<p>Subscribe to our newsletters now and stay up-to-date with
-						new collections, the latest lookbooks and exclusive offers.</p>
+					<p>Individual & Communication<br>
+						Book club<br>
+						Personalization Customize Service<br><br>
+						기간을 정해 낮은 가격으로 대여할 수 있는 고객 맞춤 마인드, <br>
+						반응형 웹사이트로 UX를 깊게 생각하며 UI를 제작한 섬세한 마인드
+					</p>
 					<form action="#">
 						<div class="newsletter__box">
-							<input type="email" placeholder="Enter your e-mail">
-							<button>Subscribe</button>
+							<input type="email">
 						</div>
 					</form>
 				</div>
