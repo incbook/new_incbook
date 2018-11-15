@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="my_incbook.mapper.tradeMapper">
+	<resultMap id="tradeMap" type="TradeVO">
+		<id property="id" column="id" />
+		<result property="ownId" column="own_id" />
+		<result property="memberId" column="member_id" />
+		<result property="regdate" column="regdate" />
+		<result property="detailLocation" column="detail_location" />
+		<result property="tradeDate" column="trade_date" />
+		<result property="tradeTime" column="trade_time" />
+		<result property="totalAmount" column="total_amount" />
+		<association property="rent" column="id" javaType="RentVO">
+			<id property="id" column="id" />
+			<result property="returnDate" column="return_date" />
+			<result property="isReturn" column="is_return" />
+		</association>
+		<association property="member" column="id" javaType="MemberVO">
+			<id property="id" column="id" />
+			<result property="loginId" column="login_id" />
+			<result property="password" column="password" />
+			<result property="address" column="address" />
+			<result property="email" column="email" />
+			<result property="phone" column="phone" />
+			<result property="nickname" column="nickname" />
+			<result property="grade" column="grade" />
+			<result property="jumin" column="jumin" />
+			<result property="point" column="point" />
+			<result property="good" column="good" />
+			<result property="hate" column="hate" />
+		</association>
+		<association property="own" column="id" javaType="OwnVO">
+			<id property="id" column="id" />
+			<result property="bookId" column="book_id" />
+			<result property="memberId" column="member_id" />
+			<result property="rentCount" column="rent_count" />
+			<result property="rentCheck" column="rent_check" />
+			<result property="state" column="state" />
+			<result property="isRent" column="is_rent" />
+			<result property="isSell" column="is_sell" />
+			<result property="fee" column="fee" />
+			<result property="selectPeriod" column="select_period" />
+			<result property="rentLocation" column="rent_location" />
+		</association>
+		<association property="book" column="id" javaType="BookVO">
+			<id property="id" column="id" />
+			<result property="title" column="title" />
+			<result property="genre" column="genre" />
+			<result property="writer" column="writer" />
+			<result property="publisher" column="publisher" />
+			<result property="regdate" column="regdate" />
+			<result property="updateDate" column="updatedate" />
+			<result property="viewCount" column="view_count" />
+			<result property="averageScore" column="average_score" />
+			<result property="finalUpdateMemberId" column="final_update_member_id" />
+		</association>
+	</resultMap>
+
+	<insert id="insertTrade" useGeneratedKeys="true" keyProperty="id">
+		insert into trade (own_id, member_id, datail_location,
+							trade_date, trade_time, total_amount
+		values 			  (#{ownId}, #{memberId}, #{detailLocation},
+							#{tradeDate}, #{tradeTime}, #{totalAmount}) 
+	</insert>
+
+	<insert id="insertRent">
+		insert into rent (id, rent_date, is_return)
+		values 			  (#{trade.id}, #{returnDate}, '대여예약')
+	</insert>
+
+	<select id="findLendersByMemberId" resultMap="tradeMap">
+		select * 
+		from trade t 
+		join rent r
+			on t.id = r.id
+		join member m
+			on t.member_id = m.id
+		join own o
+			on t.own_id = o.id
+		join book b
+			on o.book_id = b.id
+		where t.member_id = #{id}
+	</select>
+
+	<select id="findOwnerByMemberId" resultMap="tradeMap">
+		select * 
+		from trade t 
+		join rent r
+			on t.id = r.id
+		join member m
+			on t.member_id = m.id
+		join own o
+			on t.own_id = o.id
+		join book b
+			on o.book_id = b.id
+		where t.own_id = #{id}
+	</select>
+
+</mapper>
