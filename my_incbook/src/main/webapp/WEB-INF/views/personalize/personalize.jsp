@@ -195,7 +195,7 @@
 						<div class="list__view__wrapper">
 
 							<!-- Start Single Product -->
-							<c:forEach items="${list}" var="BookVO">
+							<c:forEach items="${personalizeBookList}" var="BookVO">
 								<div class="list__view">
 
 									<div class="thumb">

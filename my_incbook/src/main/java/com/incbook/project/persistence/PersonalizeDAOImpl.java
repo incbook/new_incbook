@@ -1,5 +1,7 @@
 package com.incbook.project.persistence;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +46,5 @@ public class PersonalizeDAOImpl implements PersonalizeDAO {
 	public void insertPersonalChoice(Map<String, Object> genreMap) throws Exception {
 		sqlSession.insert(namespace + ".insertPersonalChoice", genreMap);
 	}
-
 	
 }

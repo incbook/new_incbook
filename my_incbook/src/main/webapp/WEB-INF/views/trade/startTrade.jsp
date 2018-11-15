@@ -31,7 +31,7 @@
    						</div>
    						<div class="input_box">
    							<label>거래기간 <span>*</span></label>
-   							<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+   							<input type="date" />
    						</div>
    						<div class="input_box">
    							<label>대여기간 <span>*</span><strong> 15일</strong></label>
