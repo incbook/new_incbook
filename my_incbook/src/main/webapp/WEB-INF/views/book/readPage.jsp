@@ -238,15 +238,12 @@
 						<!-- ----------------------------------------------- -->
 						<div class="tab__container mt--60">
 							<!-- Start Single Tab Content -->
-							<div class="row single__tab tab-pane fade show active"
-								id="nav-all" role="tabpanel">
-									${ownList[0].memberId}
-								<div
-									class="product__indicator--4 arrows_style owl-carousel owl-theme">
-									<c:forEach items="${ownList}" var="book" varStatus="status" begin="1">
+							<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
+								<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+									<c:forEach items="${ownList}" var="own" varStatus="status" begin="1">
 									
 										<c:if test="${status.index % 2 eq 1}">
-											<div class="single__product">
+											<c:out value="<div class="single__product">"/>
 											<!-- Start Single Product -->
 												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 													<div class="product product__style--3">
@@ -257,10 +254,9 @@
 																<span class="hot-label">BEST SALER</span>
 															</div>
 														</div>
-														<div
-															class="product__content content--center content--center">
+														<div class="product__content content--center content--center">
 															<h4>
-																<a href="single-product.html">Ghost4</a>
+																<a href="single-product.html">${own.state}</a>
 															</h4>
 															<ul class="prize d-flex">
 																<li>$50.00</li>
@@ -279,8 +275,8 @@
 													</div>
 												</div>
 										<!-- Start Single Product -->
-											
 										</c:if>
+										
 										<c:if test="${status.index % 2 eq 0}">
 											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 												<div class="product product__style--3">
@@ -312,11 +308,9 @@
 													</div>
 												</div>
 											</div>
-											</div>
+											<c:out value="</div>"/>
 										</c:if>
 									</c:forEach>
-											
-									</div>
 								</div>
 							</div>
 						</div>
@@ -374,6 +368,7 @@
 		</div>
 	</div>
 <!-- End main Content -->
+
 <!-- Start Search Popup -->
 <div class="box-search-content search_active block-bg close__top">
 	<form id="search_mini_form--2" class="minisearch" action="#">
