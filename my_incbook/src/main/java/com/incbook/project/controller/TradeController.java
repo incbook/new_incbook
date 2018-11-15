@@ -41,7 +41,7 @@ public class TradeController {
 		System.out.println(vo.getId());
 		OwnVO ownVO = ownService.findOwnByID(vo);
 		BookVO bookVO = bookService.findBookByID(ownVO.getBookId());
-		MemberVO memberVO =memberService.memberInfo(ownVO);
+		MemberVO memberVO = memberService.memberInfo(ownVO);
 		model.addAttribute("own", ownVO);
 		model.addAttribute("book", bookVO);
 		model.addAttribute("member", memberVO);
