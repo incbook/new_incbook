@@ -1,6 +1,7 @@
 package com.incbook.project.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -91,6 +92,16 @@ public class BookDAOImpl implements BookDAO{
 	@Override
 	public BookVO findBookByOwnBookID(OwnVO vo) throws Exception {
 		return sqlSession.selectOne(namespace+".findBookByOwnBookID", vo);
+	}
+
+	@Override
+	public List<BookVO> personalizeList(List<Map<String, Object>> genreList) throws Exception {
+		return sqlSession.selectList(namespace+".personalizeList", genreList);
+	}
+
+	@Override
+	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
+		return sqlSession.selectList(namespace + ".equalGenreBookRandomList", vo);
 	}
 	
 }

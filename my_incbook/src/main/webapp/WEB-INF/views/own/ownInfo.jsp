@@ -13,7 +13,7 @@
 							<div class="wn__fotorama__wrapper">
 								<div class="fotorama wn__fotorama__action" data-nav="thumbs">
 									<a href="1.jpg"><img
-										src="/img/${findBookByID2.id}/${findBookByID2.image}"
+										src="/img/${book.id}/${book.image}"
 										style="width: 450; height: 565;" alt=""></a>
 								</div>
 							</div>
@@ -74,6 +74,7 @@
 	$(function() {
 		$(".trade_start").on("click",function() {
 			alert("소유자와 채팅은 하셨나요?");
+			self.location="/trade/startTrade?id=${own.id}";
 		});
 	});
 </script>

@@ -22,10 +22,11 @@
 					<div class="product-info">
 						<!--================================================================= -->
 						<!--================================================================= -->
-						<h1>${BookVO.title}</h1>
-						<div>${BookVO.genre}</div>
-						<div>${BookVO.writer}</div>
-						<div>${BookVO.publisher}</div>
+						<h1>『${BookVO.title}』</h1>
+						<br>
+						<strong><div>장르<span style="color:red;"> * </span>${BookVO.genre}</div></strong>
+						<strong><div>저자<span style="color:blue;"> * </span>${BookVO.writer}</div></strong>
+						<strong><div>출판사<span style="color:green;"> * </span>${BookVO.publisher}</div></strong>
 						<br>
 						<div>${BookVO.content}</div>
 

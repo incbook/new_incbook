@@ -1,6 +1,7 @@
 package com.incbook.project.controller;
 
 import java.io.File;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -15,10 +16,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.MemberVO;
+import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagemaker.PageMaker;
 import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.service.BookService;
 import com.incbook.project.service.MemberService;
+import com.incbook.project.service.OwnService;
 
 @Controller
 @RequestMapping("/book/*")
@@ -28,7 +31,9 @@ public class BookController {
 	private BookService bookService;
 	@Inject
 	private MemberService memberService;
-
+	@Inject
+	private OwnService ownService;
+	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public void searchGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
@@ -52,7 +57,17 @@ public class BookController {
 		model.addAttribute("member", member);
 
 		model.addAttribute("prePage", prePage);
+		
+		// 해당 도서를 소유한 도서목록
+		List<OwnVO> ownList = ownService.findOwnListByBookId(id);
+		for(OwnVO vo : ownList) {
+			System.out.println(vo);
+		}
+		model.addAttribute("ownList", ownList);
 
+		// 해당 도서와 같은 장르의 도서목록 (10개)
+		List<BookVO> equalGenreBookRandomList = bookService.equalGenreBookRandomList(findBookByID2);
+		model.addAttribute("randomBookList", equalGenreBookRandomList);
 	}
 	
 	@RequestMapping(value = "/ownReadPage", method = RequestMethod.GET)

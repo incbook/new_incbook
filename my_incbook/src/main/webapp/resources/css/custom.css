@@ -29,7 +29,7 @@ h1 {
 	padding-top: 50px;
 }
 
-.account__form .sign__up__form label {
+.form_all .sign__up__form label {
    font-size: 22px;
    font-weight: bold;
 }
@@ -114,6 +114,53 @@ h1 {
 	display: inline;
 }
 
+
+.form_all .input__box {
+	margin: 0 0 15px; 
+}
+.form_all .input__box label {
+	margin: 0 0 10px;
+	line-height: 2;
+	color: #333;
+	font-size: 16px;
+	display: block; 
+}
+      .form_all .input__box label span {
+        color: #e59285; }
+    .form_all .input__box input {
+      background: #fff none repeat scroll 0 0;
+      border: 1px solid #e1e1e1;
+      border-radius: 0;
+      height: 40px;
+      width: 100%;
+      padding: 0 0 0 10px; }
+  .form_all .form__btn button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #ddd;
+    color: #333;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 34px;
+    padding: 2px 20px 0;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s; }
+    .form_all .form__btn button:hover {
+      background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+      border-color: #e59285;
+      color: #e59285; }
+  .form_all .form__btn span {
+    color: #333;
+    font-size: 12px; }
+  .form_all .forget_pass {
+    color: #e59285;
+    font-size: 12px;
+    margin-top: 18px;
+    display: inline; }
+
+.form_all .form__btn .label-for-checkbox {
+  margin-bottom: 0;
+  margin-left: 10px; }
 .cus_line {
 	margin-bottom: 30px;
     padding-bottom: 30px;
@@ -144,6 +191,7 @@ h1 {
 .pick_money {
 	margin: 2px 0 !important;
 }
+<<<<<<< HEAD
 
 .tablecenter thead tr th {
 	text-align: center;
@@ -152,3 +200,39 @@ h1 {
 .buttonTOP {
 	margin: 30px 0;
 }
+=======
+<<<<<<< HEAD
+
+.right1 {
+	display: inline-block !important;
+}
+
+.input_width {
+	width: 86% !important;
+	margin-left: 5px;
+}
+
+.input_width2 {
+	width: 80% !important;
+	margin-left: 5px;
+}
+
+.al_center {
+	border-top: 1px solid #e1e1e1;
+	text-align: center;
+}
+.al_center button {
+	margin: 20px 10px 0 10px;
+}
+
+.title_size {
+	font-size: 28px;
+	padding: 12px;
+	color: #e59285;
+}
+.nav_width1 {
+	width: 160px !important;
+}
+=======
+>>>>>>> 1442e1c4bda3f455aeeb9ea0de8aa602bc2ec706
+>>>>>>> master
