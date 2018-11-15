@@ -74,6 +74,7 @@
 	$(function() {
 		$(".trade_start").on("click",function() {
 			alert("소유자와 채팅은 하셨나요?");
+			self.location="/trade/startTrade?id=${own.id}";
 		});
 	});
 </script>
