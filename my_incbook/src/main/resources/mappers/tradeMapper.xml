@@ -32,7 +32,7 @@
 			<result property="hate" column="hate" />
 		</association>
 		<association property="own" column="id" javaType="OwnVO">
-			<id property="realationId" column="id" />
+			<id property="id" column="id" />
 			<result property="bookId" column="book_id" />
 			<result property="memberId" column="member_id" />
 			<result property="rentCount" column="rent_count" />

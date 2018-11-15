@@ -219,6 +219,8 @@
 						<!-- End Single Tab Content -->
 					</div>
 				</div>
+				
+				
 				<section class="wn__bestseller__area bg--white pt--80  pb--30">
 					<div class="container">
 						<div class="row">
@@ -233,7 +235,7 @@
 								</div>
 							</div>
 						</div>
-
+						<!-- ----------------------------------------------- -->
 						<div class="tab__container mt--60">
 							<!-- Start Single Tab Content -->
 							<div class="row single__tab tab-pane fade show active"

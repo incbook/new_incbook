@@ -39,7 +39,6 @@ public class TradeController {
 	@RequestMapping(value = "/startTrade", method = RequestMethod.GET)
 	public void startTrade(OwnVO vo, Model model) throws Exception {
 		System.out.println(vo.getId());
-		System.out.println(vo.getBookId());
 		OwnVO ownVO = ownService.findOwnByID(vo);
 		BookVO bookVO = bookService.findBookByID(ownVO.getBookId());
 		MemberVO memberVO =memberService.memberInfo(ownVO);

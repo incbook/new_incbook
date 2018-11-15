@@ -28,6 +28,11 @@ public class OwnServiceImpl implements OwnService {
 	}
 
 	@Override
+	public OwnVO findOwnByMemberID(OwnVO vo) throws Exception {
+		return ownDAO.findOwnByMemberID(vo);
+	}
+
+	@Override
 	public List<OwnVO> myOwnList(int memberId, SearchCriteria cri) throws Exception {
 		Map<String, Object> myOwnMap = new HashMap();
 		myOwnMap.put("memberId", memberId);

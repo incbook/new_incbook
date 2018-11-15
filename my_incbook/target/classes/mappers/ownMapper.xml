@@ -9,7 +9,7 @@
 	</resultMap>
 
 	<resultMap id="ownMap" type="OwnVO" extends="realationMap">
-		<id property="realationId" column="id" />
+		<id property="id" column="id" />
 		<result property="bookId" column="book_id" />
 		<result property="memberId" column="member_id" />
 		<result property="rentCount" column="rent_count" />
@@ -28,7 +28,15 @@
 		from own o 
 			join realation r
 			on 	o.id = r.id
-		where o.id = #{bookId}
+		where o.id = #{id}
+	</select>
+
+	<select id="findOwnByMemberID" resultMap="ownMap">
+		select * 
+		from own o 
+			join realation r
+			on 	o.id = r.id
+		where o.member_id = #{memberId}
 	</select>
 
 	<select id="findOwnListByBookId" resultMap="ownMap">
