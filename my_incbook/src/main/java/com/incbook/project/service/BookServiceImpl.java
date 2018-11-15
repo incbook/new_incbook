@@ -143,4 +143,12 @@ public class BookServiceImpl implements BookService {
 
 		return result;
 	}
+
+	// 동일 장르 랜덤 도서리스트
+	@Override
+	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
+		return dao.equalGenreBookRandomList(vo);
+	}
+	
+	
 }

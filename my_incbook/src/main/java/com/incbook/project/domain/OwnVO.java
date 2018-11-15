@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class OwnVO extends RealationVO{
 
-	private int realationId;
+	private int id;
 	private int bookId;
 	private int memberId;
 	private int rentCount;
@@ -17,12 +17,12 @@ public class OwnVO extends RealationVO{
 	private Date rentAvailable;
 	private String rentLocation;
 
-	public int getRealationId() {
-		return realationId;
+	public int getId() {
+		return id;
 	}
 
-	public void setRealationId(int realationId) {
-		this.realationId = realationId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getBookId() {
@@ -112,12 +112,16 @@ public class OwnVO extends RealationVO{
 	public void setRentLocation(String rentLocation) {
 		this.rentLocation = rentLocation;
 	}
+	
+	public int calcTotalAmount() {
+		return fee * selectPeriod;
+	}
 
 	@Override
 	public String toString() {
-		return "OwnVO [realationId=" + realationId + ", bookId=" + bookId + ", memberId=" + memberId + ", rentCount="
-				+ rentCount + ", rentCheck=" + rentCheck + ", state=" + state + ", isRent=" + isRent + ", isSell="
-				+ isSell + ", fee=" + fee + ", selectPeriod=" + selectPeriod + ", rentAvailable=" + rentAvailable
+		return "OwnVO [id=" + id + ", bookId=" + bookId + ", memberId=" + memberId + ", rentCount=" + rentCount
+				+ ", rentCheck=" + rentCheck + ", state=" + state + ", isRent=" + isRent + ", isSell=" + isSell
+				+ ", fee=" + fee + ", selectPeriod=" + selectPeriod + ", rentAvailable=" + rentAvailable
 				+ ", rentLocation=" + rentLocation + "]";
 	}
 

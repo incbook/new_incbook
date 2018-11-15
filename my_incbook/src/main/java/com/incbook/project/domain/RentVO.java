@@ -2,7 +2,7 @@ package com.incbook.project.domain;
 
 import java.util.Date;
 
-public class RentVO {
+public class RentVO extends TradeVO{
 
 	private int id;
 	private Date returnDate;

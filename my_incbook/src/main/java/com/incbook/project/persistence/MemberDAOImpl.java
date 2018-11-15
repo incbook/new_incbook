@@ -58,5 +58,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO findMemberById(int id) throws Exception {
 		return sqlSession.selectOne(namespace + ".findMemberById", id);
 	}
+
+	@Override
+	public void pointSpend(Map<String, Object> pointMap) throws Exception {
+		sqlSession.update(namespace+".pointSpend", pointMap);
+	}
 	
 }

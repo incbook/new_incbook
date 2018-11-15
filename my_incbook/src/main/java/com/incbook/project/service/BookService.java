@@ -40,4 +40,6 @@ public interface BookService {
 
 	public String restore(MultipartFile file, BookVO vo) throws Exception;
 
+	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception;
+
 }
