@@ -19,4 +19,6 @@ public interface OwnService {
 
 	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception;
 
+	public void ownDelete(RealationVO rvo) throws Exception;
+
 }

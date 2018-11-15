@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.RealationVO;
@@ -44,7 +46,8 @@ public class OwnServiceImpl implements OwnService {
 	public int myOwnCount(int memberId) throws Exception {
 		return ownDAO.myOwnCount(memberId);
 	}
-
+	
+	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void ownInsert(RealationVO rvo, OwnVO ovo) throws Exception{
 		realaionDAO.realationInsert(rvo);
@@ -57,6 +60,13 @@ public class OwnServiceImpl implements OwnService {
 	@Override
 	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception {
 		return ownDAO.findOwnListByBookId(bookId);
+	}
+
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public void ownDelete(RealationVO rvo) throws Exception {
+		realaionDAO.realationDelete(rvo);
+		ownDAO.ownDelete(rvo);
 	}
 	
 }

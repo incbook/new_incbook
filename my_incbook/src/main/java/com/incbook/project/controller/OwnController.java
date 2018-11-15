@@ -106,5 +106,12 @@ public class OwnController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 	
+	@RequestMapping(value = "/ownDelete", method = RequestMethod.POST)
+	public String ownDelete(RealationVO rvo) throws Exception {
+		ownService.ownDelete(rvo);
+		
+		return "redirect:/own/myOwnList";
+	}
+	
 	
 }

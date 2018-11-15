@@ -7,4 +7,7 @@
 		insert into realation() 
 		values()
 	</insert>
+	<delete id="realationDelete">
+		delete from realation where id = #{id}
+	</delete>
 </mapper>
