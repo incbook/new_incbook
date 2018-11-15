@@ -18,17 +18,13 @@
 	<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
 		<div class="shop__sidebar">
 			<aside class="wedget__categories poroduct--cat">
-				<h3 class="wedget__title">TOP-100</h3>
+				<h3 class="wedget__title ss">TOP-100</h3>
 				<div class="" style="background-color: white;">
-					<a href="/book/allTop100">  InC Book Top 100</a><br>
-					<a href="/book/allTop100">  급상승 Book</a><br>
-					<a href="/book/newBookChart">  신간 도서</a>
+					<a href="/book/allTop100"> InC Book Top 100</a>
 				</div>
-				<br>
-				<h3 class="wedget__title">장르별 TOP-100</h3>
 				<!--  여기야 -->
 
-				<div class="hover1" style="background-color: white;">  국내도서</div>
+				<div class="hover1" style="background-color: white;"> Genre Top 100 (국내)</div>
 				<div id="list1" class="hover1" style="width: 836px;">
 					<div
 						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
@@ -74,7 +70,7 @@
 					</div>
 				</div>
 
-				<div class="hover2" style="background-color: white;">  외국도서</div>
+				<div class="hover2" style="background-color: white;"> Genre Top 100 (외국)</div>
 				<div id="list2" class="hover2" style="width: 836px;">
 					<div
 						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
@@ -131,14 +127,18 @@
 					</div>
 				</div>
 				<br>
+				<h3 class="wedget__title ss">Current upward Book</h3>
+				<a href="/book/allTop100"> 급상승 Book</a><br><br>
+				<h3 class="wedget__title ss">NEW100</h3>
 
-				<h3 class="wedget__title">개인화 맞춤-도서</h3>
+				<a href="/book/newBookChart"> 신간 도서</a><br><br>
+				<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
 				<div class="newBook" style="background-color: white;">
 					<a href="/personalize/personalize">개인화 맞춤-도서</a>
 				</div>
 			</aside>
 
-			<h3 class="wedget__title">Advertising</h3>
+			<h3 class="wedget__title ss">Advertising</h3>
 			<aside class="wedget__categories sidebar--banner">
 				<img src="/img/1/a.jpg" alt="banner images">
 			</aside>

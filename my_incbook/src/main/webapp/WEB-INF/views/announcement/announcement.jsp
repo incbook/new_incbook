@@ -12,11 +12,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">게시판 샘플!!!!</h2>
+					<h2 class="bradcaump-title">게시판</h2>
 					<nav class="bradcaump-content">
 						<a class="breadcrumb_item" href="index.html">Home</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">게시판 샘플</span>
+							class="breadcrumb_item active">게시판</span>
 					</nav>
 				</div>
 			</div>
@@ -89,9 +89,14 @@
 
 		</ul>
 	</div>
-	<div>
-		<button type="submit" id="btn_insert">공지사항 작성</button>
+	
+	<div class="form_all al_center">
+		<div class="form__btn">
+			<button type="submit" id="btn_insert" class="radius">공지사항 작성</button>
+		</div>
 	</div>
+	
+	
 	<form role="form" action="modifyPage" method="post">
 	<input type="hidden" name="page" value="${boardCri.page}">
 	<input type="hidden" name="pagesize" value="${boardCri.pagesize}">

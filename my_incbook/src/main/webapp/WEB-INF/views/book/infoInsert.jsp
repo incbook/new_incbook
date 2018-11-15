@@ -19,7 +19,7 @@
 					<form role="form" method="post"  enctype="multipart/form-data" class="validationForm">
 						<div class="account__form">
 							<div class="input__box  sign__up__form">
-								<label for="title" class="right1">제　목 <span>*</span></label> <input type="text"
+								<label for="title" class="right1 font_size_up">제　목 <span>*</span></label> <input type="text"
 									id="title" name="title" validationText="제목" class="input_width">
 							</div>
 							<%
@@ -35,7 +35,7 @@
 								request.setAttribute("g2", foreigngenre);
 							%>
 							<div class="input__box sign__up__form">
-								<label for="genre" class="right1">장　르 <span>*</span></label> <select id="genre"
+								<label for="genre" class="right1 font_size_up">장　르 <span>*</span></label> <select id="genre"
 									name="genre" style="height: 30px;" validationText="장르" class="input_width">
 									<option value="">- -</option>
 									<c:forEach items="${g1}" var="genre1">
@@ -49,29 +49,29 @@
 							</div>
 
 							<div class="input__box sign__up__form">
-								<label for="writer" class="right1">저　자 <span>*</span></label> <input type="text"
+								<label for="writer" class="right1 font_size_up">저　자 <span>*</span></label> <input type="text"
 									id="writer" name="writer" validationText="저자" class="input_width">
 							</div>
 
 							<div class="input__box sign__up__form">
-								<label for="publisher" class="right1">출판사 <span>*</span></label> <input
+								<label for="publisher" class="right1 font_size_up">출판사 <span>*</span></label> <input
 									type="text" id="publisher" name="publisher" validationText="출판사" class="input_width">
 							</div>
 
 							<div class="input__box sign__up__form">
-								<label for="content">줄거리 <span>*</span></label>
+								<label for="content" class="font_size_up">줄거리 <span>*</span></label>
 								<textarea type="text" id="content" name="content" rows="4"
 									cols="98" validationText="줄거리"></textarea>
 							</div>
 
 							<div class="input__box sign__up__form">
-								<label for="image" class="right1">이미지 <span>*</span></label><input type='file'
+								<label for="image" class="right1 font_size_up">이미지 <span>*</span></label><input type='file'
 									id="image" name="file" validationText="이미지" class="input_width"/> <img id="blah" src="#"
 									alt="book image" width="270" height="340" />
 							</div>
 
 							<div class="input__box sign__up__form">
-								<label for="finalUpdateMemberId" class="right1">최종수정자 <span>*</span></label> <input
+								<label for="finalUpdateMemberId" class="right1 font_size_up">최종수정자 <span>*</span></label> <input
 									type="hidden" id="finalUpdateMemberId"
 									name="finalUpdateMemberId" value="${login.id}"> <input
 									type="text" class="input_width2" value="${login.nickname}" readonly>
@@ -80,10 +80,10 @@
 							<!-- <input type="submit" title="로그인" value="로그인"> -->
 
 							<div class="form__btn al_center">
-								<button type="button"
+								<button type="button" class="radius"
 									onclick="location.href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'">
 									취소</button>
-								<button type="button" class="validationFormButton">등록</button>
+								<button type="button" class="validationFormButton radius">등록</button>
 							</div>
 
 						</div>

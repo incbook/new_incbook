@@ -15,15 +15,15 @@
 					<div class="slider__content">
 						<div class="contentbox">
 							<h2>
-								Buy <span>your </span>
+								Rent <span>your </span>
 							</h2>
 							<h2>
-								favourite <span>Book </span>
+								favorite <span>books </span>
 							</h2>
 							<h2>
-								from <span>Here </span>
+								here <span>INCBOOK </span>
 							</h2>
-							<a class="shopbtn" href="#">shop now</a>
+							<a class="shopbtn" href="book/allTop100">Go now</a>
 						</div>
 					</div>
 				</div>

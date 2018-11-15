@@ -80,15 +80,15 @@
 								<br> <br>
 								<div class="form_all">
 									<div class="form__btn">
-										<button type="button" id="modify">수정</button>
+										<button type="button" id="modify" class="radius">수정</button>
 										<c:if test="${prePage == 'top'}">
-											<button type="button" id="top">목록가기</button>
+											<button type="button" id="top" class="radius">목록가기</button>
 										</c:if>
 										<c:if test="${prePage == 'new'}">
-											<button type="button" id="new">목록가기</button>
+											<button type="button" id="new" class="radius">목록가기</button>
 										</c:if>
 										<c:if test="${prePage == 'genre'}">
-											<button type="button" id="genre">목록가기</button>
+											<button type="button" id="genre" class="radius">목록가기</button>
 										</c:if>
 									</div>
 								</div>
