@@ -242,16 +242,6 @@
 							<!-- Start Single Tab Content -->
 							<div class="row single__tab tab-pane fade show active"
 								id="nav-all" role="tabpanel">
-								${ownList[0].memberId}
-								<div
-									class="product__indicator--4 arrows_style owl-carousel owl-theme">
-									<c:forEach items="${ownList}" var="book" varStatus="status"
-										begin="1">
-
-										<c:if test="${status.index % 2 eq 1}">
-											<div class="single__product">
-												<!-- Start Single Product -->
-												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 								<div
 									class="product__indicator--4 arrows_style owl-carousel owl-theme">
 									<c:forEach items="${ownList}" var="own" varStatus="status"
@@ -261,43 +251,38 @@
 
 											<!-- Start Single Product -->
 											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-													<div class="product product__style--3">
-														<div class="product__thumb">
-															<a class="first__img" href="/own/ownInfo?id=${ownList[status.index].id}">
-																<img src="/img/${findBookByID2.id}/${findBookByID2.image}" alt="product image">
-															</a>
-															<div class="hot__box">
-																<span class="hot-label">BEST SALER</span>
-															</div>
-														</div>
-														<div
-															class="product__content content--center content--center">
-															<ul class="">
-																<li>상태 : ${ownList[status.index].state}</li>
-																<li>지역 : ${ownList[status.index].rentLocation}</li>
-																<li>대여료 : ${ownList[status.index].fee}</li>
-															</ul>
-														</div>
-													</div>
-												</div>
-												<!-- Start Single Product -->
-										</c:if>
-										<c:if test="${status.index % 2 eq 0}">
-											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 												<div class="product product__style--3">
 													<div class="product__thumb">
-														<a class="first__img" href="single-product.html"><img
-															src="/resources/images/books/1.jpg" alt="product image"></a>
+														<a class="first__img"
+															href="/own/ownInfo?id=${ownList[status.index].id}"> <img
+															src="/img/${findBookByID2.id}/${findBookByID2.image}"
+															alt="product image">
+														</a>
 														<div class="hot__box">
 															<span class="hot-label">BEST SALER</span>
+														</div>
+													</div>
+													<div
+														class="product__content content--center content--center">
+														<ul class="">
+															<li>상태 : ${ownList[status.index].state}</li>
+															<li>지역 : ${ownList[status.index].rentLocation}</li>
+															<li>대여료 : ${ownList[status.index].fee}</li>
+														</ul>
+													</div>
+												</div>
+											</div>
 											<!-- Start Single Product -->
 											<c:if test="${not (ownList[status.index+1] eq null)}">
 
 												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 													<div class="product product__style--3">
 														<div class="product__thumb">
-															<a class="first__img" href="/own/ownInfo?id=${ownList[status.index+1].id}">
-																<img src="/img/${findBookByID2.id}/${findBookByID2.image}" alt="product image">
+															<a class="first__img"
+																href="/own/ownInfo?id=${ownList[status.index+1].id}">
+																<img
+																src="/img/${findBookByID2.id}/${findBookByID2.image}"
+																alt="product image">
 															</a>
 															<div class="hot__box">
 																<span class="hot-label">BEST SALER</span>
@@ -313,22 +298,16 @@
 														</div>
 													</div>
 												</div>
-											</div>
 											</c:if>
 
 										</div>
 
 									</c:forEach>
 								</div>
-								</c:if>
-								</c:forEach>
-
 							</div>
 						</div>
 					</div>
-			</div>
-		</div>
-		</section>
+				</section>
 
 				<div class="wn__related__product pt--80 pb--50">
 					<div class="section__title text-center">
@@ -337,7 +316,7 @@
 					<div class="row mt--60">
 						<div
 							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
-							<c:forEach items="${randomBookList}" var="randomBook" varStatus="status" >
+							<c:forEach items="${randomBookList}" var="randomBook" varStatus="status">
 								<!-- Start Single Product -->
 								<div
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
@@ -350,7 +329,7 @@
 									</div>
 									<div class="product__content content--center">
 										<h4>
-											<a href="single-product.html">${randomBook.title}</a>
+											<a href="single-product.html">${book.title}</a>
 										</h4>
 										<ul class="prize d-flex">
 											<li>$35.00</li>
@@ -401,49 +380,36 @@
 
 
 
-	</div>
-	<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
-		<div class="shop__sidebar">
-			<aside class="wedget__categories poroduct--cat">
-				<h3 class="wedget__title">Product Categories</h3>
-				<ul>
-					<li><a href="#">장르1 <span>(3)</span></a></li>
-					<li><a href="#">장르2 <span>(4)</span></a></li>
-					<li><a href="#">장르3 <span>(6)</span></a></li>
-					<li><a href="#">장르4 <span>(7)</span></a></li>
-					<li><a href="#">장르5 <span>(8)</span></a></li>
-					<li><a href="#">장르6 <span>(9)</span></a></li>
-					<li><a href="#">장르7 <span>(13)</span></a></li>
-					<li><a href="#">장르8 <span>(20)</span></a></li>
-					<li><a href="#">장르9 <span>(22)</span></a></li>
-					<li><a href="#">장르10 <span>(13)</span></a></li>
-				</ul>
-			</aside>
+			</div>
+			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
+				<div class="shop__sidebar">
+					<aside class="wedget__categories poroduct--cat">
+						<h3 class="wedget__title">Product Categories</h3>
+						<ul>
+							<li><a href="#">장르1 <span>(3)</span></a></li>
+							<li><a href="#">장르2 <span>(4)</span></a></li>
+							<li><a href="#">장르3 <span>(6)</span></a></li>
+							<li><a href="#">장르4 <span>(7)</span></a></li>
+							<li><a href="#">장르5 <span>(8)</span></a></li>
+							<li><a href="#">장르6 <span>(9)</span></a></li>
+							<li><a href="#">장르7 <span>(13)</span></a></li>
+							<li><a href="#">장르8 <span>(20)</span></a></li>
+							<li><a href="#">장르9 <span>(22)</span></a></li>
+							<li><a href="#">장르10 <span>(13)</span></a></li>
+						</ul>
+					</aside>
 
 
-			<aside class="wedget__categories sidebar--banner">
-				<img src="/resources/images/others/banner_left.jpg"
-					alt="banner images">
-				<div class="text">
-					<h2>광고</h2>
-					<h6>
-						광고 <br> <strong>광고</strong>광고
-					</h6>
+					<aside class="wedget__categories sidebar--banner">
+						<img src="/resources/images/others/banner_left.jpg"
+							alt="banner images" width="100" height="150"> <img
+							src="/resources/images/others/banner_left.jpg"
+							alt="banner images" width="100" height="150">
+					</aside>
 				</div>
-			</aside>
+			</div>
 		</div>
 	</div>
-	</div>
-</div>
-</div>
-<!-- End main Content -->
-<!-- Start Search Popup -->
-<div class="box-search-content search_active block-bg close__top">
-	<form id="search_mini_form--2" class="minisearch" action="#">
-		<div class="field__search">
-			<input type="text" placeholder="Search entire store here...">
-			<div class="action">
-				<a href="#"><i class="zmdi zmdi-search"></i></a>
 	<!-- End main Content -->
 
 	<!-- Start Search Popup -->

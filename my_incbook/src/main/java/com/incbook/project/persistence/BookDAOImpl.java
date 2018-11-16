@@ -49,13 +49,11 @@ public class BookDAOImpl implements BookDAO{
 
 	@Override
 	public void updateBook(BookVO vo) throws Exception {
-		System.out.println(vo);
 		sqlSession.update(namespace+".updateBook", vo);
 		
 	}
 	@Override
 	public void updateViewCnt(Integer id) throws Exception {
-		
 		sqlSession.update(namespace+".updateViewCnt", id);
 	}
 

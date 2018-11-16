@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.MemberVO;
@@ -97,7 +98,6 @@ public class OwnController {
 			myOwmMap.put("ownVO", myOwn);
 			myOwmMap.put("bookVO", bookService.findBookByID2(myOwn.getBookId()));
 			
-			System.out.println(bookService.findBookByID2(myOwn.getBookId()));
 			myOwnMapList.add(myOwmMap);
 		}
 		
@@ -107,8 +107,16 @@ public class OwnController {
 	}
 	
 	@RequestMapping(value = "/ownDelete", method = RequestMethod.POST)
-	public String ownDelete(RealationVO rvo) throws Exception {
-		ownService.ownDelete(rvo);
+	public String ownDelete(RealationVO rvo, int memberId, HttpServletRequest reqeust, RedirectAttributes rttr) throws Exception {
+		MemberVO login = (MemberVO) reqeust.getSession().getAttribute("login");
+		System.out.println(rvo);
+		System.out.println(memberId);
+		System.out.println(login);
+		if ( login != null && login.getId() == memberId) {
+			ownService.ownDelete(rvo);
+		} else {
+			rttr.addFlashAttribute("myOwnDelete", "fail");
+		}
 		
 		return "redirect:/own/myOwnList";
 	}
