@@ -103,5 +103,10 @@ public class BookDAOImpl implements BookDAO{
 	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
 		return sqlSession.selectList(namespace + ".equalGenreBookRandomList", vo);
 	}
+
+	@Override
+	public List<BookVO> newBookChart(BookVO vo) throws Exception {
+		return sqlSession.selectList(namespace + ".newBookChart", vo);
+	}
 	
 }

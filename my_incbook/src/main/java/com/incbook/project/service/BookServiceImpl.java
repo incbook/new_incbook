@@ -149,6 +149,11 @@ public class BookServiceImpl implements BookService {
 	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
 		return dao.equalGenreBookRandomList(vo);
 	}
+
+	@Override
+	public List<BookVO> newBookChart(BookVO vo) throws Exception {
+		return dao.newBookChart(vo);
+	}
 	
 	
 }
