@@ -90,7 +90,7 @@
 											<li>${BookVO.genre}</li>
 										</ul>
 
-										<div class="action" quickId="${BookVO.id}" quickPrePage="new"
+										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
 											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">

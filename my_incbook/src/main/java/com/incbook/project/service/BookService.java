@@ -42,4 +42,6 @@ public interface BookService {
 
 	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception;
 
+	public List<BookVO> newBookChart(BookVO vo) throws Exception;
+
 }

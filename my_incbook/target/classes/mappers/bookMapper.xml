@@ -54,6 +54,15 @@
 		]]>
 	</select>
 
+	<select id="newBookChart" resultMap="BookVO">
+		<![CDATA[
+		select
+		* from book
+		where id > 0
+		order by id desc
+		]]>
+	</select>
+	
 	<select id="searchList" resultMap="BookVO">
 		<![CDATA[
 		select
