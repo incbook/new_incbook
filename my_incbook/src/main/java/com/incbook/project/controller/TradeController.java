@@ -51,7 +51,9 @@ public class TradeController {
 
 	@RequestMapping(value = "/startTrade", method = RequestMethod.POST)
 	public String startTradePOST(TradeVO tradeVO, OwnVO ownVO, String tradeDateString) throws Exception {
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(tradeDateString);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = format.parse(tradeDateString);
+		
 		tradeVO.setTradeDate(date);
 		
 		tradeService.insertTrade(tradeVO, ownVO, tradeVO.getMemberId());
