@@ -30,7 +30,6 @@ public class TradeDAOImpl implements TradeDAO{
 
 	@Override
 	public List<TradeVO> findLendersByMemberId(MemberVO login) throws Exception {
-		System.out.println("??");
 		return sqlSession.selectList(namespace + ".findLendersByMemberId", login);
 	}
 

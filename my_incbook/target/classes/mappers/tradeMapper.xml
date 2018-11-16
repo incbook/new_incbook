@@ -59,14 +59,14 @@
 	</resultMap>
 
 	<insert id="insertTrade" useGeneratedKeys="true" keyProperty="id">
-		insert into trade (own_id, member_id, datail_location,
-							trade_date, trade_time, total_amount
+		insert into trade (own_id, member_id, detail_location,
+							trade_date, trade_time, total_amount)
 		values 			  (#{ownId}, #{memberId}, #{detailLocation},
 							#{tradeDate}, #{tradeTime}, #{totalAmount}) 
 	</insert>
 
 	<insert id="insertRent">
-		insert into rent (id, rent_date, is_return)
+		insert into rent (id, return_date, is_return, rent_period)
 		values 			  (#{trade.id}, #{returnDate}, '대여예약')
 	</insert>
 
