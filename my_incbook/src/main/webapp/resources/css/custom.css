@@ -125,7 +125,7 @@ h1 {
 	font-size: 16px;
 	display: block; 
 }
-      .form_all .input__box label span {
+.form_all .input__box label span {
         color: #e59285; }
     .form_all .input__box input {
       background: #fff none repeat scroll 0 0;
@@ -161,6 +161,13 @@ h1 {
 .form_all .form__btn .label-for-checkbox {
   margin-bottom: 0;
   margin-left: 10px; }
+  
+.radius {
+	border-radius: 20px;
+} 
+.btn_ri {
+	margin-left: 12px;
+}
 .cus_line {
 	margin-bottom: 30px;
     padding-bottom: 30px;
@@ -236,3 +243,37 @@ h1 {
 =======
 >>>>>>> 1442e1c4bda3f455aeeb9ea0de8aa602bc2ec706
 >>>>>>> master
+
+.ss{
+	font-size: 20px;
+}
+
+.hd_white {
+	background-color: white;
+	height: 120px;
+}
+
+.size_up {
+	font-size: 18px !important;
+	margin-left: 25px !important;
+	margin-top: 18px !important;
+}
+.size_up2 {
+	margin-top: 11px !important;
+	padding-right: 40px !important;
+}
+.search_left {
+	margin-right: 15px;
+}
+.loogoo {
+	padding-top: 6px !important;
+}
+
+.font_size_up {
+	font-size: 20px !important;
+	font-weight: bold;
+}
+
+.btn_style {
+	
+}

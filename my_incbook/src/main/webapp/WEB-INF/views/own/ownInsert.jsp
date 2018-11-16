@@ -36,52 +36,52 @@
 						
 						<div class="account__form">
 							<div class="input__box">
-								<label for="title">제목 <span>*</span></label>
+								<label for="title" class="font_size_up">제목 <span>*</span></label>
 								<input style="width:60%"  type="text" id="title" validationText="제목" readonly>
 								<input type="hidden" id="book_id" name="bookId" value="">
 								
 								<span class="form__btn">
-									<button class="btn searchBook" type="button">도서검색</button>
+									<button class="btn searchBook radius btn_ri" type="button">도서검색</button>
 								</span>
 							</div>
 
 							<div class="input__box">
-								<label for="nickname">등록자 <span>*</span></label>
+								<label for="nickname" class="font_size_up">등록자 <span>*</span></label>
 								<input type="text" id="nickname" name="nickname" value="${login.nickname}" readonly>
 							</div>
 
 							<div class="input__box">
-								<label for="state">도서상태 <span>*</span></label>
+								<label for="state" class="font_size_up">도서상태 <span>*</span></label>
 								<input type="text" id="state" name="state" validationText="도서상태">
 							</div>
 
 							<c:if test="${own.isRent eq '가능'}">
 								<div class="input__box">
-									<label for="fee">1일당 대여금액 <span>*</span></label>
+									<label for="fee" class="font_size_up">1일당 대여금액 <span>*</span></label>
 									<input type="number" step="50" min="0" id="fee" name="fee" validationText="일당 대여금액">
 								</div>
 
 								<div class="input__box">
-									<label for="selectPeriod">대여기간 <span>*</span></label>
+									<label for="selectPeriod" class="font_size_up">대여기간 <span>*</span></label>
 									<input type="number" id="selectPeriod" name="selectPeriod" validationText="대여기간">
 								</div>
 	
 								<div class="input__box">
-									<label for="rentAvailable">대여 가능기간<span>*</span></label>
+									<label for="rentAvailable" class="font_size_up">대여 가능기간<span>*</span></label>
 									<input type="date" id="rentAvailable" name="date" validationText="대여 가능기간">
 								</div>
 							</c:if>
 
 							<div class="input__box">
-								<label for="rentLocation">거래 선호지역<span>*</span></label>
+								<label for="rentLocation" class="font_size_up">거래 선호지역<span>*</span></label>
 								<input type="text" id="rentLocation" name="rentLocation" validationText="거래 선호지역">
 							</div>
 
-							<div class="form__btn">
-								<button type="button" onclick="location.href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'">
+							<div class="form__btn al_center">
+								<button type="button" class="radius" onclick="location.href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}'">
 									취소
 								</button>
-								<button class="validationFormButton" type="button">등록</button>
+								<button class="validationFormButton radius" type="button">등록</button>
 							</div>
 						</div>
 					</form>

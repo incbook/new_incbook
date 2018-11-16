@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.incbook.project.domain.OwnVO;
+import com.incbook.project.domain.RealationVO;
 
 public interface OwnDAO {
 	public OwnVO findOwnByID(OwnVO vo)  throws Exception;
@@ -17,6 +18,8 @@ public interface OwnDAO {
 	public void ownInsert(Map<String, Object> own) throws Exception;
 
 	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception;
+
+	public void ownDelete(RealationVO rvo) throws Exception;
 
 	
 }

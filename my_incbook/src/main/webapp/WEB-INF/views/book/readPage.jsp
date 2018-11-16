@@ -80,15 +80,15 @@
 								<br> <br>
 								<div class="form_all">
 									<div class="form__btn">
-										<button type="button" id="modify">수정</button>
+										<button type="button" id="modify" class="radius">수정</button>
 										<c:if test="${prePage == 'top'}">
-											<button type="button" id="top">목록가기</button>
+											<button type="button" id="top" class="radius">목록가기</button>
 										</c:if>
 										<c:if test="${prePage == 'new'}">
-											<button type="button" id="new">목록가기</button>
+											<button type="button" id="new" class="radius">목록가기</button>
 										</c:if>
 										<c:if test="${prePage == 'genre'}">
-											<button type="button" id="genre">목록가기</button>
+											<button type="button" id="genre" class="radius">목록가기</button>
 										</c:if>
 									</div>
 								</div>
@@ -238,15 +238,12 @@
 						<!-- ----------------------------------------------- -->
 						<div class="tab__container mt--60">
 							<!-- Start Single Tab Content -->
-							<div class="row single__tab tab-pane fade show active"
-								id="nav-all" role="tabpanel">
-									${ownList[0].memberId}
-								<div
-									class="product__indicator--4 arrows_style owl-carousel owl-theme">
-									<c:forEach items="${ownList}" var="book" varStatus="status" begin="1">
+							<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
+								<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+									<c:forEach items="${ownList}" var="own" varStatus="status" begin="1">
 									
 										<c:if test="${status.index % 2 eq 1}">
-											<div class="single__product">
+											<c:out value="<div class="single__product">"/>
 											<!-- Start Single Product -->
 												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 													<div class="product product__style--3">
@@ -257,10 +254,9 @@
 																<span class="hot-label">BEST SALER</span>
 															</div>
 														</div>
-														<div
-															class="product__content content--center content--center">
+														<div class="product__content content--center content--center">
 															<h4>
-																<a href="single-product.html">Ghost4</a>
+																<a href="single-product.html">${own.state}</a>
 															</h4>
 															<ul class="prize d-flex">
 																<li>$50.00</li>
@@ -279,8 +275,8 @@
 													</div>
 												</div>
 										<!-- Start Single Product -->
-											
 										</c:if>
+										
 										<c:if test="${status.index % 2 eq 0}">
 											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 												<div class="product product__style--3">
@@ -312,18 +308,71 @@
 													</div>
 												</div>
 											</div>
-											</div>
+											<c:out value="</div>"/>
 										</c:if>
 									</c:forEach>
-											
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
 
-
+				<div class="wn__related__product pt--80 pb--50">
+					<div class="section__title text-center">
+						<h2 class="title__be--2">Related Products</h2>
+					</div>
+					<div class="row mt--60">
+						<div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
+							<c:forEach items="${randomBookList}" var="book" varStatus="status" begin="1">
+								<!-- Start Single Product -->
+								<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+									<div class="product__thumb">
+										<a class="first__img" href="single-product.html"><img
+											src="/resources/images/books/1.jpg" alt="product image"></a>
+										<a class="second__img animation1" href="single-product.html"><img
+											src="/resources/images/books/2.jpg" alt="product image"></a>
+										<div class="hot__box">
+											<span class="hot-label">BEST SALLER</span>
+										</div>
+									</div>
+									<div class="product__content content--center">
+										<h4>
+											<a href="single-product.html">${book.title}</a>
+										</h4>
+										<ul class="prize d-flex">
+											<li>$35.00</li>
+											<li class="old_prize">$35.00</li>
+										</ul>
+										<div class="action">
+											<div class="actions_inner">
+												<ul class="add_to_links">
+													<li><a class="cart" href="cart.html"><i
+															class="bi bi-shopping-bag4"></i></a></li>
+													<li><a class="wishlist" href="wishlist.html"><i
+															class="bi bi-shopping-cart-full"></i></a></li>
+													<li><a class="compare" href="#"><i
+															class="bi bi-heart-beat"></i></a></li>
+													<li><a data-toggle="modal" title="Quick View"
+														class="quickview modal-view detail-link"
+														href="#productmodal"><i class="bi bi-search"></i></a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="product__hover--content">
+											<ul class="rating d-flex">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
 
 
 
@@ -374,6 +423,7 @@
 		</div>
 	</div>
 <!-- End main Content -->
+
 <!-- Start Search Popup -->
 <div class="box-search-content search_active block-bg close__top">
 	<form id="search_mini_form--2" class="minisearch" action="#">
