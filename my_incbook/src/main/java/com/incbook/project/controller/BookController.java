@@ -60,9 +60,6 @@ public class BookController {
 		
 		// 해당 도서를 소유한 도서목록
 		List<OwnVO> ownList = ownService.findOwnListByBookId(id);
-		for(OwnVO vo : ownList) {
-			System.out.println(vo);
-		}
 		model.addAttribute("ownList", ownList);
 
 		// 해당 도서와 같은 장르의 도서목록 (10개)

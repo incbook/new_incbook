@@ -43,6 +43,7 @@ public class TradeServiceImpl implements TradeService {
 		Map<String, Object> rentMap = new HashMap();
 		rentMap.put("trade", tradeVO);
 		//retrunDate 만들어주기**************************
+		
 		rentMap.put("returnDate", "retunrDate");
 		
 		// Rent 테이블에 기록 저장

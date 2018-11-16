@@ -20,4 +20,9 @@ public class RealationDAOImpl implements RealationDAO{
 		sqlSession.insert(namespace + ".realationInsert", rvo);
 	}
 
+	@Override
+	public void realationDelete(RealationVO rvo) throws Exception {
+		sqlSession.delete(namespace + ".realationDelete", rvo);
+		
+	}
 }

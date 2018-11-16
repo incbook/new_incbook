@@ -88,7 +88,7 @@
 	
 	<update id ="pointSpend">
 		update member set 
-			point = point - #{point.tradeAmount}
+			point = point - #{point.totalAmount}
 		where id = #{memberId}
 	</update>
 </mapper>

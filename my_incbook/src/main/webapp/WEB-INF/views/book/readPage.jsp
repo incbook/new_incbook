@@ -252,35 +252,35 @@
 											<div class="single__product">
 												<!-- Start Single Product -->
 												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+								<div
+									class="product__indicator--4 arrows_style owl-carousel owl-theme">
+									<c:forEach items="${ownList}" var="own" varStatus="status"
+										begin="0" step="2">
+
+										<div class='single__product'>
+
+											<!-- Start Single Product -->
+											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 													<div class="product product__style--3">
 														<div class="product__thumb">
-															<a class="first__img" href="single-product.html"><img
-																src="/resources/images/books/1.jpg" alt="product image"></a>
+															<a class="first__img" href="/own/ownInfo?id=${ownList[status.index].id}">
+																<img src="/img/${findBookByID2.id}/${findBookByID2.image}" alt="product image">
+															</a>
 															<div class="hot__box">
 																<span class="hot-label">BEST SALER</span>
 															</div>
 														</div>
 														<div
 															class="product__content content--center content--center">
-															<h4>
-																<a href="single-product.html">Ghost4</a>
-															</h4>
-															<ul class="prize d-flex">
-																<li>$50.00</li>
-																<li class="old_prize">$35.00</li>
+															<ul class="">
+																<li>상태 : ${ownList[status.index].state}</li>
+																<li>지역 : ${ownList[status.index].rentLocation}</li>
+																<li>대여료 : ${ownList[status.index].fee}</li>
 															</ul>
-															<div class="product__hover--content">
-																<ul class="rating d-flex">
-																	<li class="on"><i class="fa fa-star-o"></i></li>
-																	<li class="on"><i class="fa fa-star-o"></i></li>
-																	<li class="on"><i class="fa fa-star-o"></i></li>
-																	<li><i class="fa fa-star-o"></i></li>
-																	<li><i class="fa fa-star-o"></i></li>
-																</ul>
-															</div>
 														</div>
 													</div>
 												</div>
+<<<<<<< HEAD
 												<!-- Start Single Product -->
 										</c:if>
 										<c:if test="${status.index % 2 eq 0}">
@@ -291,29 +291,40 @@
 															src="/resources/images/books/1.jpg" alt="product image"></a>
 														<div class="hot__box">
 															<span class="hot-label">BEST SALER</span>
+=======
+											<!-- Start Single Product -->
+											<c:if test="${not (ownList[status.index+1] eq null)}">
+
+												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+													<div class="product product__style--3">
+														<div class="product__thumb">
+															<a class="first__img" href="/own/ownInfo?id=${ownList[status.index+1].id}">
+																<img src="/img/${findBookByID2.id}/${findBookByID2.image}" alt="product image">
+															</a>
+															<div class="hot__box">
+																<span class="hot-label">BEST SALER</span>
+															</div>
+>>>>>>> 1a198171856a0173d56709089ac864293d0b4636
 														</div>
-													</div>
-													<div
-														class="product__content content--center content--center">
-														<h4>
-															<a href="single-product.html">Ghost4</a>
-														</h4>
-														<ul class="prize d-flex">
-															<li>$50.00</li>
-															<li class="old_prize">$35.00</li>
-														</ul>
-														<div class="product__hover--content">
-															<ul class="rating d-flex">
-																<li class="on"><i class="fa fa-star-o"></i></li>
-																<li class="on"><i class="fa fa-star-o"></i></li>
-																<li class="on"><i class="fa fa-star-o"></i></li>
-																<li><i class="fa fa-star-o"></i></li>
-																<li><i class="fa fa-star-o"></i></li>
+														<div
+															class="product__content content--center content--center">
+															<ul class="">
+																<li>상태 : ${ownList[status.index+1].state}</li>
+																<li>지역 : ${ownList[status.index+1].rentLocation}</li>
+																<li>대여료 : ${ownList[status.index+1].fee}</li>
 															</ul>
 														</div>
 													</div>
 												</div>
+<<<<<<< HEAD
 											</div>
+=======
+											</c:if>
+
+										</div>
+
+									</c:forEach>
+>>>>>>> 1a198171856a0173d56709089ac864293d0b4636
 								</div>
 								</c:if>
 								</c:forEach>
@@ -325,7 +336,65 @@
 		</div>
 		</section>
 
-
+				<div class="wn__related__product pt--80 pb--50">
+					<div class="section__title text-center">
+						<h2 class="title__be--2">Related Products</h2>
+					</div>
+					<div class="row mt--60">
+						<div
+							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
+							<c:forEach items="${randomBookList}" var="book"
+								varStatus="status" begin="1">
+								<!-- Start Single Product -->
+								<div
+									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+									<div class="product__thumb">
+										<a class="first__img" href="single-product.html"><img
+											src="/resources/images/books/1.jpg" alt="product image"></a>
+										<a class="second__img animation1" href="single-product.html"><img
+											src="/resources/images/books/2.jpg" alt="product image"></a>
+										<div class="hot__box">
+											<span class="hot-label">BEST SALLER</span>
+										</div>
+									</div>
+									<div class="product__content content--center">
+										<h4>
+											<a href="single-product.html">${book.title}</a>
+										</h4>
+										<ul class="prize d-flex">
+											<li>$35.00</li>
+											<li class="old_prize">$35.00</li>
+										</ul>
+										<div class="action">
+											<div class="actions_inner">
+												<ul class="add_to_links">
+													<li><a class="cart" href="cart.html"><i
+															class="bi bi-shopping-bag4"></i></a></li>
+													<li><a class="wishlist" href="wishlist.html"><i
+															class="bi bi-shopping-cart-full"></i></a></li>
+													<li><a class="compare" href="#"><i
+															class="bi bi-heart-beat"></i></a></li>
+													<li><a data-toggle="modal" title="Quick View"
+														class="quickview modal-view detail-link"
+														href="#productmodal"><i class="bi bi-search"></i></a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="product__hover--content">
+											<ul class="rating d-flex">
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li class="on"><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+												<li><i class="fa fa-star-o"></i></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
 
 
 
@@ -373,6 +442,7 @@
 			</aside>
 		</div>
 	</div>
+<<<<<<< HEAD
 </div>
 </div>
 <!-- End main Content -->
@@ -383,43 +453,54 @@
 			<input type="text" placeholder="Search entire store here...">
 			<div class="action">
 				<a href="#"><i class="zmdi zmdi-search"></i></a>
+=======
+	<!-- End main Content -->
+
+	<!-- Start Search Popup -->
+	<div class="box-search-content search_active block-bg close__top">
+		<form id="search_mini_form--2" class="minisearch" action="#">
+			<div class="field__search">
+				<input type="text" placeholder="Search entire store here...">
+				<div class="action">
+					<a href="#"><i class="zmdi zmdi-search"></i></a>
+				</div>
+>>>>>>> 1a198171856a0173d56709089ac864293d0b4636
 			</div>
+		</form>
+		<div class="close__wrap">
+			<span>close</span>
 		</div>
-	</form>
-	<div class="close__wrap">
-		<span>close</span>
 	</div>
-</div>
 
-<%@include file="../include/footer.jsp"%>
+	<%@include file="../include/footer.jsp"%>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		var formObj = $("[role]");
-		console.log(formObj);
-		$("#modify").on("click", function() {
-			formObj.attr("action", "/book/modifyPage");
-			formObj.attr("method", "get");
-			formObj.submit();
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var formObj = $("[role]");
+			console.log(formObj);
+			$("#modify").on("click", function() {
+				formObj.attr("action", "/book/modifyPage");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#top").on("click", function() {
+				formObj.attr("action", "/book/allTop100");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#new").on("click", function() {
+				formObj.attr("action", "/book/newBookChart");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#genre").on("click", function() {
+				formObj.attr("action", "/book/genreTop100");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
 		});
-
-		$("#top").on("click", function() {
-			formObj.attr("action", "/book/allTop100");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-
-		$("#new").on("click", function() {
-			formObj.attr("action", "/book/newBookChart");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-
-		$("#genre").on("click", function() {
-			formObj.attr("action", "/book/genreTop100");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-
-	});
-</script>
+	</script>

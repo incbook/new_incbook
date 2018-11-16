@@ -1,5 +1,7 @@
 package com.incbook.project.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -48,7 +50,10 @@ public class TradeController {
 	}
 
 	@RequestMapping(value = "/startTrade", method = RequestMethod.POST)
-	public String startTradePOST(TradeVO tradeVO, OwnVO ownVO) throws Exception {
+	public String startTradePOST(TradeVO tradeVO, OwnVO ownVO, String tradeDateString) throws Exception {
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(tradeDateString);
+		tradeVO.setTradeDate(date);
+		
 		tradeService.insertTrade(tradeVO, ownVO, tradeVO.getMemberId());
 		return "redirect:/member/memberDetail";
 	}
@@ -59,9 +64,6 @@ public class TradeController {
 		
 		List<TradeVO> lendersList = tradeService.findLendersByMemberId(login);
 		model.addAttribute("lendersList", lendersList);
-		for(TradeVO vo : lendersList) {
-			System.out.println(vo.getRent().getIsReturn());
-		}
 	}
 	
 	@RequestMapping(value = "/ownerPage", method = RequestMethod.GET)

@@ -70,4 +70,8 @@
 		from own 
 		where member_id = #{memberId}
 	</select>
+	
+	<delete id="ownDelete">
+		delete from own where id = #{id}
+	</delete>
 </mapper>

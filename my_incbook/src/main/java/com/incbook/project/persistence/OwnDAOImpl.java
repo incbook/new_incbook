@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.RealationVO;
 
 @Repository
 public class OwnDAOImpl implements OwnDAO{
@@ -47,6 +48,11 @@ public class OwnDAOImpl implements OwnDAO{
 	@Override
 	public List<OwnVO> findOwnListByBookId(int bookId) throws Exception {
 		return sqlSession.selectList(namespace + ".findOwnListByBookId", bookId);
+	}
+
+	@Override
+	public void ownDelete(RealationVO rvo) throws Exception {
+		sqlSession.delete(namespace + ".ownDelete", rvo);
 	}
 	
 }
