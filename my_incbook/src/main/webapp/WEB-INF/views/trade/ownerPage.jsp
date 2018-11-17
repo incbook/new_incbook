@@ -36,8 +36,8 @@
 		                                    <c:if test="${tradeVO.rent.isReturn eq '대여예약'}">
 			                                    <td><button type="button" value="${tradeVO.id}" class="point_no" >취소</button></td>
 		                                    </c:if>
-		                                    <c:if test="${tradeVO.rent.isReturn eq '대여완료'}">
-			                                    <td>완료</td>
+		                                    <c:if test="${tradeVO.rent.isReturn ne '대여예약'}">
+			                                    <td>${tradeVO.rent.isReturn}</td>
 		                                    </c:if>
 		                                    <td>
 		                                    	<fmt:formatDate pattern="YYYY-MM-dd" value="${tradeVO.tradeDate}" />

@@ -1,12 +1,12 @@
 package com.incbook.project.controller;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +42,6 @@ public class TradeController {
 	
 	@RequestMapping(value = "/startTrade", method = RequestMethod.GET)
 	public void startTrade(OwnVO vo, Model model) throws Exception {
-		System.out.println(vo.getId());
 		OwnVO ownVO = ownService.findOwnByID(vo);
 		BookVO bookVO = bookService.findBookByID(ownVO.getBookId());
 		MemberVO memberVO = memberService.memberInfo(ownVO);
@@ -79,13 +78,18 @@ public class TradeController {
 	}
 
 	@RequestMapping(value = "/pointOk", method = RequestMethod.POST)
-	public String pointOk(RedirectAttributes rttr) throws Exception {
-		
+	public String pointOk(TradeVO tradeVO, RedirectAttributes rttr) throws Exception {
+		tradeVO = tradeService.findTradeByid(tradeVO);
+		System.out.println(tradeVO);
+
+		memberService.endOfTradeAmountOwner(tradeVO);
 		return "redirect:/trade/lendersPage";
 	}
 	@RequestMapping(value = "/pointNo", method = RequestMethod.POST)
-	public String pointNo(RedirectAttributes rttr) throws Exception {
+	public String pointNo(TradeVO tradeVO, RedirectAttributes rttr) throws Exception {
+		tradeVO = tradeService.findTradeByid(tradeVO);
 		
+		memberService.endOfTradeAmountLender(tradeVO);
 		return "redirect:/trade/ownerPage";
 	}
 	

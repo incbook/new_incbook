@@ -118,13 +118,15 @@ public class TradeVO {
 	public void calcTotalAmount(OwnVO ownVO) {
 		totalAmount = ownVO.calcTotalAmount();
 	}
-	
+
 	@Override
 	public String toString() {
 		return "TradeVO [id=" + id + ", ownId=" + ownId + ", memberId=" + memberId + ", regdate=" + regdate
 				+ ", detailLocation=" + detailLocation + ", tradeDate=" + tradeDate + ", tradeTime=" + tradeTime
-				+ ", totalAmount=" + totalAmount + "]";
+				+ ", totalAmount=" + totalAmount + ", 대여자=" + member + ", 소유자=" + own + ", 도서=" + book + ", 대여="
+				+ rent + "]";
 	}
+	
 
 	
 }

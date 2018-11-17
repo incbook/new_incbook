@@ -22,7 +22,7 @@
 	    					</div>
 	    					<div class="input_box">
 	    						<label>소유자 <span>*</span><strong> ${member.nickname}</strong></label>
-	    						<input type="hidden" name="ownId" value="${member.id}" >
+	    						<input type="hidden" name="ownId" value="${own.id}" >
 	    					</div>
 	   						<div class="input_box">
 	   							<label>거래위치 <span>*</span> ${own.rentLocation}</label>

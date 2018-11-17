@@ -71,6 +71,9 @@ public class TradeServiceImpl implements TradeService {
 		return tradeDAO.findOwnerByMemberId(login);
 	}
 
-	
+	@Override
+	public TradeVO findTradeByid(TradeVO trade) throws Exception {
+		return tradeDAO.findTradeByid(trade);
+	}
 	
 }

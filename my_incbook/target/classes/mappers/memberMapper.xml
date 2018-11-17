@@ -91,4 +91,16 @@
 			point = point - #{point.totalAmount}
 		where id = #{memberId}
 	</update>
+
+	<update id ="endOfTradeAmountOwner">
+		update member set 
+			point = point + #{totalAmount}
+		where id = #{own.memberId}
+	</update>
+
+	<update id ="endOfTradeAmountLender">
+		update member set 
+			point = point + #{totalAmount}
+		where id = #{memberId}
+	</update>
 </mapper>

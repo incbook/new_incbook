@@ -5,6 +5,7 @@ import java.util.Map;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.TradeVO;
 
 public interface MemberDAO {
 
@@ -25,4 +26,8 @@ public interface MemberDAO {
 	public MemberVO checkPassword(MemberVO vo) throws Exception;
 	
 	public void pointSpend(Map<String, Object> pointMap) throws Exception;
+
+	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception;
+
+	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception;
 }

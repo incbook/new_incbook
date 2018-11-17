@@ -12,16 +12,24 @@ import org.springframework.transaction.annotation.Transactional;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.TradeVO;
 import com.incbook.project.persistence.MemberDAO;
 import com.incbook.project.persistence.PartyDAO;
+import com.incbook.project.persistence.TradeDAO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
+	public static final String TRADE_OK = "대여완료";
+	public static final String TRADE_NO = "대여취소";
+			
 	@Inject
 	private MemberDAO memberDAO;
 	
 	@Inject
 	private PartyDAO partyDAO;
+
+	@Inject
+	private TradeDAO tradeDAO;
 	
 	@Override
 	public MemberVO checkIdPassword(MemberVO vo) throws Exception {
@@ -73,6 +81,32 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberVO findMemberById(int id) throws Exception {
 		return memberDAO.findMemberById(id);
+	}
+
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception {
+		// 포인트 계산 종료
+		memberDAO.endOfTradeAmountOwner(tradeVO);
+		// rent 테이블에 is_return 값 변경
+		Map<String, Object> tradeState = new HashMap<>();
+		tradeState.put("trade", tradeVO);
+		tradeState.put("tradeState", TRADE_OK);
+		
+		tradeDAO.tradeStateChange(tradeState);
+	}
+	
+	@Transactional(isolation=Isolation.READ_COMMITTED)
+	@Override
+	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception {
+		// 포인트 계산 종료
+		memberDAO.endOfTradeAmountLender(tradeVO);
+		// rent 테이블에 is_return 값 변경
+		Map<String, Object> tradeState = new HashMap<>();
+		tradeState.put("trade", tradeVO);
+		tradeState.put("tradeState", TRADE_NO);
+
+		tradeDAO.tradeStateChange(tradeState);
 	}
 	
 }

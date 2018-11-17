@@ -10,7 +10,7 @@ public class PrePageInterceptor extends HandlerInterceptorAdapter {
 	
 	private boolean uriCheck(String uri) {
 		boolean result = true;
-		String[] uriArrs = {"/member/signInForm", "/member/signOut", "/book/quickView", "/own/searchBook"};
+		String[] uriArrs = {"/member/signInForm", "/member/signOut", "/book/quickView", "/own/searchBook", "/member/loginIdDoubleCheck"};
 		for(String uriArr : uriArrs) {
 			if (uriArr.equals(uri)) {
 				result = false;

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.TradeVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -62,6 +63,16 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void pointSpend(Map<String, Object> pointMap) throws Exception {
 		sqlSession.update(namespace+".pointSpend", pointMap);
+	}
+
+	@Override
+	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception {
+		sqlSession.update(namespace+".endOfTradeAmountOwner", tradeVO);
+	}
+
+	@Override
+	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception {
+		sqlSession.update(namespace+".endOfTradeAmountLender", tradeVO);
 	}
 	
 }
