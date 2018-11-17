@@ -1,6 +1,7 @@
 package com.incbook.project.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.MemberVO;
@@ -51,8 +53,9 @@ public class TradeController {
 
 	@RequestMapping(value = "/startTrade", method = RequestMethod.POST)
 	public String startTradePOST(TradeVO tradeVO, OwnVO ownVO, String tradeDateString) throws Exception {
-		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(tradeDateString);
-		tradeVO.setTradeDate(date);
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date tradeDate = format.parse(tradeDateString);
+		tradeVO.setTradeDate(tradeDate);
 		
 		tradeService.insertTrade(tradeVO, ownVO, tradeVO.getMemberId());
 		return "redirect:/member/memberDetail";
@@ -73,6 +76,17 @@ public class TradeController {
 		List<TradeVO> ownerList = tradeService.findOwnerByMemberId(login);
 		
 		model.addAttribute("ownerList", ownerList);
+	}
+
+	@RequestMapping(value = "/pointOk", method = RequestMethod.POST)
+	public String pointOk(RedirectAttributes rttr) throws Exception {
+		
+		return "redirect:/trade/lendersPage";
+	}
+	@RequestMapping(value = "/pointNo", method = RequestMethod.POST)
+	public String pointNo(RedirectAttributes rttr) throws Exception {
+		
+		return "redirect:/trade/ownerPage";
 	}
 	
 }

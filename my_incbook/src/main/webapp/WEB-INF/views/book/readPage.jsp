@@ -316,16 +316,13 @@
 					<div class="row mt--60">
 						<div
 							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
-							<c:forEach items="${randomBookList}" var="book"
-								varStatus="status" begin="1">
+							<c:forEach items="${randomBookList}" var="randomBook" varStatus="status">
 								<!-- Start Single Product -->
 								<div
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"><img
-											src="/resources/images/books/1.jpg" alt="product image"></a>
-										<a class="second__img animation1" href="single-product.html"><img
-											src="/resources/images/books/2.jpg" alt="product image"></a>
+											src="/img/${randomBook.id}/${randomBook.image}" alt="product image"></a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
 										</div>
@@ -405,9 +402,15 @@
 
 					<aside class="wedget__categories sidebar--banner">
 						<img src="/resources/images/others/banner_left.jpg"
+<<<<<<< HEAD
 							alt="banner images" width="130" height="180"> <img
 							src="/resources/images/others/banner_left.jpg"
 							alt="banner images" width="130" height="180">
+=======
+							alt="banner images" width="100" height="150"> <img
+							src="/resources/images/others/banner_left.jpg"
+							alt="banner images" width="100" height="150">
+>>>>>>> acde532ddc83748a95eff815dacb1f865a354e44
 					</aside>
 				</div>
 			</div>

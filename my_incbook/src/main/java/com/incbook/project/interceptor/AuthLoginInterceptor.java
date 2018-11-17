@@ -19,6 +19,7 @@ public class AuthLoginInterceptor extends HandlerInterceptorAdapter{
 		HttpSession session = request.getSession();
 		RequestDispatcher rd = request.getRequestDispatcher("/member/signInForm");
 		
+		// 로그인을 안했으면 로그인페이지로 강제이동
 		if (session.getAttribute("login") == null) {
 			request.setAttribute("loginAuth", "fail");
 			rd.forward(request, response);

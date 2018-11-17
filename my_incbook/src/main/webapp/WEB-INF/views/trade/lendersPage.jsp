@@ -34,12 +34,14 @@
 		                                    <td>${tradeVO.member.nickname}</td>
 		                                    <td>${tradeVO.book.title}</td>
 		                                    <c:if test="${tradeVO.rent.isReturn == '대여예약'}">
-			                                    <td><button type="button" value="${tradeVO.id}" id="point_ok" >확인</button></td>
+			                                    <td><button type="button" value="${tradeVO.id}" class="point_ok" >확인</button></td>
 		                                    </c:if>
 		                                    <c:if test="${tradeVO.rent.isReturn == '대여완료'}">
 			                                    <td>완료</td>
 		                                    </c:if>
-		                                    <td>${tradeVO.tradeDate}</td>
+		                                    <td>
+		                                    	<fmt:formatDate pattern="YYYY-MM-dd" value="${tradeVO.tradeDate}" />
+		                                    </td>
 	                                   </tr>
                                    </c:forEach>
                                 </tbody>
@@ -52,12 +54,19 @@
 	</div>
 </div>
 
+<form action="/trade/pointOk" id="point_ok_form" method="post">
+	<input type="hidden" name="id" id="point_ok_id" value=""/>
+</form>
+
 <%@include file="../include/footer.jsp"%>
 <script type="text/javascript">
 $(function() {
-	$("#point_ok").on("click",function() {
-		alert($(this).val());
-		alert("포인트가 적립되었습니다");
+	$(".point_ok").on("click",function() {
+		var point_ok_form = $("#point_ok_form");
+		
+		var point_ok_id = $(this).val();
+		$("#point_ok_id").val(point_ok_id);
+		point_ok_form.submit();
 	});
 });
 </script>

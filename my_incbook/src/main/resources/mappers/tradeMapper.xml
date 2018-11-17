@@ -67,7 +67,7 @@
 
 	<insert id="insertRent">
 		insert into rent (id, return_date, is_return, rent_period)
-		values 			  (#{trade.id}, #{returnDate}, '대여예약')
+		values 			  (#{trade.id}, #{returnDate}, '대여예약', #{own.selectPeriod})
 	</insert>
 
 	<select id="findLendersByMemberId" resultMap="tradeMap">

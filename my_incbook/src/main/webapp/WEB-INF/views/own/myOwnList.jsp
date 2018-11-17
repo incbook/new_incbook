@@ -17,6 +17,7 @@
 
 <%@include file="../include/header.jsp"%>
 
+<input type="hidden" value="${myOwnDelete}" id="myOwnDelete"/>
 <!-- Start Shop Page -->
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
@@ -117,6 +118,9 @@
 											<li>거래 선호지역 :&nbsp;</li>
 											<li class="">${myOwn.ownVO.rentLocation}</li>
 										</ul>
+										<ul class="item_inLine">
+											<li><button type="button" class="myOwnDelete" memberId="${myOwn.ownVO.memberId}" ownId="${myOwn.ownVO.id}">삭제</button></li>
+										</ul>
 
 									</div>
 								</div>
@@ -155,7 +159,10 @@
 	</div>
 </section>
 
-
+<form action="/own/ownDelete" id="myOwnDeleteForm" method="post">
+	<input type="hidden" name="id" id="ownId" value=""/>
+	<input type="hidden" name="memberId" id="memberId" value=""/>
+</form>
 
 <!-- //Footer Area -->
 
@@ -163,4 +170,20 @@
 <!--  여기야 -->
 
 <%@include file="../include/footer.jsp"%>
+<script>
+	$(function() {
+		$(".myOwnDelete").on("click", function() {
+			var deleteForm = $("#myOwnDeleteForm");
+			$("#ownId").val($(this).attr("ownId"));
+			$("#memberId").val($(this).attr("memberId"));
+			
+			deleteForm.submit();
+		});
+		
+		if ($("#myOwnDelete").val() == "fail") {
+			alert("소유자만 삭제 할 수 있습니다.")
+		}
+	});
+</script>
+
 
