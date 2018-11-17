@@ -316,13 +316,15 @@
 					<div class="row mt--60">
 						<div
 							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
-							<c:forEach items="${randomBookList}" var="randomBook" varStatus="status">
+							<c:forEach items="${randomBookList}" var="randomBook"
+								varStatus="status">
 								<!-- Start Single Product -->
 								<div
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"><img
-											src="/img/${randomBook.id}/${randomBook.image}" alt="product image"></a>
+											src="/img/${randomBook.id}/${randomBook.image}"
+											alt="product image"></a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
 										</div>
@@ -402,9 +404,9 @@
 
 					<aside class="wedget__categories sidebar--banner">
 						<img src="/resources/images/others/banner_left.jpg"
-							alt="banner images" width="100" height="150"> <img
+							alt="banner images" width="130" height="180"> <img
 							src="/resources/images/others/banner_left.jpg"
-							alt="banner images" width="100" height="150">
+							alt="banner images" width="130" height="180">
 					</aside>
 				</div>
 			</div>
