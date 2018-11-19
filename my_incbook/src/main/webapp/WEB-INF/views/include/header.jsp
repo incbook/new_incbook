@@ -57,15 +57,15 @@
 			class="header__area header__absolute sticky__header hd_white">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
+					<div class="col-md-3 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
 							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
 								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-8 d-none d-lg-block">
-						<nav class="mainmenu__nav">
+					<div class="col-md-6 col-lg-8 d-none d-lg-block">
+						<nav class="mainmenu__nav nav_rright">
 							<ul class="meninmenu d-flex justify-content-start">
 								<li class="drop"><a href="#" class="size_up">도서차트</a>
 									<div class="megamenu mega03 nav_width1">
@@ -107,7 +107,7 @@
 							</ul>
 						</nav>
 					</div>
-					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
+					<div class="col-md-3 col-sm-6 col-6 col-lg-2">
 						<ul
 							class="header__sidebar__right d-flex justify-content-end align-items-center size_up2">
 							<li class="shop_search search_left"><a class="search__active" href="#"></a></li>

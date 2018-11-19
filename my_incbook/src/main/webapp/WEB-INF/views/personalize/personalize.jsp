@@ -91,22 +91,12 @@
 											<a href="single-product.html">${BookVO.title}</a>
 										</h4>
 										<ul class="prize d-flex">
-											<li>$35.00</li>
-											<li class="old_prize">$35.00</li>
+											<li>${BookVO.genre}</li>
 										</ul>
 										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
 											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
-													<li><a class="cart" href="cart.html"> <i
-															class="bi bi-shopping-bag4"></i>
-													</a></li>
-													<li><a class="wishlist" href="wishlist.html"> <i
-															class="bi bi-shopping-cart-full"></i>
-													</a></li>
-													<li><a class="compare" href="#"> <i
-															class="bi bi-heart-beat"></i>
-													</a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
 														href="#productmodal"> <i class="bi bi-search"></i>
@@ -188,6 +178,9 @@
 										<h2>
 											<a href="single-product.html">${BookVO.title}</a>
 										</h2>
+										<ul class="prize__box">
+											<li>${BookVO.genre}</li>
+										</ul>
 										<ul class="rating d-flex">
 												<c:if test="${BookVO.averageScore==5}">
 													<li class="on"><i class="fa fa-star-o"></i></li>

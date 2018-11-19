@@ -241,8 +241,9 @@ h1 {
 
 .size_up {
 	font-size: 18px !important;
-	margin-left: 25px !important;
+	/* margin-left: 21px !important; */
 	margin-top: 18px !important;
+	padding: 0 13px !important;
 }
 .size_up2 {
 	margin-top: 11px !important;
@@ -258,4 +259,9 @@ h1 {
 .font_size_up {
 	font-size: 20px !important;
 	font-weight: bold;
+}
+
+.nav_rright {
+	margin-left: 20px;
+	
 }
