@@ -254,16 +254,7 @@
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
 										</ul>
-										<ul class="prize__box">
-											<li>$111.00</li>
-											<li class="old__prize">$220.00</li>
-										</ul>
 										<p>${BookVO.content}</p>
-										<ul class="cart__action d-flex">
-											<li class="cart"><a href="cart.html">Add to cart</a></li>
-											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li>
-										</ul>
 
 									</div>
 								</div>
@@ -388,9 +379,6 @@
 												class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
 										</ul>
 									</div>
-								</div>
-								<div class="addtocart-btn">
-									<a href="#">Add to cart</a>
 								</div>
 							</div>
 						</div>

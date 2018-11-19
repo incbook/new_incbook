@@ -369,19 +369,6 @@
 				</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 			</div>
 			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
 				<div class="shop__sidebar">

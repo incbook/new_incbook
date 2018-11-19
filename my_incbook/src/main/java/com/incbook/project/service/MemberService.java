@@ -21,4 +21,6 @@ public interface MemberService {
 	public void memberDelete(PartyVO pvo) throws Exception;
 
 	public MemberVO checkPassword(MemberVO vo) throws Exception;
+
+	public void roulettePoint(MemberVO vo, int point) throws Exception;
 }

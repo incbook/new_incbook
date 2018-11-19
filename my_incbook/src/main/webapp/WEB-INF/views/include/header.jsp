@@ -99,7 +99,7 @@
 									<div class="megamenu dropdown nav_width1">
 										<ul class="item item01">
 											<li class="title">Categories</li>
-											<li><a href="blog.html">룰렛</a></li>
+											<li><a href="/event/roulette">룰렛</a></li>
 											<li><a href="blog-details.html">심리테스트</a></li>
 										</ul>
 									</div></li>

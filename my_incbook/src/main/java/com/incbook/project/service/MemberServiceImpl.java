@@ -74,5 +74,13 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO findMemberById(int id) throws Exception {
 		return memberDAO.findMemberById(id);
 	}
+
+	@Override
+	public void roulettePoint(MemberVO vo, int point) throws Exception {
+		Map<String, Object> rPoint = new HashMap<>();
+		rPoint.put("vo", vo);
+		rPoint.put("point", point);
+		memberDAO.roulettePoint(rPoint);
+	}
 	
 }

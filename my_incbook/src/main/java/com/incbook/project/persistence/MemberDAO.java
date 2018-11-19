@@ -25,4 +25,6 @@ public interface MemberDAO {
 	public MemberVO checkPassword(MemberVO vo) throws Exception;
 	
 	public void pointSpend(Map<String, Object> pointMap) throws Exception;
+
+	public void roulettePoint(Map<String, Object> rPoint) throws Exception;
 }

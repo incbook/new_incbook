@@ -249,13 +249,6 @@
 										</ul>
 
 										<p>${BookVO.content}</p>
-										<ul class="cart__action d-flex">
-											<li class="cart"><a
-												href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top">Add
-													to cart</a></li>
-											<!-- 											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li> -->
-										</ul>
 
 
 									</div>
