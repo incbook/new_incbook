@@ -16,4 +16,8 @@ public interface TradeDAO {
 
 	public List<TradeVO> findOwnerByMemberId(MemberVO login) throws Exception;
 	
+	public TradeVO findTradeByid(TradeVO trade) throws Exception;
+
+	public void tradeStateChange(Map<String, Object> tradeState) throws Exception;
+	
 }

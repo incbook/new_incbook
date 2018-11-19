@@ -92,6 +92,9 @@
 										<c:if test="${prePage == 'genre'}">
 											<button type="button" id="genre" class="radius">목록가기</button>
 										</c:if>
+										<c:if test="${prePage == 'personal'}">
+											<button type="button" id="genre" class="radius">목록가기</button>
+										</c:if>
 									</div>
 								</div>
 							</div>
@@ -442,6 +445,12 @@
 
 			$("#genre").on("click", function() {
 				formObj.attr("action", "/book/genreTop100");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+			
+			$("#personal").on("click", function() {
+				formObj.attr("action", "/personalize/personalize");
 				formObj.attr("method", "get");
 				formObj.submit();
 			});

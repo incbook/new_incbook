@@ -98,6 +98,11 @@ public class BookDAOImpl implements BookDAO{
 	}
 
 	@Override
+	public List<BookVO> personalizeListOfIndex(List<Map<String, Object>> genreList) throws Exception {
+		return sqlSession.selectList(namespace+".personalizeListOfIndex", genreList);
+	}
+
+	@Override
 	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
 		return sqlSession.selectList(namespace + ".equalGenreBookRandomList", vo);
 	}

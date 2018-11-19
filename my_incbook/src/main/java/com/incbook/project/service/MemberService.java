@@ -3,6 +3,7 @@ package com.incbook.project.service;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.TradeVO;
 
 public interface MemberService {
 	
@@ -23,4 +24,7 @@ public interface MemberService {
 	public MemberVO checkPassword(MemberVO vo) throws Exception;
 
 	public void roulettePoint(MemberVO vo, int point) throws Exception;
+	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception;
+
+	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception;
 }

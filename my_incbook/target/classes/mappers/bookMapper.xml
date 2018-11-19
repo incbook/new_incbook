@@ -125,18 +125,39 @@
 			(select id, title, genre, writer, publisher, regdate, updatedate, final_update_member_id, content, image, average_score, view_count
 			from (
 				select b.id, b.title, b.genre, b.writer, b.publisher, b.regdate, b.updatedate, 
-						b.final_update_member_id, b.content, b.image, b.average_score, b.view_count, count(b.genre) count
+						b.final_update_member_id, b.content, b.image, b.average_score, b.view_count, count(b.id) count
 				from book b
-				join own o
+				left outer join own o
 					on b.id = o.book_id
-				join trade t
+				left outer join trade t
 					on o.id = t.own_id
 				where b.genre = #{genreMap.genre}
-				group by b.genre
+				group by b.id
 				order by count desc, b.average_score desc, b.view_count desc, b.regdate desc
 				limit 0, #{genreMap.prop}
-			) book)
+			) book) 
 		</foreach>
+	</select>
+
+	<select id="personalizeListOfIndex" resultMap="BookVO">
+		select * from (
+		<foreach item="genreMap" index="index" collection="list" open="" separator="union" close="">
+			(select id, title, genre, writer, publisher, regdate, updatedate, final_update_member_id, content, image, average_score, view_count
+			from (
+				select b.id, b.title, b.genre, b.writer, b.publisher, b.regdate, b.updatedate, 
+						b.final_update_member_id, b.content, b.image, b.average_score, b.view_count, count(b.id) count
+				from book b
+				left outer join own o
+					on b.id = o.book_id
+				left outer join trade t
+					on o.id = t.own_id
+				where b.genre = #{genreMap.genre}
+				group by b.id
+				order by count desc, b.average_score desc, b.view_count desc, b.regdate desc
+				limit 0, #{genreMap.prop}
+			) book) 
+		</foreach>
+		)result order by rand() limit 9;
 	</select>
 	
 	<!-- useGeneratedKeys="true" keyProperty="id" 이걸 쓰면 오토인크리먼트로 지정된 db컬넘은 insert 후 select를 하지 않고도 그 값이 전달된다 -->

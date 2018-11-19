@@ -20,4 +20,6 @@ public interface PersonalizeService {
 
 	public List<BookVO> personalizeList(MemberVO login) throws Exception;
 
+	public List<BookVO> personalizeListOfIndex(MemberVO login) throws Exception;
+
 }

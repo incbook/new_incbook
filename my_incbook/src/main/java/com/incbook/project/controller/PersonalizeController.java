@@ -110,5 +110,4 @@ public class PersonalizeController {
 		model.addAttribute("personalizeBookList", personalizeBookList);
 	}
 	
-	
 }

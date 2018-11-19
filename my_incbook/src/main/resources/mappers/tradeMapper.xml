@@ -13,12 +13,12 @@
 		<result property="tradeTime" column="trade_time" />
 		<result property="totalAmount" column="total_amount" />
 		<association property="rent" column="id" javaType="RentVO">
-			<id property="id" column="id" />
+			<id property="id" column="rid" />
 			<result property="returnDate" column="return_date" />
 			<result property="isReturn" column="is_return" />
 		</association>
 		<association property="member" column="id" javaType="MemberVO">
-			<id property="id" column="id" />
+			<id property="id" column="mid" />
 			<result property="loginId" column="login_id" />
 			<result property="password" column="password" />
 			<result property="address" column="address" />
@@ -32,9 +32,9 @@
 			<result property="hate" column="hate" />
 		</association>
 		<association property="own" column="id" javaType="OwnVO">
-			<id property="id" column="id" />
-			<result property="bookId" column="book_id" />
-			<result property="memberId" column="member_id" />
+			<id property="id" column="oid" />
+			<result property="bookId" column="obook_id" />
+			<result property="memberId" column="omember_id" />
 			<result property="rentCount" column="rent_count" />
 			<result property="rentCheck" column="rent_check" />
 			<result property="state" column="state" />
@@ -45,7 +45,7 @@
 			<result property="rentLocation" column="rent_location" />
 		</association>
 		<association property="book" column="id" javaType="BookVO">
-			<id property="id" column="id" />
+			<id property="id" column="bid" />
 			<result property="title" column="title" />
 			<result property="genre" column="genre" />
 			<result property="writer" column="writer" />
@@ -71,7 +71,12 @@
 	</insert>
 
 	<select id="findLendersByMemberId" resultMap="tradeMap">
-		select * 
+		select 
+			t.id, t.own_id, t.member_id, t.regdate, t.detail_location, t.trade_date, t.trade_time, t.total_amount,
+			r.id rid, r.return_date, r.is_return, r.rent_period,
+            m.id mid, m.login_id, m.address, m.password, m.email, m.phone, m.nickname, m.grade, m.jumin, m.point, m.good, m.hate,
+            o.id oid, o.book_id obook_id, o.member_id omember_id, o.rent_count, o.rent_check, o.state, o.is_rent, o.is_sell, o.fee, o.select_period, o.rent_available, o.rent_location,
+            b.id bid, b.title, b.genre, b.writer, b.publisher, b.average_score, b.regdate, b.updatedate, b.final_update_member_id, b.content, b.image, b.view_count
 		from trade t 
 		join rent r
 			on t.id = r.id
@@ -85,7 +90,31 @@
 	</select>
 
 	<select id="findOwnerByMemberId" resultMap="tradeMap">
-		select * 
+		select 
+			t.id, t.own_id, t.member_id, t.regdate, t.detail_location, t.trade_date, t.trade_time, t.total_amount,
+			r.id rid, r.return_date, r.is_return, r.rent_period,
+            m.id mid, m.login_id, m.address, m.password, m.email, m.phone, m.nickname, m.grade, m.jumin, m.point, m.good, m.hate,
+            o.id oid, o.book_id obook_id, o.member_id omember_id, o.rent_count, o.rent_check, o.state, o.is_rent, o.is_sell, o.fee, o.select_period, o.rent_available, o.rent_location,
+            b.id bid, b.title, b.genre, b.writer, b.publisher, b.average_score, b.regdate, b.updatedate, b.final_update_member_id, b.content, b.image, b.view_count
+		from trade t 
+		join rent r
+			on t.id = r.id
+		join own o
+			on t.own_id = o.id
+		join member m
+			on o.member_id = m.id
+		join book b
+			on o.book_id = b.id
+		where o.member_id = #{id}
+	</select>
+
+	<select id="findTradeByid" resultMap="tradeMap">
+		select 
+			t.id, t.own_id, t.member_id, t.regdate, t.detail_location, t.trade_date, t.trade_time, t.total_amount,
+			r.id rid, r.return_date, r.is_return, r.rent_period,
+            m.id mid, m.login_id, m.address, m.password, m.email, m.phone, m.nickname, m.grade, m.jumin, m.point, m.good, m.hate,
+            o.id oid, o.book_id obook_id, o.member_id omember_id, o.rent_count, o.rent_check, o.state, o.is_rent, o.is_sell, o.fee, o.select_period, o.rent_available, o.rent_location,
+            b.id bid, b.title, b.genre, b.writer, b.publisher, b.average_score, b.regdate, b.updatedate, b.final_update_member_id, b.content, b.image, b.view_count
 		from trade t 
 		join rent r
 			on t.id = r.id
@@ -95,7 +124,12 @@
 			on t.own_id = o.id
 		join book b
 			on o.book_id = b.id
-		where t.own_id = #{id}
+		where t.id = #{id}
 	</select>
-
+	
+	<update id ="tradeStateChange">
+		update rent set 
+			is_return = #{tradeState}
+		where id = #{trade.id}
+	</update>
 </mapper>

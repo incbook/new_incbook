@@ -13,5 +13,6 @@ public interface TradeService {
 	public List<TradeVO> findLendersByMemberId(MemberVO login) throws Exception;
 
 	public List<TradeVO> findOwnerByMemberId(MemberVO login) throws Exception;
-
+	
+	public TradeVO findTradeByid(TradeVO trade) throws Exception;
 }

@@ -78,7 +78,7 @@
 											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
 											width=240 height=351>
 										</a> <a class="second__img animation1"
-											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top'>
+											href='/book/readPage?id=${BookVO.id}&prePage=personal'>
 											<img src="/img/${BookVO.id}/${BookVO.image}"
 											alt="product image" width=240 height=351>
 										</a>
@@ -168,28 +168,6 @@
 
 						</div>
 
-						<div class="text-center">
-							<ul class="wn__pagination">
-								<c:if test="${pageMaker.prev}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
-								</c:if>
-
-								<c:forEach begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage}" var="idx">
-									<li
-										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="allTop100${pageMaker.makeSearch(idx)}">${idx}</a>
-									</li>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
-								</c:if>
-
-							</ul>
-						</div>
 					</div>
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 						<div class="list__view__wrapper">
@@ -202,7 +180,7 @@
 										<a class="first__img" href="single-product.html"><img
 											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
 											width=240 height=351></a> <a class="second__img animation1"
-											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top"><img
+											href="/book/readPage?id=${BookVO.id}&prePage=personal"><img
 											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
 											width=240 height=351></a>
 									</div>
@@ -263,28 +241,6 @@
 							<!-- End Single Product -->
 							<!-- Start Single Product -->
 
-						</div>
-						<div class="text-center">
-							<ul class="wn__pagination">
-								<c:if test="${pageMaker.prev}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
-								</c:if>
-
-								<c:forEach begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage}" var="idx">
-									<li
-										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="allTop100${pageMaker.makeSearch(idx)}">${idx}</a>
-									</li>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
-								</c:if>
-
-							</ul>
 						</div>
 					</div>
 				</div>
