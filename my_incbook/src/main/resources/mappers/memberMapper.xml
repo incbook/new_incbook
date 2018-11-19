@@ -100,6 +100,8 @@
 		update member set
 		point = point + #{point}
 		where id = #{vo.id}
+	</update>
+	
 	<update id ="endOfTradeAmountOwner">
 		update member set 
 			point = point + #{totalAmount}

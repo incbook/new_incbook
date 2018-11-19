@@ -68,6 +68,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void roulettePoint(Map<String, Object> rPoint) throws Exception {
 		sqlSession.update(namespace+".roulettePoint", rPoint);
+	}
 	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception {
 		sqlSession.update(namespace+".endOfTradeAmountOwner", tradeVO);
 	}
