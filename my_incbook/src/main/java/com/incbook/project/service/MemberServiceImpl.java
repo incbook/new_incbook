@@ -89,6 +89,7 @@ public class MemberServiceImpl implements MemberService {
 		rPoint.put("vo", vo);
 		rPoint.put("point", point);
 		memberDAO.roulettePoint(rPoint);
+	}
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception {
