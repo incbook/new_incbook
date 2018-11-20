@@ -92,5 +92,9 @@ public class TradeController {
 		memberService.endOfTradeAmountLender(tradeVO);
 		return "redirect:/trade/ownerPage";
 	}
+	@RequestMapping(value = "/checkPoint", method = RequestMethod.GET)
+	public void checkPoint() throws Exception {
+		
+	}
 	
 }

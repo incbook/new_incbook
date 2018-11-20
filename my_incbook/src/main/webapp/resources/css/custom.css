@@ -262,6 +262,45 @@ h1 {
 }
 
 .nav_rright {
-	margin-left: 20px;
-	
+	margin-left: 20px;	
+}
+
+.rwd-table {
+	border-collapse: collapse;
+	border-radius: 1em;
+	overflow: hidden;
+	background: #34495E;
+  	color: #fff;
+}
+.rwd-table th, .rwd-table td:before {
+    color: #dd5;
+}
+
+.hover1 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover2 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover1 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover2 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+.hover1 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover2 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
 }
