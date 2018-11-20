@@ -95,9 +95,11 @@
 
 									</div></li>
 								<li class="drop"><a href="/bookclub/bookclubList" class="size_up">Book club</a></li>
-									
-								<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
-									
+								
+								<c:if test="${login ne null}">	
+									<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
+								</c:if>
+								
 								<li class="drop"><a href="blog.html" class="size_up">이벤트</a>
 									<div class="megamenu dropdown nav_width1">
 										<ul class="item item01">

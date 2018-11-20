@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
 <script>
@@ -130,10 +131,12 @@
 				<h3 class="wedget__title ss">NEW100</h3>
 
 				<a href="/book/newBookChart"> 신간 도서</a><br><br>
-				<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
-				<div class="newBook" style="background-color: white;">
-					<a href="/personalize/personalize">개인화 맞춤-도서</a>
-				</div>
+				<c:if test="${login ne null}">
+					<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
+					<div class="newBook" style="background-color: white;">
+						<a href="/personalize/personalize">개인화 맞춤-도서</a>
+					</div>
+				</c:if>
 			</aside>
 
 			<h3 class="wedget__title ss">Advertising</h3>
