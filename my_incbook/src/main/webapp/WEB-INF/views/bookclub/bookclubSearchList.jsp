@@ -54,7 +54,7 @@
 								<td>${BookclubVO.id}</td>
 								<td>${BookclubVO.genre}</td>
 								<td><a
-									href='/bookclub/noticeSearchList${pageMaker.makeSearch(pageMaker.cri.page)}&bookclubId=${BookclubVO.id}'>${BookclubVO.name}
+									href='/bookclub/noticeSearchList${pageMaker.makeSearch(pageMaker.cri.page)}&bookclubId=${BookclubVO.id}&bookclubname=${BookclubVO.name}'>${BookclubVO.name}
 								</a></td>
 								<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
 										value="${BookclubVO.regdate}" /></td>
@@ -111,6 +111,7 @@
 		<input type="hidden" name="page" value="${cri.page}"> <input
 			type="hidden" name="pagesize" value="${cri.pagesize}">
 	</form>
+
 </section>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 

@@ -39,7 +39,7 @@
 				<div class="my__account__wrapper">
 					<div class="cus_title">
 						<p>
-							<strong>게시글 목록</strong>
+							<strong id="boardTitle">title</strong>
 						</p>
 					</div>
 					<!-- <div class="board_name">
@@ -111,12 +111,12 @@
 
 							</ul>
 						</div>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
 						<div class="form__btn button_form" align="center">
 							<!--검색기능  -->
 							<div class='box-body'>
@@ -127,23 +127,29 @@
 										<c:out value="${cri.searchType eq 'title' ? 'selected' : ''}"/>>제목</option>
 									<option value="memberId"
 										<c:out value="${cri.searchType eq 'member_id' ? 'selected' : ''}"/>>글쓴이</option>
-								</select>
-							
-							<input type="text" name='keyword' id="keywordinput"
-								value='${cri.keyword}' />
-							<button type="button" id='btn_search' class="radius">검색</button></div>
-							
+								</select> <input type="text" name='keyword' id="keywordinput"
+									value='${cri.keyword}' />
+								<button type="button" id='btn_search' class="radius">검색</button>
+							</div>
+
 							<div class="clearfix"></div>
-						
-						
-						
-							<button type="button" id="btn_goList" class="radius">북클럽 목록</button>
-							<button type="button" id="btn_bookclubModify" class="radius">북클럽 수정</button>
-							<button type="button" id="btn_bookclubDelete" class="radius">북클럽 삭제</button>
-							<button type="button" id="btn_boardInsert" class="radius">게시판 생성</button>
-							<button type="submit" id="btn_boardModify" class="radius">게시판 수정</button>
-							<button type="submit" id="btn_boardDelete" class="radius">게시판 삭제</button>
-							<button type="submit" id="btn_noticeInsert" class="radius">게시글 생성</button>
+
+
+
+							<button type="button" id="btn_goList" class="radius">북클럽
+								목록</button>
+							<button type="button" id="btn_bookclubModify" class="radius">북클럽
+								수정</button>
+							<button type="button" id="btn_bookclubDelete" class="radius">북클럽
+								삭제</button>
+							<button type="button" id="btn_boardInsert" class="radius">게시판
+								생성</button>
+							<button type="submit" id="btn_boardModify" class="radius">게시판
+								수정</button>
+							<button type="submit" id="btn_boardDelete" class="radius">게시판
+								삭제</button>
+							<button type="submit" id="btn_noticeInsert" class="radius">게시글
+								생성</button>
 
 
 
@@ -181,9 +187,15 @@
 					formObj.submit();
 				});
 				$("#btn_bookclubDelete").on("click", function() {
-					formObj.attr("action", "/bookclub/deleteBookclub");
-					formObj.attr("method", "get");
-					formObj.submit();
+
+					var con = confirm("정말로 삭제 하시겠습니까?");
+					if (con) {
+						formObj.attr("action", "/bookclub/deleteBookclub");
+						formObj.attr("method", "get");
+						formObj.submit();
+					} else {
+
+					}
 				});
 				$("#btn_boardInsert").on("click", function() {
 					formObj.attr("method", "get");
@@ -196,9 +208,14 @@
 					formObj.submit();
 				});
 				$("#btn_boardDelete").on("click", function() {
-					formObj.attr("action", "/bookclub/deleteBoard");
-					formObj.attr("method", "get");
-					formObj.submit();
+					var con = confirm("정말로 삭제 하시겠습니까?");
+					if (con) {
+						formObj.attr("action", "/bookclub/deleteBoard");
+						formObj.attr("method", "get");
+						formObj.submit();
+					} else {
+
+					}
 				});
 
 				$("#btn_noticeInsert").on("click", function() {
@@ -212,14 +229,14 @@
 
 							self.location = "noticeSearchList"
 									+ '${pageMaker.makeQuery(1)}'
-									+"&bookclubId="
+									+ "&bookclubId="
 									+ $("#bookclubId").val()
 									+ "&searchType="
 									+ $("#searchType").val()
 									+ "&keyword="
-									+ encodeURIComponent($('#keywordinput') 
+									+ encodeURIComponent($('#keywordinput')
 											.val()
-									
+
 									);
 						});
 
@@ -228,7 +245,7 @@
 					url : "/bookclub/bookclubSide",
 					data : {
 						"bookclubId" : bookclubId,
-						"boardId"  : '${boardId}'
+						"boardId" : '${boardId}'
 					},
 					type : 'GET',
 					success : resultPaging
@@ -238,10 +255,8 @@
 					$(".bookclubSide").html(msg); // append로 리스트 뒷부분에 새로운 리스트 추가
 				}
 				
-				
+
 			});
 	//]]>
-	
-	
 </script>
 
