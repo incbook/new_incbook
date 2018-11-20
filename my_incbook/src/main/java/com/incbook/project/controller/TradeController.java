@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -93,8 +92,20 @@ public class TradeController {
 		return "redirect:/trade/ownerPage";
 	}
 	@RequestMapping(value = "/checkPoint", method = RequestMethod.GET)
-	public void checkPoint() throws Exception {
+	public void checkPoint(HttpServletRequest request, Model model) throws Exception {
+		// start 포인트 사용, 적립 내역
+		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
 		
+		List<TradeVO> usePointList = tradeService.findLendersByMemberId(login);
+		List<TradeVO> accumulatePointList = tradeService.findOwnerByMemberId(login);
+		
+		model.addAttribute("usePointList", usePointList);
+		model.addAttribute("accumulatePointList", accumulatePointList);
+		// end 포인트 사용, 적립 내역
+		
+		// 회원 정보 가져오기
+		MemberVO member = memberService.findMemberById(login.getId());
+		model.addAttribute("member", member);
 	}
 	
 }

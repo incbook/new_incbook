@@ -50,6 +50,7 @@
 			<mapping path="/announcement/**" />
 			<mapping path="/payment/**" />
 			<mapping path="/event/**" />
+			<mapping path="/index" />
 			<beans:ref bean="prePageInterceptor" />
 		</interceptor>
 
@@ -81,6 +82,7 @@
 			<mapping path="/trade/lendersPage" />
 			<mapping path="/trade/ownerPage" />
 			<mapping path="/trade/startTrade" />
+			<mapping path="/trade/checkPoint" />
 			<mapping path="/event/roulette" />
 			<!-- ↑여기에 로그인이 필요한 페이지만 추가 -->
 			<beans:ref bean="authLoginInterceptor" />

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <%@include file="../include/header.jsp"%>
 
-<div class="wishlist-area section-padding--lg bg__white imsi_set">
+<div class="wishlist-area section-padding--lg bg__white pdb120">
 	<div class="container">
 		<div class="row">
 			<%@include file="../include/includeSide.jsp"%>
@@ -39,8 +39,8 @@
 											</thead>
 			                                <tbody>
 					                            <tr class="ch_center">
-					                            	<td>1000</td>
-					                            	<td>1000</td>
+					                            	<td>${member.point}</td>
+					                            	<td>${member.point}</td>
 				                                </tr>
 			                                </tbody>
 										</table>
@@ -64,18 +64,14 @@
 											</thead>
 			                                <tbody>
 					                        <tbody>
-					                            <tr class="ch_center">
-					                            	<td>test1</td>
-					                            	<td>대여</td>
-					                            	<td>1500</td>
-					                            	<td>2018-11-20</td>
-				                                </tr>
-				                                <tr class="ch_center">
-					                            	<td>test22</td>
-					                            	<td>대여</td>
-					                            	<td>500</td>
-					                            	<td>2018-11-10</td>
-				                                </tr>
+					                        	<c:forEach items="${usePointList}" var="usePoint">
+						                            <tr class="ch_center">
+						                            	<td>${usePoint.member.nickname}</td>
+						                            	<td>대여</td>
+						                            	<td>${usePoint.totalAmount}</td>
+						                            	<td><fmt:formatDate pattern="YYYY-MM-dd" value="${usePoint.tradeDate}"/></td>
+					                                </tr>
+					                        	</c:forEach>
 			                                </tbody>
 										</table>
 									</div>  
@@ -95,19 +91,14 @@
 				                                </tr>
 											</thead>
 			                                <tbody>
-					                            <tr class="ch_center">
-					                            	<td>test2</td>
-					                            	<td>대여</td>
-					                            	<td>2500</td>
-					                            	<td>2018-11-20</td>
-				                                </tr>
-				                                
-				                                <tr class="ch_center">
-					                            	<td>관리자</td>
-					                            	<td>룰렛이벤트</td>
-					                            	<td>500</td>
-					                            	<td>2018-11-20</td>
-				                                </tr>
+					                           <c:forEach items="${accumulatePointList}" var="accumulatePoint">
+						                            <tr class="ch_center">
+						                            	<td>${accumulatePoint.member.nickname}</td>
+						                            	<td>대여</td>
+						                            	<td>${accumulatePoint.totalAmount}</td>
+						                            	<td><fmt:formatDate pattern="YYYY-MM-dd" value="${accumulatePoint.tradeDate}"/></td>
+				                               	 	</tr>
+					                        	</c:forEach>
 			                                </tbody>
 										</table>
 									</div>  
@@ -126,14 +117,3 @@
 </form>
 
 <%@include file="../include/footer.jsp"%>
-<script type="text/javascript">
-$(function() {
-	$(".point_no").on("click",function() {
-		var point_no_form = $("#point_no_form");
-		
-		var point_no_id = $(this).val();
-		$("#point_no_id").val(point_no_id);
-		point_no_form.submit();
-	});
-});
-</script>

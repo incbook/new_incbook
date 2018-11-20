@@ -62,7 +62,6 @@
 				<div class="row">
 					<div class="col-md-3 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
 								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
 						</div>
@@ -100,6 +99,19 @@
 									
 								<li class="drop"><a href="/event/roulette" class="size_up">룰렛 이벤트</a>
 								</li>
+								
+								<c:if test="${login ne null}">	
+									<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
+								</c:if>
+								
+								<li class="drop"><a href="blog.html" class="size_up">이벤트</a>
+									<div class="megamenu dropdown nav_width1">
+										<ul class="item item01">
+											<li class="title">Categories</li>
+											<li><a href="/event/roulette">룰렛</a></li>
+											<li><a href="blog-details.html">심리테스트</a></li>
+										</ul>
+									</div></li>
 								<li class="drop"><a href="/announcement/announcement" class="size_up">공지사항</a></li>
 							</ul>
 						</nav>

@@ -27,7 +27,10 @@ public interface MemberDAO {
 	
 	public void pointSpend(Map<String, Object> pointMap) throws Exception;
 
+	public void pointCharge(Map<String, Object> pointMap) throws Exception;
+
 	public void roulettePoint(Map<String, Object> rPoint) throws Exception;
+	
 	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception;
 
 	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception;

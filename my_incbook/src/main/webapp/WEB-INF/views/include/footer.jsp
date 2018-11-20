@@ -3,13 +3,13 @@
 
 <!-- Footer Area -->
 <footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
-	<div class="footer-static-top">
+	<div class="footer-static-top pd_b_15">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="footer__widget footer__menu">
 						<div class="ft__logo">
-							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
+							<a href="/index"> <!-- 로고 누르면 index로 경로설정 -->
 								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
 							
@@ -22,23 +22,12 @@
 		</div>
 	</div>
 	<div class="copyright__wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copyright">
-						<div class="copy__right__inner text-left">
-							<p>
-								Copyright <i class="fa fa-copyright"></i> <a href="#">InCBook</a>
-								&emsp;All Rights Reserved.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="payment text-right">
-				
-					</div>
-				</div>
+		<div class="copyright">
+			<div class="copy__right__inner text-left">
+				<p>
+					Copyright <i class="fa fa-copyright"></i> <a href="#">InCBook</a>
+					&emsp;All Rights Reserved.
+				</p>
 			</div>
 		</div>
 	</div>

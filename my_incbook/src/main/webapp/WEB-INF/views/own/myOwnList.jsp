@@ -3,17 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<style>
-.hover1 .gr03 .gg li {
-	padding: 3px 12px;
-	display: inline-block;
-}
-
-.hover2 .gr03 .gg li {
-	padding: 3px 12px;
-	display: inline-block;
-}
-</style>
 
 <%@include file="../include/header.jsp"%>
 

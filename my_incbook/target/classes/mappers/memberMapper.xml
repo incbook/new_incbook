@@ -96,6 +96,12 @@
 		where id = #{memberId}
 	</update>
 
+	<update id="pointCharge">
+		update member set
+		point = point + #{point}
+		where id = #{memberId}
+	</update>
+
 	<update id="roulettePoint">
 		update member set
 		point = point + #{point}
