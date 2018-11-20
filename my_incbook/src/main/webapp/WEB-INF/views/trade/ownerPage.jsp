@@ -22,7 +22,7 @@
 							<table class="table table-striped">
 								<thead>
 	                                <tr class="ch_center">
-	                                    <th>소유자 아이디</th>
+	                                    <th>대여자 아이디</th>
 	                                    <th>책 제목</th>
 	                                    <th>확인</th>
 	                                    <th>날짜</th>

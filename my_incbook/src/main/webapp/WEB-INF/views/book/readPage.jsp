@@ -375,27 +375,20 @@
 			</div>
 			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
 				<div class="shop__sidebar">
-					<aside class="wedget__categories poroduct--cat">
-						<h3 class="wedget__title">Product Categories</h3>
-						<ul>
-							<li><a href="#">장르1 <span>(3)</span></a></li>
-							<li><a href="#">장르2 <span>(4)</span></a></li>
-							<li><a href="#">장르3 <span>(6)</span></a></li>
-							<li><a href="#">장르4 <span>(7)</span></a></li>
-							<li><a href="#">장르5 <span>(8)</span></a></li>
-							<li><a href="#">장르6 <span>(9)</span></a></li>
-							<li><a href="#">장르7 <span>(13)</span></a></li>
-							<li><a href="#">장르8 <span>(20)</span></a></li>
-							<li><a href="#">장르9 <span>(22)</span></a></li>
-							<li><a href="#">장르10 <span>(13)</span></a></li>
-						</ul>
-					</aside>
 
 
+			<h3 class="wedget__title ss">Advertising</h3>
 					<aside class="wedget__categories sidebar--banner">
 						<img src="/resources/images/others/banner_left.jpg"
 							alt="banner images" width="130" height="180"> <img
-							src="/resources/images/others/banner_left.jpg"
+							src="/resources/images/others/banner_left2.jpg"
+							alt="banner images" width="130" height="180">
+							<br>
+							 <img
+							src="/resources/images/others/banner_left3.jpg"
+							alt="banner images" width="130" height="180">
+							 <img
+							src="/resources/images/others/banner_left4.jpg"
 							alt="banner images" width="130" height="180">
 					</aside>
 				</div>

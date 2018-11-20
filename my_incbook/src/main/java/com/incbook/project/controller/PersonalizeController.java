@@ -27,7 +27,10 @@ public class PersonalizeController {
 	private PersonalizeService personalizeService;
 	
 	@RequestMapping(value = "/personalChoice", method = RequestMethod.GET)
-	public void personalChoiceGET() throws Exception {
+	public void personalChoiceGET(HttpServletRequest request) throws Exception {
+		// 세션을 통한 회원 정보
+		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
+		
 		
 	}
 	
