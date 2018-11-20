@@ -127,6 +127,30 @@ public class BookclubServiceImpl implements BookclubService {
 		bookclubDAO.deleteNotice(noticeId);
 	}
 
+	@Override
+	public List<BookclubVO> bookclubSearchList(SearchCriteria cri) throws Exception {
+		return bookclubDAO.bookclubSearchList(cri);
+	}
+
+	@Override
+	public int bookclubListSearchCount(SearchCriteria cri) throws Exception {
+		return bookclubDAO.bookclubListSearchCount(cri);
+	}
+
+	@Override
+	public List<NoticeVO> noticeSearchList(Integer boardId, SearchCriteria cri) throws Exception {
+		Map<String, Object> noticeMap = new HashMap();
+		noticeMap.put("boardId", boardId);
+		noticeMap.put("cri", cri);
+		return bookclubDAO.noticeSearchList(noticeMap);
+		
+	}
+
+	@Override
+	public int noticeListSearchCount(SearchCriteria cri) throws Exception {
+		return bookclubDAO.noticeListSearchCount(cri);
+	}
+
 	
 
 	

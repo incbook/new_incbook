@@ -1,6 +1,7 @@
 package com.incbook.project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.incbook.project.domain.BoardVO;
 import com.incbook.project.domain.BookclubVO;
@@ -12,6 +13,10 @@ public interface BookclubService {
 	public static final int pagesize = 10;
 
 	public List<BookclubVO> bookclubList(SearchCriteria cri) throws Exception;
+	
+	/*검색기능추가*/ public List<BookclubVO> bookclubSearchList(SearchCriteria cri) throws Exception;
+	
+	/*검색기능추가*/ public int bookclubListSearchCount(SearchCriteria cri) throws Exception;
 
 	public List<BoardVO> boardList(Integer bookclubId) throws Exception;
 
@@ -34,6 +39,10 @@ public interface BookclubService {
 	public void boardInsert(BoardVO vo) throws Exception;
 	
 	public List<NoticeVO> noticeList(Integer boardId, SearchCriteria cri) throws Exception;
+	
+	/*검색기능추가*/ public List<NoticeVO> noticeSearchList(Integer boardId, SearchCriteria cri) throws Exception;
+	
+	/*검색기능추가*/ public int noticeListSearchCount(SearchCriteria cri) throws Exception;
 	
 	public void noticeInsert(NoticeVO vo) throws Exception;
 	
