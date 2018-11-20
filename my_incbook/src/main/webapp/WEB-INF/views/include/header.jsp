@@ -62,7 +62,7 @@
 				<div class="row">
 					<div class="col-md-3 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
+							<a href="/index"> <!-- 로고 누르면 index로 경로설정 -->
 								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
 						</div>

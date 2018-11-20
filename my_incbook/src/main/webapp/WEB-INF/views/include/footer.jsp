@@ -9,7 +9,7 @@
 				<div class="col-lg-12">
 					<div class="footer__widget footer__menu">
 						<div class="ft__logo">
-							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
+							<a href="/index"> <!-- 로고 누르면 index로 경로설정 -->
 								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
 							
