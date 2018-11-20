@@ -16,18 +16,17 @@
 	<select id="announcementList" resultMap="AnnouncementVO">
 		<![CDATA[
 		select 
-		*
+		id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, title, content, member_id, view_count
 		from announcement
 		where id > 0 order by id desc
 		limit #{pageStart},#{pagesize}
-		
 		]]>
 	</select>
 
 	<select id="readAnnouncement" resultMap="AnnouncementVO">
 		<![CDATA[
 		select 
-		*
+		id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, title, content, member_id, view_count
 		from announcement where id = #{id}
 		]]>
 	</select>

@@ -96,7 +96,7 @@
 										</ul>
 
 									</div></li>
-								<li class="drop"><a href="/bookclub/bookclubList" class="size_up">Book club</a></li>
+								<li class="drop"><a href="/bookclub/bookclubSearchList" class="size_up">Book club</a></li>
 									
 								
 								<c:if test="${login ne null}">	

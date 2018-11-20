@@ -32,6 +32,11 @@ public class PaymentDAOImpl implements PaymentDAO{
 	public int historyCount(int memberId) {
 		return sqlSession.selectOne(namespace+".historyCount", memberId);
 	}
+
+	@Override
+	public void roulettePoint(Map<String, Object> rPoint) throws Exception {
+		sqlSession.update(namespace+".roulettePoint", rPoint);
+	}
 	
 	
 	

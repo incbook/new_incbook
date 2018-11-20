@@ -231,6 +231,14 @@ h1 {
 	margin: 2px 0 !important;
 }
 
+.tablecenter thead tr th {
+	text-align: center;
+}
+
+.buttonTOP {
+	margin: 30px 0;
+}
+
 .right1 {
 	display: inline-block !important;
 }
@@ -262,6 +270,7 @@ h1 {
 	width: 160px !important;
 }
 
+
 .ss{
 	font-size: 20px;
 }
@@ -291,6 +300,10 @@ h1 {
 .font_size_up {
 	font-size: 20px !important;
 	font-weight: bold;
+}
+
+.search_inline {
+	display: inline-block !important;	
 }
 
 .nav_rright {

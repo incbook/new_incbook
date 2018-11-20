@@ -11,6 +11,8 @@ public interface PaymentDAO {
 
 	public List<PaymentVO> historyAll(Map<String, Object> historyMap) throws Exception;
 
-	public int historyCount(int memberId);	
+	public int historyCount(int memberId);
+
+	public void roulettePoint(Map<String, Object> rPoint) throws Exception;	
 
 }
