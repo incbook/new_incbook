@@ -231,4 +231,14 @@ public class BookController {
 		return "book/quickView";
 	}
 
+	@RequestMapping(value = "/quickViewPersonal", method = RequestMethod.GET)
+	public String quickViewPersonalGET(Integer id, Model model, String quickPrePage)
+			throws Exception {
+		BookVO vo = bookService.findBookByID2(id);
+		
+		model.addAttribute("BookVO", vo);
+		model.addAttribute("quickPrePage", quickPrePage);
+		return "book/quickViewPersonal";
+	}
+
 }

@@ -7,6 +7,11 @@
 		<result property="memberId" column="member_id" />
 	</resultMap>
 	
+	<select id="findPersonalSelectedByMemberId" resultMap="PersonalizationVO">
+		select * from personalization 
+		where member_id = #{id} 
+	</select>
+	
 	<select id="findPersonalByMemberId" resultType="String">
 		select genre from personalization 
 		where member_id = #{id}

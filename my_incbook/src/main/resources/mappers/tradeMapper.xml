@@ -80,10 +80,10 @@
 		from trade t 
 		join rent r
 			on t.id = r.id
-		join member m
-			on t.member_id = m.id
 		join own o
 			on t.own_id = o.id
+        join member m
+			on o.member_id = m.id
 		join book b
 			on o.book_id = b.id
 		where t.member_id = #{id}
@@ -102,7 +102,7 @@
 		join own o
 			on t.own_id = o.id
 		join member m
-			on o.member_id = m.id
+			on t.member_id = m.id
 		join book b
 			on o.book_id = b.id
 		where o.member_id = #{id}
