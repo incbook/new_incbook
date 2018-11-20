@@ -93,7 +93,7 @@
 											<button type="button" id="genre" class="radius">목록가기</button>
 										</c:if>
 										<c:if test="${prePage == 'personal'}">
-											<button type="button" id="genre" class="radius">목록가기</button>
+											<button type="button" id="personal" class="radius">목록가기</button>
 										</c:if>
 									</div>
 								</div>
