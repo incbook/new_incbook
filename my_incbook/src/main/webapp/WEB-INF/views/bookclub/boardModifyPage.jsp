@@ -28,9 +28,9 @@
 								<input type="text" id="title" name="title" value="${boardModifyTarget.title}">
 							</div>
 
-							<div class="button_form">
-								<button type="button" id="btn_modify">수정</button>
-								<button type="button" id="btn_cancel">취소</button>
+							<div class="form__btn button_form">
+								<button type="button" id="btn_modify" class="radius">수정</button>
+								<button type="button" id="btn_cancel" class="radius">취소</button>
 							</div>
 						</div>
 					</form>
@@ -53,7 +53,7 @@ $(document).ready(function() {
      formObj.submit();
    });
    $("#btn_cancel").on("click", function() {
-     self.location ="/bookclub/noticeList?page=${cri.page}&pagesize=${cri.pagesize}&boardId=${boardModifyTarget.id}&bookclubId=${bookclubId}";
+     self.location ="/bookclub/noticeSearchList?page=${cri.page}&pagesize=${cri.pagesize}&boardId=${boardModifyTarget.id}&bookclubId=${bookclubId}";
    });
  
 });

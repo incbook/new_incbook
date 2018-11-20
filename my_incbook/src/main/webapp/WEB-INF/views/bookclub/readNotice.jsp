@@ -24,12 +24,12 @@
 
 							<div class="input__box">
 								<label for="title">제목<span>*</span></label> <input type="text"
-									id="title" name="title" value="${readNotice.title}">
+									id="title" name="title" value="${readNotice.title}" readonly>
 							</div>
 							<div class="input__box">
 								<label for="title">글쓴이<span>*</span></label> <input
-									type="hidden" id="memberId" name="memberId"
-									value="${readNotice.memberId}">
+									type="text" id="memberId" name="memberId"
+									value="${readNotice.memberId}" readonly>
 							</div>
 							<div class="input__box">
 								<label for="title">날짜<span>*</span></label>
@@ -38,17 +38,17 @@
 							</div>
 							<div class="input__box">
 								<label for="title">내용<span>*</span></label> <input type="text"
-									id="content" name="content" value="${readNotice.content}">
+									id="content" name="content" value="${readNotice.content}" readonly>
 							</div>
 							<div class="input__box">
 								<label for="title">조회수<span>*</span></label> <input type="text"
-									id="viewCount" name="viewCount" value="${readNotice.viewCount}">
+									id="viewCount" name="viewCount" value="${readNotice.viewCount}" readonly>
 							</div>
 
-							<div class="button_form">
-								<button type="button" id="btn_goBoardList">게시판 목록</button>
-								<button type="button" id="btn_noticeModifyPage">게시글 수정</button>
-								<button type="button" id="btn_deleteNotice">게시글 삭제</button>
+							<div class="form__btn button_form">
+								<button type="button" id="btn_goBoardList" class="radius">게시판 목록</button>
+								<button type="button" id="btn_noticeModifyPage" class="radius">게시글 수정</button>
+								<button type="button" id="btn_deleteNotice" class="radius">게시글 삭제</button>
 							</div>
 						</div>
 					</form>
@@ -67,7 +67,7 @@
 
 		$("#btn_goBoardList").on("click", function() {
 			formObj.attr("method", "get");
-			formObj.attr("action", "/bookclub/noticeList");
+			formObj.attr("action", "/bookclub/noticeSearchList");
 			formObj.submit();
 		});
 		$("#btn_noticeModifyPage").on("click", function() {

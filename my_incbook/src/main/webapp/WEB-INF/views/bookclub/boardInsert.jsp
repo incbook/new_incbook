@@ -21,10 +21,10 @@
 
 
 
-							<div class="button_form">
-								<button type="submit">생성</button>
-								<button type="button"
-									onclick="location.href='/bookclub/boardList?${pageMaker.makeQuery(pageMaker.cri.page)}&bookclubId=${bookclubId}'">
+							<div class="form__btn button_form">
+								<button type="submit" class="radius">생성</button>
+								<button type="button" class="radius"
+									onclick="location.href='/bookclub/noticeSearchList?${pageMaker.makeQuery(pageMaker.cri.page)}&bookclubId=${bookclubId}'">
 									취소</button>
 							</div>
 							<form role="form" method="post">

@@ -92,20 +92,20 @@
 							<ul class="wn__pagination">
 								<c:if test="${pageMaker.prev}">
 									<li><a
-										href="bookclub${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+										href="noticeList${pageMaker.makeSearch(pageMaker.startPage - 1)}&bookclubId=${bookclubId}">&laquo;</a></li>
 								</c:if>
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
 									<li
 										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="bookclub${pageMaker.makeSearch(idx)}">${idx}</a>
+										<a href="noticeList${pageMaker.makeSearch(idx)}&bookclubId=${bookclubId}">${idx}</a>
 									</li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a
-										href="bookclub${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+										href="noticeList${pageMaker.makeSearch(pageMaker.endPage + 1)}&bookclubId=${bookclubId}">&raquo;</a></li>
 								</c:if>
 
 							</ul>

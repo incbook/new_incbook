@@ -54,10 +54,10 @@
 
 
 
-							<div class="button_form">
-								<button type="submit">등록</button>
-								<button type="button"
-									onclick="location.href='/bookclub/bookclubList${PageMaker.makeQuery(PageMaker.cri.page)}'">
+							<div class="form__btn button_form">
+								<button type="submit" class="radius">등록</button>
+								<button type="button" class="radius"
+									onclick="location.href='/bookclub/bookclubSearchList${PageMaker.makeQuery(PageMaker.cri.page)}'">
 									취소</button>
 							</div>
 

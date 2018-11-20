@@ -30,8 +30,7 @@
 							</div>
 							<div class="input__box">
 								<label for="memberId">작성자 <span>*</span></label>
-								<input type="text"  value="${login.nickname}"  readonly>
-								<input type="hidden" id="memberId" name="memberId" value="${modifyTarget.memberId}">
+								<input type="text" id="memberId" name="memberId" value="${modifyTarget.memberId}" readonly> 
 							</div>
 
 							<div class="input__box">
@@ -42,7 +41,8 @@
 
 							<div class="input__box">
 								<label for="regdate">날짜<span>*</span></label>
-								<input type="text" id="regdate" value ="${modifyTarget.regdate}" readonly>
+								<input type="text" id="regdate" value="<fmt:formatDate pattern='YYYY-MM-dd HH:mm'
+										value='${modifyTarget.regdate}' />" readonly>
 							</div>
 							<div class="button_form">
 								<button type="button" id="btn_modify">등록</button>

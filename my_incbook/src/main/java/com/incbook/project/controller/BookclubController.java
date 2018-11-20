@@ -33,14 +33,25 @@ public class BookclubController {
 		cri.setPagesize(10);
 		List<BookclubVO> bookclubList = bookclubService.bookclubList(cri);
 		model.addAttribute("bookclubList", bookclubList);
-
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(bookclubService.listSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
 
 	}
+//북클럽 검색기능
+	@RequestMapping(value = "/bookclubSearchList", method = RequestMethod.GET)
+	public void bookclubSearchList(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
+		cri.setPagesize(10);
+		List<BookclubVO> bookclubSearchList = bookclubService.bookclubSearchList(cri);
+		model.addAttribute("bookclubSearchList", bookclubSearchList);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(bookclubService.bookclubListSearchCount(cri));
+		model.addAttribute("pageMaker", pageMaker);
+
+	}
 	@RequestMapping(value = "/bookclubInsert", method = RequestMethod.GET)
 	public void bookclubInsertGET(Model model, @ModelAttribute("cri") SearchCriteria cri, PartyVO pvo, BookclubVO bvo)
 			throws Exception {
@@ -55,7 +66,7 @@ public class BookclubController {
 	public String bookclubInsertPOST(PartyVO pvo, BookclubVO bvo, RedirectAttributes rttr) throws Exception {
 		bookclubService.bookclubInsert(pvo, bvo);
 
-		return "redirect:/bookclub/bookclubList";
+		return "redirect:/bookclub/bookclubSearchList";
 
 	}
 
@@ -69,11 +80,16 @@ public class BookclubController {
 	
 	@RequestMapping(value = "/bookclubSide", method = RequestMethod.GET)
 	public void bookclubSide(@RequestParam("bookclubId") int bookclubId, @ModelAttribute("cri") SearchCriteria cri,
-			Model model) throws Exception {
+			String boardId, Model model) throws Exception {
 		List<BoardVO> boardList = bookclubService.boardList(bookclubId);
-		System.out.println(boardList.size());
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("bookclubId", bookclubId);
+		
+		int boardIdInt = 0;
+		if( !(boardId == null || "".equals(boardId)) ) {
+			boardIdInt = Integer.parseInt(boardId);
+		}
+		model.addAttribute("boardId", boardIdInt);
 	}
 
 	@RequestMapping(value = "/bookclubModifyPage", method = RequestMethod.GET)
@@ -92,13 +108,13 @@ public class BookclubController {
 		rttr.addAttribute("bookclubId", bvo.getId());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("pagesize", cri.getPagesize());
-		return "redirect:/bookclub/bookclubList";
+		return "redirect:/bookclub/bookclubSearchList";
 	}
 
 	@RequestMapping(value = "/deleteBookclub", method = RequestMethod.GET)
 	public String deleteBookclub(@RequestParam("bookclubId") int bookclubId) throws Exception {
 		bookclubService.deleteBookclub(bookclubId);
-		return "redirect:/bookclub/bookclubList";
+		return "redirect:/bookclub/bookclubSearchList";
 	}
 
 	@RequestMapping(value = "/deleteBoard", method = RequestMethod.GET)
@@ -106,7 +122,8 @@ public class BookclubController {
 			RedirectAttributes rttr) throws Exception {
 		bookclubService.deleteBoard(boardId);
 		rttr.addAttribute("bookclubId", bookclubId);
-		return "redirect:/bookclub/boardList";
+		rttr.addAttribute("boardId", boardId);
+		return "redirect:/bookclub/noticeSearchList";
 	}
 
 	@RequestMapping(value = "/boardInsert", method = RequestMethod.GET)
@@ -127,24 +144,63 @@ public class BookclubController {
 		rttr.addAttribute("bookclubId", vo.getbookclubId());
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("pagesize", cri.getPagesize());
-		return "redirect:/bookclub/boardList";
+		return "redirect:/bookclub/noticeSearchList";
 
 	}
 
 	@RequestMapping(value = "/noticeList", method = RequestMethod.GET)
-	public void noticeList(@RequestParam("boardId") int boardId, @RequestParam("bookclubId") int bookclubId,
+	public void noticeList(@RequestParam("bookclubId") int bookclubId, String boardId,
 			@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
-
-		cri.setPagesize(2);
-		List<NoticeVO> noticeList = bookclubService.noticeList(boardId, cri);
+		int boardIdInt = 0;
+		if (! (boardId == null || "".equals(boardId)) ) {
+			boardIdInt = Integer.parseInt(boardId);
+		}else{
+			List<BoardVO> boardList = bookclubService.boardList(bookclubId);
+			if (boardList.size() != 0) {
+				boardIdInt = boardList.get(0).getId();
+			} else {
+				boardIdInt = 0;
+			}
+		}
+		cri.setPagesize(10);
+		List<NoticeVO> noticeList = bookclubService.noticeList(boardIdInt, cri);
 		model.addAttribute("noticeList", noticeList);
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(bookclubService.listSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
-		model.addAttribute("boardId", boardId);
 		model.addAttribute("bookclubId", bookclubId);
+		model.addAttribute("boardId", boardIdInt);
+	}
+	
+	//게시글 검색기능
+	@RequestMapping(value = "/noticeSearchList", method = RequestMethod.GET)
+	public void noticeSearchList(@RequestParam("bookclubId") int bookclubId, String boardId,
+			@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		int boardIdInt = 0;
+		if (! (boardId == null || "".equals(boardId)) ) {
+			boardIdInt = Integer.parseInt(boardId);
+		}else{
+			List<BoardVO> boardList = bookclubService.boardList(bookclubId);
+			if (boardList.size() != 0) {
+				boardIdInt = boardList.get(0).getId();
+			} else {
+				boardIdInt = 0;
+			}
+		}
+		cri.setPagesize(10);
+		List<NoticeVO> noticeSearchList = bookclubService.noticeSearchList(boardIdInt, cri);
+		model.addAttribute("noticeSearchList", noticeSearchList);
+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(bookclubService.noticeListSearchCount(cri));
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("bookclubId", bookclubId);
+		model.addAttribute("boardId", boardIdInt);
+		
+		System.out.println(noticeSearchList);
 	}
 
 	@RequestMapping(value = "/boardModifyPage", method = RequestMethod.GET)
@@ -162,7 +218,7 @@ public class BookclubController {
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("pagesize", cri.getPagesize());
 		rttr.addAttribute("bookclubId", bookclubId);
-		return "redirect:/bookclub/boardList";
+		return "redirect:/bookclub/noticeSearchList";
 	}
 
 	@RequestMapping(value = "/noticeInsert", method = RequestMethod.GET)
@@ -184,7 +240,7 @@ public class BookclubController {
 		rttr.addAttribute("bookclubId", bookclubId);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("pagesize", cri.getPagesize());
-		return "redirect:/bookclub/noticeList";
+		return "redirect:/bookclub/noticeSearchList";
 
 	}
 
@@ -219,7 +275,7 @@ public class BookclubController {
 		rttr.addAttribute("bookclubId", bookclubId);
 		rttr.addAttribute("boardId", boardId);
 		rttr.addAttribute("noticeId", noticeId);
-		return "redirect:/bookclub/noticeList";
+		return "redirect:/bookclub/noticeSearchList";
 	}
 
 	@RequestMapping(value = "/deleteNotice", method = RequestMethod.GET)
@@ -229,6 +285,6 @@ public class BookclubController {
 		rttr.addAttribute("noticeId", noticeId);
 		rttr.addAttribute("bookclubId", bookclubId);
 		rttr.addAttribute("boardId", boardId);
-		return "redirect:/bookclub/noticeList";
+		return "redirect:/bookclub/noticeSearchList";
 	}
 }

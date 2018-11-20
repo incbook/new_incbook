@@ -91,7 +91,7 @@
 										</ul>
 
 									</div></li>
-								<li class="drop"><a href="/bookclub/bookclubList" class="size_up">Book club</a></li>
+								<li class="drop"><a href="/bookclub/bookclubSearchList" class="size_up">Book club</a></li>
 									
 								<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
 									
