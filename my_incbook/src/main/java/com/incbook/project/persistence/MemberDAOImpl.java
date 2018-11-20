@@ -61,6 +61,11 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
+	public MemberVO findMemberByLoginIdAndJumin(MemberVO vo) throws Exception {
+		return sqlSession.selectOne(namespace + ".findMemberByLoginIdAndJumin", vo);
+	}
+
+	@Override
 	public void pointSpend(Map<String, Object> pointMap) throws Exception {
 		sqlSession.update(namespace+".pointSpend", pointMap);
 	}
