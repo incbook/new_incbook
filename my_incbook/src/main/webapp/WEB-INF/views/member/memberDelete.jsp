@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</section>
-
+<div style="height:230px;"> </div>
 <%@include file="../include/footer.jsp"%>
 <script> 
 	$(function() {

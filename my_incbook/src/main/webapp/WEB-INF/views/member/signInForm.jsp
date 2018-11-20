@@ -40,6 +40,6 @@
 			</div>
 		</div>
 	</section>
-
+<div style="height: 29px;"></div>
 <%@include file="../include/footer.jsp"%>
 <script src="/resources/js/custom/form.js"></script>
