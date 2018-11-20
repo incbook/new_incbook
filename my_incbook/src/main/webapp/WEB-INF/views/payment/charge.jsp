@@ -46,7 +46,7 @@
 	              	<div class="form__btn" style="text-align: center; margin: 30px 0;">
 						<input type="hidden" id="memberId" value="${login.id}">
 						<input type="submit" value="리셋하기" class="btn btn-danger" id="btn_reset">&emsp;&emsp;
-						<input type="submit" value="결제하기" class="btn btn-default" id="btn_topay">
+						<input type="submit" value="결제하기" class="btn btn-success" id="btn_topay">
 					</div>
 				</div>
 				

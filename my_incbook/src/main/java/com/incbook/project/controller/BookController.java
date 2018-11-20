@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ import com.incbook.project.domain.searchcriteria.SearchCriteria;
 import com.incbook.project.service.BookService;
 import com.incbook.project.service.MemberService;
 import com.incbook.project.service.OwnService;
+import com.incbook.project.service.PersonalizeService;
 
 @Controller
 @RequestMapping("/book/*")
@@ -33,6 +35,8 @@ public class BookController {
 	private MemberService memberService;
 	@Inject
 	private OwnService ownService;
+	@Inject
+	private PersonalizeService personalizeService;
 	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public void searchGET(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
@@ -50,7 +54,7 @@ public class BookController {
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
 	public void readPage(@RequestParam("id") int id, Model model, @ModelAttribute("cri") SearchCriteria cri,
-			String prePage) throws Exception {
+			String prePage, HttpServletRequest request) throws Exception {
 		BookVO findBookByID2 = bookService.findBookByID2(id);
 		MemberVO member = memberService.findMemberById(findBookByID2.getFinalUpdateMemberId());
 		model.addAttribute("findBookByID2", findBookByID2);
@@ -65,6 +69,18 @@ public class BookController {
 		// 해당 도서와 같은 장르의 도서목록 (10개)
 		List<BookVO> equalGenreBookRandomList = bookService.equalGenreBookRandomList(findBookByID2);
 		model.addAttribute("randomBookList", equalGenreBookRandomList);
+		
+		// 세션을 통한 회원 정보
+		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
+		
+		// 개인화 추천 1개 (사이드 광고용)
+		BookVO advertBook = null;
+		if (login != null) {
+			List<BookVO> personalizeBookList = personalizeService.personalizeListOfIndex(login);
+			advertBook = personalizeBookList.get(0);
+			model.addAttribute("advertBook", advertBook);
+		}
+		
 	}
 	
 	@RequestMapping(value = "/ownReadPage", method = RequestMethod.GET)

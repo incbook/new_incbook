@@ -12,7 +12,7 @@
 				</div>
 				<div class="col-lg-4 col-12">
 					<div class="my__account__wrapper">
-						<h3 class="account__title">탈퇴 페이지다!!!!!</h3>
+						<h3 class="account__title" align="center">탈퇴 페이지</h3>
 						<form id="memberDeleteForm" action="/member/memberDeletePost" method="post">
 							<div class="account__form">
 								<div class="input__box">
@@ -20,9 +20,10 @@
 									<input type="password" id="password" name="password">
 									<input type="hidden"  id="id" name="id" value="${login.id}">
 								</div>
-								
-								<div class="form__btn custom__center">
-										<button id="memberWithdrawal" type="button">탈퇴</button>
+								<div class="form_all">
+									<div class="form__btn custom__center">
+										<button id="memberWithdrawal" type="button" class="radius">탈퇴</button>
+									</div>
 								</div>
 								<div id="passwordChecking">
 								</div>
