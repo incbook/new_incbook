@@ -18,10 +18,8 @@
 									<input type=text  id="login_id" name="loginId">
 								</div>
 								<div class="input__box">
-									<label for="password">Password<span>*</span></label>
-									<input type="password"  id="password" name="password">
 									<label for="password" class="font_size_up">Password<span>*</span></label>
-									<input type=text  id="password" name="password">
+									<input type="password"  id="password" name="password">
 								</div>
 							
 								<div class="form_all">
