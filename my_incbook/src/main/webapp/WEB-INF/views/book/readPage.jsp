@@ -19,11 +19,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Single</h2>
+					<h2 class="bradcaump-title">새로운 책 한 권은 하나의 새로운 세계다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Single</span>
+							class="breadcrumb_item active">Chart</span>
 					</nav>
 				</div>
 			</div>
@@ -234,9 +234,8 @@
 									<h2 class="title__be--2">
 										대여 가능 <span class="color--theme">도서 목록</span>
 									</h2>
-									<p>There are many variations of passages of Lorem Ipsum
-										available, but the majority have suffered lebmid alteration in
-										some ledmid form</p>
+									<p>Only you can choose what you want,<br>
+						Let's read all the books of this world and raise knowledge together!</p>
 								</div>
 							</div>
 						</div>
@@ -314,9 +313,13 @@
 
 				<div class="wn__related__product pt--80 pb--50">
 					<div class="section__title text-center">
-						<h2 class="title__be--2">Related Products</h2>
+						<h2 class="title__be--2">이 도서와 <span class="color--theme">유사한 도서</span></h2>
+						<p>Only you can choose what you want,<br>
+						Let's read all the books of this world and raise knowledge together!</p>
 					</div>
+					
 					<div class="row mt--60">
+					
 						<div
 							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
 							<c:forEach items="${randomBookList}" var="randomBook"
@@ -380,16 +383,7 @@
 			<h3 class="wedget__title ss">Advertising</h3>
 					<aside class="wedget__categories sidebar--banner">
 						<img src="/resources/images/others/banner_left.jpg"
-							alt="banner images" width="130" height="180"> <img
-							src="/resources/images/others/banner_left2.jpg"
-							alt="banner images" width="130" height="180">
-							<br>
-							 <img
-							src="/resources/images/others/banner_left3.jpg"
-							alt="banner images" width="130" height="180">
-							 <img
-							src="/resources/images/others/banner_left4.jpg"
-							alt="banner images" width="130" height="180">
+							alt="banner images">
 					</aside>
 				</div>
 			</div>

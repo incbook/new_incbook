@@ -54,7 +54,8 @@ public class HomeController {
 		
 		// 세션을 통한 회원 정보
 		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
-			
+		model.addAttribute("login", login);
+
 		if (login != null) {
 			List<BookVO> personalizeBookList = personalizeService.personalizeListOfIndex(login);
 			model.addAttribute("personalizeList", personalizeBookList);

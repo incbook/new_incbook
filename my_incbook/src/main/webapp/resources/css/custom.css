@@ -70,12 +70,30 @@ h1 {
 	padding-top: 120px;
 	padding-bottom: 320px !important;
 }
+.pdb250 {
+	padding-bottom: 250px !important;
+}
+.pdb260 {
+	padding-bottom: 260px !important;
+}
 .pdb160 {
 	padding-bottom: 160px !important;
 }
-.pdb264 {
+.pdb404 {
 	padding-top: 120px;
-	padding-bottom: 264px !important;
+	padding-bottom: 404px !important;
+}
+.pdb455 {
+	padding-top: 120px;
+	padding-bottom: 455px !important;
+}
+.more {
+	padding-top: 120px;
+	padding-bottom: 460px !important;
+}
+.pdb01 {
+	padding-top: 120px;
+	padding-bottom: 460px !important;
 }
 
 .page_pb_40 {
@@ -255,7 +273,7 @@ h1 {
 
 .size_up {
 	font-size: 18px !important;
-	/* margin-left: 21px !important; */
+	margin-left: 40px !important;
 	margin-top: 18px !important;
 	padding: 0 13px !important;
 }
