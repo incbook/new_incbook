@@ -419,7 +419,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Poppins", sans-serif;
   color: #333;
-  font-weight: 400; }
+  font-weight: 400; 
+  }
 
 ::-webkit-input-placeholder {
   color: #333; }
@@ -742,7 +743,7 @@ a {
 .pb--50 {
   padding-bottom: 50px; }
 .pb--55 {
-  padding-bottom: 55px; }
+  padding-bottom: 120px; }
 .pb--60 {
   padding-bottom: 60px; }
 .pb--70 {

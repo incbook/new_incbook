@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
 
-	<section class="my_account_area pt--80 bg--white">
+	<section class="my_account_area pb--55 pt--80 bg--white">
 		<div class="container">
 			<div class="row">
 				<%@include file="../include/includeSide.jsp"%>
@@ -110,5 +110,4 @@
 		});
 	</script>
 	
-<%@include file="../include/footer.jsp"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
