@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script src="/resources/js/vendor/jquery-3.2.1.min.js"></script>
 <script>
@@ -24,7 +25,7 @@
 				</div>
 				<!--  여기야 -->
 
-				<div class="hover1" style="background-color: white;"> Genre Top 100 (국내)</div>
+				<div class="hover1" style="background-color: white;"> 장르 Top 100 (국내)</div>
 				<div id="list1" class="hover1" style="width: 836px;">
 					<div
 						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
@@ -70,7 +71,7 @@
 					</div>
 				</div>
 
-				<div class="hover2" style="background-color: white;"> Genre Top 100 (외국)</div>
+				<div class="hover2" style="background-color: white;"> 장르 Top 100 (외국)</div>
 				<div id="list2" class="hover2" style="width: 836px;">
 					<div
 						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
@@ -127,13 +128,15 @@
 					</div>
 				</div>
 				<br>
-				<h3 class="wedget__title ss">NEW100</h3>
+				<h3 class="wedget__title ss">NEW-100</h3>
 
 				<a href="/book/newBookChart"> 신간 도서</a><br><br>
-				<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
-				<div class="newBook" style="background-color: white;">
-					<a href="/personalize/personalize">개인화 맞춤-도서</a>
-				</div>
+				<c:if test="${login ne null}">
+					<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
+					<div class="newBook" style="background-color: white;">
+						<a href="/personalize/personalize">개인화 맞춤-도서</a>
+					</div>
+				</c:if>
 			</aside>
 
 			<h3 class="wedget__title ss">Advertising</h3>

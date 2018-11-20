@@ -21,26 +21,31 @@
 .roulePan {
 	margin: 0px;
 }
+
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
+
 .sa1 {
 	margin-top: 30px;
 }
+
 .rouletteboard {
 	width: 80%;
 }
+
 .cen_btn {
 	display: block;
-    margin: 20px auto;
+	margin: 20px auto;
 }
+
 .ssam {
-    margin-top: 50px;
-    border: none !important;
+	margin-top: 50px;
+	border: none !important;
 }
+
 .start_btn_center {
 	text-align: center;
 }
@@ -62,25 +67,23 @@
 							<img src="/img/2/niddle.png" id="n_id" class="center sa1">
 							<img src="/img/2/그림1.png" id="image" class="center rouletteboard">
 						</div>
-						
+
 						<div class="form_all ssam">
 							<div class="form__btn start_btn_center">
 								<button type="button" id="start_btn" class="radius">시작</button>
 							</div>
 						</div>
-							
-							
-						<div id="result_id"></div>
-						<div id="result_id2"></div>
-						<div id="result_id3"></div>
-					
+						
+						<div id="result_id" style="display:none"></div>
+						<div id="result_id2" style="display:none"></div>
+						<div id="result_id3" style="display:none"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	
+
 	<script>
 		window.onload = function() {
 
@@ -105,8 +108,7 @@
 				});
 			}
 
-
-				var loginId = '${login.id}';
+			var loginId = '${login.id}';
 			function endAnimate($n) {
 				var n = $n;
 				$('#result_id').html("<p>움직인각도:" + n + "</p>");
@@ -117,21 +119,18 @@
 
 				if (part < 1) {
 					$('#result_id3').html(pArr[0]);
-					//alert($('#result_id3').html());
 					pointPost();
 					return;
 				}
 
 				if (part >= 10) {
 					$('#result_id3').html(pArr[pArr.length - 1]);
-					//alert($('#result_id3').html());
 					pointPost();
 
 					return;
 				}
 
 				$('#result_id3').html(pArr[part]);
-				//alert($('#result_id3').html());
 				pointPost();
 
 			}
@@ -141,10 +140,17 @@
 					url : "/event/roulette",
 					data : {
 						"loginId" : loginId,
-						"point" : $('#result_id3').html()
+						"p" : $('#result_id3').html()
 					},
 					type : 'POST'
 				});
+				if ($('#result_id3').html()==0) {
+				alert("아쉽지만 다음 기회에 ..");
+
+				} else {
+				alert("축하합니다. " + $('#result_id3').html() + "포인트 당첨~!");
+
+				}
 			}
 
 			function randomize($min, $max) {
@@ -154,19 +160,6 @@
 	</script>
 </body>
 </html>
-<script>
-	//alert($('#result_id3').html());
 
-	/* 		var loginId = $("#login_id").val();
-	$.ajax({
-		url : "/member/loginIdDoubleCheck",
-		data : {
-			"loginId" : loginId
-		},
-		type : 'GET',
-		success : resultPaging
-	}); */
-	//});
-</script>
 <%@include file="../include/footer.jsp"%>
 

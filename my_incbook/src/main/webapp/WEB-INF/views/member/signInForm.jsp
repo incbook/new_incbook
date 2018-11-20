@@ -19,7 +19,7 @@
 								</div>
 								<div class="input__box">
 									<label for="password" class="font_size_up">Password<span>*</span></label>
-									<input type=text  id="password" name="password">
+									<input type="password"  id="password" name="password">
 								</div>
 							
 								<div class="form_all">

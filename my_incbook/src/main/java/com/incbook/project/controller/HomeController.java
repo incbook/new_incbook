@@ -39,7 +39,7 @@ public class HomeController {
 	 * @throws Exception 
 	 */
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home(BookVO vo,Locale locale, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -54,7 +54,8 @@ public class HomeController {
 		
 		// 세션을 통한 회원 정보
 		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
-			
+		model.addAttribute("login", login);
+
 		if (login != null) {
 			List<BookVO> personalizeBookList = personalizeService.personalizeListOfIndex(login);
 			model.addAttribute("personalizeList", personalizeBookList);

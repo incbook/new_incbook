@@ -50,6 +50,7 @@
 			<mapping path="/announcement/**" />
 			<mapping path="/payment/**" />
 			<mapping path="/event/**" />
+			<mapping path="/index" />
 			<beans:ref bean="prePageInterceptor" />
 		</interceptor>
 

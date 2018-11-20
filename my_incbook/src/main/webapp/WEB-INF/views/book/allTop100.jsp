@@ -13,11 +13,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Grid</h2>
+					<h2 class="bradcaump-title">책은 곧 지식이고 삶이다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Grid</span>
+							class="breadcrumb_item active">Chart</span>
 					</nav>
 				</div>
 			</div>
@@ -45,7 +45,7 @@
 								</a>
 							</div>
 							<p>
-								<strong>전체 TOP-100</strong>
+								<strong>InC Book Top 100</strong>
 							</p>
 							<div class="orderby__wrapper">
 								<span></span>
