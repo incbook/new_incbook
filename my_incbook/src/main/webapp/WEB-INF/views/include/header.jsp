@@ -76,7 +76,7 @@
 											<li class="title">Categories</li>
 											<li><a href="/book/allTop100">InC Book Top 100</a></li>
 											<li><a href="/book/genreTop100">장르 Top 100</a></li>
-											<li><a href="/book/newBookChart">신간도서</a></li>
+											<li><a href="/book/newBookChart">신간 도서</a></li>
 										</ul>
 
 									</div></li>
@@ -98,14 +98,8 @@
 									
 								<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
 									
-								<li class="drop"><a href="blog.html" class="size_up">이벤트</a>
-									<div class="megamenu dropdown nav_width1">
-										<ul class="item item01">
-											<li class="title">Categories</li>
-											<li><a href="/event/roulette">룰렛</a></li>
-											<li><a href="blog-details.html">심리테스트</a></li>
-										</ul>
-									</div></li>
+								<li class="drop"><a href="/event/roulette" class="size_up">룰렛 이벤트</a>
+								</li>
 								<li class="drop"><a href="/announcement/announcement" class="size_up">공지사항</a></li>
 							</ul>
 						</nav>

@@ -94,7 +94,6 @@ public class BookController {
 			rttr.addAttribute("prePage", prePage);
 
 		} else {
-			System.out.println(file.getOriginalFilename()+"351351sdf5sa6ef4e684fs651c32s13d5f46s8e4f6s5df");
 
 			vo.setImage(file.getOriginalFilename());
 			bookService.updateBook(vo);

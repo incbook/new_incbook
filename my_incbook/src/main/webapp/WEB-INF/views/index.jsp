@@ -67,11 +67,10 @@
 			<div class="col-lg-12">
 				<div class="section__title text-center">
 					<h2 class="title__be--2">
-						Personalize <span class="color--theme">Products</span>
+						<span class="color--theme">${login.nickname}</span> 님을 위한 맞춤 도서
 					</h2>
-					<p>There are many variations of passages of Lorem Ipsum
-						available, but the majority have suffered lebmid alteration in
-						some ledmid form</p>
+					<p>Only you can choose what you want,<br>
+						Let's read all the books of this world and raise knowledge together!</p>
 				</div>
 			</div>
 		</div>
@@ -177,11 +176,10 @@
 			<div class="col-lg-12">
 				<div class="section__title text-center">
 					<h2 class="title__be--2">
-						New <span class="color--theme">Products</span>
+						신간 <span class="color--theme">도서</span>
 					</h2>
-					<p>There are many variations of passages of Lorem Ipsum
-						available, but the majority have suffered lebmid alteration in
-						some ledmid form</p>
+					<p>Only you can choose what you want,<br>
+						Let's read all the books of this world and raise knowledge together!</p>
 				</div>
 			</div>
 		</div>
