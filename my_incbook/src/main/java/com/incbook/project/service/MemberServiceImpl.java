@@ -15,6 +15,7 @@ import com.incbook.project.domain.PartyVO;
 import com.incbook.project.domain.TradeVO;
 import com.incbook.project.persistence.MemberDAO;
 import com.incbook.project.persistence.PartyDAO;
+import com.incbook.project.persistence.PaymentDAO;
 import com.incbook.project.persistence.TradeDAO;
 
 @Service
@@ -30,6 +31,9 @@ public class MemberServiceImpl implements MemberService {
 
 	@Inject
 	private TradeDAO tradeDAO;
+	
+	@Inject
+	private PaymentDAO paymentDAO;
 	
 	@Override
 	public MemberVO checkIdPassword(MemberVO vo) throws Exception {
@@ -89,6 +93,7 @@ public class MemberServiceImpl implements MemberService {
 		rPoint.put("vo", vo);
 		rPoint.put("point", point);
 		memberDAO.roulettePoint(rPoint);
+		paymentDAO.roulettePoint(rPoint);
 	}
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override

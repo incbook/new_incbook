@@ -26,4 +26,13 @@
 		select count(id) from payment 
 		where member_id = #{memberId}
 	</select>
+	
+	<update id="roulettePoint">
+		update payment set
+		payment_price = paymentPrice + #{point}
+		where member_id = #{vo.id}
+	</update>
+	
+	
+	
 </mapper>

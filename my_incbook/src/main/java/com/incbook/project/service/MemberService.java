@@ -24,6 +24,7 @@ public interface MemberService {
 	public MemberVO checkPassword(MemberVO vo) throws Exception;
 
 	public void roulettePoint(MemberVO vo, int point) throws Exception;
+	
 	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception;
 
 	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception;
