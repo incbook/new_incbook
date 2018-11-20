@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <%@include file="../include/header.jsp"%>
 
-<div class="wishlist-area section-padding--lg bg__white imsi_set">
+<div class="wishlist-area section-padding--lg bg__white pdb120">
 	<div class="container">
 		<div class="row">
 			<%@include file="../include/includeSide.jsp"%>
