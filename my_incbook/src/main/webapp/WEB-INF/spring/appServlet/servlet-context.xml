@@ -77,6 +77,7 @@
 			<mapping path="/payment/chargeHistory" />
 			<mapping path="/payment/charge" />
 			<mapping path="/personalize/personalize" />
+			<mapping path="/personalize/personalChoice" />
 			<mapping path="/trade/lendersPage" />
 			<mapping path="/trade/ownerPage" />
 			<mapping path="/trade/startTrade" />

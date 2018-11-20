@@ -34,7 +34,9 @@
 								<h3 align="center">국내도서</h3><br>
 								<c:forEach items="${g1}" var="genre1" varStatus="status" begin="1">
 									<label class="custom-control custom-checkbox form-field">
-										<input onclick="CountChecked(this)" class="limit_check custom-control-input" name="genre" type="checkbox" value="${genre1}">
+										<input onclick="CountChecked(this)" class="limit_check custom-control-input" 
+												name="genre" type="checkbox" value="${genre1}" 
+												<c:out value="${genreList.contains(genre1) ?'checked':''}"/> >
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description">${genre1}</span>
 									</label>
@@ -45,7 +47,9 @@
 								<h3 align="center">해외도서</h3><br>
 								<c:forEach items="${g2}" var="genre2" varStatus="status" begin="1">
 									<label class="custom-control custom-checkbox form-field">
-										<input onclick="CountChecked(this)" class="limit_check custom-control-input" name="genre" type="checkbox" value="${genre2}">
+										<input onclick="CountChecked(this)" class="limit_check custom-control-input" 
+												name="genre" type="checkbox" value="${genre2}"
+												<c:out value="${genreList.contains(genre2) ?'checked':''}"/>>
 										<span class="custom-control-indicator"></span>
 										<span class="custom-control-description">${genre2}</span>
 									</label>
@@ -78,7 +82,7 @@
 
 <script>
 var maxChecked = 5;
-var totalChecked = 0;
+var totalChecked = '${genreList.size()}';
 
 function CountChecked(field) {
 	if (field.checked){
