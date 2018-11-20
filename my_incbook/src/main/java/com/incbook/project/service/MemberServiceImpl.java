@@ -125,5 +125,10 @@ public class MemberServiceImpl implements MemberService {
 
 		tradeDAO.tradeStateChange(tradeState);
 	}
+
+	@Override
+	public void passwordChange(MemberVO memberVO) throws Exception {
+		memberDAO.passwordChange(memberVO);
+	}
 	
 }
