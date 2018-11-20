@@ -57,9 +57,11 @@
 								</c:forEach>
 								
 								<br><br><hr><br>
-								<div class="form__btn custom__center">
-									<button>저장하기</button>
-									<button onclick="ResetCount()" type="reset" class="all_uncheck">전체 취소</button>
+								<div class="form_all">
+									<div class="form__btn custom__center">
+										<button class="radius">저장하기</button>
+										<button onclick="ResetCount()" type="reset" class="all_uncheck radius">전체 취소</button>
+									</div>
 								</div>
 								
 							</div>
