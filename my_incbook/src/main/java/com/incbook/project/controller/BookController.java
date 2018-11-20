@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -78,8 +79,8 @@ public class BookController {
 		if (login != null) {
 			List<BookVO> personalizeBookList = personalizeService.personalizeListOfIndex(login);
 			advertBook = personalizeBookList.get(0);
-			model.addAttribute("advertBook", advertBook);
 		}
+		model.addAttribute("advertBook", advertBook);
 		
 	}
 	
@@ -255,5 +256,21 @@ public class BookController {
 		model.addAttribute("quickPrePage", quickPrePage);
 		return "book/quickViewPersonal";
 	}
+	
+	@RequestMapping(value = "/chartCategories", method = RequestMethod.GET)
+	public void chartCategoriesGET(HttpServletRequest request, Model model) throws Exception {
+		// 세션을 통한 회원 정보
+		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
+		
+		// 개인화 추천 1개 (사이드 광고용)
+		BookVO advertBook = null;
+		if (login != null) {
+			List<BookVO> personalizeBookList = personalizeService.personalizeListOfIndex(login);
+			advertBook = personalizeBookList.get(0);
+		}
+		model.addAttribute("advertBook", advertBook);
+	}
+	
+	
 
 }

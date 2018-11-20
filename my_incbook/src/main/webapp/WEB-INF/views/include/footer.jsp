@@ -70,29 +70,6 @@
 											.val());
 						});
 
-				$(function() {
-					$('#list1').hide();
-					$('.hover1').mouseenter(function() {
-						$('#list1').show();
-					});
-					$('.hover1').mouseleave(function() {
-						$('.hover1').mouseleave(function() {
-							$('#list1').hide();
-						});
-					});
-				});
-				$(function() {
-					$('#list2').hide();
-					$('.hover2').mouseenter(function() {
-						$('#list2').show();
-					});
-					$('.hover2').mouseleave(function() {
-						$('.hover2').mouseleave(function() {
-							$('#list2').hide();
-						});
-					});
-				});
-				
 				var loginTry = $("#loginTry").val();
 				var logoutTry = $("#logoutTry").val();
 				var loginAuth = $("#loginAuth").val();

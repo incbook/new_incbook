@@ -381,10 +381,21 @@
 
 
 			<h3 class="wedget__title ss">Advertising</h3>
+				<c:if test="${advertBook eq null}">
 					<aside class="wedget__categories sidebar--banner">
 						<img src="/resources/images/others/banner_left.jpg"
 							alt="banner images">
 					</aside>
+				</c:if>
+
+				<c:if test="${advertBook ne null}">
+					<aside class="wedget__categories sidebar--banner">
+						<img
+							src="/img/${advertBook.id}/${advertBook.image}"
+							alt="banner images" >
+					</aside>
+				</c:if>
+					
 				</div>
 			</div>
 		</div>

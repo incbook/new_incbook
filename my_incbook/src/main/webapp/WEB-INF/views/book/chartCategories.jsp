@@ -11,12 +11,31 @@
 			$("#selectGenre").val(selectGenre);
 			form.submit();
 		});
+		
+		$('#list1').hide();
+		$('.hover1').mouseenter(function() {
+			$('#list1').show();
+		});
+		$('.hover1').mouseleave(function() {
+			$('.hover1').mouseleave(function() {
+				$('#list1').hide();
+			});
+		});
+		$('#list2').hide();
+		$('.hover2').mouseenter(function() {
+			$('#list2').show();
+		});
+		$('.hover2').mouseleave(function() {
+			$('.hover2').mouseleave(function() {
+				$('#list2').hide();
+			});
+		});
 	});
 </script>
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
+	
 		<div class="shop__sidebar">
 			<aside class="wedget__categories poroduct--cat">
 				<h3 class="wedget__title ss">TOP-100</h3>
@@ -141,9 +160,15 @@
 
 			<h3 class="wedget__title ss">Advertising</h3>
 			<aside class="wedget__categories sidebar--banner">
+				<c:if test="${advertBook eq null}">
 				 <img
 							src="/resources/images/others/banner_left3.jpg"
 							alt="banner images" >
+				</c:if>
+				<c:if test="${advertBook ne null}">
+				 <img
+							src="/img/${advertBook.id}/${advertBook.image}"
+							alt="banner images" >
+				</c:if>
 			</aside>
 		</div>
-	</div>

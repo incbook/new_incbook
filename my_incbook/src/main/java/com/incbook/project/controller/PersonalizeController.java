@@ -34,17 +34,10 @@ public class PersonalizeController {
 		List<String> personalizeGenreList = personalizeService.findPersonalByMemberId(login);
 		
 		model.addAttribute("genreList", personalizeGenreList);
-		for(String str : personalizeGenreList ) {
-			System.out.println(str);
-		}
-		
 	}
 	
 	@RequestMapping(value = "/personalChoice", method = RequestMethod.POST)
 	public String personalChoicePOST(String[] genre, int memberId) throws Exception {
-//		for (String var : genre) {
-//			System.out.println(var);
-//		}
 		if (genre == null) {
 			personalizeService.personalChoiceRenew(memberId);
 		} else {
