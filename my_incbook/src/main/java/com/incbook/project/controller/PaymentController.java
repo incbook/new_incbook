@@ -31,8 +31,11 @@ public class PaymentController {
 	}
 	
 	@RequestMapping(value = "/insertPoint", method = RequestMethod.GET)
-	public String insertPoint(PaymentVO vo) throws Exception {
-		paymentService.insertPoint(vo);
+	public String insertPoint(PaymentVO vo, HttpServletRequest request) throws Exception {
+		int memberId = ((MemberVO) request.getSession().getAttribute("login")).getId();
+		
+		paymentService.insertPoint(vo, memberId);
+		
 		return "redirect:/payment/chargeHistory";
 	}
 	
