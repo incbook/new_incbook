@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp"%>
 
-	<section class="my_account_area pb--55 pt--80 bg--white">
+	<section class="my_account_area pb--55 pt--80 pdb260 bg--white">
 		<div class="container">
 			<div class="row">
 				<%@include file="../include/includeSide.jsp"%>
