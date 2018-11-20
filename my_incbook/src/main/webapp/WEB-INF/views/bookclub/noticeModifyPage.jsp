@@ -34,9 +34,9 @@
 								<input type="text" id="content" name="content" value="${noticeModifyTarget.content}">
 							</div>
 
-							<div>
-								<button type="button" id="btn_modify">수정</button>
-								<button type="button" id="btn_cancel">취소</button>
+								<div class="form__btn button_form">
+								<button type="button" id="btn_modify" class="radius">수정</button>
+								<button type="button" id="btn_cancel" class="radius">취소</button>
 							</div>
 						</div>
 					</form>
@@ -59,7 +59,7 @@ $(document).ready(function() {
      formObj.submit();
    });
    $("#btn_cancel").on("click", function() {
-     self.location ="/bookclub/noticeList?&boardId=${boardId}&bookclubId=${bookclubId}&noticeId=${noticeId}";
+     self.location ="/bookclub/noticeSearchList?&boardId=${boardId}&bookclubId=${bookclubId}&noticeId=${noticeId}";
    });
  
 });

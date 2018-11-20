@@ -36,12 +36,12 @@
 								<label for="genre">장르 <span>*</span></label> 
 								<select id="genre" name="genre" style="height: 30px;">
 									<c:forEach items="${g1}" var="genre1">
-										<option value="${genre1}">
-											${genre1}</option>
-									</c:forEach>
-									<c:forEach items="${g2}" var="genre2">
-										<option value="${genre2}">
-											${genre2}</option>
+										<c:if test="${genre1 eq modifyTarget.genre}">
+											<option selected="selected" value="${genre1}">${genre1}</option>
+										</c:if>
+										<c:if test="${genre1 ne modifyTarget.genre}">
+											<option value="${genre1}">${genre1}</option>
+										</c:if>
 									</c:forEach>
 								</select>
 								
@@ -51,9 +51,9 @@
 								<input type="text" id="name" name="name" value="${modifyTarget.name}">
 							</div>
 
-							<div>
-								<button type="button" id="btn_modify">수정</button>
-								<button type="button" id="btn_cancel">취소</button>
+							<div class="form__btn button_form">
+								<button type="button" id="btn_modify" class="radius">수정</button>
+								<button type="button" id="btn_cancel" class="radius">취소</button>
 							</div>
 						</div>
 					</form>
@@ -77,7 +77,7 @@ $(document).ready(function() {
      formObj.submit();
    });
    $("#btn_cancel").on("click", function() {
-     self.location ="/bookclub/boardList?page=${cri.page}&pagesize=${cri.pagesize}&bookclubId=${modifyTarget.id}";
+     self.location ="/bookclub/noticeSearchList?page=${cri.page}&pagesize=${cri.pagesize}&bookclubId=${modifyTarget.id}";
    });
  
 });

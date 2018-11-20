@@ -33,21 +33,7 @@
 		</div>
 	</div>
 </div>
-<!--북클럽검색기능  -->
-<%--q <div class='box-body'>
-	<select name="searchType">
-		<option value="n"
-			<c:out value="${cri.searchType== null?'selected':''}"/>>---</option>
-			<option value="genre"
-			<c:out value="${cri.searchType eq 'genre'?'selected':''}"/>>장르</option>
-			<option value="name"
-			<c:out value="${cri.searchType eq 'name'?'selected':''}"/>>이름</option>
-	</select>
-</div>
-<input type="text" name='keyword' id="keywordInput"
-	value='${cri.keyword}'>
-	<button id='btn_search'>검색</button>
-	<button id='btn_새로'>새 북클럽</button> --%>
+	
 <section class="wn__product__area brown--color pb--30 board_pd">
 	<div class="container">
 		<div class="row">
@@ -62,7 +48,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${bookclubList}" var="BookclubVO">
+						<c:forEach items="${bookclubSearchList}" var="BookclubVO">
 
 							<tr>
 								<td>${BookclubVO.id}</td>
@@ -86,19 +72,19 @@
 		<ul class="wn__pagination">
 			<c:if test="${pageMaker.prev}">
 				<li><a
-					href="bookclubList${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
+					href="bookclubSearchList${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
 			</c:if>
 
 			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}"
 				var="idx">
 				<li <c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-					<a href="bookclubList${pageMaker.makeSearch(idx)}">${idx}</a>
+					<a href="bookclubSearchList${pageMaker.makeSearch(idx)}">${idx}</a>
 				</li>
 			</c:forEach>
 
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 				<li><a
-					href="bookclubList${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
+					href="bookclubSearchList${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
 			</c:if>
 
 		</ul>
@@ -106,6 +92,16 @@
 
 	<div class="form_all al_center">
 		<div class="form__btn button_form">
+		<select name="searchType" id="searchType">
+		<option value="n" 
+			<c:out value="${cri.searchType == null ? 'selected' : ''}"/>>---</option>
+		<option value="genre" 
+			<c:out value="${cri.searchType eq 'genre' ? 'selected' : ''}"/>>장르</option>
+		<option value="name" 
+			<c:out value="${cri.searchType eq 'name' ? 'selected' : ''}"/>>이름</option>
+	</select>
+	<input type="text" name='keyword' id="keywordinput" value='${cri.keyword}' />
+	<button type="button" id='btn_search' class="radius">검색</button>
 			<button type="submit" id="btn_insert" class="radius">북클럽 생성</button>
 		</div>
 	</div>
@@ -120,7 +116,6 @@
 
 <%@include file="../include/footer.jsp"%>
 <script>
-	//<![CDATA[
 	$(document).ready(function() {
 		var formObj = $("form[role='form']");
 		console.log(formObj);
@@ -130,6 +125,14 @@
 			formObj.attr("action", "/bookclub/bookclubInsert");
 			formObj.submit();
 		});
+		$("#btn_search").on("click", function(event) {
+			
+			self.location = "bookclubSearchList"
+				+ '${pageMaker.makeQuery(1)}'
+				+ "&searchType="
+				+ $("#searchType").val()
+				+ "&keyword=" + encodeURIComponent($('#keywordinput').val());
+		});
+		
 	});
-	//]]>
 </script>

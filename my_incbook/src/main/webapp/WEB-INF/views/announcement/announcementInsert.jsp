@@ -38,7 +38,7 @@
 
 
 
-							<div class="form__btn">
+							<div class="button_form">
 								<button type="submit">등록</button>
 								<button type="button"
 									onclick="location.href='/announcement/announcement${boardPageMaker.makeQuery(boardPageMaker.cri.page)}'">

@@ -132,6 +132,27 @@ public class BookclubDAOImpl implements BookclubDAO {
 	public List<Integer> boardIdList(Integer bookclubId) throws Exception {
 		return sqlSession.selectList(namespace + ".boardIdList", bookclubId);
 	}
+/*북클럽 검색기능 두개추가*/
+	@Override
+	public List<BookclubVO> bookclubSearchList(SearchCriteria cri) throws Exception {
+		return sqlSession.selectList(namespace + ".bookclubSearchList", cri);
+	}
+
+	@Override
+	public int bookclubListSearchCount(SearchCriteria cri) throws Exception {
+		return sqlSession.selectOne(namespace + ".bookclubListSearchCount", cri);
+	}
+//게시글 검색기능 두개추가
+	@Override
+	public List<NoticeVO> noticeSearchList(Map<String, Object> noticeMap) throws Exception {
+		return sqlSession.selectList(namespace + ".noticeSearchList", noticeMap);
+	}
+
+	@Override
+	public int noticeListSearchCount(SearchCriteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace + ".noticeListSearchCount", cri);
+	}
 
 	
 

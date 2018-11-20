@@ -13,7 +13,11 @@ import com.incbook.project.domain.searchcriteria.SearchCriteria;
 public interface BookclubDAO {
 
 	public List<BookclubVO> bookclubList(SearchCriteria cri) throws Exception;
-
+	
+	/*검색기능추가*/public List<BookclubVO> bookclubSearchList(SearchCriteria cri) throws Exception;
+	
+	/*검색기능추가*/public int bookclubListSearchCount(SearchCriteria cri) throws Exception;
+	
 	public List<BoardVO> boardList(Integer bookclubId) throws Exception;
 	
 	public List<Integer> boardIdList(Integer bookclubId) throws Exception;
@@ -43,6 +47,10 @@ public interface BookclubDAO {
 	public void boardInsert(BoardVO vo) throws Exception;
 	
 	public List<NoticeVO> noticeList(Map<String, Object> noticeMap) throws Exception;
+	
+	/*검색기능추가*/ public List<NoticeVO> noticeSearchList(Map<String, Object> noticeMap) throws Exception;
+	
+	/*검색기능추가*/ public int noticeListSearchCount(SearchCriteria cri) throws Exception;
 	
 	public void noticeInsert(NoticeVO vo) throws Exception;
 	
