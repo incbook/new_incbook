@@ -2,7 +2,6 @@ package com.incbook.project.service;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,7 +11,6 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.incbook.project.domain.AnnouncementVO;
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.pagecriteria.PageCriteria;
@@ -58,7 +56,6 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public BookVO findBookByID2(Integer id) throws Exception {
 		dao.updateViewCnt(id);
-		System.out.println(dao.findBookByID2(id));
 		return dao.findBookByID2(id);
 	}
 
@@ -123,8 +120,6 @@ public class BookServiceImpl implements BookService {
 	}
 
 	private int genSaveFileName(String extName, BookVO vo) {
-		 
-	     
 		 	int fileName = vo.getId();
 		     
 		    return fileName;
@@ -148,6 +143,11 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
 		return dao.equalGenreBookRandomList(vo);
+	}
+
+	@Override
+	public List<BookVO> newBookChart(BookVO vo) throws Exception {
+		return dao.newBookChart(vo);
 	}
 	
 	

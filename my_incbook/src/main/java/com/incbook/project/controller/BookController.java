@@ -60,9 +60,6 @@ public class BookController {
 		
 		// 해당 도서를 소유한 도서목록
 		List<OwnVO> ownList = ownService.findOwnListByBookId(id);
-		for(OwnVO vo : ownList) {
-			System.out.println(vo);
-		}
 		model.addAttribute("ownList", ownList);
 
 		// 해당 도서와 같은 장르의 도서목록 (10개)
@@ -97,7 +94,6 @@ public class BookController {
 			rttr.addAttribute("prePage", prePage);
 
 		} else {
-			System.out.println(file.getOriginalFilename()+"351351sdf5sa6ef4e684fs651c32s13d5f46s8e4f6s5df");
 
 			vo.setImage(file.getOriginalFilename());
 			bookService.updateBook(vo);
@@ -232,6 +228,16 @@ public class BookController {
 		model.addAttribute("BookVO", vo);
 		model.addAttribute("quickPrePage", quickPrePage);
 		return "book/quickView";
+	}
+
+	@RequestMapping(value = "/quickViewPersonal", method = RequestMethod.GET)
+	public String quickViewPersonalGET(Integer id, Model model, String quickPrePage)
+			throws Exception {
+		BookVO vo = bookService.findBookByID2(id);
+		
+		model.addAttribute("BookVO", vo);
+		model.addAttribute("quickPrePage", quickPrePage);
+		return "book/quickViewPersonal";
 	}
 
 }

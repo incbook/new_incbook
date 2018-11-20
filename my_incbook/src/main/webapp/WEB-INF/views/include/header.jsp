@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>잉크북 페이지입니다!!!!!!!!!</title>
+<title>INCBOOK 잉크북</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,6 +20,9 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
 	rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Stylesheets -->
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
@@ -57,23 +60,23 @@
 			class="header__area header__absolute sticky__header hd_white">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
+					<div class="col-md-3 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
+						<a href="/index">
 								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
 						</div>
 					</div>
-					<div class="col-lg-8 d-none d-lg-block">
-						<nav class="mainmenu__nav">
+					<div class="col-md-6 col-lg-8 d-none d-lg-block">
+						<nav class="mainmenu__nav nav_rright">
 							<ul class="meninmenu d-flex justify-content-start">
 								<li class="drop"><a href="#" class="size_up">도서차트</a>
 									<div class="megamenu mega03 nav_width1">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="/book/allTop100">All Top 100</a></li>
-											<li><a href="/book/genreTop100">Genre Top 100</a></li>
-											<li><a href="/book/newBookChart">NEW 100</a></li>
+											<li><a href="/book/allTop100">InC Book Top 100</a></li>
+											<li><a href="/book/genreTop100">장르 Top 100</a></li>
+											<li><a href="/book/newBookChart">신간 도서</a></li>
 										</ul>
 
 									</div></li>
@@ -93,21 +96,20 @@
 									</div></li>
 								<li class="drop"><a href="/bookclub/bookclubSearchList" class="size_up">Book club</a></li>
 									
-								<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
+								
+								<c:if test="${login ne null}">	
+									<li class="drop"><a href="/personalize/personalize" class="size_up">추천도서</a></li>
+								</c:if>
 									
-								<li class="drop"><a href="blog.html" class="size_up">이벤트</a>
-									<div class="megamenu dropdown nav_width1">
-										<ul class="item item01">
-											<li class="title">Categories</li>
-											<li><a href="blog.html">룰렛</a></li>
-											<li><a href="blog-details.html">심리테스트</a></li>
-										</ul>
-									</div></li>
+								<li class="drop"><a href="/event/roulette" class="size_up">룰렛 이벤트</a>
+								</li>
+								
+								
 								<li class="drop"><a href="/announcement/announcement" class="size_up">공지사항</a></li>
 							</ul>
 						</nav>
 					</div>
-					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
+					<div class="col-md-3 col-sm-6 col-6 col-lg-2">
 						<ul
 							class="header__sidebar__right d-flex justify-content-end align-items-center size_up2">
 							<li class="shop_search search_left"><a class="search__active" href="#"></a></li>
@@ -176,11 +178,7 @@
 										<li><a href="faq.html">Faq Page</a></li>
 										<li><a href="team.html">Team Page</a></li>
 									</ul></li>
-								<li><a href="shop-grid.html">Shop</a>
-									<ul>
-										<li><a href="shop-grid.html">Shop Grid</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-									</ul></li>
+
 								<li><a href="blog.html">이벤트</a>
 									<ul>
 										<li><a href="blog.html">룰렛</a></li>

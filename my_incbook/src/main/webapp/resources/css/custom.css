@@ -4,6 +4,7 @@
 * {
 	font-family: 'Nanum Gothic';
 }
+
 /* h5 {
 	font-family: 'Noto Sans KR';
 	font-size: 15px;
@@ -60,10 +61,41 @@ h1 {
 .ch_center th, td {
 	text-align: center !important;
 }
+
 .imsi_set {
 	padding-top: 120px;
-	padding-bottom: 20px !important;
+	padding-bottom: 120px !important;
 }
+.pdb120 {
+	padding-top: 120px;
+	padding-bottom: 320px !important;
+}
+.pdb250 {
+	padding-bottom: 250px !important;
+}
+.pdb260 {
+	padding-bottom: 260px !important;
+}
+.pdb160 {
+	padding-bottom: 160px !important;
+}
+.pdb404 {
+	padding-top: 120px;
+	padding-bottom: 404px !important;
+}
+.pdb455 {
+	padding-top: 120px;
+	padding-bottom: 455px !important;
+}
+.more {
+	padding-top: 120px;
+	padding-bottom: 460px !important;
+}
+.pdb01 {
+	padding-top: 120px;
+	padding-bottom: 460px !important;
+}
+
 .page_pb_40 {
 	padding-bottom: 40px;
 }
@@ -198,7 +230,6 @@ h1 {
 .pick_money {
 	margin: 2px 0 !important;
 }
-<<<<<<< HEAD
 
 .tablecenter thead tr th {
 	text-align: center;
@@ -207,8 +238,6 @@ h1 {
 .buttonTOP {
 	margin: 30px 0;
 }
-=======
-<<<<<<< HEAD
 
 .right1 {
 	display: inline-block !important;
@@ -240,9 +269,7 @@ h1 {
 .nav_width1 {
 	width: 160px !important;
 }
-=======
->>>>>>> 1442e1c4bda3f455aeeb9ea0de8aa602bc2ec706
->>>>>>> master
+
 
 .ss{
 	font-size: 20px;
@@ -255,8 +282,9 @@ h1 {
 
 .size_up {
 	font-size: 18px !important;
-	margin-left: 25px !important;
+	margin-left: 40px !important;
 	margin-top: 18px !important;
+	padding: 0 13px !important;
 }
 .size_up2 {
 	margin-top: 11px !important;
@@ -276,4 +304,55 @@ h1 {
 
 .search_inline {
 	display: inline-block !important;	
+}
+
+.nav_rright {
+	margin-left: 20px;	
+}
+
+.rwd-table {
+	border-collapse: collapse;
+	border-radius: 1em;
+	overflow: hidden;
+	background: #34495E;
+  	color: #fff;
+}
+.rwd-table th, .rwd-table td:before {
+    color: #dd5;
+}
+
+.hover1 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover2 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover1 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover2 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+.hover1 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.hover2 .gr03 .gg li {
+	padding: 3px 12px;
+	display: inline-block;
+}
+
+.copyright__wrapper p {
+   text-align: center;
+}
+.pd_b_15 {
+	padding-bottom: 15px;
 }

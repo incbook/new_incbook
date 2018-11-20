@@ -19,11 +19,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Single</h2>
+					<h2 class="bradcaump-title">새로운 책 한 권은 하나의 새로운 세계다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Single</span>
+							class="breadcrumb_item active">Chart</span>
 					</nav>
 				</div>
 			</div>
@@ -58,9 +58,11 @@
 									for="publisher"> 출판사출판사<span style="color: green;">
 											* </span></label> ${findBookByID2.publisher}</strong> <br> <strong><label
 									for="regdate"> 등록일<span style="color: red;"> * </span></label>
-									${findBookByID2.regdate}</strong> <br> <strong><label
+									<fmt:formatDate pattern="YYYY-MM-dd HH:mm"
+										value="${findBookByID2.regdate}" /></strong> <br> <strong><label
 									for="updateDate"> 수정일<span style="color: blue;">
-											* </span></label> ${findBookByID2.updateDate}</strong> <br> <strong><label
+											* </span></label> <fmt:formatDate pattern="YYYY-MM-dd HH:mm"
+										value="${findBookByID2.updateDate}" /></strong> <br> <strong><label
 									for="finalUpdateMemberId"> 최종수정자<span
 										style="color: green;"> * </span></label> ${member.nickname}</strong>
 								<!-- 별점 시작 -->
@@ -89,6 +91,9 @@
 										</c:if>
 										<c:if test="${prePage == 'genre'}">
 											<button type="button" id="genre" class="radius">목록가기</button>
+										</c:if>
+										<c:if test="${prePage == 'personal'}">
+											<button type="button" id="personal" class="radius">목록가기</button>
 										</c:if>
 									</div>
 								</div>
@@ -219,8 +224,8 @@
 						<!-- End Single Tab Content -->
 					</div>
 				</div>
-				
-				
+
+
 				<section class="wn__bestseller__area bg--white pt--80  pb--30">
 					<div class="container">
 						<div class="row">
@@ -229,87 +234,76 @@
 									<h2 class="title__be--2">
 										대여 가능 <span class="color--theme">도서 목록</span>
 									</h2>
-									<p>There are many variations of passages of Lorem Ipsum
-										available, but the majority have suffered lebmid alteration in
-										some ledmid form</p>
+									<p>Only you can choose what you want,<br>
+						Let's read all the books of this world and raise knowledge together!</p>
 								</div>
 							</div>
 						</div>
 						<!-- ----------------------------------------------- -->
 						<div class="tab__container mt--60">
 							<!-- Start Single Tab Content -->
-							<div class="row single__tab tab-pane fade show active" id="nav-all" role="tabpanel">
-								<div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-									<c:forEach items="${ownList}" var="own" varStatus="status" begin="1">
-									
-										<c:if test="${status.index % 2 eq 1}">
-											<c:out value="<div class="single__product">"/>
+							<div class="row single__tab tab-pane fade show active"
+								id="nav-all" role="tabpanel">
+								<div
+									class="product__indicator--4 arrows_style owl-carousel owl-theme">
+									<c:forEach items="${ownList}" var="own" varStatus="status"
+										begin="0" step="2">
+
+										<div class='single__product'>
+
 											<!-- Start Single Product -->
-												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-													<div class="product product__style--3">
-														<div class="product__thumb">
-															<a class="first__img" href="single-product.html"><img
-																src="/resources/images/books/1.jpg" alt="product image"></a>
-															<div class="hot__box">
-																<span class="hot-label">BEST SALER</span>
-															</div>
-														</div>
-														<div class="product__content content--center content--center">
-															<h4>
-																<a href="single-product.html">${own.state}</a>
-															</h4>
-															<ul class="prize d-flex">
-																<li>$50.00</li>
-																<li class="old_prize">$35.00</li>
-															</ul>
-															<div class="product__hover--content">
-																<ul class="rating d-flex">
-																	<li class="on"><i class="fa fa-star-o"></i></li>
-																	<li class="on"><i class="fa fa-star-o"></i></li>
-																	<li class="on"><i class="fa fa-star-o"></i></li>
-																	<li><i class="fa fa-star-o"></i></li>
-																	<li><i class="fa fa-star-o"></i></li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-										<!-- Start Single Product -->
-										</c:if>
-										
-										<c:if test="${status.index % 2 eq 0}">
 											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 												<div class="product product__style--3">
 													<div class="product__thumb">
-														<a class="first__img" href="single-product.html"><img
-															src="/resources/images/books/1.jpg" alt="product image"></a>
+														<a class="first__img"
+															href="/own/ownInfo?id=${ownList[status.index].id}"> <img
+															src="/img/${findBookByID2.id}/${findBookByID2.image}"
+															alt="product image">
+														</a>
 														<div class="hot__box">
 															<span class="hot-label">BEST SALER</span>
 														</div>
 													</div>
 													<div
 														class="product__content content--center content--center">
-														<h4>
-															<a href="single-product.html">Ghost4</a>
-														</h4>
-														<ul class="prize d-flex">
-															<li>$50.00</li>
-															<li class="old_prize">$35.00</li>
+														<ul class="">
+															<li>상태 : ${ownList[status.index].state}</li>
+															<li>지역 : ${ownList[status.index].rentLocation}</li>
+															<li>대여료 : ${ownList[status.index].fee}</li>
 														</ul>
-														<div class="product__hover--content">
-															<ul class="rating d-flex">
-																<li class="on"><i class="fa fa-star-o"></i></li>
-																<li class="on"><i class="fa fa-star-o"></i></li>
-																<li class="on"><i class="fa fa-star-o"></i></li>
-																<li><i class="fa fa-star-o"></i></li>
-																<li><i class="fa fa-star-o"></i></li>
+													</div>
+												</div>
+											</div>
+											<!-- Start Single Product -->
+											<c:if test="${not (ownList[status.index+1] eq null)}">
+
+												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+													<div class="product product__style--3">
+														<div class="product__thumb">
+															<a class="first__img"
+																href="/own/ownInfo?id=${ownList[status.index+1].id}">
+																<img
+																src="/img/${findBookByID2.id}/${findBookByID2.image}"
+																alt="product image">
+															</a>
+															<div class="hot__box">
+																<span class="hot-label">BEST SALER</span>
+															</div>
+														</div>
+														<div
+															class="product__content content--center content--center">
+															<ul class="">
+																<li>상태 : ${ownList[status.index+1].state}</li>
+																<li>지역 : ${ownList[status.index+1].rentLocation}</li>
+																<li>대여료 : ${ownList[status.index+1].fee}</li>
 															</ul>
 														</div>
 													</div>
 												</div>
-											</div>
-											<c:out value="</div>"/>
-										</c:if>
+											</c:if>
+
+										</div>
+
 									</c:forEach>
 								</div>
 							</div>
@@ -319,18 +313,24 @@
 
 				<div class="wn__related__product pt--80 pb--50">
 					<div class="section__title text-center">
-						<h2 class="title__be--2">Related Products</h2>
+						<h2 class="title__be--2">이 도서와 <span class="color--theme">유사한 도서</span></h2>
+						<p>Only you can choose what you want,<br>
+						Let's read all the books of this world and raise knowledge together!</p>
 					</div>
+					
 					<div class="row mt--60">
-						<div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
-							<c:forEach items="${randomBookList}" var="book" varStatus="status" begin="1">
+					
+						<div
+							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
+							<c:forEach items="${randomBookList}" var="randomBook"
+								varStatus="status">
 								<!-- Start Single Product -->
-								<div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
+								<div
+									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 									<div class="product__thumb">
 										<a class="first__img" href="single-product.html"><img
-											src="/resources/images/books/1.jpg" alt="product image"></a>
-										<a class="second__img animation1" href="single-product.html"><img
-											src="/resources/images/books/2.jpg" alt="product image"></a>
+											src="/img/${randomBook.id}/${randomBook.image}"
+											alt="product image"></a>
 										<div class="hot__box">
 											<span class="hot-label">BEST SALLER</span>
 										</div>
@@ -375,99 +375,72 @@
 				</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 			</div>
 			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
 				<div class="shop__sidebar">
-					<aside class="wedget__categories poroduct--cat">
-						<h3 class="wedget__title">Product Categories</h3>
-						<ul>
-							<li><a href="#">장르1 <span>(3)</span></a></li>
-							<li><a href="#">장르2 <span>(4)</span></a></li>
-							<li><a href="#">장르3 <span>(6)</span></a></li>
-							<li><a href="#">장르4 <span>(7)</span></a></li>
-							<li><a href="#">장르5 <span>(8)</span></a></li>
-							<li><a href="#">장르6 <span>(9)</span></a></li>
-							<li><a href="#">장르7 <span>(13)</span></a></li>
-							<li><a href="#">장르8 <span>(20)</span></a></li>
-							<li><a href="#">장르9 <span>(22)</span></a></li>
-							<li><a href="#">장르10 <span>(13)</span></a></li>
-						</ul>
-					</aside>
 
 
+			<h3 class="wedget__title ss">Advertising</h3>
 					<aside class="wedget__categories sidebar--banner">
 						<img src="/resources/images/others/banner_left.jpg"
 							alt="banner images">
-						<div class="text">
-							<h2>광고</h2>
-							<h6>
-								광고 <br> <strong>광고</strong>광고
-							</h6>
-						</div>
 					</aside>
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- End main Content -->
+	<!-- End main Content -->
 
-<!-- Start Search Popup -->
-<div class="box-search-content search_active block-bg close__top">
-	<form id="search_mini_form--2" class="minisearch" action="#">
-		<div class="field__search">
-			<input type="text" placeholder="Search entire store here...">
-			<div class="action">
-				<a href="#"><i class="zmdi zmdi-search"></i></a>
+	<!-- Start Search Popup -->
+	<div class="box-search-content search_active block-bg close__top">
+		<form id="search_mini_form--2" class="minisearch" action="#">
+			<div class="field__search">
+				<input type="text" placeholder="Search entire store here...">
+				<div class="action">
+					<a href="#"><i class="zmdi zmdi-search"></i></a>
+				</div>
 			</div>
+		</form>
+		<div class="close__wrap">
+			<span>close</span>
 		</div>
-	</form>
-	<div class="close__wrap">
-		<span>close</span>
 	</div>
-</div>
 
-<%@include file="../include/footer.jsp"%>
+	<%@include file="../include/footer.jsp"%>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		var formObj = $("[role]");
-		console.log(formObj);
-		$("#modify").on("click", function() {
-			formObj.attr("action", "/book/modifyPage");
-			formObj.attr("method", "get");
-			formObj.submit();
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var formObj = $("[role]");
+			console.log(formObj);
+			$("#modify").on("click", function() {
+				formObj.attr("action", "/book/modifyPage");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#top").on("click", function() {
+				formObj.attr("action", "/book/allTop100");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#new").on("click", function() {
+				formObj.attr("action", "/book/newBookChart");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
+			$("#genre").on("click", function() {
+				formObj.attr("action", "/book/genreTop100");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+			
+			$("#personal").on("click", function() {
+				formObj.attr("action", "/personalize/personalize");
+				formObj.attr("method", "get");
+				formObj.submit();
+			});
+
 		});
-
-		$("#top").on("click", function() {
-			formObj.attr("action", "/book/allTop100");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-
-		$("#new").on("click", function() {
-			formObj.attr("action", "/book/newBookChart");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-
-		$("#genre").on("click", function() {
-			formObj.attr("action", "/book/genreTop100");
-			formObj.attr("method", "get");
-			formObj.submit();
-		});
-
-	});
-</script>
+	</script>

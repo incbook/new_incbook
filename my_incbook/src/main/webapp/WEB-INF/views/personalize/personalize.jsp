@@ -16,6 +16,7 @@
 </style>
 
 <%@include file="../include/header.jsp"%>
+<div style="margin:120px"></div>
 
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--6">
@@ -23,11 +24,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Grid</h2>
+					<h2 class="bradcaump-title">책은 곧 지식이고 삶이다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Grid</span>
+							class="breadcrumb_item active">Chart</span>
 					</nav>
 				</div>
 			</div>
@@ -56,7 +57,7 @@
 								</a>
 							</div>
 							<p>
-								<strong>전체 TOP-100</strong>
+								<strong>개인화 맞춤</strong>
 							</p>
 							<div class="orderby__wrapper">
 								<span></span>
@@ -78,7 +79,7 @@
 											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
 											width=240 height=351>
 										</a> <a class="second__img animation1"
-											href='/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top'>
+											href='/book/readPage?id=${BookVO.id}&prePage=personal'>
 											<img src="/img/${BookVO.id}/${BookVO.image}"
 											alt="product image" width=240 height=351>
 										</a>
@@ -91,22 +92,11 @@
 											<a href="single-product.html">${BookVO.title}</a>
 										</h4>
 										<ul class="prize d-flex">
-											<li>$35.00</li>
-											<li class="old_prize">$35.00</li>
+											<li>${BookVO.genre}</li>
 										</ul>
-										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
-											page="${pageMaker.cri.page}">
+										<div class="action" quickPersonalId="${BookVO.id}" quickPrePage="personal">
 											<div class="actions_inner">
 												<ul class="add_to_links">
-													<li><a class="cart" href="cart.html"> <i
-															class="bi bi-shopping-bag4"></i>
-													</a></li>
-													<li><a class="wishlist" href="wishlist.html"> <i
-															class="bi bi-shopping-cart-full"></i>
-													</a></li>
-													<li><a class="compare" href="#"> <i
-															class="bi bi-heart-beat"></i>
-													</a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
 														href="#productmodal"> <i class="bi bi-search"></i>
@@ -168,28 +158,6 @@
 
 						</div>
 
-						<div class="text-center">
-							<ul class="wn__pagination">
-								<c:if test="${pageMaker.prev}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
-								</c:if>
-
-								<c:forEach begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage}" var="idx">
-									<li
-										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="allTop100${pageMaker.makeSearch(idx)}">${idx}</a>
-									</li>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
-								</c:if>
-
-							</ul>
-						</div>
 					</div>
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 						<div class="list__view__wrapper">
@@ -202,7 +170,7 @@
 										<a class="first__img" href="single-product.html"><img
 											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
 											width=240 height=351></a> <a class="second__img animation1"
-											href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top"><img
+											href="/book/readPage?id=${BookVO.id}&prePage=personal"><img
 											src="/img/${BookVO.id}/${BookVO.image}" alt="product image"
 											width=240 height=351></a>
 									</div>
@@ -210,6 +178,9 @@
 										<h2>
 											<a href="single-product.html">${BookVO.title}</a>
 										</h2>
+										<ul class="prize__box">
+											<li>${BookVO.genre}</li>
+										</ul>
 										<ul class="rating d-flex">
 												<c:if test="${BookVO.averageScore==5}">
 													<li class="on"><i class="fa fa-star-o"></i></li>
@@ -254,16 +225,7 @@
 													<li><i class="fa fa-star-o"></i></li>
 												</c:if>
 										</ul>
-										<ul class="prize__box">
-											<li>$111.00</li>
-											<li class="old__prize">$220.00</li>
-										</ul>
 										<p>${BookVO.content}</p>
-										<ul class="cart__action d-flex">
-											<li class="cart"><a href="cart.html">Add to cart</a></li>
-											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li>
-										</ul>
 
 									</div>
 								</div>
@@ -272,28 +234,6 @@
 							<!-- End Single Product -->
 							<!-- Start Single Product -->
 
-						</div>
-						<div class="text-center">
-							<ul class="wn__pagination">
-								<c:if test="${pageMaker.prev}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.startPage - 1)}">&laquo;</a></li>
-								</c:if>
-
-								<c:forEach begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage}" var="idx">
-									<li
-										<c:out value="${pageMaker.cri.page == idx?'class=active':''}"/>>
-										<a href="allTop100${pageMaker.makeSearch(idx)}">${idx}</a>
-									</li>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a
-										href="allTop100${pageMaker.makeSearch(pageMaker.endPage + 1)}">&raquo;</a></li>
-								</c:if>
-
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -388,9 +328,6 @@
 												class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
 										</ul>
 									</div>
-								</div>
-								<div class="addtocart-btn">
-									<a href="#">Add to cart</a>
 								</div>
 							</div>
 						</div>

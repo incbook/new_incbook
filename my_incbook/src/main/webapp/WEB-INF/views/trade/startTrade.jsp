@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />	
 
 <section class="wn__checkout__area section-padding--lg bg__white">
-	<form method="post" >
+	<form id="tradeForm" method="post" >
 		<input type="hidden" name="memberId" value="${login.id}">
 		<div class="container">
 			<div class="row">
@@ -22,7 +22,7 @@
 	    					</div>
 	    					<div class="input_box">
 	    						<label>소유자 <span>*</span><strong> ${member.nickname}</strong></label>
-	    						<input type="hidden" name="ownId" value="${member.id}" >
+	    						<input type="hidden" name="ownId" value="${own.id}" >
 	    					</div>
 	   						<div class="input_box">
 	   							<label>거래위치 <span>*</span> ${own.rentLocation}</label>
@@ -70,14 +70,17 @@
 		$(".chat_start").on("click",function() {
 			alert("채팅시작");
 		});
-	});
-	
-	$(function() {
+		
 		$(".trade_start").on("click",function() {
 			alert("소유자와 채팅은 하셨나요?");
 		});
+		
+		$(".trade_ok").on("click", function() {
+			var tradeForm = $("#tradeForm");
+			tradeForm.submit();
+		});
 	});
-
+	
 	$(function() {
 		$('input[name="daterange"]').daterangepicker({
 			opens: 'left'
@@ -98,6 +101,8 @@
 	        $(".ui-timepicker-wrapper").hide();
 	    });
     });
+	
+	
 
 
 	

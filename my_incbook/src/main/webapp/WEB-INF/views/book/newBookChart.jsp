@@ -3,20 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-
-<title>INCBOOK</title>
 <%@include file="../include/header.jsp"%>
-<style>
-.hover1 .gr03 .gg li {
-	padding: 3px 12px;
-	display: inline-block;
-}
-
-.hover2 .gr03 .gg li {
-	padding: 3px 12px;
-	display: inline-block;
-}
-</style>
+<div style="margin:120px"></div>
 
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--6">
@@ -24,11 +12,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Grid</h2>
+					<h2 class="bradcaump-title">책은 곧 지식이고 삶이다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Grid</span>
+							class="breadcrumb_item active">Chart</span>
 					</nav>
 				</div>
 			</div>
@@ -57,7 +45,7 @@
 								</a>
 							</div>
 							<p>
-								<strong>new도서 TOP-100</strong>
+								<strong>신간도서</strong>
 							</p>
 							<div class="orderby__wrapper">
 								<span></span>
@@ -249,13 +237,6 @@
 										</ul>
 
 										<p>${BookVO.content}</p>
-										<ul class="cart__action d-flex">
-											<li class="cart"><a
-												href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top">Add
-													to cart</a></li>
-											<!-- 											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li> -->
-										</ul>
 
 
 									</div>

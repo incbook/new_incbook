@@ -49,13 +49,11 @@ public class BookDAOImpl implements BookDAO{
 
 	@Override
 	public void updateBook(BookVO vo) throws Exception {
-		System.out.println(vo);
 		sqlSession.update(namespace+".updateBook", vo);
 		
 	}
 	@Override
 	public void updateViewCnt(Integer id) throws Exception {
-		
 		sqlSession.update(namespace+".updateViewCnt", id);
 	}
 
@@ -100,8 +98,18 @@ public class BookDAOImpl implements BookDAO{
 	}
 
 	@Override
+	public List<BookVO> personalizeListOfIndex(List<Map<String, Object>> genreList) throws Exception {
+		return sqlSession.selectList(namespace+".personalizeListOfIndex", genreList);
+	}
+
+	@Override
 	public List<BookVO> equalGenreBookRandomList(BookVO vo) throws Exception {
 		return sqlSession.selectList(namespace + ".equalGenreBookRandomList", vo);
+	}
+
+	@Override
+	public List<BookVO> newBookChart(BookVO vo) throws Exception {
+		return sqlSession.selectList(namespace + ".newBookChart", vo);
 	}
 	
 }

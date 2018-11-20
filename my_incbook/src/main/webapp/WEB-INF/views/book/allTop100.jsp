@@ -3,18 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<style>
-.hover1 .gr03 .gg li {
-	padding: 3px 12px;
-	display: inline-block;
-}
-
-.hover2 .gr03 .gg li {
-	padding: 3px 12px;
-	display: inline-block;
-}
-</style>
-
 <%@include file="../include/header.jsp"%>
 <div style="margin:120px"></div>
 
@@ -25,11 +13,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">Shop Grid</h2>
+					<h2 class="bradcaump-title">책은 곧 지식이고 삶이다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">Shop Grid</span>
+							class="breadcrumb_item active">Chart</span>
 					</nav>
 				</div>
 			</div>
@@ -48,8 +36,7 @@
 			<div class="col-lg-9 col-12 order-1 order-lg-2">
 				<div class="row">
 					<div class="col-lg-12">
-						<div
-							class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
+						<div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
 							<div class="shop__list nav justify-content-center" role="tablist">
 								<a class="nav-item nav-link active" data-toggle="tab"
 									href="#nav-grid" role="tab"> <i class="fa fa-th"></i>
@@ -58,7 +45,7 @@
 								</a>
 							</div>
 							<p>
-								<strong>전체 TOP-100</strong>
+								<strong>InC Book Top 100</strong>
 							</p>
 							<div class="orderby__wrapper">
 								<span></span>
@@ -90,7 +77,7 @@
 											<li>${BookVO.genre}</li>
 										</ul>
 
-										<div class="action" quickId="${BookVO.id}" quickPrePage="new"
+										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
 											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
@@ -245,14 +232,7 @@
 										</ul>
 
 										<p>${BookVO.content}</p>
-										<ul class="cart__action d-flex">
-											<li class="cart"><a
-												href="/book/readPage${pageMaker.makeSearch(pageMaker.cri.page)}&id=${BookVO.id}&prePage=top">Add
-													to cart</a></li>
-											<!-- 											<li class="wishlist"><a href="cart.html"></a></li>
-											<li class="compare"><a href="cart.html"></a></li> -->
-										</ul>
-
+										
 									</div>
 								</div>
 							</c:forEach>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <%@include file="../include/header.jsp"%>
 
-<div class="wishlist-area section-padding--lg bg__white imsi_set">
+<div class="wishlist-area pb--55 section-padding--lg bg__white imsi_set pdb250">
 	<div class="container">
 		<div class="row">
 			<%@include file="../include/includeSide.jsp"%>
@@ -68,9 +68,6 @@
 		</div>
 	</div>
 </div>
-
-
-	
         
 <%@include file="../include/footer.jsp"%>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

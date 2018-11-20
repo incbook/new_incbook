@@ -30,13 +30,22 @@ public class TradeDAOImpl implements TradeDAO{
 
 	@Override
 	public List<TradeVO> findLendersByMemberId(MemberVO login) throws Exception {
-		System.out.println("??");
 		return sqlSession.selectList(namespace + ".findLendersByMemberId", login);
 	}
 
 	@Override
 	public List<TradeVO> findOwnerByMemberId(MemberVO login) throws Exception {
 		return sqlSession.selectList(namespace + ".findOwnerByMemberId", login);
+	}
+
+	@Override
+	public TradeVO findTradeByid(TradeVO trade) throws Exception {
+		return sqlSession.selectOne(namespace + ".findTradeByid", trade);
+	}
+
+	@Override
+	public void tradeStateChange(Map<String, Object> tradeState) throws Exception {
+		sqlSession.update(namespace + ".tradeStateChange", tradeState);
 	}
 	
 }

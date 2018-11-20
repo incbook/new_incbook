@@ -1,5 +1,8 @@
 package com.incbook.project.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +29,7 @@ public class TradeServiceImpl implements TradeService {
 	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void insertTrade(TradeVO tradeVO, OwnVO ownVO, int memberId) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 //		// 계산된 합계금액을 trade에 저장
 //		tradeVO.calcTotalAmount(ownVO);
 		
@@ -42,8 +46,16 @@ public class TradeServiceImpl implements TradeService {
 		// tradeVO.getTradeDate() 에서 ownVO.getselectPeriod() 만큼 더해준다
 		Map<String, Object> rentMap = new HashMap();
 		rentMap.put("trade", tradeVO);
+		rentMap.put("own", ownVO);
+		
 		//retrunDate 만들어주기**************************
-		rentMap.put("returnDate", "retunrDate");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(tradeVO.getTradeDate());
+		cal.add(Calendar.DATE, ownVO.getSelectPeriod());
+		
+		Date returnDate = format.parse(format.format(cal.getTime()));
+		
+		rentMap.put("returnDate", returnDate);
 		
 		// Rent 테이블에 기록 저장
 		tradeDAO.insertRent(rentMap);
@@ -59,6 +71,9 @@ public class TradeServiceImpl implements TradeService {
 		return tradeDAO.findOwnerByMemberId(login);
 	}
 
-	
+	@Override
+	public TradeVO findTradeByid(TradeVO trade) throws Exception {
+		return tradeDAO.findTradeByid(trade);
+	}
 	
 }

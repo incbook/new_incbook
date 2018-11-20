@@ -1,5 +1,7 @@
 package com.incbook.project.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.incbook.project.domain.BookVO;
 import com.incbook.project.domain.MemberVO;
@@ -38,7 +41,6 @@ public class TradeController {
 	
 	@RequestMapping(value = "/startTrade", method = RequestMethod.GET)
 	public void startTrade(OwnVO vo, Model model) throws Exception {
-		System.out.println(vo.getId());
 		OwnVO ownVO = ownService.findOwnByID(vo);
 		BookVO bookVO = bookService.findBookByID(ownVO.getBookId());
 		MemberVO memberVO = memberService.memberInfo(ownVO);
@@ -48,7 +50,11 @@ public class TradeController {
 	}
 
 	@RequestMapping(value = "/startTrade", method = RequestMethod.POST)
-	public String startTradePOST(TradeVO tradeVO, OwnVO ownVO) throws Exception {
+	public String startTradePOST(TradeVO tradeVO, OwnVO ownVO, String tradeDateString) throws Exception {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date tradeDate = format.parse(tradeDateString);
+		tradeVO.setTradeDate(tradeDate);
+		
 		tradeService.insertTrade(tradeVO, ownVO, tradeVO.getMemberId());
 		return "redirect:/member/memberDetail";
 	}
@@ -59,9 +65,6 @@ public class TradeController {
 		
 		List<TradeVO> lendersList = tradeService.findLendersByMemberId(login);
 		model.addAttribute("lendersList", lendersList);
-		for(TradeVO vo : lendersList) {
-			System.out.println(vo.getRent().getIsReturn());
-		}
 	}
 	
 	@RequestMapping(value = "/ownerPage", method = RequestMethod.GET)
@@ -71,6 +74,38 @@ public class TradeController {
 		List<TradeVO> ownerList = tradeService.findOwnerByMemberId(login);
 		
 		model.addAttribute("ownerList", ownerList);
+	}
+
+	@RequestMapping(value = "/pointOk", method = RequestMethod.POST)
+	public String pointOk(TradeVO tradeVO, RedirectAttributes rttr) throws Exception {
+		tradeVO = tradeService.findTradeByid(tradeVO);
+		System.out.println(tradeVO);
+
+		memberService.endOfTradeAmountOwner(tradeVO);
+		return "redirect:/trade/lendersPage";
+	}
+	@RequestMapping(value = "/pointNo", method = RequestMethod.POST)
+	public String pointNo(TradeVO tradeVO, RedirectAttributes rttr) throws Exception {
+		tradeVO = tradeService.findTradeByid(tradeVO);
+		
+		memberService.endOfTradeAmountLender(tradeVO);
+		return "redirect:/trade/ownerPage";
+	}
+	@RequestMapping(value = "/checkPoint", method = RequestMethod.GET)
+	public void checkPoint(HttpServletRequest request, Model model) throws Exception {
+		// start 포인트 사용, 적립 내역
+		MemberVO login = (MemberVO) request.getSession().getAttribute("login");
+		
+		List<TradeVO> usePointList = tradeService.findLendersByMemberId(login);
+		List<TradeVO> accumulatePointList = tradeService.findOwnerByMemberId(login);
+		
+		model.addAttribute("usePointList", usePointList);
+		model.addAttribute("accumulatePointList", accumulatePointList);
+		// end 포인트 사용, 적립 내역
+		
+		// 회원 정보 가져오기
+		MemberVO member = memberService.findMemberById(login.getId());
+		model.addAttribute("member", member);
 	}
 	
 }
