@@ -33,6 +33,12 @@
 									<a class="forget_pass inLine" href="#">비밀번호 찾기</a> &nbsp; | &nbsp;
 									<a class="forget_pass inLine" href="/member/signUp">회원가입</a>
 								</span>
+								<div align="center">
+									<span>
+										<a class="forget_pass inLine" href="/member/signUp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;회원가입</a> &nbsp; | &nbsp;
+										<a class="forget_pass inLine" href="#">비밀번호 찾기</a>
+									</span>
+								</div>
 							</div>
 						</form>
 					</div>					
@@ -40,6 +46,6 @@
 			</div>
 		</div>
 	</section>
-
+<div style="height: 29px;"></div>
 <%@include file="../include/footer.jsp"%>
 <script src="/resources/js/custom/form.js"></script>

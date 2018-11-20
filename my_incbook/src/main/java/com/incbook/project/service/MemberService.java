@@ -13,6 +13,8 @@ public interface MemberService {
 
 	public MemberVO findMemberById(int id) throws Exception;
 
+	public MemberVO findMemberByLoginIdAndJumin(MemberVO vo) throws Exception;
+
 	public String loginIdCeheck(MemberVO vo) throws Exception;
 
 	public void signUp(PartyVO pvo, MemberVO vo) throws Exception;

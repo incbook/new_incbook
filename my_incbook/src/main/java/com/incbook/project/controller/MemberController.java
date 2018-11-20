@@ -139,5 +139,20 @@ public class MemberController {
 		
 		model.addAttribute("result", result);
 	}
+	
+	@RequestMapping(value = "/passwordFind", method = RequestMethod.GET)
+	public void passwordFindGET() throws Exception {
+		
+	}
+
+	@RequestMapping(value = "/passwordFind", method = RequestMethod.POST)
+	public void passwordFindPOST(MemberVO vo) throws Exception {
+		MemberVO confirmMember = memberService.findMemberByLoginIdAndJumin(vo);
+		if (confirmMember == null) {
+			// 아이디 없으니 취소
+		} else {
+			// 아이디 확인 완료 했으니 비밀번호 변경
+		}
+	}
 
 }

@@ -68,6 +68,12 @@
 		where
 		id = #{id} and password = #{password}
 	</select>
+	
+	<select id="findMemberByLoginIdAndJumin" resultType="MemberVO">
+		select * from member
+		where
+		id = #{id} and jumin = #{jumin}
+	</select>
 
 	<insert id="signUp" parameterType="Map">
 		insert into member(id,
