@@ -56,7 +56,7 @@
 								</a>
 							</div>
 							<p>
-								<strong>전체 TOP-100</strong>
+								<strong>개인화 맞춤</strong>
 							</p>
 							<div class="orderby__wrapper">
 								<span></span>
@@ -93,8 +93,7 @@
 										<ul class="prize d-flex">
 											<li>${BookVO.genre}</li>
 										</ul>
-										<div class="action" quickId="${BookVO.id}" quickPrePage="top"
-											page="${pageMaker.cri.page}">
+										<div class="action" quickPersonalId="${BookVO.id}" quickPrePage="personal">
 											<div class="actions_inner">
 												<ul class="add_to_links">
 													<li><a data-toggle="modal" title="Quick View"

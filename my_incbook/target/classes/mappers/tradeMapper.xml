@@ -87,6 +87,7 @@
 		join book b
 			on o.book_id = b.id
 		where t.member_id = #{id}
+		order by t.trade_date desc
 	</select>
 
 	<select id="findOwnerByMemberId" resultMap="tradeMap">
@@ -106,6 +107,7 @@
 		join book b
 			on o.book_id = b.id
 		where o.member_id = #{id}
+		order by t.trade_date desc
 	</select>
 
 	<select id="findTradeByid" resultMap="tradeMap">
