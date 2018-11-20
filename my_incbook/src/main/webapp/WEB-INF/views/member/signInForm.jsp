@@ -19,7 +19,7 @@
 								</div>
 								<div class="input__box">
 									<label for="password">Password<span>*</span></label>
-									<input type=text  id="password" name="password">
+									<input type="password"  id="password" name="password">
 								</div>
 							
 								<!-- <input type="submit" title="로그인" value="로그인"> -->
