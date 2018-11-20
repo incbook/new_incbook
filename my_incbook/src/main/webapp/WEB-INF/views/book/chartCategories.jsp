@@ -127,8 +127,6 @@
 					</div>
 				</div>
 				<br>
-				<h3 class="wedget__title ss">Current upward Book</h3>
-				<a href="/book/allTop100"> 급상승 Book</a><br><br>
 				<h3 class="wedget__title ss">NEW100</h3>
 
 				<a href="/book/newBookChart"> 신간 도서</a><br><br>
@@ -140,7 +138,9 @@
 
 			<h3 class="wedget__title ss">Advertising</h3>
 			<aside class="wedget__categories sidebar--banner">
-				<img src="/img/1/a.jpg" alt="banner images">
+				 <img
+							src="/resources/images/others/banner_left3.jpg"
+							alt="banner images" >
 			</aside>
 		</div>
 	</div>

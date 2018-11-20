@@ -71,7 +71,7 @@
 									<div class="megamenu mega03 nav_width1">
 										<ul class="item item03">
 											<li class="title">Categories</li>
-											<li><a href="/book/allTop100">All Top 100</a></li>
+											<li><a href="/book/allTop100">InC Book Top 100</a></li>
 											<li><a href="/book/genreTop100">Genre Top 100</a></li>
 											<li><a href="/book/newBookChart">NEW 100</a></li>
 										</ul>

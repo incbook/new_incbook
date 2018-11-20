@@ -9,29 +9,13 @@
 				<div class="col-lg-12">
 					<div class="footer__widget footer__menu">
 						<div class="ft__logo">
-							<a href="index.html"> <img src="/resources/images/logo/3.png"
-								alt="logo">
+							<a href="http://localhost:8080"> <!-- 로고 누르면 index로 경로설정 -->
+								<img src="/resources/images/logo/logo.png" alt="logo images" class="loogoo">
 							</a>
-							<p>잉크북이다!!!!!!!!!</p>
+							
 						</div>
-						<div class="footer__content">
-							<ul
-								class="social__net social__net--2 d-flex justify-content-center">
-								<li><a href="#"><i class="bi bi-facebook"></i></a></li>
-								<li><a href="#"><i class="bi bi-google"></i></a></li>
-								<li><a href="#"><i class="bi bi-twitter"></i></a></li>
-								<li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-								<li><a href="#"><i class="bi bi-youtube"></i></a></li>
-							</ul>
-							<ul class="mainmenu d-flex justify-content-center">
-								<li><a href="index.html">Trending</a></li>
-								<li><a href="index.html">Best Seller</a></li>
-								<li><a href="index.html">All Product</a></li>
-								<li><a href="index.html">Wishlist</a></li>
-								<li><a href="index.html">Blog</a></li>
-								<li><a href="index.html">Contact</a></li>
-							</ul>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -52,7 +36,7 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div class="payment text-right">
-						<img src="/resources/images/icons/payment.png" alt="" />
+				
 					</div>
 				</div>
 			</div>
