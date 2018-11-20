@@ -75,8 +75,8 @@
 										<ul class="item item03">
 											<li class="title">Categories</li>
 											<li><a href="/book/allTop100">InC Book Top 100</a></li>
-											<li><a href="/book/genreTop100">Genre Top 100</a></li>
-											<li><a href="/book/newBookChart">NEW 100</a></li>
+											<li><a href="/book/genreTop100">장르 Top 100</a></li>
+											<li><a href="/book/newBookChart">신간도서</a></li>
 										</ul>
 
 									</div></li>
@@ -179,11 +179,7 @@
 										<li><a href="faq.html">Faq Page</a></li>
 										<li><a href="team.html">Team Page</a></li>
 									</ul></li>
-								<li><a href="shop-grid.html">Shop</a>
-									<ul>
-										<li><a href="shop-grid.html">Shop Grid</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-									</ul></li>
+
 								<li><a href="blog.html">이벤트</a>
 									<ul>
 										<li><a href="blog.html">룰렛</a></li>
