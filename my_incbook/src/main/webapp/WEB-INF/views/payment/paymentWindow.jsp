@@ -22,37 +22,51 @@
 	.papa_pa {
 		font-size: 26px;
 		line-height: 60px;
+		margin-top: 28px;
+		border-bottom: 2px solid #8bbdee;
 	}
 	.papa_pa2 {
 		padding: 20px 0;
 		font-size: 26px;
 		margin-bottom: 30px;
+		background-color: #8bbdee;
+		color: #fff;
+	}
+	.sososo {
+		border: 3px solid #8bbdee;
+		border-radius: 30px;
+		margin: 35px;
+	}
+	.so11 {
+		margin-bottom: 50px;
 	}
 </style>
 
 </head>
 <body>
 
-	<section class="papa">
+	<section class="papa" style="margin: 40px 20px; border: 4px solid #8bbdee;">
 		<p class="pa_title">바로결제</p>
-		<div class="papa_pa">
-			<p>우리은행</p>
-			<p>1000-123-456789</p>
-		</div>	
-		<div class="papa_pa2">
-        	<span>결제금액</span>&nbsp;
-        	<span id="pay_total" style="font-weight: bold;">
-        		${payInfo.paymentPrice}원
-        	</span>
+		<div class="sososo">
+			<div class="papa_pa">
+				<p>우리은행</p>
+				<p>1000-123-456789</p>
+			</div>	
+			<div class="papa_pa2">
+	        	<span>결제금액</span>&nbsp;
+	        	<span id="pay_total" style="font-weight: bold;">
+	        		${payInfo.paymentPrice}원
+	        	</span>
+	        </div>
+	        <div class="so11">
+		        <input type="submit" value="취소" class="btn btn-danger" onClick="window.close()">&emsp;
+		        <input type="submit" value="확인" class="btn btn-primary" id="btn_ok" onclick="btn_ok()">
+	        </div>
         </div>
-        <input type="submit" value="취소" class="btn btn-danger" onClick="window.close()">&emsp;
-        <input type="submit" value="확인" class="btn btn-primary" id="btn_ok" onclick="btn_ok()">
-        
   		<input type="hidden" id="point" value="${payInfo.point}">
   		<input type="hidden" id="payTotal" value="${payInfo.paymentPrice}">
    		<input type="hidden" id="memberId" value="${payInfo.memberId}">
    		<input type="hidden" id="type" value="충전">
-        
 	</section>
 	
 	

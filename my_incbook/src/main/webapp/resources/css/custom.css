@@ -368,3 +368,13 @@ mark {
 .pd_b_15 {
 	padding-bottom: 15px;
 }
+.btn_cus_danger {
+	color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.btn_cus_primary {
+	color: #fff;
+    background-color: #337ab7 !important;
+    border-color: #2e6da4 !important;
+}

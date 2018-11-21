@@ -127,10 +127,6 @@
 											<div class="switcher-options">
 												<div class="switcher-currency-trigger">
 													<div class="setting__menu">
-														<span> <a href="#">Compare Product</a>
-														</span> <span> <a href="#">My Account</a>
-														</span> <span> <a href="#">My Wishlist</a>
-														</span>
 														<c:if test="${login.id == null}">
 															<span> <a href="/member/signUp">회원가입</a>
 															</span>
@@ -143,7 +139,6 @@
 															<span> <a href="/member/memberDetail">회원상세정보</a>
 															</span>
 														</c:if>
-														<span><a href="#">Create An Account</a> </span>
 													</div>
 												</div>
 											</div>
