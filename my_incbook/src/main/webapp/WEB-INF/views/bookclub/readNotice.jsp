@@ -8,10 +8,10 @@
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12"></div>
-			<div class="col-lg-12 col-12">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10 col-12">
 				<div class="my__account__wrapper">
-					<h3 class="account__title">게시글 읽기</h3>
+					<h3 class="account__title" align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">북클럽이름나오게</h3>
 
 
 					<form role="form" action="/bookclub/readNotice" method="post">
@@ -21,32 +21,33 @@
 							<input type="hidden" name="boardId" value="${boardId}" />
 
 							<div class="input__box sign__up__form">
-								<label for="title" style="float: left;">${readNotice.title}&ensp;|&ensp;게시판제목뜨게</label> 
-								<p style="float: right;"><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${readNotice.regdate}" /></p>
+								<label for="title" style="float: left; width: 80%; font-size: 13px;">${readNotice.title}&ensp;|&ensp;게시판제목뜨게</label> 
+								<p style="float: right; width: 20%; text-align: right;"><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${readNotice.regdate}" /></p>
 								<%-- <input type="text" id="title" class="font_size_up" name="title" value="${readNotice.title}" readonly> --%>
 							</div>
 							
-							<div class="input__box sign__up__form" style="border: 1px dashed #000;">
-								<label for="title">글쓴이 : ${readNotice.memberId}</label>
+							
+							<%-- <div class="input__box sign__up__form">
+								<p style="border: 1px solid red; float: right; width: 33%;"><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${readNotice.regdate}" /></p>
+							</div> --%>
+							
+							<div class="clearfix"></div>
+							<div class="input__box sign__up__form">
+								<label for="title" style="border-top: 1px dashed; #ddd; padding: 10px 0; font-size: 13px;">글쓴이 : ${readNotice.memberId}</label>
+							</div>
+							
+							<div class="input__box">${readNotice.content}
+								<%-- <label for="title">내용<span>*</span></label> <input type="text"
+									id="content" name="content" value="${readNotice.content}"
+									readonly> --%>
 							</div>
 							
 							<div class="input__box">
-								<label for="title">날짜<span>*</span></label>
-								<fmt:formatDate pattern="YYYY-MM-dd HH:mm"
-									value="${readNotice.regdate}" />
-							</div>
-							<div class="input__box">
-								<label for="title">내용<span>*</span></label> <input type="text"
-									id="content" name="content" value="${readNotice.content}"
-									readonly>
-							</div>
-							<div class="input__box">
-								<label for="title">조회수<span>*</span></label> <input type="text"
-									id="viewCount" name="viewCount" value="${readNotice.viewCount}"
-									readonly>
+								<label for="title" style="font-size: 13px; padding: 10px 0; border-bottom: 1px dashed; #ddd;">조회수&ensp;|&ensp;<span>${readNotice.viewCount}</span></label>
 							</div>
 
-							<div class="form__btn button_form">
+
+							<div class="form__btn button_form custom__center">
 								<button type="button" id="btn_goBoardList" class="radius">게시판
 									목록</button>
 								<button type="button" id="btn_noticeModifyPage" class="radius">게시글
@@ -54,6 +55,7 @@
 								<button type="button" id="btn_deleteNotice" class="radius">게시글
 									삭제</button>
 							</div>
+							
 						</div>
 					</form>
 				</div>
