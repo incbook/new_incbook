@@ -158,13 +158,18 @@ public class PersonalizeServiceImpl implements PersonalizeService {
 //		}
 		
 		List<Map<String, Object>> genreList = personlizeGenreList(login);
-		
+		if(genreList.size() == 0) {
+			return null;
+		}
 		return bookDAO.personalizeList(genreList);
 	}
 
 	@Override
 	public List<BookVO> personalizeListOfIndex(MemberVO login) throws Exception {
 		List<Map<String, Object>> genreList = personlizeGenreList(login);
+		if(genreList.size() == 0) {
+			return null;
+		}
 		
 		return bookDAO.personalizeListOfIndex(genreList);
 	}
@@ -239,6 +244,9 @@ public class PersonalizeServiceImpl implements PersonalizeService {
 		Iterator<String> personalizeCntIter = personalizeKey.iterator();
 		
 		// 비율 구하기
+		if (personalizeCount == 0) {
+			personalizeCount = 1;
+		}
 		int proportion = 30 / personalizeCount;
 
 		// 장르와 비율을이 담겨있는 맵들을 리스트형식으로 저장
