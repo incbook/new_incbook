@@ -9,13 +9,18 @@
 	</resultMap>
 	
 	<insert id="insertPoint">
-		insert into payment(member_id, payment_price, point) 
-		values(#{memberId}, #{paymentPrice}, #{point})
+		insert into payment(member_id, payment_price, point, type) 
+		values(#{memberId}, #{paymentPrice}, #{point} ,#{type})
 	</insert>
 	
+	<insert id="roulettePoint">
+		insert into payment(member_id, payment_price, point, type)
+		values(#{vo.id}, 0,  #{point} ,'룰렛')
+	</insert>
+
 	<select id="historyAll" resultMap="PaymentVO">
 			select 
-			    id, member_id, payment_price, point, CONVERT_TZ(regdate, "+0:00", "-9:00")as regdate 
+			    id, member_id, payment_price, point, CONVERT_TZ(regdate, "+0:00", "-9:00")as regdate, type
 			from payment
 			where id > 0 and member_id = #{memberId}
 			order by id desc
@@ -27,11 +32,6 @@
 		where member_id = #{memberId}
 	</select>
 	
-	<update id="roulettePoint">
-		update payment set
-		payment_price = paymentPrice + #{point}
-		where member_id = #{vo.id}
-	</update>
 	
 	
 	

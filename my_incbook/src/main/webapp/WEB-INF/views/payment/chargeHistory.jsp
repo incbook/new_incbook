@@ -23,16 +23,18 @@
 	                                <tr class="ch_center">
 	                                    <th width="60em;">No</th>
 	                                    <th width="90em;">ID</th>
+	                                    <th width="90em;">충전방식</th>
 	                                    <th width="90em;">충전금액</th>
 	                                    <th width="90em;">포인트</th>
 	                                    <th width="120em;">날짜</th>
 	                                </tr>
 								</thead>
                                 <tbody>
-                                	<c:forEach items="${historyAll}" var="PaymentVO">
+                                	<c:forEach items="${historyAll}" var="PaymentVO" varStatus="state">
 		                            	<tr class="ch_center">
-		                                    <td>${PaymentVO.id}</td>
+		                                    <td>${((pageMaker.cri.page - 1) * 10) + state.index + 1}</td>
 		                                    <td>${PaymentVO.memberId}</td>
+		                                    <td>${PaymentVO.type}</td>
 		                                    <td>${PaymentVO.paymentPrice}</td>
 		                                    <td>${PaymentVO.point}</td>
 		                                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${PaymentVO.regdate}" /></td>

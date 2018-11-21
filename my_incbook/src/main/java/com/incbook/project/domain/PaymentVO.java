@@ -10,6 +10,7 @@ public class PaymentVO {
 	private int paymentPrice;
 	private Date regdate;
 	private int point;
+	private String type;
 	
 	public int getId() {
 		return id;
@@ -41,12 +42,17 @@ public class PaymentVO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	@Override
 	public String toString() {
 		return "PaymentVO [id=" + id + ", memberId=" + memberId + ", paymentPrice=" + paymentPrice + ", regdate="
-				+ regdate + ", point=" + point + "]";
+				+ regdate + ", point=" + point + ", type=" + type + "]";
 	}
-
-	
 	
 }

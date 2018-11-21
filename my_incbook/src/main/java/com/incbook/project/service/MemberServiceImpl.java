@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.PaymentVO;
 import com.incbook.project.domain.TradeVO;
 import com.incbook.project.persistence.MemberDAO;
 import com.incbook.project.persistence.PartyDAO;
@@ -92,12 +93,14 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.findMemberByLoginIdAndJumin(vo);
 	}
 
+	@Transactional(isolation=Isolation.READ_COMMITTED)
 	@Override
 	public void roulettePoint(MemberVO vo, int point) throws Exception {
 		Map<String, Object> rPoint = new HashMap<>();
 		rPoint.put("vo", vo);
 		rPoint.put("point", point);
 		memberDAO.roulettePoint(rPoint);
+		
 		paymentDAO.roulettePoint(rPoint);
 	}
 	@Transactional(isolation=Isolation.READ_COMMITTED)

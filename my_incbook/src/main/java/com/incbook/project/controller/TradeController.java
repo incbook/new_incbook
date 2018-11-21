@@ -54,7 +54,7 @@ public class TradeController {
 		int totalAmount = ownVO.getFee() * ownVO.getSelectPeriod();
 		
 		if (totalAmount > memberVO.getPoint()) {
-			rttr.addAttribute("tradeTry", "fail");
+			rttr.addFlashAttribute("tradeTry", "fail");
 			result = "redirect:/own/ownInfo?id="+ownVO.getId();
 		}
 		

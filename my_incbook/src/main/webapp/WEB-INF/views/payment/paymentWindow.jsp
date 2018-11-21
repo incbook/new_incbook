@@ -51,6 +51,7 @@
   		<input type="hidden" id="point" value="${payInfo.point}">
   		<input type="hidden" id="payTotal" value="${payInfo.paymentPrice}">
    		<input type="hidden" id="memberId" value="${payInfo.memberId}">
+   		<input type="hidden" id="type" value="충전">
         
 	</section>
 	
@@ -61,7 +62,8 @@
     	var memberId = $("#memberId").val();
     	var payTotal = $("#payTotal").val();
     	var point = $("#point").val();
-		top.opener.location="/payment/insertPoint?memberId="+memberId+"&paymentPrice="+payTotal+"&point="+point;
+    	var type = $("#type").val();
+		top.opener.location="/payment/insertPoint?memberId="+memberId+"&paymentPrice="+payTotal+"&point="+point+"&type="+type;
 		window.close();
 	}
 </script>

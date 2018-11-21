@@ -35,7 +35,7 @@ public class PaymentDAOImpl implements PaymentDAO{
 
 	@Override
 	public void roulettePoint(Map<String, Object> rPoint) throws Exception {
-		sqlSession.update(namespace+".roulettePoint", rPoint);
+		sqlSession.insert(namespace+".roulettePoint", rPoint);
 	}
 	
 	

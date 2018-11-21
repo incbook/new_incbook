@@ -25,9 +25,7 @@ public class EventController {
 	@RequestMapping(value = "/roulette", method = RequestMethod.POST)
 	public void roulettePage(RedirectAttributes rttr, HttpServletRequest request, Integer p) throws Exception {
 
-		System.out.println(p);
 		MemberVO vo = (MemberVO) request.getSession().getAttribute("login");
-		System.out.println(vo);
 		memberService.roulettePoint(vo, p);
 		
 	}
