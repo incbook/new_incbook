@@ -30,4 +30,6 @@ public interface MemberService {
 	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception;
 
 	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception;
+	
+	public void passwordChange(MemberVO memberVO) throws Exception;
 }

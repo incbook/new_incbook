@@ -89,5 +89,10 @@ public class MemberDAOImpl implements MemberDAO {
 	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception {
 		sqlSession.update(namespace+".endOfTradeAmountLender", tradeVO);
 	}
+
+	@Override
+	public void passwordChange(MemberVO memberVO) throws Exception {
+		sqlSession.update(namespace+".passwordChange", memberVO);
+	}
 	
 }

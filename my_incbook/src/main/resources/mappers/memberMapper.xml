@@ -125,4 +125,12 @@
 			point = point + #{totalAmount}
 		where id = #{memberId}
 	</update>
+	
+	<update id ="passwordChange">
+		update member set 
+			passowrd = #{password}
+		where id = #{memberId}
+	</update>
+	
+	
 </mapper>
