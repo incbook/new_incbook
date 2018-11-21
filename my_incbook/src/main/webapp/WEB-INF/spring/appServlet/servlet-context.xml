@@ -48,6 +48,7 @@
 			<mapping path="/book/**" />
 			<mapping path="/own/**" />
 			<mapping path="/announcement/**" />
+			<mapping path="/bookclub/**" />
 			<mapping path="/payment/**" />
 			<mapping path="/event/**" />
 			<mapping path="/index" />
