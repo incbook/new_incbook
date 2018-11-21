@@ -72,7 +72,7 @@
 	<select id="findMemberByLoginIdAndJumin" resultType="MemberVO">
 		select * from member
 		where
-		id = #{id} and jumin = #{jumin}
+		login_id = #{loginId} and jumin = #{jumin}
 	</select>
 
 	<insert id="signUp" parameterType="Map">
@@ -128,8 +128,8 @@
 	
 	<update id ="passwordChange">
 		update member set 
-			passowrd = #{password}
-		where id = #{memberId}
+			password = #{password}
+		where id = #{id}
 	</update>
 	
 	

@@ -27,9 +27,11 @@
 		
 		<script>
 			$(function() {
-				$("#findOK").on("click", function() {
-					window.open("/member/passwordChange");
-				});
+				var passwordFindTry = '${passwordFindTry}';
+				if (passwordFindTry == "fail") {
+					alert("아이디 또는 주민등록번호가 틀립니다.");
+				}
+				
 			});
 		</script>
 	</head>
@@ -41,18 +43,18 @@
 					<div class="col-lg-12">
 						<h3 align="center" class="mt_20">비밀번호 찾기</h3>
 						<div class="input__box">
-							<form class="account__form">
+							<form class="account__form" id="passwordFind" method="post">
 								<div class="input__box sign__up__form">
 									<label for="writer" class="right1 size_up3">아이디 <span>*</span></label> 
-									<input type="text">
+									<input type="text" name="loginId">
 								</div>
 								<div class="input__box sign__up__form">
 									<label for="writer" class="right1 size_up3">주민등록번호 <span>*</span></label> 
-									<input type="text">
+									<input type="text" name="jumin">
 								</div>
 								
 								<div class="form__btn cecenter">
-									<button type="button" id="findOK" class="radius cecenter" href="#" id="passwordChange">확인</button>
+									<button type="submit" id="findOK" class="radius cecenter" href="#" id="passwordChange">확인</button>
 								</div>
 							</form>
 						</div>

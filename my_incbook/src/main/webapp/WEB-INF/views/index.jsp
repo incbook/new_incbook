@@ -60,7 +60,9 @@
 <!-- End Slider area -->
 
 <c:if test="${login ne null}">
+<c:if test="${personalizeList ne null}">
 <!-- Start Personalizesletter Area -->
+
 <section class="wn__product__area brown--color pt--80  pb--30">
 	<div class="container">
 		<div class="row">
@@ -167,6 +169,7 @@
 	</div>
 </section>
 <!-- End Personalizesletter Area -->
+</c:if>
 </c:if>
 
 <!-- Start NEwsletter Area -->
