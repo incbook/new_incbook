@@ -45,6 +45,7 @@
 								</a>
 							</div>
 							<p>
+							
 								<strong>장르 TOP-100</strong>
 							</p>
 							<div class="orderby__wrapper">
