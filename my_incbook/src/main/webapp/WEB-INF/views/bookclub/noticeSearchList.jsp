@@ -62,7 +62,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-12 col-12 order-1 order-lg-2">
-									<table class="table table-striped tablecenter">
+									<table class="table table-striped tablecenter" style="border: 1px solid #ddd;">
 										<thead>
 											<tr>
 												<th scope="col" style="text-align: center">번호</th>

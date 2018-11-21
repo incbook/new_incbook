@@ -11,7 +11,7 @@
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10 col-12">
 				<div class="my__account__wrapper">
-					<h3 class="account__title"align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">게시글 수정</h3>
+					<h3 class="account__title" align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">게시글 수정</h3>
 
 
 						
@@ -25,17 +25,17 @@
 									
 							
 							<div class="input__box">
-								<label for="title">제목<span>*</span></label>
+								<label for="title" class="font_size_up">제목<span></span></label>
 								<input type="text" id="title" name="title" value="${noticeModifyTarget.title}">
 							</div>
 							
 							<div class="input__box">
-								<label for="title">내용<span>*</span></label>
-								<textarea rows="30" cols="200">${noticeModifyTarget.content}</textarea>
+								<label for="title" class="font_size_up">내용<span></span></label>
+								<textarea rows="20" cols="200" name="content">${noticeModifyTarget.content}</textarea>
 								<%-- <input type="text" id="content" name="content" value="${noticeModifyTarget.content}"> --%>
 							</div>
 
-								<div class="form__btn button_form">
+							<div class="form__btn button_form custom__center">
 								<button type="button" id="btn_modify" class="radius">수정</button>
 								<button type="button" id="btn_cancel" class="radius">취소</button>
 							</div>

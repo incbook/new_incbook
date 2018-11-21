@@ -37,7 +37,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<table class="table table-striped">
+				<table class="table table-striped" style="border: 1px solid #ddd;">
 					<thead>
 						<tr>
 							<th scope="col" style="text-align:center">번호</th>
@@ -91,7 +91,7 @@
 	</div>
 	
 	
-	<div class="form_all al_center">
+	<div class="form_all custom__center">
 		<div class="form__btn button_form">
 			<button type="submit" id="btn_insert" class="radius">공지사항 작성</button>
 		</div>
