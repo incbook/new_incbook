@@ -152,12 +152,18 @@ public class MemberController {
 	 * DB에 접근해서 입력받은 아이디/주민등록번호 확인
 	 */
 	@RequestMapping(value = "/passwordFind", method = RequestMethod.POST)
-	public void passwordFindPOST(MemberVO vo, Model model) throws Exception {
+	public String passwordFindPOST(MemberVO vo, Model model, RedirectAttributes rttr) throws Exception {
+		String result = "/member/passwordChange";
 		MemberVO confirmMember = memberService.findMemberByLoginIdAndJumin(vo);
+		System.out.println(confirmMember);
 		
 		model.addAttribute("confirmMember", confirmMember);
+		if (confirmMember == null) {
+			rttr.addFlashAttribute("passwordFindTry", "fail");
+			result = "redirect:/member/passwordFind";
+		}
 		
-		// 끝나고 페이지이동 어디로??
+		return result;
 	}
 	
 	/**
@@ -172,9 +178,10 @@ public class MemberController {
 	 * 비밀번호 입력하는 폼
 	 */
 	@RequestMapping(value = "/passwordChange", method = RequestMethod.POST)
-	public void passwordChangePOST(MemberVO vo, Model model) throws Exception {
-		memberService.passwordChange(vo);
+	public void passwordChangePOST(MemberVO vo, Model model, HttpServletRequest request) throws Exception {
+		System.out.println(vo);
 		
-		// 끝나고 페이지이동 어디로???
+		memberService.passwordChange(vo);
+		model.addAttribute("changed", "success");
 	}
 }

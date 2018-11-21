@@ -27,22 +27,17 @@
 		
 		<script>
 			$(function() {
-				var opener_url = window.opener.document.URL;
-				$(".selector").on("click", function() {
-					var opener_url_new = window.opener.document.URL;
-					
-					if (opener_url != opener_url_new || !opener) {
-						window.close();
-					} else {
-						var book_id = $(this).attr("book_id");
-						var book_title = $(this).attr("book_title");
-						opener.document.getElementById("title").value = book_title;
-						opener.document.getElementById("book_id").value = book_id;
-						 
-						window.close();
-					}
+				$("#passwordOK").on("click", function() {
+					var passwordChange = $("#passwordChange");
+					alert("??");
+					passwordChange.submit();
 				});
 				
+				var changed = '${changed}';
+				if (changed == "success") {
+					alert("변경 완료");
+					window.close();
+				}
 			});
 		</script>
 	</head>
@@ -55,15 +50,16 @@
 					<div class="col-lg-12">
 						<h3 align="center" class="mt_20">비밀번호 변경</h3>
 						<div class="input__box">
-							<form class="account__form">
+							<form class="account__form" id="passwordChange" action="/member/passwordChange" method="post">
+								<input type="hidden" name="id" value="${confirmMember.id}" >
 								<div class="input__box sign__up__form">
 									<p align="center"><mark>&ensp;변경하실 비밀번호를 입력해주세요&ensp;</mark></p>
 									<label for="writer" class="right1 size_up3">비밀번호 <span>*</span></label> 
-									<input type="text">
+									<input type="password" name="password">
 								</div>
 								<div class="input__box sign__up__form">
 									<label for="writer" class="right1 size_up3">비밀번호 확인 <span>*</span></label> 
-									<input type="text">
+									<input type="password">
 								</div>
 								
 								<div class="form__btn cecenter">
