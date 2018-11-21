@@ -342,5 +342,8 @@
 <!-- //Main wrapper -->
 <!--  여기야 -->
 
+<!-- 선택된 카테고리 진하게 -->
+<input type="hidden" id="categorySelected" value="personal">
+
 <%@include file="../include/footer.jsp"%>
 <script src="/resources/js/custom/chartCategories.js"></script>

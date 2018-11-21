@@ -95,6 +95,9 @@
 										<c:if test="${prePage == 'personal'}">
 											<button type="button" id="personal" class="radius">목록가기</button>
 										</c:if>
+										<c:if test="${prePage == 'sim'}">
+											<button type="button" id="sim" class="radius">목록가기</button>
+										</c:if>
 									</div>
 								</div>
 							</div>
@@ -225,63 +228,40 @@
 					</div>
 				</div>
 
-				<c:if test="${ownList eq null}">
-				<section class="wn__bestseller__area bg--white pt--80  pb--30">
-					<div class="container">
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="section__title text-center">
-									<h2 class="title__be--2">
-										대여 가능 <span class="color--theme">도서 목록</span>
-									</h2>
-									<p>Only you can choose what you want,<br>
-						Let's read all the books of this world and raise knowledge together!</p>
+				<c:if test="${ownList[0] ne null}">
+					<section class="wn__bestseller__area bg--white pt--80  pb--30">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="section__title text-center">
+										<h2 class="title__be--2">
+											대여 가능 <span class="color--theme">도서 목록</span>
+										</h2>
+										<p>
+											Only you can choose what you want,<br> Let's read all
+											the books of this world and raise knowledge together!
+										</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<!-- ----------------------------------------------- -->
-						<div class="tab__container mt--60">
-							<!-- Start Single Tab Content -->
-							<div class="row single__tab tab-pane fade show active"
-								id="nav-all" role="tabpanel">
-								<div
-									class="product__indicator--4 arrows_style owl-carousel owl-theme">
-									<c:forEach items="${ownList}" var="own" varStatus="status"
-										begin="0" step="2">
+							<!-- ----------------------------------------------- -->
+							<div class="tab__container mt--60">
+								<!-- Start Single Tab Content -->
+								<div class="row single__tab tab-pane fade show active"
+									id="nav-all" role="tabpanel">
+									<div
+										class="product__indicator--4 arrows_style owl-carousel owl-theme">
+										<c:forEach items="${ownList}" var="own" varStatus="status"
+											begin="0" step="2">
 
-										<div class='single__product'>
+											<div class='single__product'>
 
-											<!-- Start Single Product -->
-											<div class="col-lg-3 col-md-4 col-sm-6 col-12">
-												<div class="product product__style--3">
-													<div class="product__thumb">
-														<a class="first__img"
-															href="/own/ownInfo?id=${ownList[status.index].id}"> <img
-															src="/img/${findBookByID2.id}/${findBookByID2.image}"
-															alt="product image">
-														</a>
-														<div class="hot__box">
-															<span class="hot-label">BEST SALER</span>
-														</div>
-													</div>
-													<div
-														class="product__content content--center content--center">
-														<ul class="">
-															<li>상태 : ${ownList[status.index].state}</li>
-															<li>지역 : ${ownList[status.index].rentLocation}</li>
-															<li>대여료 : ${ownList[status.index].fee}</li>
-														</ul>
-													</div>
-												</div>
-											</div>
-											<!-- Start Single Product -->
-											<c:if test="${not (ownList[status.index+1] eq null)}">
-
+												<!-- Start Single Product -->
 												<div class="col-lg-3 col-md-4 col-sm-6 col-12">
 													<div class="product product__style--3">
 														<div class="product__thumb">
 															<a class="first__img"
-																href="/own/ownInfo?id=${ownList[status.index+1].id}">
+																href="/own/ownInfo?id=${ownList[status.index].id}">
 																<img
 																src="/img/${findBookByID2.id}/${findBookByID2.image}"
 																alt="product image">
@@ -293,34 +273,64 @@
 														<div
 															class="product__content content--center content--center">
 															<ul class="">
-																<li>상태 : ${ownList[status.index+1].state}</li>
-																<li>지역 : ${ownList[status.index+1].rentLocation}</li>
-																<li>대여료 : ${ownList[status.index+1].fee}</li>
+																<li>상태 : ${ownList[status.index].state}</li>
+																<li>지역 : ${ownList[status.index].rentLocation}</li>
+																<li>대여료 : ${ownList[status.index].fee}</li>
 															</ul>
 														</div>
 													</div>
 												</div>
-											</c:if>
+												<!-- Start Single Product -->
+												<c:if test="${not (ownList[status.index+1] eq null)}">
 
-										</div>
+													<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+														<div class="product product__style--3">
+															<div class="product__thumb">
+																<a class="first__img"
+																	href="/own/ownInfo?id=${ownList[status.index+1].id}">
+																	<img
+																	src="/img/${findBookByID2.id}/${findBookByID2.image}"
+																	alt="product image">
+																</a>
+																<div class="hot__box">
+																	<span class="hot-label">BEST SALER</span>
+																</div>
+															</div>
+															<div
+																class="product__content content--center content--center">
+																<ul class="">
+																	<li>상태 : ${ownList[status.index+1].state}</li>
+																	<li>지역 : ${ownList[status.index+1].rentLocation}</li>
+																	<li>대여료 : ${ownList[status.index+1].fee}</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</c:if>
 
-									</c:forEach>
+											</div>
+
+										</c:forEach>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
 				</c:if>
 
 				<div class="wn__related__product pt--80 pb--50">
 					<div class="section__title text-center">
-						<h2 class="title__be--2">이 도서와 <span class="color--theme">유사한 도서</span></h2>
-						<p>Only you can choose what you want,<br>
-						Let's read all the books of this world and raise knowledge together!</p>
+						<h2 class="title__be--2">
+							이 도서와 <span class="color--theme">유사한 도서</span>
+						</h2>
+						<p>
+							Only you can choose what you want,<br> Let's read all the
+							books of this world and raise knowledge together!
+						</p>
 					</div>
-					
+
 					<div class="row mt--60">
-					
+
 						<div
 							class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
 							<c:forEach items="${randomBookList}" var="randomBook"
@@ -329,7 +339,8 @@
 								<div
 									class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
 									<div class="product__thumb">
-										<a class="first__img" href="single-product.html"><img
+										<a class="first__img"
+											href="/book/readPage?id=${randomBook.id}&prePage=sim"><img
 											src="/img/${randomBook.id}/${randomBook.image}"
 											alt="product image"></a>
 										<div class="hot__box">
@@ -381,24 +392,23 @@
 				<div class="shop__sidebar">
 
 
-			<h3 class="wedget__title ss">Advertising</h3>
-				<c:if test="${advertBook eq null}">
-					<aside class="wedget__categories sidebar--banner">
-						<img src="/resources/images/others/banner_left.jpg"
-							alt="banner images">
-					</aside>
-				</c:if>
+					<h3 class="wedget__title ss">Advertising</h3>
+					<c:if test="${advertBook eq null}">
+						<aside class="wedget__categories sidebar--banner">
+							<img src="/resources/images/others/banner_left.jpg"
+								alt="banner images">
+						</aside>
+					</c:if>
 
-				<c:if test="${advertBook ne null}">
-					<aside class="wedget__categories sidebar--banner">
-						<a href="/book/readPage?id=${advertBook.id}&prePage=personal">
-							<img
-								src="/img/${advertBook.id}/${advertBook.image}"
-								alt="banner images" >
-						</a>
-					</aside>
-				</c:if>
-					
+					<c:if test="${advertBook ne null}">
+						<aside class="wedget__categories sidebar--banner">
+							<a href="/book/readPage?id=${advertBook.id}&prePage=personal">
+								<img src="/img/${advertBook.id}/${advertBook.image}"
+								alt="banner images">
+							</a>
+						</aside>
+					</c:if>
+
 				</div>
 			</div>
 		</div>
@@ -449,12 +459,22 @@
 				formObj.attr("method", "get");
 				formObj.submit();
 			});
-			
+
 			$("#personal").on("click", function() {
 				formObj.attr("action", "/personalize/personalize");
 				formObj.attr("method", "get");
 				formObj.submit();
 			});
-
-		});
+			
+			$("#sim").on("click", function() {
+				
+				self.location = "genreTop100"
+					+ "?searchType="
+					+ "genre"
+					+ "&keyword="
+					+ '${findBookByID2.genre}'});
+				/* formObj.attr("action", "/book/search");
+				formObj.attr("method", "get");
+				formObj.submit(); */
+			});
 	</script>
