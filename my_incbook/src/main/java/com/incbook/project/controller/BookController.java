@@ -267,7 +267,11 @@ public class BookController {
 		BookVO advertBook = null;
 		if (login != null) {
 			List<BookVO> personalizeBookList = personalizeService.personalizeListOfIndex(login);
-			advertBook = personalizeBookList.get(0);
+			if(personalizeBookList == null) {
+				advertBook = null;
+			} else {
+				advertBook = personalizeBookList.get(0);
+			}
 		}
 		model.addAttribute("advertBook", advertBook);
 	}
