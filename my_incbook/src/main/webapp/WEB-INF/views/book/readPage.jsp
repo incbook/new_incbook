@@ -225,7 +225,7 @@
 					</div>
 				</div>
 
-				<c:if test="${ownList eq null}">
+				<c:if test="${ownList ne null}">
 				<section class="wn__bestseller__area bg--white pt--80  pb--30">
 					<div class="container">
 						<div class="row">
