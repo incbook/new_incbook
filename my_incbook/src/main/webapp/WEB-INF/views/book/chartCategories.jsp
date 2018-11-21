@@ -30,6 +30,38 @@
 				$('#list2').hide();
 			});
 		});
+		
+		var categories = $(".ds-fb");
+
+		/*폼에 빈칸이 있는지 확인*/
+		if ('${boardId}' == 0) {
+			selectedBoardChangeStyle(ds_fb.eq(0));
+		} else {
+			for (var i = 0; i < ds_fb.length; i++) {
+				if (ds_fb.eq(i).attr("boardId") == '${boardId}') {
+					selectedBoardChangeStyle(ds_fb.eq(i));
+
+					/* var i = ds_fb.eq(i).attr("boardTitle");
+					alert(i);
+					$.ajax({
+						url : "/bookclub/noticeSearchList",
+						type : 'GET',
+						data : {
+							"abcd" : "123",
+							"qqq" : "aaa"
+						},
+						success : alert("완료!")
+					}); */
+				}
+			}
+
+		}
+		function selectedBoardChangeStyle(selectedBoard) {
+			selectedBoard.css('font-weigh', 'bold');
+			selectedBoard.css('font-size', '20px');
+			selectedBoard.css('color', '#e59285');
+			selectedBoard.attr("boardTitleCheck", "true");
+		}
 	});
 </script>
 <title>Insert title here</title>
@@ -39,12 +71,12 @@
 		<div class="shop__sidebar">
 			<aside class="wedget__categories poroduct--cat">
 				<h3 class="wedget__title ss">TOP-100</h3>
-				<div class="" style="background-color: white;">
+				<div class="chartCategory" style="background-color: white;">
 					<a href="/book/allTop100"> InC Book Top 100</a>
 				</div>
 				<!--  여기야 -->
 
-				<div class="hover1" style="background-color: white;"> 장르 Top 100 (국내)</div>
+				<div class="hover1 chartCategory" style="background-color: white;"> 장르 Top 100 (국내)</div>
 				<div id="list1" class="hover1" style="width: 836px;">
 					<div
 						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
@@ -90,7 +122,7 @@
 					</div>
 				</div>
 
-				<div class="hover2" style="background-color: white;"> 장르 Top 100 (외국)</div>
+				<div class="hover2 chartCategory" style="background-color: white;"> 장르 Top 100 (외국)</div>
 				<div id="list2" class="hover2" style="width: 836px;">
 					<div
 						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
@@ -148,11 +180,12 @@
 				</div>
 				<br>
 				<h3 class="wedget__title ss">NEW-100</h3>
-
-				<a href="/book/newBookChart"> 신간 도서</a><br><br>
+				<div class="newBook chartCategory">
+					<a href="/book/newBookChart"> 신간 도서</a><br><br>
+				</div>
 				<c:if test="${login ne null}">
 					<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
-					<div class="newBook" style="background-color: white;">
+					<div class="personalize chartCategory" style="background-color: white;">
 						<a href="/personalize/personalize">개인화 맞춤-도서</a>
 					</div>
 				</c:if>
