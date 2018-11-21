@@ -225,7 +225,7 @@
 					</div>
 				</div>
 
-				<c:if test="${ownList ne null}">
+				<c:if test="${ownList[0] ne null}">
 				<section class="wn__bestseller__area bg--white pt--80  pb--30">
 					<div class="container">
 						<div class="row">
@@ -235,7 +235,7 @@
 										대여 가능 <span class="color--theme">도서 목록</span>
 									</h2>
 									<p>Only you can choose what you want,<br>
-						Let's read all the books of this world and raise knowledge together!</p>
+										Let's read all the books of this world and raise knowledge together!</p>
 								</div>
 							</div>
 						</div>

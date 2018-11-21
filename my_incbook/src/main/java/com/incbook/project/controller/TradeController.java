@@ -69,7 +69,7 @@ public class TradeController {
 		tradeVO.setTradeDate(tradeDate);
 		
 		tradeService.insertTrade(tradeVO, ownVO, tradeVO.getMemberId());
-		return "redirect:/member/memberDetail";
+		return "redirect:/trade/lendersPage";
 	}
 	
 	@RequestMapping(value = "/lendersPage", method = RequestMethod.GET)
