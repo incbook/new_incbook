@@ -59,7 +59,7 @@
 	</div>
 </div>
 	
-<input type="hidden" value="$tradeTry}" id="tradeTry">
+<input type="hidden" value="${tradeTry}" id="tradeTry">
 	
 	
 <%@include file="../include/footer.jsp"%>

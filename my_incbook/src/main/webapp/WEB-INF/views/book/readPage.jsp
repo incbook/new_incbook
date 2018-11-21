@@ -225,7 +225,7 @@
 					</div>
 				</div>
 
-
+				<c:if test="${ownList eq null}">
 				<section class="wn__bestseller__area bg--white pt--80  pb--30">
 					<div class="container">
 						<div class="row">
@@ -310,6 +310,7 @@
 						</div>
 					</div>
 				</section>
+				</c:if>
 
 				<div class="wn__related__product pt--80 pb--50">
 					<div class="section__title text-center">
@@ -390,9 +391,11 @@
 
 				<c:if test="${advertBook ne null}">
 					<aside class="wedget__categories sidebar--banner">
-						<img
-							src="/img/${advertBook.id}/${advertBook.image}"
-							alt="banner images" >
+						<a href="/book/readPage?id=${advertBook.id}&prePage=personal">
+							<img
+								src="/img/${advertBook.id}/${advertBook.image}"
+								alt="banner images" >
+						</a>
 					</aside>
 				</c:if>
 					

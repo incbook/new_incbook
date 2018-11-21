@@ -3,6 +3,7 @@ package com.incbook.project.service;
 import com.incbook.project.domain.MemberVO;
 import com.incbook.project.domain.OwnVO;
 import com.incbook.project.domain.PartyVO;
+import com.incbook.project.domain.PaymentVO;
 import com.incbook.project.domain.TradeVO;
 
 public interface MemberService {

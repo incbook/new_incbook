@@ -166,9 +166,9 @@
 							alt="banner images" >
 				</c:if>
 				<c:if test="${advertBook ne null}">
-				 <img
-							src="/img/${advertBook.id}/${advertBook.image}"
-							alt="banner images" >
+				<a href="/book/readPage?id=${advertBook.id}&prePage=personal">
+					<img src="/img/${advertBook.id}/${advertBook.image}" alt="banner images" >
+				</a>
 				</c:if>
 			</aside>
 		</div>
