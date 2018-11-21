@@ -12,7 +12,13 @@
 			<div class="col-lg-12 col-12">
 				<div class="my__account__wrapper">
 					<h3 class="account__title">게시글 읽기</h3>
-
+						<div class="input__box" style="padding-left: 50px;">
+						<label for="title">글쓴이<span>:</span>${readNotice.memberId}</label>
+									<br>
+								<label for="title">날짜<span>:</span></label>
+								<fmt:formatDate pattern="YYYY-MM-dd HH:mm"
+									value="${readNotice.regdate}" />
+							</div>
 
 
 					<form role="form" action="/bookclub/readNotice" method="post">

@@ -131,11 +131,21 @@
 										<c:out value="${cri.searchType eq 'title' ? 'selected' : ''}"/>>제목</option>
 									<option value="memberId"
 										<c:out value="${cri.searchType eq 'member_id' ? 'selected' : ''}"/>>글쓴이</option>
+<<<<<<< HEAD
+								</select>
+								
+				
+			
+							<input type="text" name='keyword' id="keywordinput">
+							<button type="button" id='btn_search' class="radius">검색</button></div>
+							
+=======
 								</select> <input type="text" name='keyword' id="keywordinput"
 									value='${cri.keyword}' />
 								<button type="button" id='btn_search' class="radius">검색</button>
 							</div>
 
+>>>>>>> master
 							<div class="clearfix"></div>
 
 
@@ -159,6 +169,8 @@
 
 						</div>
 						<form role="form" method="post">
+						
+						
 							<input type='hidden' name='boardId' value="${boardId}"> <input
 								type='hidden' id='bookclubId' name='bookclubId'
 								value="${bookclubId}"> <input type="hidden" name="page"

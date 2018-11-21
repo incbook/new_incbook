@@ -102,7 +102,7 @@
 		<option value="name" 
 			<c:out value="${cri.searchType eq 'name' ? 'selected' : ''}"/>>이름</option>
 	</select>
-	<input type="text" name='keyword' id="keywordinput" value='${cri.keyword}' />
+	<input type="text" name='keyword' id="keywordinput">
 	<button type="button" id='btn_search' class="radius">검색</button>
 			<button type="submit" id="btn_insert" class="radius">북클럽 생성</button>
 		</div>

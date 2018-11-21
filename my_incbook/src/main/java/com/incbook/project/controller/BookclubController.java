@@ -1,4 +1,4 @@
-package com.incbook.project.controller;
+﻿package com.incbook.project.controller;
 
 import java.util.List;
 
@@ -202,7 +202,9 @@ public class BookclubController {
 		model.addAttribute("bookclubId", bookclubId);
 		System.out.println(bookclubId);
 		model.addAttribute("boardId", boardIdInt);
+
 		model.addAttribute("bookclubname", bookclubname);
+
 
 	}
 
