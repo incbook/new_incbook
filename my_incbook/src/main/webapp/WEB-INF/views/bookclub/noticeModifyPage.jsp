@@ -8,10 +8,10 @@
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12"></div>
-			<div class="col-lg-12 col-12">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10 col-12">
 				<div class="my__account__wrapper">
-					<h3 class="account__title">게시글 수정</h3>
+					<h3 class="account__title"align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">게시글 수정</h3>
 
 
 						
@@ -31,7 +31,8 @@
 							
 							<div class="input__box">
 								<label for="title">내용<span>*</span></label>
-								<input type="text" id="content" name="content" value="${noticeModifyTarget.content}">
+								<textarea rows="30" cols="200">${noticeModifyTarget.content}</textarea>
+								<%-- <input type="text" id="content" name="content" value="${noticeModifyTarget.content}"> --%>
 							</div>
 
 								<div class="form__btn button_form">
