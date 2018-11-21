@@ -184,7 +184,6 @@ public class BookController {
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(bookService.genreListCount(cri));
-		System.out.println(vo);
 		model.addAttribute("vo", vo);
 		model.addAttribute("pageMaker", pageMaker);
 
