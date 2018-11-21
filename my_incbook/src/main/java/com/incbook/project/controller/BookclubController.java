@@ -1,4 +1,4 @@
-package com.incbook.project.controller;
+﻿package com.incbook.project.controller;
 
 import java.util.List;
 
@@ -177,9 +177,9 @@ public class BookclubController {
 	//게시글 검색기능
 	@RequestMapping(value = "/noticeSearchList", method = RequestMethod.GET)
 	public void noticeSearchList(@RequestParam("bookclubId") int bookclubId, String boardId,
-			@ModelAttribute("cri") SearchCriteria cri, Model model, String name1) throws Exception {
+			@ModelAttribute("cri") SearchCriteria cri, Model model, String bookclubname) throws Exception {
 		int boardIdInt = 0;
-		System.out.println(name1);
+		System.out.println(bookclubname);
 		if (! (boardId == null || "".equals(boardId)) ) {
 			boardIdInt = Integer.parseInt(boardId);
 		}else{
@@ -202,6 +202,10 @@ public class BookclubController {
 		model.addAttribute("bookclubId", bookclubId);
 		System.out.println(bookclubId);
 		model.addAttribute("boardId", boardIdInt);
+
+		model.addAttribute("bookclubname", bookclubname);
+
+
 	}
 
 	@RequestMapping(value = "/boardModifyPage", method = RequestMethod.GET)

@@ -5,24 +5,26 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="../include/header.jsp"%>
+<div style="margin:90px"></div>
 
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--4">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-9">
+			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">게시판 샘플!!!!</h2>
+					<h2 class="bradcaump-title">책이란 저자의 인생을 읽는 것이다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">게시판 샘플</span>
+							class="breadcrumb_item active">Bookclub</span>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 <section class="my_account_area pt--80 pb--55 bg--white">
 	<div class="container">
@@ -36,9 +38,11 @@
 
 			<!-- End Bradcaump area -->
 			<div class="col-lg-10 col-12 order-1 order-lg-2">
+							<strong><p style="font-size:20px; margin-bottom: 30px;" align = "center">${bookclubname}</p></strong>
 				<div class="my__account__wrapper">
 					<div class="cus_title">
 						<p>
+							
 							<strong id="boardTitle">title</strong>
 						</p>
 					</div>
@@ -127,11 +131,21 @@
 										<c:out value="${cri.searchType eq 'title' ? 'selected' : ''}"/>>제목</option>
 									<option value="memberId"
 										<c:out value="${cri.searchType eq 'member_id' ? 'selected' : ''}"/>>글쓴이</option>
+<<<<<<< HEAD
+								</select>
+								
+				
+			
+							<input type="text" name='keyword' id="keywordinput">
+							<button type="button" id='btn_search' class="radius">검색</button></div>
+							
+=======
 								</select> <input type="text" name='keyword' id="keywordinput"
 									value='${cri.keyword}' />
 								<button type="button" id='btn_search' class="radius">검색</button>
 							</div>
 
+>>>>>>> master
 							<div class="clearfix"></div>
 
 
@@ -155,6 +169,8 @@
 
 						</div>
 						<form role="form" method="post">
+						
+						
 							<input type='hidden' name='boardId' value="${boardId}"> <input
 								type='hidden' id='bookclubId' name='bookclubId'
 								value="${bookclubId}"> <input type="hidden" name="page"
