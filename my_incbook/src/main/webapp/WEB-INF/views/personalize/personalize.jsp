@@ -42,7 +42,8 @@
 	<div class="container">
 		<div class="row">
 
-			<%@include file="../book/chartCategories.jsp"%>
+			<div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40 categorySide">
+			</div>
 
 			<div class="col-lg-9 col-12 order-1 order-lg-2">
 				<div class="row">
@@ -342,4 +343,4 @@
 <!--  여기야 -->
 
 <%@include file="../include/footer.jsp"%>
-
+<script src="/resources/js/custom/chartCategories.js"></script>

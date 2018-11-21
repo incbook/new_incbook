@@ -15,6 +15,8 @@ public interface MemberDAO {
 
 	public MemberVO findMemberById(int id) throws Exception;
 	
+	public MemberVO findMemberByLoginIdAndJumin(MemberVO vo) throws Exception;
+	
 	public String loginIdCeheck(MemberVO vo) throws Exception;
 
 	public void signUp(Map<String, Object> vo) throws Exception;
@@ -34,4 +36,7 @@ public interface MemberDAO {
 	public void endOfTradeAmountOwner(TradeVO tradeVO) throws Exception;
 
 	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception;
+	
+	public void passwordChange(MemberVO memberVO) throws Exception;
+	
 }

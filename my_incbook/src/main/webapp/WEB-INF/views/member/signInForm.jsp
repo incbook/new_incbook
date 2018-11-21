@@ -32,7 +32,7 @@
 								<div align="center">
 									<span>
 										<a class="forget_pass inLine" href="/member/signUp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;회원가입</a> &nbsp; | &nbsp;
-										<a class="forget_pass inLine" href="#">비밀번호 찾기</a>
+										<a class="forget_pass inLine" href="#" id="passwordFind">비밀번호 찾기</a>
 									</span>
 								</div>
 							</div>
@@ -42,6 +42,24 @@
 			</div>
 		</div>
 	</section>
-
+<div style="height: 29px;"></div>
 <%@include file="../include/footer.jsp"%>
 <script src="/resources/js/custom/form.js"></script>
+<script>
+	$(function() {
+		$("#passwordFind").on("click",function() {
+			passwordFindPopup();
+		});
+	});
+	
+	function passwordFindPopup() {
+   		var width = 400;
+   		var height = 600;
+   		var left = (window.screen.width / 2) - (width / 2);
+   		var top =  (window.screen.height / 2) - (height / 2);
+   		 
+   		window.name = "passwordFind";
+   		window.open('/member/passwordFind', 'searchBook', 
+   				'width='+width+', height='+height+', menubar=no, status=no, toolbar=no, left='+left+', top='+top);
+    }
+</script>

@@ -116,7 +116,8 @@
 	<select id="equalGenreBookRandomList" resultMap="BookVO">
 		select * 
 		from book 
-		where genre=#{genre} 
+		where genre=#{genre}
+		and id != #{id}
 		order by rand() limit 10;
 	</select>
 	
