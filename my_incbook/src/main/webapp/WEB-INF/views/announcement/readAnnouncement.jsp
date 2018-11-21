@@ -35,15 +35,15 @@
 							</div> --%>
 							
 							<div class="input__box sign__up__form">
-								<label for="memberId">작성자 <span>&ensp;${readAnnouncement.memberId}</span></label>
+								<label for="memberId" style="float: left; width: 100%; margin: 20px 0; padding: 10px 0; border-top: 1px dashed; #ddd;">작성자 <span>&ensp;${readAnnouncement.memberId}</span></label>
 							</div>
 
-							<div class="input__box sign__up__form" >${readAnnouncement.content}</div>
+							<div class="input__box sign__up__form"  style="float: left; width: 100%; height: 300px; padding: 10px; border-radius:10px; border: 1px solid #ddd;">${readAnnouncement.content}</div>
 <%-- 							<div class="input__box" style="border:1px solid #ddd; border-radius: 3px; padding: 6px;">${readAnnouncement.content}</div> --%>
 							
 							
-
-							<div class="input__box sign__up__form">
+							<div class="clearfix"></div>
+							<div class="input__box sign__up__form" style="margin: 20px 0; border-bottom: 1px dashed; #ddd;">
 								<label for="regdate">조회수<span>&ensp;${readAnnouncement.viewCount}</span></label>
 							</div>
 							

@@ -343,30 +343,22 @@
 											href="/book/readPage?id=${randomBook.id}&prePage=sim"><img
 											src="/img/${randomBook.id}/${randomBook.image}"
 											alt="product image"></a>
-										<div class="hot__box">
-											<span class="hot-label">BEST SALLER</span>
-										</div>
 									</div>
 									<div class="product__content content--center">
 										<h4>
-											<a href="single-product.html">${book.title}</a>
+											<a href="single-product.html">${randomBook.title}</a>
 										</h4>
 										<ul class="prize d-flex">
-											<li>$35.00</li>
-											<li class="old_prize">$35.00</li>
+											<li>${randomBook.genre}</li>
 										</ul>
-										<div class="action">
+										<div class="action" quickId="${randomBook.id}" quickPrePage="sim"
+											page="${pageMaker.cri.page}">
 											<div class="actions_inner">
 												<ul class="add_to_links">
-													<li><a class="cart" href="cart.html"><i
-															class="bi bi-shopping-bag4"></i></a></li>
-													<li><a class="wishlist" href="wishlist.html"><i
-															class="bi bi-shopping-cart-full"></i></a></li>
-													<li><a class="compare" href="#"><i
-															class="bi bi-heart-beat"></i></a></li>
 													<li><a data-toggle="modal" title="Quick View"
 														class="quickview modal-view detail-link"
-														href="#productmodal"><i class="bi bi-search"></i></a></li>
+														href="#productmodal"> <i class="bi bi-search"></i>
+													</a></li>
 												</ul>
 											</div>
 										</div>
@@ -433,48 +425,50 @@
 	<%@include file="../include/footer.jsp"%>
 
 	<script type="text/javascript">
-		$(document).ready(function() {
-			var formObj = $("[role]");
-			console.log(formObj);
-			$("#modify").on("click", function() {
-				formObj.attr("action", "/book/modifyPage");
-				formObj.attr("method", "get");
-				formObj.submit();
-			});
+		$(document).ready(
+				function() {
+					var formObj = $("[role]");
+					console.log(formObj);
+					$("#modify").on("click", function() {
+						formObj.attr("action", "/book/modifyPage");
+						formObj.attr("method", "get");
+						formObj.submit();
+					});
 
-			$("#top").on("click", function() {
-				formObj.attr("action", "/book/allTop100");
-				formObj.attr("method", "get");
-				formObj.submit();
-			});
+					$("#top").on("click", function() {
+						formObj.attr("action", "/book/allTop100");
+						formObj.attr("method", "get");
+						formObj.submit();
+					});
 
-			$("#new").on("click", function() {
-				formObj.attr("action", "/book/newBookChart");
-				formObj.attr("method", "get");
-				formObj.submit();
-			});
+					$("#new").on("click", function() {
+						formObj.attr("action", "/book/newBookChart");
+						formObj.attr("method", "get");
+						formObj.submit();
+					});
 
-			$("#genre").on("click", function() {
-				formObj.attr("action", "/book/genreTop100");
-				formObj.attr("method", "get");
-				formObj.submit();
-			});
+					$("#genre").on("click", function() {
+						formObj.attr("action", "/book/genreTop100");
+						formObj.attr("method", "get");
+						formObj.submit();
+					});
 
-			$("#personal").on("click", function() {
-				formObj.attr("action", "/personalize/personalize");
-				formObj.attr("method", "get");
-				formObj.submit();
-			});
-			
-			$("#sim").on("click", function() {
-				
-				self.location = "genreTop100"
-					+ "?searchType="
-					+ "genre"
-					+ "&keyword="
-					+ '${findBookByID2.genre}'});
-				/* formObj.attr("action", "/book/search");
-				formObj.attr("method", "get");
-				formObj.submit(); */
-			});
+					$("#personal").on("click", function() {
+						formObj.attr("action", "/personalize/personalize");
+						formObj.attr("method", "get");
+						formObj.submit();
+					});
+
+					$("#sim").on(
+							"click",
+							function() {
+
+								self.location = "genreTop100" + "?searchType="
+										+ "genre" + "&keyword="
+										+ '${findBookByID2.genre}'
+							});
+					/* formObj.attr("action", "/book/search");
+					formObj.attr("method", "get");
+					formObj.submit(); */
+				});
 	</script>
