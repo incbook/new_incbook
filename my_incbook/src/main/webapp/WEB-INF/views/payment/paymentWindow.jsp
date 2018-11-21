@@ -9,33 +9,23 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <style>
-	body {
-	/*	background-image: url("/images/bg1.jpg");
-		background-size: 480px 600px; */
-	}
 	.papa {
-		/* background-color: #fff; 
-		opacity:0.5!important; */
 		text-align: center;
 		color: #8bbdee;
 		height: 500px;
-		/* padding-top: 50px; */
 	}
 	.pa_title {
 		background-color: #8bbdee;
 		color: #fff;
 		font-size: 40px;
-		/* margin: 30px 0 10px 0; */
 	}
 	.papa_pa {
-		/* padding: 40px 0; */
 		font-size: 26px;
 		line-height: 60px;
 	}
 	.papa_pa2 {
 		padding: 20px 0;
 		font-size: 26px;
-		/* border: 3px solid #8bbdee; */
 		margin-bottom: 30px;
 	}
 </style>

@@ -21,7 +21,9 @@ h2 {
 h1 {
 	font-family: 'Nanum Gothic';
 }
-
+mark {
+	color: #fff;
+}
 .board_name {
 	padding-top: 50px;
 }
@@ -197,6 +199,7 @@ h1 {
 .radius {
 	border-radius: 20px;
 } 
+
 .btn_ri {
 	margin-left: 12px;
 }
@@ -252,6 +255,12 @@ h1 {
 	width: 80% !important;
 	margin-left: 5px;
 }
+.cecenter {
+	text-align: center;
+}
+.mt_20 {
+	margin-top: 20px;
+}
 
 .al_center {
 	border-top: 1px solid #e1e1e1;
@@ -289,6 +298,9 @@ h1 {
 .size_up2 {
 	margin-top: 11px !important;
 	padding-right: 40px !important;
+}
+.size_up3 {
+	font-size: 18px !important;
 }
 .search_left {
 	margin-right: 15px;
