@@ -40,13 +40,26 @@ public class TradeController {
 	
 	
 	@RequestMapping(value = "/startTrade", method = RequestMethod.GET)
-	public void startTrade(OwnVO vo, Model model) throws Exception {
+	public String startTrade(OwnVO vo, Model model, RedirectAttributes rttr) throws Exception {
+		String result = "/trade/startTrade";
+		
 		OwnVO ownVO = ownService.findOwnByID(vo);
 		BookVO bookVO = bookService.findBookByID(ownVO.getBookId());
 		MemberVO memberVO = memberService.memberInfo(ownVO);
 		model.addAttribute("own", ownVO);
 		model.addAttribute("book", bookVO);
 		model.addAttribute("member", memberVO);
+		
+		// 금액 확인 하기
+		int totalAmount = ownVO.getFee() * ownVO.getSelectPeriod();
+		
+		if (totalAmount > memberVO.getPoint()) {
+			rttr.addAttribute("tradeTry", "fail");
+			result = "redirect:/own/ownInfo?id="+ownVO.getId();
+		}
+		
+		return result;
+		
 	}
 
 	@RequestMapping(value = "/startTrade", method = RequestMethod.POST)

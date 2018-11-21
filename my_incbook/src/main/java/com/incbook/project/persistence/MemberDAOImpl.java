@@ -61,6 +61,11 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
+	public MemberVO findMemberByLoginIdAndJumin(MemberVO vo) throws Exception {
+		return sqlSession.selectOne(namespace + ".findMemberByLoginIdAndJumin", vo);
+	}
+
+	@Override
 	public void pointSpend(Map<String, Object> pointMap) throws Exception {
 		sqlSession.update(namespace+".pointSpend", pointMap);
 	}
@@ -83,6 +88,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void endOfTradeAmountLender(TradeVO tradeVO) throws Exception {
 		sqlSession.update(namespace+".endOfTradeAmountLender", tradeVO);
+	}
+
+	@Override
+	public void passwordChange(MemberVO memberVO) throws Exception {
+		sqlSession.update(namespace+".passwordChange", memberVO);
 	}
 	
 }

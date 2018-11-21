@@ -59,7 +59,7 @@
 	</div>
 </div>
 	
-	
+<input type="hidden" value="$tradeTry}" id="tradeTry">
 	
 	
 <%@include file="../include/footer.jsp"%>
@@ -76,6 +76,12 @@
 			alert("소유자와 채팅은 하셨나요?");
 			self.location="/trade/startTrade?id=${own.id}";
 		});
+		
+		var tradeTry = $("#tradeTry").val();
+		if (tradeTry == "fail") {
+			alert("포인트가 부족합니다");
+		}
+		
 	});
 </script>
 

@@ -88,6 +88,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public MemberVO findMemberByLoginIdAndJumin(MemberVO vo) throws Exception {
+		return memberDAO.findMemberByLoginIdAndJumin(vo);
+	}
+
+	@Override
 	public void roulettePoint(MemberVO vo, int point) throws Exception {
 		Map<String, Object> rPoint = new HashMap<>();
 		rPoint.put("vo", vo);
@@ -119,6 +124,11 @@ public class MemberServiceImpl implements MemberService {
 		tradeState.put("tradeState", TRADE_NO);
 
 		tradeDAO.tradeStateChange(tradeState);
+	}
+
+	@Override
+	public void passwordChange(MemberVO memberVO) throws Exception {
+		memberDAO.passwordChange(memberVO);
 	}
 	
 }

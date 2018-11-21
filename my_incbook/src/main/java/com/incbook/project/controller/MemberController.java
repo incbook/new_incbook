@@ -139,5 +139,42 @@ public class MemberController {
 		
 		model.addAttribute("result", result);
 	}
+	
+	/**
+	 * 아이디 / 주민등록번호 입력받는 폼
+	 */
+	@RequestMapping(value = "/passwordFind", method = RequestMethod.GET)
+	public void passwordFindGET() throws Exception {
+		
+	}
 
+	/**
+	 * DB에 접근해서 입력받은 아이디/주민등록번호 확인
+	 */
+	@RequestMapping(value = "/passwordFind", method = RequestMethod.POST)
+	public void passwordFindPOST(MemberVO vo, Model model) throws Exception {
+		MemberVO confirmMember = memberService.findMemberByLoginIdAndJumin(vo);
+		
+		model.addAttribute("confirmMember", confirmMember);
+		
+		// 끝나고 페이지이동 어디로??
+	}
+	
+	/**
+	 * 비밀번호 입력하는 폼
+	 */
+	@RequestMapping(value = "/passwordChange", method = RequestMethod.GET)
+	public void passwordChangeGET() throws Exception {
+		
+	}
+	
+	/**
+	 * 비밀번호 입력하는 폼
+	 */
+	@RequestMapping(value = "/passwordChange", method = RequestMethod.POST)
+	public void passwordChangePOST(MemberVO vo, Model model) throws Exception {
+		memberService.passwordChange(vo);
+		
+		// 끝나고 페이지이동 어디로???
+	}
 }

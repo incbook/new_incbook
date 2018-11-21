@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@include file="../include/header.jsp"%>
+<div style="margin:90px"></div>
 
 <!-- Start Bradcaump area -->
 <div class="ht__bradcaump__area bg-image--4">
@@ -12,17 +13,18 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="bradcaump__inner text-center">
-					<h2 class="bradcaump-title">게시판 샘플</h2>
+					<h2 class="bradcaump-title">책이란 저자의 인생을 읽는 것이다.</h2>
 					<nav class="bradcaump-content">
-						<a class="breadcrumb_item" href="index.html">Home</a> <span
+						<a class="breadcrumb_item" href="index.html">InCBook</a> <span
 							class="brd-separetor">/</span> <span
-							class="breadcrumb_item active">게시판</span>
+							class="breadcrumb_item active">Bookclub</span>
 					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
 <!-- End Bradcaump area -->
 <div class="board_name">
 	<div class="container">
@@ -54,7 +56,7 @@
 								<td>${BookclubVO.id}</td>
 								<td>${BookclubVO.genre}</td>
 								<td><a
-									href='/bookclub/noticeSearchList${pageMaker.makeSearch(pageMaker.cri.page)}&bookclubId=${BookclubVO.id}'>${BookclubVO.name}
+									href='/bookclub/noticeSearchList${pageMaker.makeSearch(pageMaker.cri.page)}&bookclubId=${BookclubVO.id}&bookclubname=${BookclubVO.name}'>${BookclubVO.name}
 								</a></td>
 								<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
 										value="${BookclubVO.regdate}" /></td>
@@ -111,6 +113,7 @@
 		<input type="hidden" name="page" value="${cri.page}"> <input
 			type="hidden" name="pagesize" value="${cri.pagesize}">
 	</form>
+
 </section>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
