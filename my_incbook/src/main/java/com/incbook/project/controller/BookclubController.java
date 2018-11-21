@@ -200,7 +200,6 @@ public class BookclubController {
 		model.addAttribute("bookclubId", bookclubId);
 		model.addAttribute("boardId", boardIdInt);
 		
-		System.out.println(noticeSearchList);
 	}
 
 	@RequestMapping(value = "/boardModifyPage", method = RequestMethod.GET)

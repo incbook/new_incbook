@@ -128,9 +128,10 @@
 									<option value="memberId"
 										<c:out value="${cri.searchType eq 'member_id' ? 'selected' : ''}"/>>글쓴이</option>
 								</select>
-							
-							<input type="text" name='keyword' id="keywordinput"
-								value='${cri.keyword}' />
+								
+				
+			
+							<input type="text" name='keyword' id="keywordinput">
 							<button type="button" id='btn_search' class="radius">검색</button></div>
 							
 							<div class="clearfix"></div>
@@ -149,6 +150,8 @@
 
 						</div>
 						<form role="form" method="post">
+						
+						
 							<input type='hidden' name='boardId' value="${boardId}"> <input
 								type='hidden' id='bookclubId' name='bookclubId'
 								value="${bookclubId}"> <input type="hidden" name="page"
