@@ -29,10 +29,6 @@
 								</div>
 								
 								<div style="padding-top:15px;"></div>
-								<span>
-									<a class="forget_pass inLine" href="#">비밀번호 찾기</a> &nbsp; | &nbsp;
-									<a class="forget_pass inLine" href="/member/signUp">회원가입</a>
-								</span>
 								<div align="center">
 									<span>
 										<a class="forget_pass inLine" href="/member/signUp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;회원가입</a> &nbsp; | &nbsp;
