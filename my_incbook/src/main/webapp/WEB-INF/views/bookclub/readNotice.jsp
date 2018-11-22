@@ -11,7 +11,7 @@
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10 col-12">
 				<div class="my__account__wrapper">
-					<h3 class="account__title" align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">북클럽이름나오게</h3>
+					<h3 class="account__title" align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">${bookclubNameOfReadNotice.name}</h3>
 
 
 					<form role="form" action="/bookclub/readNotice" method="post">
@@ -21,7 +21,7 @@
 							<input type="hidden" name="boardId" value="${boardId}" />
 
 							<div class="input__box sign__up__form">
-								<label for="title" style="float: left; width: 80%; font-size: 13px;"><span>${readNotice.title}</span>&ensp;|&ensp;게시판제목뜨게</label> 
+								<label for="title" style="float: left; width: 80%; font-size: 13px;"><span>${readNotice.title}</span>&ensp;|&ensp;${boardTitleOfReadNotice.title}</label> 
 								<p style="float: right; width: 20%; text-align: right;"><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${readNotice.regdate}" /></p>
 								<%-- <input type="text" id="title" class="font_size_up" name="title" value="${readNotice.title}" readonly> --%>
 							</div>
@@ -33,7 +33,7 @@
 							
 							<div class="clearfix"></div>
 							<div class="input__box sign__up__form">
-								<label for="title" style="border-top: 1px dashed; #ddd; padding: 10px 0; font-size: 13px;">글쓴이&ensp;:&ensp;<span>${readNotice.memberId}</span></label>
+								<label for="title" style="border-top: 1px dashed; #ddd; padding: 10px 0; font-size: 13px;">글쓴이&ensp;:&ensp;<span>${readNotice.member.nickname}</span></label>
 							</div>
 							
 							<div class="input__box" style="width: 100%; height: 300px; padding: 10px; border-radius:10px; border: 1px solid #ddd;">${readNotice.content}

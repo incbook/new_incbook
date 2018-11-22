@@ -55,7 +55,7 @@
 								<td><a
 									href='/announcement/readAnnouncement${boardPageMaker.makeQuery(boardPageMaker.cri.page)}&id=${AnnouncementVO.id}'>${AnnouncementVO.title}
 								</a></td>
-								<td>${AnnouncementVO.memberId}</td>
+								<td>${AnnouncementVO.member.nickname}</td>
 								<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
 										value="${AnnouncementVO.regdate}" /></td>
 								<td>${AnnouncementVO.viewCount}</td>

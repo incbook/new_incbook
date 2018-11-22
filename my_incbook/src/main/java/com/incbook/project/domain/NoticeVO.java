@@ -11,6 +11,8 @@ public class NoticeVO {
 	private String content;
 	private int memberId;
 	private int viewCount;
+	
+	private MemberVO member;
 
 	public int getId() {
 		return id;
@@ -68,10 +70,21 @@ public class NoticeVO {
 		this.viewCount = viewCount;
 	}
 
+	public MemberVO getMember() {
+		return member;
+	}
+
+	public void setMember(MemberVO member) {
+		this.member = member;
+	}
+
 	@Override
 	public String toString() {
-		return "NoticeVO [id=" + id + ", boardId=" + boardId + ", regdate=" + regdate + ", updatedate=" + ", title="
-				+ title + ", content=" + content + ", memberId=" + memberId + ", viewCount=" + viewCount + "]";
+		return "NoticeVO [id=" + id + ", boardId=" + boardId + ", regdate=" + regdate + ", title=" + title
+				+ ", content=" + content + ", memberId=" + memberId + ", viewCount=" + viewCount + ", member=" + member
+				+ "]";
 	}
+
+	
 
 }
