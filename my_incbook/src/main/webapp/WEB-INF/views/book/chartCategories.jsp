@@ -31,36 +31,37 @@
 			});
 		});
 		
-		var categories = $(".ds-fb");
-
+		var categories = $(".chartCategory");
+		var categorySelected = $("#categorySelected").val();
+		var choosedGenre = $("#choosedGenre").val();
+		
 		/*폼에 빈칸이 있는지 확인*/
-		if ('${boardId}' == 0) {
-			selectedBoardChangeStyle(ds_fb.eq(0));
-		} else {
-			for (var i = 0; i < ds_fb.length; i++) {
-				if (ds_fb.eq(i).attr("boardId") == '${boardId}') {
-					selectedBoardChangeStyle(ds_fb.eq(i));
-
-					/* var i = ds_fb.eq(i).attr("boardTitle");
-					alert(i);
-					$.ajax({
-						url : "/bookclub/noticeSearchList",
-						type : 'GET',
-						data : {
-							"abcd" : "123",
-							"qqq" : "aaa"
-						},
-						success : alert("완료!")
-					}); */
+		for (var i = 0; i < categories.length; i++) {
+			if (categories.eq(i).attr("chartCategoryType") == categorySelected) {
+				if (categories.eq(i).attr("chartCategoryType") == 'genre') {
+					if( choosedGenre.indexOf('(외)') != -1 && categories.eq(i).attr("location") == '외국') {
+						selectedBoardChangeStyle(categories.eq(i));
+					} else if (choosedGenre.indexOf('(외)') == -1 && categories.eq(i).attr("location") == '국내') {
+						selectedBoardChangeStyle(categories.eq(i));
+					}
+				} else {
+					selectedBoardChangeStyle(categories.eq(i));
 				}
 			}
-
 		}
+		
+		var gg = $(".gg li a");
+		
+		for (var i = 0; i < gg.length; i++) {
+			if (gg.eq(i).html() == choosedGenre) {
+				selectedBoardChangeStyle(gg.eq(i));
+			}
+		}
+
 		function selectedBoardChangeStyle(selectedBoard) {
+			selectedBoard.css('color', '#e59285');
 			selectedBoard.css('font-weigh', 'bold');
 			selectedBoard.css('font-size', '20px');
-			selectedBoard.css('color', '#e59285');
-			selectedBoard.attr("boardTitleCheck", "true");
 		}
 	});
 </script>
@@ -71,15 +72,15 @@
 		<div class="shop__sidebar">
 			<aside class="wedget__categories poroduct--cat">
 				<h3 class="wedget__title ss">TOP-100</h3>
-				<div class="chartCategory" style="background-color: white;">
-					<a href="/book/allTop100"> InC Book Top 100</a>
+				<div class="" style="background-color: white;">
+					<a class="chartCategory" chartCategoryType="all" href="/book/allTop100"> InC Book Top 100</a>
 				</div>
 				<!--  여기야 -->
 
-				<div class="hover1 chartCategory" style="background-color: white;"> 장르 Top 100 (국내)</div>
+				<div class="hover1 chartCategory" chartCategoryType="genre" location="국내" style="background-color: white;"> 장르 Top 100 (국내)</div>
 				<div id="list1" class="hover1" style="width: 836px;">
 					<div
-						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
+						style="border:3px solid #E59285; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
 						class="gr03">
 						<form action="/book/genreTop100" id="formSelectGenre">
 							<input type="hidden" name="keyword" id="selectGenre">
@@ -122,10 +123,10 @@
 					</div>
 				</div>
 
-				<div class="hover2 chartCategory" style="background-color: white;"> 장르 Top 100 (외국)</div>
+				<div class="hover2 chartCategory" chartCategoryType="genre" location="외국" style="background-color: white;"> 장르 Top 100 (외국)</div>
 				<div id="list2" class="hover2" style="width: 836px;">
 					<div
-						style="border: 1px; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
+						style="border:3px solid #E59285; background-color: white; position: absolute; float: right; z-index: 5; left: 200px; min-width: 600px; top: 30px;"
 						class="gr03">
 
 						<ul class="gg">
@@ -180,13 +181,13 @@
 				</div>
 				<br>
 				<h3 class="wedget__title ss">NEW-100</h3>
-				<div class="newBook chartCategory">
-					<a href="/book/newBookChart"> 신간 도서</a><br><br>
+				<div class="newBook">
+					<a class="chartCategory" chartCategoryType="new" href="/book/newBookChart"> 신간 도서</a><br><br>
 				</div>
 				<c:if test="${login ne null}">
 					<h3 class="wedget__title ss">개인화 맞춤-도서</h3>
-					<div class="personalize chartCategory" style="background-color: white;">
-						<a href="/personalize/personalize">개인화 맞춤-도서</a>
+					<div class="personalize" style="background-color: white;">
+						<a class="chartCategory" chartCategoryType="personal" href="/personalize/personalize">개인화 맞춤-도서</a>
 					</div>
 				</c:if>
 			</aside>

@@ -46,7 +46,7 @@
 							</div>
 							<p>
 							
-								<strong>장르 TOP-100</strong>
+								<strong>장르 TOP-100 -- <span style="color:rgb(229, 146, 133)"> ${pageMaker.cri.keyword} </span> </strong>
 							</p>
 							<div class="orderby__wrapper">
 								<span></span>
@@ -282,6 +282,7 @@
 
 <!-- 선택된 카테고리 진하게 -->
 <input type="hidden" id="categorySelected" value="genre">
+<input type="hidden" id="choosedGenre" value="${pageMaker.cri.keyword}">
 
 <%@include file="../include/footer.jsp"%>
 <script src="/resources/js/custom/chartCategories.js"></script>
