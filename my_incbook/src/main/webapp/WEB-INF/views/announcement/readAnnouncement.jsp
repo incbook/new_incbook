@@ -22,7 +22,7 @@
 							<div class="input__box sign__up__form">
 								<label for="id">번　호 <span>&ensp;${readAnnouncement.id}</span></label> 
 							</div>
-							
+								
 							<div class="input__box sign__up__form">
 								<label for="title" style="float: left; width: 80%; font-size: 13px;">제　목 <span>&ensp;${readAnnouncement.title}</span></label> 
 								<p style="float: right; width: 20%; text-align: right;"><fmt:formatDate pattern="YYYY-MM-dd HH:mm" value="${readAnnouncement.regdate}" /></p>
@@ -49,10 +49,10 @@
 							
 							<div class="form__btn button_form custom__center">
 								<button type="button" id="btn_goList" class="radius">목록</button>
-								<%-- <c:if test="${login,grade == '관리자'}"> --%>
+								<c:if test="${login.grade eq '관리자'}">
 								<button type="button" id="btn_modify" class="radius">수정하기</button>
 								<button type="button" id="btn_delete" class="radius">삭제하기</button>
-								<%-- </c:if> --%>
+								</c:if>
 							</div>
 						</div>
 					</form>

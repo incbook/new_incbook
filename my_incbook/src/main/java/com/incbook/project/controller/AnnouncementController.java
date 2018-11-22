@@ -75,14 +75,19 @@ public class AnnouncementController {
 	public void modifyPageGet(@RequestParam("id") int id, @ModelAttribute("boardCri") BoardCriteria boardCri, Model model) throws Exception {
 		AnnouncementVO modifyTarget = announcementService.readAnnouncement(id);
 		model.addAttribute("modifyTarget", modifyTarget);
+		model.addAttribute("id", id);
+		System.out.println(modifyTarget);
 	}
 	
 	@RequestMapping(value="/modifyPage", method=RequestMethod.POST)
-	public String modifyPagePOST(AnnouncementVO vo, BoardCriteria boardCri, RedirectAttributes rttr) throws Exception {
+	public String modifyPagePOST(AnnouncementVO vo, @ModelAttribute("boardCri") BoardCriteria boardCri, RedirectAttributes rttr) throws Exception {
+		
 		announcementService.updateAnnouncement(vo);
-		rttr.addAttribute("id",vo.getId());
+		System.out.println(boardCri.getPage());
 		rttr.addAttribute("page", boardCri.getPage());
 		rttr.addAttribute("pagesize", boardCri.getPagesize());
+		rttr.addAttribute("id",vo.getId());
+		System.out.println(vo);
 		return "redirect:/announcement/readAnnouncement";
 	}
 }

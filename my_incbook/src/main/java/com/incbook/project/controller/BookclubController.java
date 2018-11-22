@@ -261,7 +261,6 @@ public class BookclubController {
 		model.addAttribute("noticeId", noticeId);
 		model.addAttribute("bookclubNameOfReadNotice", bookclubNameOfReadNotice);
 		model.addAttribute("boardTitleOfReadNotice", boardTitleOfReadNotice);
-		System.out.println(readNotice);
 	}
 
 	@RequestMapping(value = "/noticeModifyPage", method = RequestMethod.GET)

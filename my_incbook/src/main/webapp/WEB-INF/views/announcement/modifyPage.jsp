@@ -20,10 +20,10 @@
 							
 							<div class="input__box">
 								<label for="id" class="font_size_up">번　호&ensp;<span>${modifyTarget.id}</span></label>
-								<%-- <input type="text" id="id" name="id" value="${modifyTarget.id}" readonly> --%>
+								<input type="text" id="id" name="id" value="${modifyTarget.id}" style="DISPLAY: none;">
 							</div>
 							<%-- <div class="input__box">
-								<label for="regdate" class="font_size_up">날짜<span>
+								<label for="regdate" class="font_size_up" style="DISPLAY: none;">날짜<span style="DISPLAY: none;">
 								<fmt:formatDate pattern='YYYY-MM-dd HH:mm' value='${modifyTarget.regdate}' /></span></label>
 							</div> --%>
 							
@@ -38,14 +38,11 @@
 
 							<div class="input__box">
 								<label for="content" class="font_size_up">내　용<span></span></label>
-								<textarea rows="20" cols="200">${modifyTarget.content}</textarea>
+								<textarea rows="20" cols="200" type="text" id="content" name="content">${modifyTarget.content}</textarea>
 							</div>
 
 
-							<div class="input__box">
-								<label for="content" class="font_size_up">내　용<span></span></label>
-								<input type="text" id="content" name="content" value="${modifyTarget.content}">
-							</div>
+
 							
 							<div class="form__btn button_form custom__center">
 								<button type="button" id="btn_modify" class="radius">등록</button>
