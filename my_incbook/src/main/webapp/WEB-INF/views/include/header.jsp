@@ -152,36 +152,28 @@
 				<div class="row d-none">
 					<div class="col-lg-12 d-none">
 						<nav class="mobilemenu__nav">
-							<ul class="meninmenu">
-								<li><a href="index.html">INC BOOK</a></li>
-								<li><a href="#">도서차트</a>
-								<li><a href="#">도서등록</a>
-								<li><a href="#">커뮤니티</a>
-								<li><a href="#">BOOK CLUB</a>
-								<li><a href="#">Pages</a>
+							<ul class="meninmenu whi">
+								
+								<li><a href="#" >도서차트</a>
 									<ul>
-										<li><a href="about.html">About Page</a></li>
-										<li><a href="portfolio.html">Portfolio</a>
-											<ul>
-												<li><a href="portfolio.html">Portfolio</a></li>
-												<li><a href="portfolio-details.html">Portfolio
-														Details</a></li>
-											</ul></li>
-										<li><a href="my-account.html">My Account</a></li>
-										<li><a href="cart.html">Cart Page</a></li>
-										<li><a href="checkout.html">Checkout Page</a></li>
-										<li><a href="wishlist.html">Wishlist Page</a></li>
-										<li><a href="error404.html">404 Page</a></li>
-										<li><a href="faq.html">Faq Page</a></li>
-										<li><a href="team.html">Team Page</a></li>
-									</ul></li>
+						                <li><a href="/book/allTop100">InC Book Top 100</a></li>
+						                <li><a href="/book/genreTop100">장르 Top 100</a></li>
+						                <li><a href="/book/newBookChart">신간 도서</a></li>
+									</ul>
+								</li>
+								
+								<li><a href="#" >도서등록</a>
+									<ul>
+						                <li><a href="/book/infoInsert">도서 상세정보 등록</a></li>
+						                <li><a href="/own/ownInsert?isRent=가능&isSell=불가능">대여 도서 등록</a></li>
+									</ul>
+								</li>
 
-								<li><a href="blog.html">이벤트</a>
-									<ul>
-										<li><a href="blog.html">룰렛</a></li>
-										<li><a href="blog-details.html">심리테스트</a></li>
-									</ul></li>
-								<li><a href="contact.html">Contact</a></li>
+								<li><a href="/bookclub/bookclubSearchList">BOOK CLUB</a></li>
+								<li><a href="/event/roulette">룰렛 이벤트</a></li>
+								<li><a href="/announcement/announcement">공지사항</a></li>
+								
+								
 							</ul>
 						</nav>
 					</div>
