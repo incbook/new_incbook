@@ -92,9 +92,11 @@
 	
 	
 	<div class="form_all custom__center">
-		<div class="form__btn button_form">
-			<button type="submit" id="btn_insert" class="radius">공지사항 작성</button>
-		</div>
+		<c:if test="${login.grade eq '관리자'}">
+			<div class="form__btn button_form">
+				<button type="submit" id="btn_insert" class="radius">공지사항 작성</button>
+			</div>
+		</c:if>
 	</div>
 	
 	
