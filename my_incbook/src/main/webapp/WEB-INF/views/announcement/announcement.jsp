@@ -28,7 +28,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3>공지사항</h3>
+				<h3 class="account__title" align="center" style="border-bottom: 1px dotted #ddd; padding-bottom: 6px;">공지사항</h3>
 			</div>
 		</div>
 	</div>
