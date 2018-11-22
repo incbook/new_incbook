@@ -28,7 +28,7 @@
 							</div> --%>
 							
 							<div class="input__box">
-								<label for="memberId" class="font_size_up">작성자&ensp;<span>${modifyTarget.memberId}</span></label>
+								<label for="memberId" class="font_size_up">작성자&ensp;<span>${modifyTarget.member.nickname}</span></label>
 								<%-- <input type="text" id="memberId" name="memberId" value="${modifyTarget.memberId}" readonly> --%> 
 							</div>
 							<div class="input__box">

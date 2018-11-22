@@ -13,21 +13,51 @@
 		<result property="viewCount" column="view_count" />
 	</resultMap>
 
-	<select id="announcementList" resultMap="AnnouncementVO">
+	<resultMap id="AnnouncementVOWithMember" type="AnnouncementVO">
+		<id property="id" column="id" />
+		<result property="regdate" column="regdate" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="memberId" column="member_id" />
+		<result property="viewCount" column="view_count" />
+		<association property="member" column="id" javaType="MemberVO">
+			<id property="id" column="mid" />
+			<result property="loginId" column="login_id" />
+			<result property="password" column="password" />
+			<result property="address" column="address" />
+			<result property="email" column="email" />
+			<result property="phone" column="phone" />
+			<result property="nickname" column="nickname" />
+			<result property="grade" column="grade" />
+			<result property="jumin" column="jumin" />
+			<result property="point" column="point" />
+			<result property="good" column="good" />
+			<result property="hate" column="hate" />
+		</association>
+	</resultMap>
+
+	<select id="announcementList" resultMap="AnnouncementVOWithMember">
 		<![CDATA[
 		select 
-		id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, title, content, member_id, view_count
-		from announcement
-		where id > 0 order by id desc
+		a.id, CONVERT_TZ(a.regdate, "+0:00","-9:00") AS regdate, a.title, a.content, a.member_id, a.view_count
+		,m.nickname
+		from announcement a
+			join member m
+			on a.member_id=m.id
+		where a.id > 0 order by a.id desc
 		limit #{pageStart},#{pagesize}
 		]]>
 	</select>
 
-	<select id="readAnnouncement" resultMap="AnnouncementVO">
+	<select id="readAnnouncement" resultMap="AnnouncementVOWithMember">
 		<![CDATA[
 		select 
-		id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, title, content, member_id, view_count
-		from announcement where id = #{id}
+		a.id, CONVERT_TZ(a.regdate, "+0:00","-9:00") AS regdate, a.title, a.content, a.member_id, a.view_count
+		,m.nickname
+		from announcement a
+			join member m
+			on a.member_id=m.id
+		 where a.id = #{id}
 		]]>
 	</select>
 
@@ -45,21 +75,22 @@
 	</select>
 
 	<insert id="announcementInsert">
-		insert into announcement (title, content, member_id) values (#{title},
+		insert into announcement (title, content, member_id)
+		values (#{title},
 		#{content}, #{memberId})
 	</insert>
-	
+
 	<delete id="deleteAnnouncement">
 		delete from announcement where id = #{id}
 	</delete>
-	
+
 	<update id="updateAnnouncement">
 		update announcement set
-			   title = #{title},
-			   content = #{content}
-		 where id = #{id}
+		title = #{title},
+		content =
+		#{content}
+		where id = #{id}
 	</update>
-	
 
 
 </mapper>

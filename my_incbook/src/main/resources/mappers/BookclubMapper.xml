@@ -30,6 +30,30 @@
 		<result property="content" column="content" />
 		<result property="viewCount" column="view_count" />
 	</resultMap>
+	
+	<resultMap id="noticeMapWithMember" type="NoticeVO">
+		<id property="id" column="id" />
+		<result property="boardId" column="board_id" />
+		<result property="memberId" column="member_id" />
+		<result property="regdate" column="regdate" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="viewCount" column="view_count" />
+		<association property="member" column="id" javaType="MemberVO">
+			<id property="id" column="mid" />
+			<result property="loginId" column="login_id" />
+			<result property="password" column="password" />
+			<result property="address" column="address" />
+			<result property="email" column="email" />
+			<result property="phone" column="phone" />
+			<result property="nickname" column="nickname" />
+			<result property="grade" column="grade" />
+			<result property="jumin" column="jumin" />
+			<result property="point" column="point" />
+			<result property="good" column="good" />
+			<result property="hate" column="hate" />
+		</association>
+	</resultMap>
 
 
 
@@ -140,12 +164,15 @@
 		]]>
 	</select>
 
-	<select id="readNotice" resultMap="noticeMap">
+	<select id="readNotice" resultMap="noticeMapWithMember">
 		<![CDATA[
 		select 
-		id, board_id, title, member_id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, content, view_count
-		from notice
-		where id = #{noticeId}
+		n.id, n.board_id, n.title, n.member_id, CONVERT_TZ(n.regdate, "+0:00","-9:00") AS regdate, n.content, n.view_count
+		,m.nickname
+		from notice n
+		join member m
+			on n.member_id=m.id
+		where n.id = #{noticeId}
 		]]>
 	</select>
 
@@ -169,10 +196,26 @@
 		from board where
 		bookclub_id = #{bookclubId}
 	</select>
+
+	<select id="bookclubNameOfReadNotice" resultMap="bookclubMap">
+		select 
+		*
+		from bookclub b
+			join party p
+			on p.id=b.id
+		where b.id = #{bookclubId}
+	</select>
+
+	<select id="boardTitleOfReadNotice" resultMap="boardMap">
+		select
+		*
+		from board where
+		id = #{boardId}
+	</select>
 	<!--검색기능추가 -->
-	
+
 	<sql id="search">
-	<if test="searchType != null">
+		<if test="searchType != null">
 			<if test="searchType == 'name'.toString()">
 				and p.name like CONCAT('%', #{keyword}, '%')
 			</if>
@@ -181,7 +224,7 @@
 			</if>
 		</if>
 	</sql>
-	
+
 	<select id="bookclubSearchList" resultMap="bookclubMap">
 <![CDATA[
 	select 
@@ -208,12 +251,13 @@ order by p.id desc
 			on p.id=b.id
 		where p.id > 0
 		]]>
-		
+
 		<include refid="search"></include>
 	</select>
-	
+
+
 	<sql id="searchNotice">
-	<if test="cri.searchType != null">
+		<if test="cri.searchType != null">
 			<if test="cri.searchType == 'title'.toString()">
 				and title like CONCAT('%', #{cri.keyword}, '%')
 			</if>
@@ -222,25 +266,28 @@ order by p.id desc
 			</if>
 		</if>
 	</sql>
-	
-	<select id="noticeSearchList" resultMap="noticeMap">
+
+	<select id="noticeSearchList" resultMap="noticeMapWithMember">
 <![CDATA[
 	select 
-	id, title, member_id, CONVERT_TZ(regdate, "+0:00","-9:00") AS regdate, view_count		
-		from notice
+	n.id, n.title, n.member_id, CONVERT_TZ(n.regdate, "+0:00","-9:00") AS regdate, n.view_count
+	,m.nickname	
+		from notice n
+		join member m
+			on n.member_id=m.id
 	    where board_id = #{boardId} 
 ]]>
 
 		<include refid="searchNotice"></include>
 		
 <![CDATA[
-order by id desc
+order by n.id desc
 		limit #{cri.pageStart},#{cri.pagesize}
 		]]>
 	</select>
 
-<sql id="searchNoticeCount">
-	<if test="searchType != null">
+	<sql id="searchNoticeCount">
+		<if test="searchType != null">
 			<if test="searchType == 'title'.toString()">
 				and title like CONCAT('%', #{keyword}, '%')
 			</if>
@@ -255,10 +302,10 @@ order by id desc
 		from notice
 		where id > 0
 		]]>
-		
+
 		<include refid="searchNoticeCount"></include>
 	</select>
-	
+
 
 
 </mapper>

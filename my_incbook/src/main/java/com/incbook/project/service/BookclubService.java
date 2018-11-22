@@ -51,4 +51,9 @@ public interface BookclubService {
 	public void updateNotice(NoticeVO vo) throws Exception;
 	
 	public void deleteNotice(Integer noticeId) throws Exception;
+	
+	public BookclubVO bookclubNameOfReadNotice(Integer bookclubId) throws Exception;
+	
+	public BoardVO boardTitleOfReadNotice(Integer boardId) throws Exception;
 }
+

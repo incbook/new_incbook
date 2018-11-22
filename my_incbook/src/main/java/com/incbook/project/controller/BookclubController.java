@@ -180,7 +180,6 @@ public class BookclubController {
 	public void noticeSearchList(@RequestParam("bookclubId") int bookclubId, String boardId,
 			@ModelAttribute("cri") SearchCriteria cri, Model model, String bookclubname) throws Exception {
 		int boardIdInt = 0;
-		System.out.println(bookclubname);
 		if (! (boardId == null || "".equals(boardId)) ) {
 			boardIdInt = Integer.parseInt(boardId);
 		}else{
@@ -201,7 +200,6 @@ public class BookclubController {
 		pageMaker.setTotalCount(bookclubService.noticeListSearchCount(cri));
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("bookclubId", bookclubId);
-		System.out.println(bookclubId);
 		model.addAttribute("boardId", boardIdInt);
 
 		model.addAttribute("bookclubname", bookclubname);
@@ -255,11 +253,15 @@ public class BookclubController {
 			@RequestParam("noticeId") int noticeId, Model model) throws Exception {
 
 		NoticeVO readNotice = bookclubService.readNotice(noticeId);
+		BookclubVO bookclubNameOfReadNotice = bookclubService.bookclubNameOfReadNotice(bookclubId);
+		BoardVO boardTitleOfReadNotice = bookclubService.boardTitleOfReadNotice(boardId);
 		model.addAttribute("readNotice", readNotice);
 		model.addAttribute("bookclubId", bookclubId);
 		model.addAttribute("boardId", boardId);
 		model.addAttribute("noticeId", noticeId);
-
+		model.addAttribute("bookclubNameOfReadNotice", bookclubNameOfReadNotice);
+		model.addAttribute("boardTitleOfReadNotice", boardTitleOfReadNotice);
+		System.out.println(readNotice);
 	}
 
 	@RequestMapping(value = "/noticeModifyPage", method = RequestMethod.GET)

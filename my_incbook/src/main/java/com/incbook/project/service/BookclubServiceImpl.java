@@ -151,6 +151,16 @@ public class BookclubServiceImpl implements BookclubService {
 		return bookclubDAO.noticeListSearchCount(cri);
 	}
 
+	@Override
+	public BookclubVO bookclubNameOfReadNotice(Integer bookclubId) throws Exception {
+		return bookclubDAO.bookclubNameOfReadNotice(bookclubId);
+	}
+
+	@Override
+	public BoardVO boardTitleOfReadNotice(Integer boardId) throws Exception {
+		return bookclubDAO.boardTitleOfReadNotice(boardId);
+	}
+
 	
 
 	

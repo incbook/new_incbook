@@ -150,8 +150,17 @@ public class BookclubDAOImpl implements BookclubDAO {
 
 	@Override
 	public int noticeListSearchCount(SearchCriteria cri) throws Exception {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne(namespace + ".noticeListSearchCount", cri);
+	}
+
+	@Override
+	public BookclubVO bookclubNameOfReadNotice(Integer bookclubId) throws Exception {
+		return sqlSession.selectOne(namespace + ".bookclubNameOfReadNotice", bookclubId);
+	}
+
+	@Override
+	public BoardVO boardTitleOfReadNotice(Integer boardId) throws Exception {
+		return sqlSession.selectOne(namespace + ".boardTitleOfReadNotice", boardId);
 	}
 
 	

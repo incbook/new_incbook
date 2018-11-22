@@ -80,7 +80,7 @@
 													<td><a
 														href='/bookclub/readNotice?${pageMaker.makeQuery(pageMaker.cri.page)}&bookclubId=${bookclubId}&boardId=${boardId}&noticeId=${NoticeVO.id}'>${NoticeVO.title}
 													</a></td>
-													<td>${NoticeVO.memberId}</td>
+													<td>${NoticeVO.member.nickname}</td>
 													<td><fmt:formatDate pattern="YYYY-MM-dd HH:mm"
 															value="${NoticeVO.regdate}" /></td>
 													<td>${NoticeVO.viewCount}</td>

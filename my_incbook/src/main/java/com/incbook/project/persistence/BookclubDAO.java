@@ -60,6 +60,10 @@ public interface BookclubDAO {
 	
 	public void updateNotice(NoticeVO vo) throws Exception;
 
+	public BookclubVO bookclubNameOfReadNotice(Integer bookclubId) throws Exception;
+	
+	public BoardVO boardTitleOfReadNotice(Integer boardId) throws Exception;
+
 	
 }
 
